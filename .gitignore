@@ -2,6 +2,8 @@
 __pycache__/
 *.py[cod]
 
+#Ignore this code I'm githubbing! Yay!
+
 # C extensions
 *.so
 
