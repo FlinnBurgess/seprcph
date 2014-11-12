@@ -1,0 +1,37 @@
+// Declarations
+// NOTE: a html encoded comma is required for multiple args as yuml is shite
+[Card|type: string|__init__(effect: Effect&#8218; type: string);]
+[City|pos: tuple; is_capital: boolean|update(); __init__(pos: tuple&#8218; is_capital: boolean);]
+[DeckPolicy|description: string;|__init__(description: string);]
+[Deck|current: list; discarded: list|__init__(policy: DeckPolicy);]
+[Effect|target_type|__init__(target_type); apply();]
+[Goal|end_cities: list; progress: integer; description: string|__init__(start_city: City&#8218; end_cities: list&#8218; description: string); update();]
+[Hand|cards: list|discard(card); play(card)|__init__(); update();]
+[Player|gold: integer; score: integer|__init__(); update();]
+[Track|length: integer; is_locked: boolean; gold: integer; cost: integer|update(); __init__(start_city: City&#8218; end_city: City&#8218; gold: integer&#8218; cost: integer&#8218; is_locked: boolean)]
+[Train|buffs: list; debuffs: list; speed: integer; capacity: integer| __init__(); update(); apply_effects();]
+[Trigger|| __init__(effect: Effect); update();]
+[pygame.sprite.Sprite|rect: pygame.Rect; image: pygame.Image|update(); __init__(); add(groups: list); remove(groups: list); kill(); groups(); alive();]
+[pygame.Surface|...|...]
+
+// Inheritance
+[pygame.sprite.Sprite]>[City]
+[pygame.sprite.Sprite]>[Track]
+[pygame.sprite.Sprite]>[Train]
+[pygame.sprite.Sprite]>[Trigger]
+
+// Composition
+[Card]++1-1[Effect]
+[City]++1-..1[Trigger]
+[Deck]++1-40[Card]
+[Goal]<>*-1..[City]
+[Hand]<>1-..7[Card]
+[Player]++..2-1[DeckPolicy]
+[Player]++1-1[Deck]
+[Player]++1-1[Hand]
+[Player]++1-1..[Train]
+[Player]++2-..3[Goal]
+[Track]++1-..1[Trigger]
+[Track]<>*-1[Player]
+[Track]<>*..1-2[City]
+[Trigger]++1-1[Effect]
