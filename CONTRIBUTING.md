@@ -33,7 +33,7 @@ The hard rules are as follows:
 ## Commit Rules
 
 Try to stick to the following rules:
-  * Keep the first line of a commit message less than 80 lines.
+  * Keep the first line of a commit message less than 80 characters.
   * Keep commit messages descriptive but short.
   * If you fix an issue or your commit is related to an issue, read more [here](https://github.com/blog/957-introducing-issue-mentions).
   * Commit small and often, otherwise tools such as [git-bisect](http://git-scm.com/docs/git-bisect) will become useless.
