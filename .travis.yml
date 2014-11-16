@@ -2,7 +2,7 @@ language: python
 before_install:
     - wget http://www.pygame.org/ftp/pygame-1.9.1release.tar.gz
     - tar -zxf pygame-1.9.1release.tar.gz
-    - cd pygame-1.9.1release.tar.gz
+    - cd pygame-1.9.1release
     - python setup.py install
 install:
     - pip install -r requirements.txt
