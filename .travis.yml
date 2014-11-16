@@ -1,7 +1,4 @@
 language: python
-before_install:
-    - sudo apt-get update -qq
-    - sudo apt-get install -y pep8
 install:
     - pip install -r requirements.txt
       # Need to add a setup.py here.
