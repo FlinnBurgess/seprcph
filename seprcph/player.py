@@ -4,19 +4,18 @@ import unittest
 class Player():
     """
     Player class that represents each player.
-
-    Args:
-        gold: The amount of gold the player currently has
-        score: The player's current score
-
-    Raises:
-        Fuk knows m8
-        AM I EVEN DOING THIS RIGHT
     """
 
     def __init__(self, gold, score):
 
         """
+        Args:
+            gold: The amount of gold the player currently has
+            score: The player's current score
+
+        Raises:
+            Many questions.
+
         :type gold: int
         :type score: int
         """
