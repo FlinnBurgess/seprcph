@@ -1,5 +1,4 @@
 __author__ = 'Flinn'
-import unittest
 
 class Player():
     """
