@@ -2,6 +2,7 @@ import unittest
 
 from seprcph import event
 
+
 class TestCreateEvent(unittest.TestCase):
 
     def test_no_desc_event(self):
