@@ -5,6 +5,7 @@ from seprcph import event
 x = 0
 
 def _func(_):
+    print(_)
     x = 1
 
 class TestCreateEvent(unittest.TestCase):
