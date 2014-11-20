@@ -1,6 +1,7 @@
 __author__ = 'Flinn'
+import pygame
 
-class Train():
+class Train(pygame.sprite.Sprite):
     """
     Train class to represent any trains in existence within the game.
     """
@@ -21,6 +22,8 @@ class Train():
         :type speed: int
         :type capacity: int
         """
+        #TODO add rectangle and image so sprite can be rendered
+        pygame.sprite.Sprite.__init__(self)
         self.buffs = buffs
         self.debuffs = debuffs
         self.speed = speed
