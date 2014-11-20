@@ -14,9 +14,6 @@ class Player():
 
         Raises:
             Many questions.
-
-        :type gold: int
-        :type score: int
         """
 
         self.gold = gold
@@ -29,3 +26,4 @@ class Player():
         """
         # self.gold += gold_generation
         # self.score += score_gained
+        # TODO add more to the update when we have the relevant information
