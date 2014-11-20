@@ -15,11 +15,6 @@ class Train():
 
         Raises:
             The roof
-
-        :type buffs: list
-        :type debuffs: list
-        :type speed: int
-        :type capacity: int
         """
         self.buffs = buffs
         self.debuffs = debuffs
@@ -38,7 +33,7 @@ class Train():
                 self.debuffs.remove(each_debuff)
                 #Does the same for debuffs
 
-        ## More code will need to be added later
+        ## TODO More code will need to be added later
 
     def apply_effects(self):
         for each_buff in self.buffs:
