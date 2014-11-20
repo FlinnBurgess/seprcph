@@ -1,6 +1,7 @@
 __author__ = 'Flinn'
+import pygame
 
-class Train():
+class Train(pygame.sprite.Sprite):
     """
     Train class to represent any trains in existence within the game.
     """
@@ -16,6 +17,7 @@ class Train():
         Raises:
             The roof
         """
+        pygame.sprite.Sprite.__init__(self)
         self.buffs = buffs
         self.debuffs = debuffs
         self.speed = speed
