@@ -5,10 +5,10 @@ class Event(object):
     """
     Lightweight class that represents a generic event
     """
-    def __init__(self, topic, desc=None, data=None):
+    def __init__(self, topic, desc=None, **kwargs):
         self.topic = topic
         self.desc = desc
-        self.data = data
+        self.data = kwargs
 
 
 class EventManager(object):
