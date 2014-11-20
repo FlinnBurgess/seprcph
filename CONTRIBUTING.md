@@ -9,9 +9,7 @@ Clone the repository:
 
     git clone https://github.com/HarveyHunt/seprcph.git
   
-Change to the develop branch:
-
-    git checkout develop
+Make a new feature branch based off of the develop branch (git-flow is your friend).
   
 Hack away until your heart is content.
 
