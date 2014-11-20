@@ -5,10 +5,25 @@ class Event(object):
     """
     Lightweight class that represents a generic event
     """
-    def __init__(self, topic, desc=None, data=None):
+    def __init__(self, topic, desc=None, **kwargs):
+        """ 
+        Constructor for Event class
+
+        Args:
+            topic: String denoting the topic that the event relates to
+            desc: String, optional, for displaying the event textually
+            **kwargs: Optional data arguments for event handlers to use
+
+        Raises:
+            SEVERAL QUESTIONS
+        """
+        
         self.topic = topic
         self.desc = desc
-        self.data = data
+        self.data = kwargs
+
+    def __str__(self):
+        return self.desc
 
 
 class EventManager(object):
