@@ -5,7 +5,7 @@ from seprcph import event
 x = 0
 
 def _func(_):
-    print(_)
+    global x
     x = 1
 
 class TestCreateEvent(unittest.TestCase):
