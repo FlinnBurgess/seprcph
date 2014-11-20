@@ -21,20 +21,19 @@ class TestEventManager(unittest.TestCase):
 
     def setUp(self):
         self.x = 0
-        self.em = event.EventManager()
 
     def _func(self, _):
         self.x = 1
 
     def test_attach_listener(self):
-        self.em.add_listener('foo', self._func)
-        self.assertEqual(len(self.em._subscriptions), 1)
+        event.EventManager.add_listener('foo', self._func)
+        self.assertEqual(len(event.EventManager._subscriptions), 1)
 
     def test_notify_unknown_listener(self):
-        self.assertRaises(AssertionError, self.em.notify_listeners, event.Event('bar'))
+        self.assertRaises(AssertionError, event.EventManager.notify_listeners, event.Event('bar'))
 
     def test_notify_listeners(self):
-        self.em.notify_listeners(event.Event('foo'))
+        event.EventManager.notify_listeners(event.Event('foo'))
         self.assertEqual(self.x, 1)
 
     def test_remove_listener(self):
