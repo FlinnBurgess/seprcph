@@ -2,11 +2,14 @@ import unittest
 
 from seprcph import event
 
+
 x = 0
+
 
 def _func(_):
     global x
     x = 1
+
 
 class TestCreateEvent(unittest.TestCase):
 
@@ -22,14 +25,26 @@ class TestCreateEvent(unittest.TestCase):
         e = event.Event('topic', 'desc', foo=2)
         self.assertIsNotNone(e)
 
+
 class TestEventManager(unittest.TestCase):
 
-    def test_attach_listener(self):
+    def tearDown(self):
+        event.EventManager._subscriptions = {}
+
+    def setUp(self):
         event.EventManager.add_listener('foo', _func)
+
+    def test_attach_listener(self):
         self.assertEqual(len(event.EventManager._subscriptions), 1)
+        self.assertEqual(len(event.EventManager._subscriptions['foo']), 1)
+
+    def test_attach_already_registered_callback(self):
+        self.assertRaises(event.CallbackAlreadyRegistered,
+                event.EventManager.add_listener, 'foo', _func)
 
     def test_notify_unknown_listener(self):
-        self.assertRaises(AssertionError, event.EventManager.notify_listeners, event.Event('bar'))
+        self.assertRaises(AssertionError, event.EventManager.notify_listeners,
+                        event.Event('bar'))
 
     def test_notify_listeners(self):
         event.EventManager.notify_listeners(event.Event('foo'))

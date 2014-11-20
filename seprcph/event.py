@@ -1,6 +1,14 @@
 #!/usr/bin/python2.7
 
 
+class CallbackAlreadyRegistered(Exception):
+    """
+    Raised when an attempt is made to register a callback to topic
+    that it has already been registered to.
+    """
+    pass
+
+
 class Event(object):
     """
     Lightweight class that represents a generic event
@@ -37,8 +45,14 @@ class EventManager(object):
         Args:
             topic: The topic to which the listener will subscribe
             callback: The event handler method of the listening object
+
+        Raises:
+            CallbackAlreadyRegistered
         """
         EventManager._subscriptions.setdefault(topic, [])
+        if callback in EventManager._subscriptions[topic]:
+            raise CallbackAlreadyRegistered('Callback %s has already been '
+                                'registered to topic: %s' % (callback, topic))
         EventManager._subscriptions[topic].append(callback)
 
     @staticmethod
