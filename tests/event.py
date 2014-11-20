@@ -37,7 +37,7 @@ class TestEventManager(unittest.TestCase):
 
     def test_remove_listener(self):
         event.EventManager.remove_listener('foo', _func)
-        self.assertEqual(len(event.EventManager._subscriptions['foo']), 0)
+        self.assertEqual(len(event.EventManager._subscriptions), 0)
 
 if __name__ == '__main__':
     unittest.main()

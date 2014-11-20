@@ -51,6 +51,8 @@ class EventManager(object):
             callback: The event handler method of the listening object
         """
         EventManager._subscriptions[topic].remove(callback)
+        if len(EventManager._subscriptions[topic]) == 0:
+            del EventManager._subscriptions[topic]
 
     @staticmethod
     def notify_listeners(event):
