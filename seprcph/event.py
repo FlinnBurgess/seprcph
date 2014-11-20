@@ -14,7 +14,6 @@ class Event(object):
             desc: String, optional, for displaying the event textually
             **kwargs: Optional data arguments for event handlers to use
         """
-
         self.topic = topic
         self.desc = desc
         self.data = kwargs
@@ -39,7 +38,6 @@ class EventManager(object):
             topic: The topic to which the listener will subscribe
             callback: The event handler method of the listening object
         """
-
         EventManager._subscriptions.setdefault(topic, [])
         EventManager._subscriptions[topic].append(callback)
 
@@ -65,7 +63,6 @@ class EventManager(object):
         Raises:
             AssertionError
         """
-
         assert(event.topic in EventManager._subscriptions.keys())
 
         for handler in EventManager._subscriptions[event.topic]:

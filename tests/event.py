@@ -2,6 +2,10 @@ import unittest
 
 from seprcph import event
 
+x = 0
+
+def _func(_):
+    x = 1
 
 class TestCreateEvent(unittest.TestCase):
 
@@ -19,14 +23,8 @@ class TestCreateEvent(unittest.TestCase):
 
 class TestEventManager(unittest.TestCase):
 
-    def setUp(self):
-        self.x = 0
-
-    def _func(self, _):
-        self.x = 1
-
     def test_attach_listener(self):
-        event.EventManager.add_listener('foo', self._func)
+        event.EventManager.add_listener('foo', _func)
         self.assertEqual(len(event.EventManager._subscriptions), 1)
 
     def test_notify_unknown_listener(self):
@@ -34,11 +32,11 @@ class TestEventManager(unittest.TestCase):
 
     def test_notify_listeners(self):
         event.EventManager.notify_listeners(event.Event('foo'))
-        self.assertEqual(self.x, 1)
+        self.assertEqual(x, 1)
 
     def test_remove_listener(self):
-        event.EventManager.remove_listener('foo', self._func)
-        self.assertEqual(len(event.EventManager._subscriptions), 0)
+        event.EventManager.remove_listener('foo', _func)
+        self.assertEqual(len(event.EventManager._subscriptions['foo']), 0)
 
 if __name__ == '__main__':
     unittest.main()
