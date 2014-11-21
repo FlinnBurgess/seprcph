@@ -1,5 +1,6 @@
 import ConfigParser
 import os.path
+import errno
 
 
 class Config(object):
@@ -22,6 +23,9 @@ class Config(object):
         conf = ConfigParser.SafeConfigParser()
         # Maintain the case of the config file.
         conf.optionxform = str
+        if not os.path.exists(path):
+            Config._create_default_config()
+
         conf.read(path)
         Config.general = Config._replace_data_types(conf._sections['general'])
 
@@ -67,3 +71,22 @@ class Config(object):
             elif ',' in val:
                 dictionary[key] = [x.lstrip() for x in val.split(',')]
         return dictionary
+
+    @staticmethod
+    def _create_default_config():
+        s = '[general]\nlogging_level = ERROR\n' \
+            'log_file = ~/.config/seprcph/log.txt'
+        Config._create_config(s)
+
+    @staticmethod
+    def _create_config(config_string):
+        path = os.path.join(os.path.expanduser('~'), 'seprcph', 'config')
+        try:
+            os.makedirs(os.path.dirname(path))
+        except OSError as err:
+            if err.errno != errno.EEXIST:
+                raise
+        with open(path, 'w') as conf_file:
+            conf_file.write(config_string)
+
+

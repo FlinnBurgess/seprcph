@@ -1,5 +1,4 @@
 import unittest
-import errno
 import os
 
 from seprcph import config
@@ -9,23 +8,9 @@ PATH = os.path.join(os.path.expanduser('~'), 'seprcph', 'config')
 class TestConfig(unittest.TestCase):
 
     def test_default_config(self):
-        self._create_default_config()
+        config.Config._create_default_config()
         config.Config.load_config()
-
-    def _create_default_config(self):
-        s = '[general]\nlogging_level = ERROR\n' \
-            'log_file = ~/.config/seprcph/log.txt'
-        self._create_config(s)
-
-    def _create_config(self, config_string):
-        try:
-            os.makedirs(os.path.dirname(PATH))
-        except OSError as err:
-            if err.errno != errno.EEXIST:
-                raise
-        with open(PATH, 'w') as conf_file:
-            conf_file.write(config_string)
-
+        self.assertIn('logging_level', config.Config.general)
 
 class TestDataTypeReplacement(unittest.TestCase):
 
