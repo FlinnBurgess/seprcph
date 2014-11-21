@@ -26,11 +26,11 @@ class TestConfig(unittest.TestCase):
 
     def test_incomplete_general_heading(self):
         config.Config.create_config('[gener]')
-        self.assertRaises(config.IncompleteConfigurationFile, config.Config.load_config)
+        self.assertRaises(config.IncompleteConfigurationFileError, config.Config.load_config)
 
     def test_missing_general_heading(self):
         config.Config.create_config('[test]')
-        self.assertRaises(config.IncompleteConfigurationFile, config.Config.load_config)
+        self.assertRaises(config.IncompleteConfigurationFileError, config.Config.load_config)
 
 
 class TestDataTypeReplacement(unittest.TestCase):

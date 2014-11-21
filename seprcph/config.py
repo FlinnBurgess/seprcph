@@ -2,7 +2,11 @@ import ConfigParser
 import os.path
 import errno
 
-class IncompleteConfigurationFile(Exception):
+
+class IncompleteConfigurationFileError(Exception):
+    """
+    Raised when the general section is missing from a config file.
+    """
     pass
 
 
@@ -19,8 +23,11 @@ class Config(object):
         Read the contents of a predefined configuration file and load it into
         dictionaries.
 
-        If a configuration file doesn't exist at the predefined location, a new
-        one is created.
+        If a configuration file doesn't exist at the predefined location, a
+        new one is created.
+
+        Raises:
+            IncompleteConfigurationFileError
         """
         path = os.path.join(os.path.expanduser('~'), 'seprcph', 'config')
         conf = ConfigParser.SafeConfigParser()
@@ -31,7 +38,7 @@ class Config(object):
 
         conf.read(path)
         if 'general' not in conf._sections:
-            raise IncompleteConfigurationFile('Missing general section')
+            raise IncompleteConfigurationFileError('Missing general section')
         Config.general = Config._replace_data_types(conf._sections['general'])
 
     @staticmethod
@@ -79,12 +86,25 @@ class Config(object):
 
     @staticmethod
     def create_default_config():
+        """
+        Create a basic config that has just enough to allow the game
+        to run.
+        """
         conf = '[general]\nlogging_level = ERROR\n' \
             'log_file = ~/.config/seprcph/log.txt'
         Config.create_config(conf)
 
     @staticmethod
     def create_config(config_string):
+        """
+        Write a string to the config file.
+
+        Args:
+            config_string: The string to be written to the config file
+
+        Raises:
+            OSError
+        """
         path = os.path.join(os.path.expanduser('~'), 'seprcph', 'config')
         try:
             os.makedirs(os.path.dirname(path))
@@ -93,5 +113,3 @@ class Config(object):
                 raise
         with open(path, 'w') as conf_file:
             conf_file.write(config_string)
-
-
