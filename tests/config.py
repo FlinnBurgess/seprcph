@@ -37,3 +37,9 @@ class TestDataTypeReplacement(unittest.TestCase):
         self.assertEqual(config.Config._replace_data_types({'': 'false'})[''], False)
         self.assertEqual(config.Config._replace_data_types({'': 'False'})[''], False)
         self.assertEqual(config.Config._replace_data_types({'': 'off'})[''], False)
+
+    def test_expand_user(self):
+        self.assertEqual(config.Config._replace_data_types({'log_file': '~'})['log_file'], os.path.expanduser('~'))
+
+    def test_replace_int(self):
+        self.assertEqual(config.Config._replace_data_types({'': '1'})[''], 1)

@@ -29,6 +29,18 @@ class Config(object):
         Returns:
             A dictionary with strings converted to data types.
         """
+
+        def _is_numeric(string):
+            """
+            Python 2 is braindead and doesn't implement .isnumeric() for
+            strings, this is a hack to get that functionality.
+            """
+            try:
+                int(string)
+                return True
+            except ValueError:
+                return False
+
         logging_levels = {
             'NONE': 0, 'NULL': 0, 'DEBUG': 10, 'INFO': 20, 'WARNING': 30,
             'ERROR': 40, 'CRITICAL': 50}
@@ -41,7 +53,7 @@ class Config(object):
                 dictionary[k] = v.replace('~', os.path.expanduser('~'))
             elif v in logging_levels:
                 dictionary[k] = logging_levels[v]
-            elif isinstance(v, str) and v.isnumeric():
+            elif isinstance(v, str) and _is_numeric(v):
                 dictionary[k] = int(v)
             elif ',' in v:
                 dictionary[k] = [x.lstrip() for x in v.split(',')]
