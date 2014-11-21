@@ -1,6 +1,19 @@
 __author__ = 'Flinn'
+"""
+This module contains all classes relating to the player.
 
-class Player():
+NAME
+    player
+
+FILE
+    seprcph/player.py
+
+CLASSES
+    Player
+"""
+
+
+class Player(object):
     """
     Player class that represents each player.
     """
