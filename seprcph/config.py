@@ -1,15 +1,15 @@
-import configparser
+import ConfigParser
 import os.path
 import sys
 
 
-class Config(Object):
+class Config(object):
 
     general = {}
 
     @staticmethod
     def load_config():
-        path = os.path.join(os.path.expanduser('~'), 'seprcph')
+        path = os.path.join(os.path.expanduser('~'), 'seprcph', 'config')
         conf = configparser.SafeConfigParser()
         # Maintain the case of the config file.
         conf.optionxform = str
