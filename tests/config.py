@@ -1,16 +1,37 @@
 import unittest
+import errno
 import os
 
 from seprcph import config
 
-PATH = os.path.join(os.path.expanduser('~'), 'seprcph', 'config')
 
 class TestConfig(unittest.TestCase):
 
+    def tearDown(self):
+        try:
+            os.remove(os.path.join(os.path.expanduser('~'),
+                            'seprcph', 'config'))
+        except OSError as err:
+            if err.errno != errno.ENOENT:
+                raise
+
     def test_default_config(self):
-        config.Config._create_default_config()
+        config.Config.create_default_config()
         config.Config.load_config()
         self.assertIn('logging_level', config.Config.general)
+
+    def test_empty_config(self):
+        config.Config.load_config()
+        self.assertIn('logging_level', config.Config.general)
+
+    def test_incomplete_general_heading(self):
+        config.Config.create_config('[gener]')
+        self.assertRaises(config.IncompleteConfigurationFile, config.Config.load_config)
+
+    def test_missing_general_heading(self):
+        config.Config.create_config('[test]')
+        self.assertRaises(config.IncompleteConfigurationFile, config.Config.load_config)
+
 
 class TestDataTypeReplacement(unittest.TestCase):
 

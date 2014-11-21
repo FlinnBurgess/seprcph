@@ -2,6 +2,9 @@ import ConfigParser
 import os.path
 import errno
 
+class IncompleteConfigurationFile(Exception):
+    pass
+
 
 class Config(object):
     """
@@ -24,9 +27,11 @@ class Config(object):
         # Maintain the case of the config file.
         conf.optionxform = str
         if not os.path.exists(path):
-            Config._create_default_config()
+            Config.create_default_config()
 
         conf.read(path)
+        if 'general' not in conf._sections:
+            raise IncompleteConfigurationFile('Missing general section')
         Config.general = Config._replace_data_types(conf._sections['general'])
 
     @staticmethod
@@ -73,13 +78,13 @@ class Config(object):
         return dictionary
 
     @staticmethod
-    def _create_default_config():
-        s = '[general]\nlogging_level = ERROR\n' \
+    def create_default_config():
+        conf = '[general]\nlogging_level = ERROR\n' \
             'log_file = ~/.config/seprcph/log.txt'
-        Config._create_config(s)
+        Config.create_config(conf)
 
     @staticmethod
-    def _create_config(config_string):
+    def create_config(config_string):
         path = os.path.join(os.path.expanduser('~'), 'seprcph', 'config')
         try:
             os.makedirs(os.path.dirname(path))
