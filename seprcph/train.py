@@ -1,4 +1,17 @@
 __author__ = 'Flinn'
+"""
+This module contains all classes relating to the trains.
+
+NAME
+    train
+
+FILE
+    seprcph/train.py
+
+CLASSES
+    Train
+"""
+
 
 class Train():
     """
