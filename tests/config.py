@@ -1,11 +1,16 @@
 import unittest
+import errno
 import os
 
 from seprcph import config
 
+PATH = os.path.join(os.path.expanduser('~'), 'seprcph', 'config')
 
 class TestConfig(unittest.TestCase):
-    path = os.path.join(os.path.expanduser('~'), 'seprcph', 'config')
+
+    def test_default_config(self):
+        self._create_default_config()
+        config.Config.load_config()
 
     def _create_default_config(self):
         s = '[general]\nlogging_level = ERROR\n' \
@@ -13,19 +18,13 @@ class TestConfig(unittest.TestCase):
         self._create_config(s)
 
     def _create_config(self, config_string):
-        def _touch_dir(self, path):
-            """
-            A helper function to create a directory if it doesn't exist.
-            path: A string containing a full path to the directory to be created.
-            """
-            try:
-                os.makedirs(os.path.dirname(path))
-            except OSError as e:
-                if e.errno != errno.EEXIST:
-                    raise
-        _touch_dir(path)
-        with open(path, 'w') as f:
-            f.write(config_string)
+        try:
+            os.makedirs(os.path.dirname(PATH))
+        except OSError as err:
+            if err.errno != errno.EEXIST:
+                raise
+        with open(PATH, 'w') as conf_file:
+            conf_file.write(config_string)
 
 
 class TestDataTypeReplacement(unittest.TestCase):
@@ -53,3 +52,6 @@ class TestDataTypeReplacement(unittest.TestCase):
         for level, value in {'NONE': 0, 'NULL': 0, 'DEBUG': 10, 'INFO': 20,
                         'WARNING': 30, 'ERROR': 40, 'CRITICAL': 50}.items():
             self.assertEqual(config.Config._replace_data_types({'': level})[''], value)
+
+if __name__ == '__main__':
+    unittest.main()

@@ -1,20 +1,29 @@
 import ConfigParser
 import os.path
-import sys
 
 
 class Config(object):
+    """
+    A static class for loading and storing configuration.
+    """
 
     general = {}
 
     @staticmethod
     def load_config():
+        """
+        Read the contents of a predefined configuration file and load it into
+        dictionaries.
+
+        If a configuration file doesn't exist at the predefined location, a new
+        one is created.
+        """
         path = os.path.join(os.path.expanduser('~'), 'seprcph', 'config')
-        conf = configparser.SafeConfigParser()
+        conf = ConfigParser.SafeConfigParser()
         # Maintain the case of the config file.
         conf.optionxform = str
         conf.read(path)
-        Config.general = Config._replace_data_types(conf.items('general'))
+        Config.general = Config._replace_data_types(conf._sections['general'])
 
     @staticmethod
     def _replace_data_types(dictionary):
@@ -44,17 +53,17 @@ class Config(object):
         logging_levels = {
             'NONE': 0, 'NULL': 0, 'DEBUG': 10, 'INFO': 20, 'WARNING': 30,
             'ERROR': 40, 'CRITICAL': 50}
-        for k, v in dictionary.items():
-            if v in ['true', 'True', 'on']:
-                dictionary[k] = True
-            elif v in ['false', 'False', 'off']:
-                dictionary[k] = False
-            elif k == 'log_file' and '~' in v:
-                dictionary[k] = v.replace('~', os.path.expanduser('~'))
-            elif v in logging_levels:
-                dictionary[k] = logging_levels[v]
-            elif isinstance(v, str) and _is_numeric(v):
-                dictionary[k] = int(v)
-            elif ',' in v:
-                dictionary[k] = [x.lstrip() for x in v.split(',')]
+        for key, val in dictionary.items():
+            if val in ['true', 'True', 'on']:
+                dictionary[key] = True
+            elif val in ['false', 'False', 'off']:
+                dictionary[key] = False
+            elif key == 'log_file' and '~' in val:
+                dictionary[key] = val.replace('~', os.path.expanduser('~'))
+            elif val in logging_levels:
+                dictionary[key] = logging_levels[val]
+            elif isinstance(val, str) and _is_numeric(val):
+                dictionary[key] = int(val)
+            elif ',' in val:
+                dictionary[key] = [x.lstrip() for x in val.split(',')]
         return dictionary
