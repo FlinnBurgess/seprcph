@@ -74,6 +74,8 @@ class Track(object):
         Args:
             player: the player that is unlocking the track
         """
+        if (player.gold - self.cost) < 0:
+            raise NotEnoughGoldError("You don't have enough gold!")
 
         if self.is_locked:
             self.is_locked = False
