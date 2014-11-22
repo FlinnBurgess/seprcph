@@ -1,6 +1,7 @@
 import ConfigParser
 import os.path
 import errno
+import platform
 
 
 class IncompleteConfigurationFileError(Exception):
@@ -14,7 +15,6 @@ class Config(object):
     """
     A static class for loading and storing configuration.
     """
-
     general = {}
 
     @staticmethod
@@ -29,7 +29,10 @@ class Config(object):
         Raises:
             IncompleteConfigurationFileError
         """
-        path = os.path.join(os.path.expanduser('~'), 'seprcph', 'config')
+        if platform.system() == 'Windows':
+            path = os.path.join(os.path.expanduser('~'), 'seprcph', 'config.cfg')
+        else:
+            path = os.path.join(os.path.expanduser('~'), '.config', 'seprcph', 'config.cfg')
         conf = ConfigParser.SafeConfigParser()
         # Maintain the case of the config file.
         conf.optionxform = str
@@ -59,6 +62,12 @@ class Config(object):
             """
             Python 2 is braindead and doesn't implement .isnumeric() for
             strings, this is a hack to get that functionality.
+
+            Args:
+                string: The string that shall be checked.
+
+            Raises:
+                ValueError
             """
             try:
                 int(string)
@@ -90,8 +99,12 @@ class Config(object):
         Create a basic config that has just enough to allow the game
         to run.
         """
-        conf = '[general]\nlogging_level = ERROR\n' \
-            'log_file = ~/.config/seprcph/log.txt'
+        if platform.system() == 'Windows':
+            conf = '[general]\nlogging_level = ERROR\n' \
+                'log_file = ~/seprcph/log.txt'
+        else:
+            conf = '[general]\nlogging_level = ERROR\n' \
+                'log_file = ~/.config/seprcph/log.txt'
         Config.create_config(conf)
 
     @staticmethod
