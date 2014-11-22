@@ -12,6 +12,7 @@ else:
     path = os.path.join(os.path.expanduser('~'), '.config', 'seprcph',
                         'config.cfg')
 
+
 class TestConfig(unittest.TestCase):
 
     def tearDown(self):
