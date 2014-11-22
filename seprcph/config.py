@@ -37,7 +37,7 @@ class Config(object):
         # Maintain the case of the config file.
         conf.optionxform = str
         if not os.path.exists(path):
-            Config.create_default_config()
+            Config.create_default_config(path)
 
         conf.read(path)
         if 'general' not in conf._sections:
@@ -94,10 +94,13 @@ class Config(object):
         return dictionary
 
     @staticmethod
-    def create_default_config():
+    def create_default_config(path):
         """
         Create a basic config that has just enough to allow the game
         to run.
+
+        Args:
+            path: The path at which the config file should be created.
         """
         if platform.system() == 'Windows':
             conf = '[general]\nlogging_level = ERROR\n' \
@@ -105,20 +108,20 @@ class Config(object):
         else:
             conf = '[general]\nlogging_level = ERROR\n' \
                 'log_file = ~/.config/seprcph/log.txt'
-        Config.create_config(conf)
+        Config.create_config(path, conf)
 
     @staticmethod
-    def create_config(config_string):
+    def create_config(path, config_string):
         """
         Write a string to the config file.
 
         Args:
             config_string: The string to be written to the config file
+            path: The path at which the config file should be created.
 
         Raises:
             OSError
         """
-        path = os.path.join(os.path.expanduser('~'), 'seprcph', 'config')
         try:
             os.makedirs(os.path.dirname(path))
         except OSError as err:

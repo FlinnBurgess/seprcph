@@ -1,22 +1,28 @@
 import unittest
 import errno
 import os
+import platform
 
 from seprcph import config
 
+if platform.system() == 'Windows':
+    path = os.path.join(os.path.expanduser('~'), 'seprcph',
+                        'config.cfg')
+else:
+    path = os.path.join(os.path.expanduser('~'), '.config', 'seprcph',
+                        'config.cfg')
 
 class TestConfig(unittest.TestCase):
 
     def tearDown(self):
         try:
-            os.remove(os.path.join(os.path.expanduser('~'),
-                            'seprcph', 'config'))
+            os.remove(path)
         except OSError as err:
             if err.errno != errno.ENOENT:
                 raise
 
     def test_default_config(self):
-        config.Config.create_default_config()
+        config.Config.create_default_config(path)
         config.Config.load_config()
         self.assertIn('logging_level', config.Config.general)
 
@@ -25,11 +31,11 @@ class TestConfig(unittest.TestCase):
         self.assertIn('logging_level', config.Config.general)
 
     def test_incomplete_general_heading(self):
-        config.Config.create_config('[gener]')
+        config.Config.create_config(path, '[gener]')
         self.assertRaises(config.IncompleteConfigurationFileError, config.Config.load_config)
 
     def test_missing_general_heading(self):
-        config.Config.create_config('[test]')
+        config.Config.create_config(path, '[test]')
         self.assertRaises(config.IncompleteConfigurationFileError, config.Config.load_config)
 
 
