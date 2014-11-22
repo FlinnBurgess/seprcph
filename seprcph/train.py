@@ -13,7 +13,7 @@ CLASSES
 """
 
 
-class Train():
+class Train(object):
     """
     Train class to represent any trains in existence within the game.
     """
