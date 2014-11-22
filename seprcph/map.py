@@ -1,7 +1,20 @@
 __author__ = 'Flinn'
+"""
+This module contains all classes relating to the map.
+
+NAME
+    map
+
+FILE
+    seprcph/map.py
+
+CLASSES
+    Map
+"""
+
 import pygame
 
-class map(pygame.surface.Surface):
+class Map(pygame.surface.Surface):
     """
     Class representing the game's map.
     Inherits from the Surface pygame class.
