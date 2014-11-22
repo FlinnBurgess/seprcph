@@ -12,6 +12,7 @@ CLASSES
     City
 """
 
+
 class City(object):
     """
     Class that describes the cities shown on the map
