@@ -1,4 +1,24 @@
 __author__ = 'Ethan'
+"""
+This module contains all classes realted to the tracks.
+
+NAME:
+    track
+
+LOCATION:
+    seprcph/track.py
+
+CLASSES:
+    TrackOwnedError
+    Track
+"""
+
+
+class TrackOwnedError(Exception):
+    """
+    Raised when a player tries unlocking a track that is already owned.
+    """
+    pass
 
 class Track(object):
     """
@@ -15,6 +35,9 @@ class Track(object):
             cost: The cost of unlocking the track.
             is_locked: Whether the track is in use by a player.
             owner: The player that owns the track.
+
+        Raises:
+            TrackOwnedError
         """
 
         self.cities_connected = [start_city, end_city]
@@ -25,6 +48,9 @@ class Track(object):
         self.color = "gray"
 
     def update(self):
+        """
+        Tells the game how to maintain tracks on each refresh
+        """
         if self.is_locked:
             pass
         else:
@@ -46,4 +72,4 @@ class Track(object):
             self.owner = player
             player.gold -= self.cost
         else:
-            return "Already owned by " + self.owner
+            raise TrackOwnedError('This track is already owned!')
