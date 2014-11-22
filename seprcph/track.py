@@ -20,6 +20,14 @@ class TrackOwnedError(Exception):
     """
     pass
 
+
+class NotEnoughGoldError(Exception):
+    """
+    Raised when a player tries unlocking a track without enough gold.
+    """
+    pass
+
+
 class Track(object):
     """
     Track class that manages the data held within each track and lets the player interact with the tracks.
