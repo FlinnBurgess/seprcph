@@ -1,0 +1,2 @@
+pep8 --ignore=E128,E501 $1
+pylint -f parseable -d C0301,R0903 $1
