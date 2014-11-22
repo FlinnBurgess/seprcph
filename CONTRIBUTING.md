@@ -8,6 +8,12 @@ people randomly throwing code into the repo.
 Make a fork of this repository and clone it to your computer.
   
 Make a new feature branch based off of the develop branch (git-flow is your friend).
+
+Feature branches should have a lowercase name and be of the form:
+
+```
+feature/awesome_stuff
+```
   
 Hack away until your heart is content.
 
