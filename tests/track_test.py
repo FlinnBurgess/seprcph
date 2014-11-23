@@ -1,4 +1,3 @@
-__author__ = 'Flinn'
 import unittest
 
 from seprcph import track, player
@@ -21,12 +20,6 @@ class TestUnlockTrack(unittest.TestCase):
         t = track.Track("x", "y", 0, 10)
         t.unlock_track(p)
         self.assertTrue(t.owner == p)
-
-    def test_color_is_changing(self):
-        p = player.Player(50, 1)
-        t = track.Track("x", "y", 0, 10)
-        t.unlock_track(p)
-        self.assertTrue(t.color == "black")
 
     def test_is_unlocking(self):
         p = player.Player(50, 1)
