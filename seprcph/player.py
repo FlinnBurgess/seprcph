@@ -38,7 +38,4 @@ class Player(object):
     def update(self):
         """
         This handles the updating of any attributes of an instance of Player
-
         """
-        # self.gold += gold_generation
-        # self.score += score_gained
