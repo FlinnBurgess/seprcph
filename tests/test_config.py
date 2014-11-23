@@ -25,11 +25,11 @@ class TestConfig(unittest.TestCase):
     def test_default_config(self):
         config.Config.create_default_config(path)
         config.Config.load_config()
-        self.assertIn('logging_level', config.Config.general)
+        self.assertIn('level', config.Config.logging)
 
     def test_empty_config(self):
         config.Config.load_config()
-        self.assertIn('logging_level', config.Config.general)
+        self.assertIn('level', config.Config.logging)
 
     def test_incomplete_general_heading(self):
         config.Config.create_config(path, '[gener]')
@@ -53,7 +53,7 @@ class TestDataTypeReplacement(unittest.TestCase):
         self.assertEqual(config.Config._replace_data_types({'': 'off'})[''], False)
 
     def test_expand_user(self):
-        self.assertEqual(config.Config._replace_data_types({'log_file': '~'})['log_file'], os.path.expanduser('~'))
+        self.assertEqual(config.Config._replace_data_types({'file': '~'})['file'], os.path.expanduser('~'))
 
     def test_replace_int(self):
         self.assertEqual(config.Config._replace_data_types({'': '1'})[''], 1)
