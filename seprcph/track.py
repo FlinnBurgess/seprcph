@@ -46,6 +46,7 @@ class Track(object):
 
         Raises:
             TrackOwnedError
+            NotEnoughGoldError
         """
 
         self.cities_connected = [start_city, end_city]
