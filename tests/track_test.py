@@ -33,3 +33,9 @@ class TestUnlockTrack(unittest.TestCase):
         t = track.Track("x", "y", 0, 10)
         t.unlock_track(p)
         self.assertTrue(t.is_locked == False)
+
+    def test_gold_updating(self):
+        p = player.Player(50, 1)
+        t = track.Track("x", "y", 0, 10)
+        t.unlock_track(p)
+        self.assertTrue(p.gold == 40)
