@@ -112,7 +112,7 @@ class Config(object):
         conf = '[general]\n'
         conf += '[logging]\nformat = %(asctime)s - %(levelname)s - %(funcName)s ' \
                 '- %(message)s\ndate_format = %d/%m/%Y %I:%M:%S %p\nlevel = ' \
-                'ERROR\n'
+                'DEBUG\n'
         if platform.system() == 'Windows':
             conf += 'file = ~/seprcph/log.txt\n'
         else:
