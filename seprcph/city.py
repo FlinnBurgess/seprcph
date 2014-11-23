@@ -32,4 +32,3 @@ class City(object):
 
     def update(self):
         pass
-        ##I've got literally no idea what should go in here. Sorry.
