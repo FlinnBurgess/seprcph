@@ -1,4 +1,3 @@
-__author__ = 'Ethan'
 """
 This module contains all classes relating to the city.
 
