@@ -1,14 +1,13 @@
-__author__ = 'Ethan, Flinn'
 """
 This module contains all classes realted to the tracks.
 
-NAME:
+Name:
     track
 
-LOCATION:
+Location:
     seprcph/track.py
 
-CLASSES:
+Classes:
     TrackOwnedError
     Track
 """
