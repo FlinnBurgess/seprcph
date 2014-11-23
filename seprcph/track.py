@@ -59,11 +59,8 @@ class Track(object):
         """
         Tells the game how to maintain tracks on each refresh
         """
-        if self.is_locked:
-            pass
-        else:
-            self.color = "black"
-            owner.gold += self.gold_generation
+
+        self.owner.gold += self.gold_generation
 
     def unlock_track(self, player):
 
@@ -81,5 +78,6 @@ class Track(object):
             self.is_locked = False
             self.owner = player
             player.gold -= self.cost
+            self.color = "black"
         else:
             raise TrackOwnedError('This track is already owned!')
