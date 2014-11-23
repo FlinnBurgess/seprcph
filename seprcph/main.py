@@ -4,6 +4,9 @@ from seprcph import config
 
 
 def main():
+    """
+    The game loop and glue code.
+    """
     config.Config.load_config()
     logger = setup_file_logger(config.Config.logging['file'],
                             (config.Config.logging['format'],
@@ -16,7 +19,14 @@ def main():
 def setup_file_logger(filename, formatting, log_level):
     """
     A helper function for creating a file logger.
-    Accepts arguments, as it is used in Status and LoggingWriter.
+
+    Args:
+        filename: The file that shall be logged to.
+        formatting: A tuple containing the log format and then the date format.
+        log_level: The level of logging to be reported.
+
+    Returns:
+        logger: A complete logger object.
     """
     logger = logging.getLogger()
     # If a stream handler has been attached, remove it.
