@@ -14,9 +14,6 @@ class Player():
 
         Raises:
             Many questions.
-
-        :type gold: int
-        :type score: int
         """
 
         self.gold = gold
