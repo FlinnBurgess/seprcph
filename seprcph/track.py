@@ -35,17 +35,13 @@ class Track(object):
     def __init__(self, start_city, end_city, gold_generation, cost):
         """
         Args:
-            cities_connected: A set containing the two cities that are connected by
-                              the track.
+            start_city: One of the two cities that will be placed inside the
+                        cities_connected set.
+            end_city: The second of two cities that will be placed inside the
+                      cities_connected set.
             gold_generation: The amount of gold generated per turn by the track for
                              the player.
             cost: The cost of unlocking the track.
-            is_locked: Whether the track is in use by a player.
-            owner: The player that owns the track.
-
-        Raises:
-            TrackOwnedError
-            NotEnoughGoldError
         """
 
         self.cities_connected = [start_city, end_city]
@@ -53,7 +49,6 @@ class Track(object):
         self.cost = cost
         self.is_locked = True
         self.owner = None
-        self.color = "gray"
 
     def update(self):
         """
@@ -70,6 +65,10 @@ class Track(object):
 
         Args:
             player: the player that is unlocking the track
+
+        Raises:
+            TrackOwnedError
+            NotEnoughGoldError
         """
         if (player.gold - self.cost) < 0:
             raise NotEnoughGoldError("You don't have enough gold!")
@@ -78,6 +77,5 @@ class Track(object):
             self.is_locked = False
             self.owner = player
             player.gold -= self.cost
-            self.color = "black"
         else:
             raise TrackOwnedError('This track is already owned!')
