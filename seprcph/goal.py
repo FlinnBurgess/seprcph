@@ -31,8 +31,7 @@ class Goal(object):
 
         self._start_reached = False
 
-        event.EventManager.add_listener('train.arrive', self.handle_train_arrive)
-
+    @event.EventManager.add_listener('train.arrive')
     def handle_train_arrive(self, ev):
         """
         The callback sent to the EventManager to be called when a train arrives
