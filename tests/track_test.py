@@ -27,3 +27,9 @@ class TestUnlockTrack(unittest.TestCase):
         t = track.Track("x", "y", 0, 10)
         t.unlock_track(p)
         self.assertTrue(t.color == "black")
+
+    def test_is_unlocking(self):
+        p = player.Player(50, 1)
+        t = track.Track("x", "y", 0, 10)
+        t.unlock_track(p)
+        self.assertTrue(t.is_locked == False)
