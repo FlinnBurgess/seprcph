@@ -18,6 +18,10 @@ class Goal(object):
             reward: The amount of gold that the player will receive.
             desc: An optional description about the goal.
         """
+
+        assert turns > 0
+        assert reward > 0
+
         self.start_city = start_city
         self.end_cities = end_cities
         self.turns = turns
