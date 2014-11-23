@@ -1,4 +1,4 @@
-__author__ = 'Ethan'
+__author__ = 'Ethan, Flinn'
 """
 This module contains all classes realted to the tracks.
 
