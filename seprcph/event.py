@@ -1,14 +1,6 @@
 #!/usr/bin/python2.7
 
 
-class CallbackAlreadyRegistered(Exception):
-    """
-    Raised when an attempt is made to register a callback to topic
-    that it has already been registered to.
-    """
-    pass
-
-
 class Event(object):
     """
     Lightweight class that represents a generic event
@@ -37,23 +29,29 @@ class EventManager(object):
     _subscriptions = {}
 
     @staticmethod
-    def add_listener(topic, callback):
+    def add_listener(topic):
         """
-        Registers a callback function to respond to events relating to the
-        passed topic
+        A decorator the registers a callback function to respond to events
+        relating to the passed topic.
+
+        Used as such:
+        EventManager.add_listener('some_topic')
+        def foo():
+            # Handle event things
+
+        A decorator is best in this case as it is cleaner, prettier and means
+        certain errors can't occur (attaching the same callback to the same
+        topic, for example).
 
         Args:
             topic: The topic to which the listener will subscribe
-            callback: The event handler method of the listening object
-
-        Raises:
-            CallbackAlreadyRegistered
         """
-        EventManager._subscriptions.setdefault(topic, [])
-        if callback in EventManager._subscriptions[topic]:
-            raise CallbackAlreadyRegistered('Callback %s has already been '
-                                'registered to topic: %s' % (callback, topic))
-        EventManager._subscriptions[topic].append(callback)
+        def decorate(callback):
+            EventManager._subscriptions.setdefault(topic, [])
+            EventManager._subscriptions[topic].append(callback)
+            return callback
+        return decorate
+
 
     @staticmethod
     def remove_listener(topic, callback):
