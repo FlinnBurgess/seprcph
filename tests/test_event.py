@@ -5,11 +5,10 @@ from seprcph import event
 
 x = 0
 
-
+@event.EventManager.add_listener('foo')
 def _func(_):
     global x
     x = 1
-
 
 class TestCreateEvent(unittest.TestCase):
 
@@ -28,20 +27,6 @@ class TestCreateEvent(unittest.TestCase):
 
 class TestEventManager(unittest.TestCase):
 
-    def tearDown(self):
-        event.EventManager._subscriptions = {}
-
-    def setUp(self):
-        event.EventManager.add_listener('foo', _func)
-
-    def test_attach_listener(self):
-        self.assertEqual(len(event.EventManager._subscriptions), 1)
-        self.assertEqual(len(event.EventManager._subscriptions['foo']), 1)
-
-    def test_attach_already_registered_callback(self):
-        self.assertRaises(event.CallbackAlreadyRegistered,
-                event.EventManager.add_listener, 'foo', _func)
-
     def test_notify_unknown_listener(self):
         self.assertRaises(AssertionError, event.EventManager.notify_listeners,
                         event.Event('bar'))
@@ -51,8 +36,9 @@ class TestEventManager(unittest.TestCase):
         self.assertEqual(x, 1)
 
     def test_remove_listener(self):
+        before = len(event.EventManager._subscriptions)
         event.EventManager.remove_listener('foo', _func)
-        self.assertEqual(len(event.EventManager._subscriptions), 0)
+        self.assertEqual(len(event.EventManager._subscriptions), before - 1)
 
 if __name__ == '__main__':
     unittest.main()
