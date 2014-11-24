@@ -1,5 +1,3 @@
-__author__ = 'Flinn'
-
 class Player():
     """
     Player class that represents each player.
