@@ -35,4 +35,7 @@ class City(pygame.sprite.Sprite):
         self.image = image
 
     def update(self):
+        """
+        Called each turn.
+        """
         pass
