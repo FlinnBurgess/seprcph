@@ -2,7 +2,7 @@ from seprcph import event
 
 
 class Goal(object):
-    def __init__(self, start_city, end_cities, turns, gold_reward,points_reward, player, desc=""):
+    def __init__(self, start_city, end_cities, turns, gold_reward, points_reward, player, desc=""):
         """
         Initialise a goal.
 
