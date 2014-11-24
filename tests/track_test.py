@@ -13,7 +13,7 @@ class TestUnlockTrack(unittest.TestCase):
         p = player.Player(50, 1)
         t = track.Track("x", "y", 0, 10)
         t.is_locked = False
-        self.assertRaises(track.TrackOwnedError, t.unlock_track(p))
+        self.assertRaises(track.TrackOwnedError, track.Track.unlock_track)
 
     def test_owner_is_changing(self):
         p = player.Player(50, 1)
