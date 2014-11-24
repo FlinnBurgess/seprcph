@@ -52,7 +52,6 @@ class EventManager(object):
             return callback
         return decorate
 
-
     @staticmethod
     def remove_listener(topic, callback):
         """
@@ -77,7 +76,7 @@ class EventManager(object):
         Raises:
             AssertionError
         """
-        assert(event.topic in EventManager._subscriptions.keys())
+        assert event.topic in EventManager._subscriptions.keys()
 
         for handler in EventManager._subscriptions[event.topic]:
             handler(event)

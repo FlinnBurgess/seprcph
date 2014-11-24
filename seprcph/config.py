@@ -49,7 +49,6 @@ class Config(object):
             raise IncompleteConfigurationFileError('Missing logging section')
         Config.logging = Config._replace_data_types(conf._sections['logging'])
 
-
     @staticmethod
     def _replace_data_types(dictionary):
         """

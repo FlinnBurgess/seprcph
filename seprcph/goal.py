@@ -48,7 +48,7 @@ class Goal(object):
         elif ev.data['city'] in self.end_cities and self._start_reached:
             self.player.gold += self.reward
             event.EventManager.notify_listeners(event.Event('goal.completed',
-                                                                goal=self))
+                                                            goal=self))
 
     def update(self):
         """
