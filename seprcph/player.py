@@ -10,7 +10,9 @@ File:
 Classes:
     Player
 """
+
 class Player():
+    
     """
     Player class that represents each player.
     """

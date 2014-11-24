@@ -14,9 +14,11 @@ Classes:
 """
 
 class Event(object):
+    
     """
     Lightweight class that represents a generic event
     """
+    
     def __init__(self, topic, desc=None, **kwargs):
         """
         Constructor for Event class
