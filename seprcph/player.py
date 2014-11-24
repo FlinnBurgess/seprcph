@@ -23,9 +23,4 @@ class Player(object):
         This handles the updating of any attributes of an instance of Player at the change of a turn
 
         """
-
-        self.hand.add(self.deck.pop)
-        self.hand.add(self.deck.pop)
-
-        while self.hand.size > 7:
-            self.hand.discard()
+	pass
