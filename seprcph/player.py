@@ -11,7 +11,7 @@ class Player(object):
             deck: The player's deck
             hand: The cards currently available for the player to use
 
-        """
+        """ 
 
         self.gold = gold
         self.score = score
@@ -23,4 +23,4 @@ class Player(object):
         This handles the updating of any attributes of an instance of Player at the change of a turn
 
         """
-	pass
+        pass
