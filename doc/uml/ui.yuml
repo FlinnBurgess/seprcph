@@ -1,0 +1,13 @@
+[UI|event_dispatcher(event: Event)|__init__(surface: pygame.Surface); update();]
+[Container|elements: list|__init__(); add(elem: Element); remove(elem: Element)]
+[Element||__init__(size: tuple&#8218; position: tuple); draw()]
+[Clickable|callback|__init__(callback)]
+[Label|text: string|__init__(text: string)]
+
+[Element]>[Clickable]
+[Element]>[Label]
+[Element]>[Container]
+
+[UI]++1-*[Element]
+[Container]++1-*[Clickable]
+[Container]++1-*[Label]
