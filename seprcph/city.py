@@ -1,13 +1,13 @@
 """
 This module contains all classes relating to the city.
 
-NAME
+Name:
     city
 
-FILE
+File:
     seprcph/city.py
 
-CLASSES
+Classes:
     City
 """
 import pygame
