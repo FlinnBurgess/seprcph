@@ -14,7 +14,7 @@ from seprcph import event
 
 
 class Goal(object):
-    def __init__(self, start_city, end_cities, turns, reward, player, desc=""):
+    def __init__(self, start_city, end_cities, turns, gold_reward, points_reward, player, desc=""):
         """
         Initialise a goal.
 
@@ -27,7 +27,8 @@ class Goal(object):
             end_cities: A list of cities that the player's train must visit
             (one of) to complete the goal.
             turns: The amount of turns that the player has to complete the goal.
-            reward: The amount of gold that the player will receive.
+            gold_reward: The amount of gold that the player will receive.
+            points_reward: The number of points that the player will receive.
             desc: An optional description about the goal.
         """
 
@@ -37,7 +38,8 @@ class Goal(object):
         self.start_city = start_city
         self.end_cities = end_cities
         self.turns = turns
-        self.reward = reward
+        self.gold_reward = gold_reward
+        self.points_reward = points_reward
         self.player = player
         self.desc = desc
 
@@ -58,7 +60,8 @@ class Goal(object):
         if ev.data['city'] == self.start_city:
             self._start_reached = True
         elif ev.data['city'] in self.end_cities and self._start_reached:
-            self.player.gold += self.reward
+            self.player.gold += self.gold_reward
+            self.player.score += self.points_reward
             event.EventManager.notify_listeners(event.Event('goal.completed',
                                                             goal=self))
 
