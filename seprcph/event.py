@@ -1,5 +1,17 @@
 #!/usr/bin/python2.7
+"""
+This module contains all classes relating to events and their publishing
 
+Name:
+    event
+
+File:
+    seprcph/event.py
+
+Classes:
+    Event
+    EventManager
+"""
 
 class Event(object):
     """
@@ -47,6 +59,12 @@ class EventManager(object):
             topic: The topic to which the listener will subscribe
         """
         def decorate(callback):
+            """
+            Registers callback with the event manager.
+
+            Args:
+                callback: The function to be registered
+            """
             EventManager._subscriptions.setdefault(topic, [])
             EventManager._subscriptions[topic].append(callback)
             return callback

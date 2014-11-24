@@ -1,3 +1,15 @@
+"""
+This module contains the all classes relating to the players of the game.
+
+Name:
+    player
+
+File:
+    seprcph/city.py
+
+Classes:
+    Player
+"""
 class Player():
     """
     Player class that represents each player.
