@@ -33,7 +33,8 @@ class Goal(object):
         """
 
         assert turns > 0
-        assert reward > 0
+        assert points_reward > 0
+        assert gold_reward > 0
 
         self.start_city = start_city
         self.end_cities = end_cities
