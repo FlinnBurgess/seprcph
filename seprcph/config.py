@@ -16,6 +16,7 @@ class Config(object):
     A static class for loading and storing configuration.
     """
     general = {}
+    logging = {}
 
     @staticmethod
     def load_config():
@@ -43,6 +44,11 @@ class Config(object):
         if 'general' not in conf._sections:
             raise IncompleteConfigurationFileError('Missing general section')
         Config.general = Config._replace_data_types(conf._sections['general'])
+
+        if 'logging' not in conf._sections:
+            raise IncompleteConfigurationFileError('Missing logging section')
+        Config.logging = Config._replace_data_types(conf._sections['logging'])
+
 
     @staticmethod
     def _replace_data_types(dictionary):
@@ -83,7 +89,7 @@ class Config(object):
                 dictionary[key] = True
             elif val in ['false', 'False', 'off']:
                 dictionary[key] = False
-            elif key == 'log_file' and '~' in val:
+            elif key == 'file' and '~' in val:
                 dictionary[key] = val.replace('~', os.path.expanduser('~'))
             elif val in logging_levels:
                 dictionary[key] = logging_levels[val]
@@ -102,12 +108,16 @@ class Config(object):
         Args:
             path: The path at which the config file should be created.
         """
+
+        conf = '[general]\n'
+        conf += '[logging]\nformat = %(asctime)s - %(levelname)s - %(funcName)s ' \
+                '- %(message)s\ndate_format = %d/%m/%Y %I:%M:%S %p\nlevel = ' \
+                'DEBUG\n'
         if platform.system() == 'Windows':
-            conf = '[general]\nlogging_level = ERROR\n' \
-                'log_file = ~/seprcph/log.txt'
+            conf += 'file = ~/seprcph/log.txt\n'
         else:
-            conf = '[general]\nlogging_level = ERROR\n' \
-                'log_file = ~/.config/seprcph/log.txt'
+            conf += 'file = ~/.config/seprcph/log.txt\n'
+
         Config.create_config(path, conf)
 
     @staticmethod
