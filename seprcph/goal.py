@@ -14,6 +14,11 @@ from seprcph import event
 
 
 class Goal(object):
+
+    """
+    Class that describes the player's goals
+    """
+    
     def __init__(self, start_city, end_cities, turns, reward, player, desc=""):
         """
         Initialise a goal.
