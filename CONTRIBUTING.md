@@ -5,13 +5,15 @@ people randomly throwing code into the repo.
 
 ## Getting Started
 
-Clone the repository:
-
-    git clone https://github.com/HarveyHunt/seprcph.git
+Make a fork of this repository and clone it to your computer.
   
-Change to the develop branch:
+Make a new feature branch based off of the develop branch (git-flow is your friend).
 
-    git checkout develop
+Feature branches should have a lowercase name and be of the form:
+
+```
+feature/awesome_stuff
+```
   
 Hack away until your heart is content.
 
