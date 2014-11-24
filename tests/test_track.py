@@ -19,16 +19,16 @@ class TestUnlockTrack(unittest.TestCase):
         p = player.Player(50, 1)
         t = track.Track("x", "y", 0, 10)
         t.unlock_track(p)
-        self.assertTrue(t.owner == p)
+        self.assertEqual(t.owner, p)
 
     def test_is_unlocking(self):
         p = player.Player(50, 1)
         t = track.Track("x", "y", 0, 10)
         t.unlock_track(p)
-        self.assertTrue(t.is_locked == False)
+        self.assertEqual(t.is_locked, False)
 
     def test_gold_updating(self):
         p = player.Player(50, 1)
         t = track.Track("x", "y", 0, 10)
         t.unlock_track(p)
-        self.assertTrue(p.gold == 40)
+        self.assertEqual(p.gold, 40)
