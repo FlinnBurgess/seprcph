@@ -5,7 +5,7 @@ from seprcph import track, player, city
 class TestUnlockTrack(unittest.TestCase):
     
     def setUp(self):
-        p = player.Player(50, 1)
+        p = player.Player(50, 1, None, None)
         c1 = city.City("London", (50, 50), True, None, None)
         c1 = city.City("Birmingham", (50, 50), False, None, None)
         t = track.Track(c1, c2, 0, 10)
