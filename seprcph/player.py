@@ -21,3 +21,4 @@ class Player():
         """
         This handles the updating of any attributes of an instance of Player at the change of a turn
         """
+        pass
