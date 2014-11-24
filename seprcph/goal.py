@@ -1,3 +1,15 @@
+"""
+This module contains all classes relating to the goals of the game.
+
+Name:
+    goals
+
+File:
+    seprcph/city.py
+
+Classes:
+    Goal
+"""
 from seprcph import event
 
 
