@@ -79,3 +79,4 @@ class Track(object):
             player.gold -= self.cost
         else:
             raise TrackOwnedError('This track is already owned!')
+        
