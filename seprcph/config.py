@@ -18,6 +18,10 @@ class Config(object):
     general = {}
     logging = {}
 
+    def __repr__(self):
+        return "This config file contains the following sections: \n " \
+               "Config; %s \n Logging; %s" % (general, logging)
+
     @staticmethod
     def load_config():
         """

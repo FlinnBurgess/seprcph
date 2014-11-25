@@ -50,6 +50,13 @@ class Track(object):
         self.is_locked = True
         self.owner = None
 
+    def __repr__(self):
+        return "This track connects %s and %s, costs % gold and generates" \
+               "%s gold per turn" % (self.cities_connected[0],
+                                     self.cities_connected[1],
+                                     self.cost,
+                                     self.gold_generation)
+
     def update(self):
         """
         Tells the game how to maintain tracks on each refresh
