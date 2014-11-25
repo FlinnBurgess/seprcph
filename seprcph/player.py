@@ -10,11 +10,12 @@ File:
 Classes:
     Player
 """
+
+
 class Player(object):
     """
     Player class that represents each player.
     """
-
     def __init__(self, gold, score, deck, hand):
         """
         Args:

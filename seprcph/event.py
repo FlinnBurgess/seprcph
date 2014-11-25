@@ -13,8 +13,10 @@ Classes:
     EventManager
 """
 
+
 class CallbackAlreadyRegistered(Exception):
     pass
+
 
 class Event(object):
     """
