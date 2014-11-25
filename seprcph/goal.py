@@ -35,14 +35,6 @@ class Goal(object):
             desc: An optional description about the goal.
         """
 
-    def __repr__(self):
-        return "This goal begins in %s and ends in one of the following: %s." \
-               "The player %s has %s turns left to complete this goal, and" \
-               "will receive %s gold and %s points for doing so." % (
-            self.start_city, self.end_cities, self.player, self.turns,
-            self.gold_reward, self.points_reward
-        )
-
         assert turns > 0
         assert points_reward > 0
         assert gold_reward > 0
@@ -57,6 +49,14 @@ class Goal(object):
 
         self._start_reached = False
         event.EventManager.add_listener('train.arrive', self.handle_train_arrive)
+
+    def __repr__(self):
+        return "This goal begins in %s and ends in one of the following: %s. " \
+               "The player %s has %s turns left to complete this goal, and " \
+               "will receive %s gold and %s points for doing so." % (
+                self.start_city, self.end_cities, self.player, self.turns,
+                self.gold_reward, self.points_reward)
+
 
     def handle_train_arrive(self, ev):
         """
