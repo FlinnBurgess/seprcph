@@ -1,4 +1,4 @@
-class Player():
+class Player(object):
     """
     Player class that represents each player.
     """
@@ -10,7 +10,6 @@ class Player():
             score: The player's current score
             deck: The player's deck
             hand: The cards currently available for the player to use
-
         """
 
         self.gold = gold
