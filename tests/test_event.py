@@ -5,7 +5,6 @@ from seprcph import event
 
 x = 0
 
-@event.EventManager.add_listener('foo')
 def _func(_):
     global x
     x = 1
@@ -27,9 +26,19 @@ class TestCreateEvent(unittest.TestCase):
 
 class TestEventManager(unittest.TestCase):
 
+    def tearDown(self):
+        event.EventManager._subscriptions = {}
+
+    def setUp(self):
+        event.EventManager.add_listener('foo', _func)
+
     def test_notify_unknown_listener(self):
         self.assertRaises(AssertionError, event.EventManager.notify_listeners,
                         event.Event('bar'))
+
+    def test_attach_already_registered_callback(self):
+        self.assertRaises(event.CallbackAlreadyRegistered,
+        event.EventManager.add_listener, 'foo', _func)
 
     def test_notify_listeners(self):
         event.EventManager.notify_listeners(event.Event('foo'))
