@@ -13,6 +13,9 @@ Classes:
     EventManager
 """
 
+class CallbackAlreadyRegistered(Exception):
+    pass
+
 class Event(object):
     """
     Lightweight class that represents a generic event
@@ -41,34 +44,21 @@ class EventManager(object):
     _subscriptions = {}
 
     @staticmethod
-    def add_listener(topic):
+    def add_listener(topic, callback):
         """
-        A decorator the registers a callback function to respond to events
-        relating to the passed topic.
-
-        Used as such:
-        EventManager.add_listener('some_topic')
-        def foo():
-            # Handle event things
-
-        A decorator is best in this case as it is cleaner, prettier and means
-        certain errors can't occur (attaching the same callback to the same
-        topic, for example).
-
+        Registers a callback function to respond to events relating to the
+        passed topic
         Args:
             topic: The topic to which the listener will subscribe
+            callback: The event handler method of the listening object
+        Raises:
+            CallbackAlreadyRegistered
         """
-        def decorate(callback):
-            """
-            Registers callback with the event manager.
-
-            Args:
-                callback: The function to be registered
-            """
-            EventManager._subscriptions.setdefault(topic, [])
-            EventManager._subscriptions[topic].append(callback)
-            return callback
-        return decorate
+        EventManager._subscriptions.setdefault(topic, [])
+        if callback in EventManager._subscriptions[topic]:
+            raise CallbackAlreadyRegistered('Callback %s has already been '
+                            'registered to topic: %s' % (callback, topic))
+        EventManager._subscriptions[topic].append(callback)
 
     @staticmethod
     def remove_listener(topic, callback):
