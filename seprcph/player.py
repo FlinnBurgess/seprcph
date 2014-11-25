@@ -31,6 +31,9 @@ class Player(object):
         self.deck = deck
         self.hand = hand
 
+    def __repr__(self):
+        return "This player has % gold and % points" % (self.gold, self.score)
+
     def update(self):
         """
         This handles the updating of any attributes of an instance of Player at the change of a turn
