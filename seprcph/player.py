@@ -23,7 +23,6 @@ class Player(object):
             score: The player's current score
             deck: The player's deck
             hand: The cards currently available for the player to use
-
         """
 
         self.gold = gold
