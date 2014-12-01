@@ -35,8 +35,9 @@ class City(pygame.sprite.Sprite):
         self.image = image
 
     def __repr__(self):
-        return "This is the city of %s which has the coordinates %s. Status " \
-               "as capital: %r" % (self.name, str(self.position), self.is_capital)
+        return "<City-name: %s, coordinates: %s, Capital: %s>" \
+        % (self.name, self.position, self.is_capital)
+
 
     def update(self):
         """
