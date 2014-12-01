@@ -32,6 +32,14 @@ class Deck(object):
         self.size -= 1
         return self.cards.pop()
 
+    def add_to_discard(self, card):
+        """
+        Add the card to the discard pile.
+
+        Args:
+            card: The card to be added to the discard pile.
+        """
+
     def restart(self):
         """
         Moves all the dicarded cards back into the Deck and shuffles.
@@ -62,30 +70,19 @@ class Hand(object):
         self.deck = deck
         self.size = len(self.cards)
 
-    def draw(self):
+    def draw_card(self):
         """
         Places the card at the top of the Deck into the Hand.
         """
-        self.cards.append(deck.pop())
+        self.cards.append(self.deck.pop())
+        self.size += 1
 
     def discard(self, index):
         """
         Removes the card from self.cards[index] and places it in the graveyard.
         """
-        self.deck.graveyard.append(self.cards.pop(index))
-
-    def resize(self):
-        """
-        Checks that the Hand is of the appropriate size.
-        If not, discards cards of the player's choosing until the hand has been reduced to the right size.
-
-        """
-        if self.size <= 7:
-            pass
-        else:
-            while self.size > 7:
-                discard_index = int(raw_input("Enter the index of the card to discard: "))
-                self.discard(discard_index)
+        self.deck.add_to_discard(self.cards.pop(index))
+        self.size -= 1
 
     def play(self, index):
         """
@@ -98,12 +95,9 @@ class Hand(object):
     def update(self):
         """
         Method to be run at the start of the player's turn.
-        First checks if the Deck is empty. If so, restarts the Deck.
-        Then draws two cards and runs the re-sizer.
+        Draws two cards.
 
+        TODO: Add the ability for the user to discard extra cards.
         """
-        if self.deck.size == 0:
-            self.deck.restart()
-
-        self.draw()
-        self.resize()
+        self.draw_card()
+        self.draw_card()
