@@ -23,6 +23,10 @@ class Card(object):
         self.effect = effect
         self.image = image
 
+    def __repr__(self):
+        return "<Card-name: %s, card ID: %s, card description: %s>" \
+        % (self.name, self.id, self.desc)
+
     def trigger(self):
         """
         Activates the card's effect.
