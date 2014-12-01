@@ -12,6 +12,7 @@ Classes:
     Event
     EventManager
 """
+import logging
 
 
 class CallbackAlreadyRegistered(Exception):
@@ -60,6 +61,8 @@ class EventManager(object):
         if callback in EventManager._subscriptions[topic]:
             raise CallbackAlreadyRegistered('Callback %s has already been '
                             'registered to topic: %s' % (callback, topic))
+        logging.info("The callback %s been added to the topic %s",
+                            str(callback), topic)
         EventManager._subscriptions[topic].append(callback)
 
     @staticmethod
@@ -72,6 +75,8 @@ class EventManager(object):
             callback: The event handler method of the listening object
         """
         EventManager._subscriptions[topic].remove(callback)
+        logging.info("The callback %s been removed to the topic %s",
+                            str(callback), topic)
         if len(EventManager._subscriptions[topic]) == 0:
             del EventManager._subscriptions[topic]
 
@@ -88,5 +93,7 @@ class EventManager(object):
         """
         assert event.topic in EventManager._subscriptions.keys()
 
+        logging.info("The topic %s has been notified with %s",
+                        event.topic, str(event))
         for handler in EventManager._subscriptions[event.topic]:
             handler(event)
