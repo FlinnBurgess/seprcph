@@ -14,6 +14,13 @@ class Foo(object):
 
 class TestJsonFiles(unittest.TestCase):
 
+    def tearDown(self):
+        try:
+            os.remove(PATH)
+        except OSError as err:
+            if err.errno != errno.ENOENT:
+                raise
+
     def test_no_file(self):
         self.assertRaises(IOError, json_loader.objs_from_json_file, '', Foo)
 
