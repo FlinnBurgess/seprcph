@@ -50,12 +50,13 @@ class Goal(object):
         self._start_reached = False
         event.EventManager.add_listener('train.arrive', self.handle_train_arrive)
 
+
     def __repr__(self):
-        return "This goal begins in %s and ends in one of the following: %s. " \
-               "The player %s has %d turns left to complete this goal, and " \
-               "will receive %d gold and %d points for doing so." % (
-                str(self.start_city), str(self.end_cities), str(self.player),
-                self.turns, self.gold_reward, self.points_reward)
+        return "<start-city: %s, end-cities: %s, turns remaining: %s" \
+               "gold-reward: %s, points-reward: %s, assigned player: %s" \
+               "description: %s>" \
+            % (self.start_city, self.end_cities, self.turns, self.gold_reward,
+               self.points_reward, self.player, self.desc)
 
 
     def handle_train_arrive(self, ev):
