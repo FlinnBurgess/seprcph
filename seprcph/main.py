@@ -13,7 +13,8 @@ Functions:
 """
 
 import logging
-
+import pygame
+from pygame.locals import *
 from seprcph.config import Config
 
 
@@ -28,6 +29,20 @@ def main():
                             Config.logging['level'])
     logging.info("Config.general is " + str(Config.general))
     logging.info("Config.logging is " + str(Config.logging))
+
+    screen, clock = initialise_pygame()
+
+    while True:
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                return
+
+def initialise_pygame():
+    pygame.init()
+    screen = pygame.display.set_mode((640, 480))
+    pygame.display.set_caption('Trains across Europe')
+    clock = pygame.time.Clock()
+    return screen, clock
 
 
 def setup_file_logger(filename, formatting, log_level):
