@@ -20,6 +20,10 @@ class Deck(object):
         self.graveyard = []
         self.size = len(self.cards)
 
+    def __repr__(self):
+        return "<Deck-name: %s, deck-size: %d, graveyard-size: %d>" \
+        % (self.character, self.size, len(self.graveyard))
+
     def shuffle(self):
         """
         Shuffles the deck. Uses Sattolo's algorithm.
