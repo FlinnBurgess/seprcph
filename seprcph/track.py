@@ -51,9 +51,9 @@ class Track(object):
         self.owner = None
 
     def __repr__(self):
-        return "This track connects %s and %s, costs % gold and generates" \
-               "%s gold per turn" % (self.cities_connected[0],
-                                     self.cities_connected[1],
+        return "This track connects %s and %s, costs %d gold and generates" \
+               "%d gold per turn" % (str(self.cities_connected[0]),
+                                     str(self.cities_connected[1]),
                                      self.cost,
                                      self.gold_generation)
 
@@ -86,4 +86,4 @@ class Track(object):
             player.gold -= self.cost
         else:
             raise TrackOwnedError('This track is already owned!')
-        
+

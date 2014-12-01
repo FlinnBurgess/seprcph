@@ -52,10 +52,10 @@ class Goal(object):
 
     def __repr__(self):
         return "This goal begins in %s and ends in one of the following: %s. " \
-               "The player %s has %s turns left to complete this goal, and " \
-               "will receive %s gold and %s points for doing so." % (
-                self.start_city, self.end_cities, self.player, self.turns,
-                self.gold_reward, self.points_reward)
+               "The player %s has %d turns left to complete this goal, and " \
+               "will receive %d gold and %d points for doing so." % (
+                str(self.start_city), str(self.end_cities), str(self.player),
+                self.turns, self.gold_reward, self.points_reward)
 
 
     def handle_train_arrive(self, ev):

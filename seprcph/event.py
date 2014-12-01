@@ -36,7 +36,7 @@ class Event(object):
         self.data = kwargs
 
     def __repr__(self):
-        return "%s | %s : %s" % (self.topic, self.desc, self.data)
+        return "%s | %s : %s" % (self.topic, self.desc, str(self.data))
 
 
 class EventManager(object):

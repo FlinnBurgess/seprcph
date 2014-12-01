@@ -21,7 +21,7 @@ class Config(object):
     @staticmethod
     def __repr__():
         return "This config file contains the following sections: \n " \
-               "Config; %s \n Logging; %s" % (Config.general, Config.logging)
+               "Config; %s \n Logging; %s" % (str(Config.general), str(Config.logging))
 
     @staticmethod
     def load_config():
