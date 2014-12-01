@@ -34,15 +34,25 @@ def main():
 
     while True:
         for event in pygame.event.get():
-            if event.type == QUIT:
+            if event.type == pygame.QUIT:
                 return
 
 def initialise_pygame():
+    """
+    Intialise pygame modules, then the screen and finally the clock.
+    """
     pygame.init()
-    screen = pygame.display.set_mode((Config.general['screen_width'],
-                                    Config.general['screen_height']))
+    if Config.general['fullscreen']:
+        screen = pygame.display.set_mode((Config.general['screen_width'],
+                                        Config.general['screen_height']),
+                                        pygame.FULLSCREEN)
+    else:
+        screen = pygame.display.set_mode((Config.general['screen_width'],
+                                        Config.general['screen_height']))
+
     pygame.display.set_caption('Trains across Europe')
     clock = pygame.time.Clock()
+    logging.debug("%s", pygame.display.Info())
     return screen, clock
 
 

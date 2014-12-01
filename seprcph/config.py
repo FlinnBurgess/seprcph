@@ -113,7 +113,7 @@ class Config(object):
             path: The path at which the config file should be created.
         """
 
-        conf = '[general]\nscreen_height = 480\nscreen_width = 640\n'
+        conf = '[general]\nscreen_height = 480\nscreen_width = 640\nfullscreen = false\n'
         conf += '[logging]\nformat = %(asctime)s - %(levelname)s - %(funcName)s ' \
                 '- %(message)s\ndate_format = %d/%m/%Y %I:%M:%S %p\nlevel = ' \
                 'DEBUG\n'
