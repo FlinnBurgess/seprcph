@@ -55,8 +55,8 @@ class Goal(object):
         return "<start-city: %s, end-cities: %s, turns remaining: %d" \
                "gold-reward: %d, points-reward: %d, assigned player: %s" \
                "description: %s>" \
-            % (self.start_city, self.end_cities, self.turns, self.gold_reward,
-               self.points_reward, self.player, self.desc)
+            % (str(self.start_city), str(self.end_cities), self.turns, self.gold_reward,
+               self.points_reward, str(self.player), str(self.desc))
 
 
     def handle_train_arrive(self, ev):
