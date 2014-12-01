@@ -37,6 +37,7 @@ def main():
             if event.type == pygame.QUIT:
                 return
 
+
 def initialise_pygame():
     """
     Intialise pygame modules, then the screen and finally the clock.
