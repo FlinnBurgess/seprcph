@@ -13,44 +13,34 @@ class Deck(object):
             image: The image file to be shown on the Deck selection menu
 
         """
-
         self.character = character
+        self.discard = []
         self.cards = cards
         self.image = image
-        self.graveyard = []
         self.size = len(self.cards)
 
     def __repr__(self):
-        return "<Deck-name: %s, deck-size: %d, graveyard-size: %d>" \
-        % (self.character, self.size, len(self.graveyard))
-
-    def shuffle(self):
-        """
-        Shuffles the deck. Uses Sattolo's algorithm.
-
-        """
-        i = len(self.cards)
-        while i > 1:
-            i = i - 1
-            j = random.randrange(i)  # 0 <= j <= i-1
-            self.cards[j], self.cards[i] = self.cards[i], self.cards[j]
+        return "<deck_name: %s, deck_size: %d" % (self.character, self.size)
 
     def pop(self):
         """
         Returns the card at the top of the deck.
 
         """
-        self.cards.pop(0)
+        if self.size == 0:
+            self.restart()
+        self.size -= 1
+        return self.cards.pop()
 
     def restart(self):
         """
-        Moves all the cards in the Graveyard back into the Deck and shuffles.
+        Moves all the dicarded cards back into the Deck and shuffles.
 
         """
-        self.cards.append(self.graveyard)
-        self.graveyard = []
-        self.shuffle()
-
+        self.cards = self.discard
+        self.size = len(self.cards)
+        random.shuffle(self.cards)
+        self.discard = []
 
 
 class Hand(object):
