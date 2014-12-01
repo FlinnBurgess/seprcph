@@ -21,7 +21,7 @@ class Deck(object):
         self.size = len(self.cards)
 
     def __repr__(self):
-        return "<Deck-name: %s, deck-size: %s, graveyard-size: %s>" \
+        return "<Deck-name: %s, deck-size: %d, graveyard-size: %d>" \
         % (self.character, self.size, len(self.graveyard))
 
     def shuffle(self):
