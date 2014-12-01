@@ -55,6 +55,8 @@ Once you have made some cool changes, push to github and send a PR.
 
 Make sure that the PR is targeted at the develop branch, we want to keep master "clean" and only push to it at the end of a sprint.
 
+**Include a link to the Jenkins build associated with your PR.**
+
 ## Merging PRs
 
 We all have the ability to merge PRs, that doesn't mean we should randomly start merging stuff. 
