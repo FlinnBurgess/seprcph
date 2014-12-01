@@ -1,6 +1,6 @@
 import unittest
 
-from seprcph import event
+from seprcph.event import Event, EventManager, CallbackAlreadyRegistered
 
 
 x = 0
@@ -12,42 +12,42 @@ def _func(_):
 class TestCreateEvent(unittest.TestCase):
 
     def test_no_data_event(self):
-        e = event.Event('topic', 'desc')
+        e = Event('topic', 'desc')
         self.assertEqual(e.data, {})
 
     def test_no_desc_event(self):
-        e = event.Event('topic', foo=2)
+        e = Event('topic', foo=2)
         self.assertIsNone(e.desc)
 
     def test_correct_event(self):
-        e = event.Event('topic', 'desc', foo=2)
+        e = Event('topic', 'desc', foo=2)
         self.assertIsNotNone(e)
 
 
 class TestEventManager(unittest.TestCase):
 
     def tearDown(self):
-        event.EventManager._subscriptions = {}
+        EventManager._subscriptions = {}
 
     def setUp(self):
-        event.EventManager.add_listener('foo', _func)
+        EventManager.add_listener('foo', _func)
 
     def test_notify_unknown_listener(self):
-        self.assertRaises(AssertionError, event.EventManager.notify_listeners,
-                        event.Event('bar'))
+        self.assertRaises(AssertionError, EventManager.notify_listeners,
+                        Event('bar'))
 
     def test_attach_already_registered_callback(self):
-        self.assertRaises(event.CallbackAlreadyRegistered,
-        event.EventManager.add_listener, 'foo', _func)
+        self.assertRaises(CallbackAlreadyRegistered,
+        EventManager.add_listener, 'foo', _func)
 
     def test_notify_listeners(self):
-        event.EventManager.notify_listeners(event.Event('foo'))
+        EventManager.notify_listeners(Event('foo'))
         self.assertEqual(x, 1)
 
     def test_remove_listener(self):
-        before = len(event.EventManager._subscriptions)
-        event.EventManager.remove_listener('foo', _func)
-        self.assertEqual(len(event.EventManager._subscriptions), before - 1)
+        before = len(EventManager._subscriptions)
+        EventManager.remove_listener('foo', _func)
+        self.assertEqual(len(EventManager._subscriptions), before - 1)
 
 if __name__ == '__main__':
     unittest.main()

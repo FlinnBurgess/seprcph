@@ -3,7 +3,7 @@ import json
 import errno
 import os
 
-from seprcph import json_loader
+from seprcph.json_loader import objs_from_json_file
 
 PATH = 'test.json'
 
@@ -22,15 +22,15 @@ class TestJsonFiles(unittest.TestCase):
                 raise
 
     def test_no_file(self):
-        self.assertRaises(IOError, json_loader.objs_from_json_file, '', Foo)
+        self.assertRaises(IOError, objs_from_json_file, '', Foo)
 
     def test_invalid_file(self):
-        self.assertRaises(IOError, json_loader.objs_from_json_file, '/foo/', Foo)
+        self.assertRaises(IOError, objs_from_json_file, '/foo/', Foo)
 
     def test_empty_file(self):
         with open(PATH, 'w') as f:
             pass
-        self.assertRaises(ValueError, json_loader.objs_from_json_file,
+        self.assertRaises(ValueError, objs_from_json_file,
                             PATH, Foo)
 
 class TestJsonContents(unittest.TestCase):
@@ -46,16 +46,16 @@ class TestJsonContents(unittest.TestCase):
                 raise
 
     def test_load_object(self):
-        self.assertIsInstance(json_loader.objs_from_json_file(PATH, Foo)[0], Foo)
+        self.assertIsInstance(objs_from_json_file(PATH, Foo)[0], Foo)
 
     def test_load_object_int(self):
-        self.assertIsInstance(json_loader.objs_from_json_file(PATH, Foo)[0].integer, int)
+        self.assertIsInstance(objs_from_json_file(PATH, Foo)[0].integer, int)
 
     def test_load_object_str(self):
-        self.assertIsInstance(json_loader.objs_from_json_file(PATH, Foo)[0].string, unicode)
+        self.assertIsInstance(objs_from_json_file(PATH, Foo)[0].string, unicode)
 
     def test_load_multpile_objs(self):
         json.dump([{'string': 'test', 'integer': 1},
                         {'string': 'test2', 'integer': 2}], open(PATH, 'w'))
-        self.assertEquals(len(json_loader.objs_from_json_file(PATH, Foo)), 2)
+        self.assertEquals(len(objs_from_json_file(PATH, Foo)), 2)
 
