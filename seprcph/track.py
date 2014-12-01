@@ -29,7 +29,8 @@ class NotEnoughGoldError(Exception):
 
 class Track(object):
     """
-    Track class that manages the data held within each track and lets the player interact with the tracks.
+    Track class that manages the data held within each track and lets the
+    player interact with the tracks.
 
     """
     def __init__(self, start_city, end_city, gold_generation, cost):
@@ -39,8 +40,8 @@ class Track(object):
                         cities_connected set.
             end_city: The second of two cities that will be placed inside the
                       cities_connected set.
-            gold_generation: The amount of gold generated per turn by the track for
-                             the player.
+            gold_generation: The amount of gold generated per turn by the track
+                             for the player.
             cost: The cost of unlocking the track.
         """
 
@@ -51,11 +52,11 @@ class Track(object):
         self.owner = None
 
     def __repr__(self):
-        return "This track connects %s and %s, costs %d gold and generates" \
-               "%d gold per turn" % (str(self.cities_connected[0]),
-                                     str(self.cities_connected[1]),
-                                     self.cost,
-                                     self.gold_generation)
+        return "<Connected cities: %s, %s, Gold-generation: %d, cost: %d>" \
+               % (str(self.cities_connected[0]),
+                  str(self.cities_connected[1]),
+                  self.gold_generation,
+                  self.cost)
 
     def update(self):
         """
