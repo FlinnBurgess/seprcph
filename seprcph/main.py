@@ -14,20 +14,20 @@ Functions:
 
 import logging
 
-from seprcph import config
+from seprcph.config import Config
 
 
 def main():
     """
     The game loop and glue code.
     """
-    config.Config.load_config()
-    logger = setup_file_logger(config.Config.logging['file'],
-                            (config.Config.logging['format'],
-                            config.Config.logging['date_format']),
-                            config.Config.logging['level'])
-    logging.info("Config.general is " + str(config.Config.general))
-    logging.info("Config.logging is " + str(config.Config.logging))
+    Config.load_config()
+    logger = setup_file_logger(Config.logging['file'],
+                            (Config.logging['format'],
+                            Config.logging['date_format']),
+                            Config.logging['level'])
+    logging.info("Config.general is " + str(Config.general))
+    logging.info("Config.logging is " + str(Config.logging))
 
 
 def setup_file_logger(filename, formatting, log_level):

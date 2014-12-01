@@ -10,7 +10,7 @@ File:
 Classes:
     Goal
 """
-from seprcph import event
+from seprcph.event import Event, EventManager
 
 
 class Goal(object):
@@ -48,7 +48,7 @@ class Goal(object):
         self.desc = desc
 
         self._start_reached = False
-        event.EventManager.add_listener('train.arrive', self.handle_train_arrive)
+        EventManager.add_listener('train.arrive', self.handle_train_arrive)
 
 
     def __repr__(self):
@@ -75,7 +75,7 @@ class Goal(object):
         elif ev.data['city'] in self.end_cities and self._start_reached:
             self.player.gold += self.gold_reward
             self.player.score += self.points_reward
-            event.EventManager.notify_listeners(event.Event('goal.completed',
+            EventManager.notify_listeners(Event('goal.completed',
                                                             goal=self))
 
     def update(self):
@@ -91,4 +91,4 @@ class Goal(object):
         # TODO: Do we want goal turns to be reduced on another player's turn?
         self.turns -= 1
         if self.turns <= 0:
-            event.EventManager.notify_listeners(event.Event('goal.failed', goal=self))
+            EventManager.notify_listeners(Event('goal.failed', goal=self))
