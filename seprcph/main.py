@@ -39,7 +39,8 @@ def main():
 
 def initialise_pygame():
     pygame.init()
-    screen = pygame.display.set_mode((640, 480))
+    screen = pygame.display.set_mode((Config.general['screen_width'],
+                                    Config.general['screen_height']))
     pygame.display.set_caption('Trains across Europe')
     clock = pygame.time.Clock()
     return screen, clock
