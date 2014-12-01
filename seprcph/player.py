@@ -31,7 +31,7 @@ class Player(object):
         self.hand = hand
 
     def __repr__(self):
-        return "This player has %d gold and %d points" % (self.gold, self.score)
+        return "<Player gold: %d, player points: %d>" % (self.gold, self.score)
 
     def update(self):
         """
