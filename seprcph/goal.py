@@ -52,11 +52,11 @@ class Goal(object):
 
 
     def __repr__(self):
-        return "<start-city: %s, end-cities: %s, turns remaining: %d" \
-               "gold-reward: %d, points-reward: %d, assigned player: %s" \
+        return "<start_city: %s, end_cities: %s, turns remaining: %d " \
+               "gold_reward: %d, points_reward: %d, assigned player: %s " \
                "description: %s>" \
             % (str(self.start_city), str(self.end_cities), self.turns, self.gold_reward,
-               self.points_reward, str(self.player), str(self.desc))
+               self.points_reward, str(self.player), self.desc)
 
 
     def handle_train_arrive(self, ev):

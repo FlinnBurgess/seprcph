@@ -24,7 +24,7 @@ class Card(object):
         self.image = image
 
     def __repr__(self):
-        return "<Card-name: %s, card ID: %s, card description: %s>" \
+        return "<name: %s, ID: %d, description: %s>" \
         % (self.name, self.id, self.desc)
 
     def trigger(self):
