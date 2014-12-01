@@ -29,5 +29,5 @@ class Card(object):
         NOT the same as playing a card. This method is in the Hand class.
 
         """
-        EventManager.notify_listeners(self.effect)
-
+        EventManager.notify_listeners(Event('card.triggered',
+                                        effect=self.effect))
