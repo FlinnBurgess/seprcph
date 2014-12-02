@@ -14,7 +14,7 @@ Classes:
 # ------------------------------------------------------------------------------------
 
 from track import Track
-from city import City #CITY ISNT USED ANYWHERE
+from city import City
 
 # ------------------------------------------------------------------------------------
 
