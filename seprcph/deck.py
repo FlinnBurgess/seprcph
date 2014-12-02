@@ -13,50 +13,48 @@ class Deck(object):
             image: The image file to be shown on the Deck selection menu
 
         """
-
         self.character = character
+        self.discard = []
         self.cards = cards
         self.image = image
-        self.graveyard = []
         self.size = len(self.cards)
 
     def __repr__(self):
-        return "<Deck-name: %s, deck-size: %d, graveyard-size: %d>" \
-        % (self.character, self.size, len(self.graveyard))
-
-    def shuffle(self):
-        """
-        Shuffles the deck. Uses Sattolo's algorithm.
-
-        """
-        i = len(self.cards)
-        while i > 1:
-            i = i - 1
-            j = random.randrange(i)  # 0 <= j <= i-1
-            self.cards[j], self.cards[i] = self.cards[i], self.cards[j]
+        return "<deck_name: %s, deck_size: %d" % (self.character, self.size)
 
     def pop(self):
         """
         Returns the card at the top of the deck.
 
         """
-        self.cards.pop(0)
+        if self.size == 0:
+            self.restart()
+        self.size -= 1
+        return self.cards.pop()
+
+    def add_to_discard(self, card):
+        """
+        Add the card to the discard pile.
+
+        Args:
+            card: The card to be added to the discard pile.
+        """
+        self.discard.append(card)
 
     def restart(self):
         """
-        Moves all the cards in the Graveyard back into the Deck and shuffles.
+        Moves all the dicarded cards back into the Deck and shuffles.
 
         """
-        self.cards.append(self.graveyard)
-        self.graveyard = []
-        self.shuffle()
-
+        self.cards = self.discard
+        self.size = len(self.cards)
+        random.shuffle(self.cards)
+        self.discard = []
 
 
 class Hand(object):
     """
     Class describing the Hand object
-
     """
 
     def __init__(self, cards, deck):
@@ -64,43 +62,37 @@ class Hand(object):
         Args:
             cards: A list containing the cards in the hand
             deck: The Deck instance with which the Hand is associated
-            graveyard: The player's graveyard
-
         """
-
         self.cards = cards
         self.deck = deck
         self.size = len(self.cards)
 
-    def draw(self):
+    def draw_cards(self, count):
         """
-        Places the card at the top of the Deck into the Hand.
+        Places the cards at the top of the Deck into the Hand.
+
+        Args:
+            count: The amount of cards to be drawn
         """
-        self.cards.append(deck.pop())
+        for _ in xrange(count):
+            self.cards.append(self.deck.pop())
+        self.size += count
 
     def discard(self, index):
         """
         Removes the card from self.cards[index] and places it in the graveyard.
-        """
-        self.deck.graveyard.append(self.cards.pop(index))
 
-    def resize(self):
+        Args:
+            index: The index of the card to be removed.
         """
-        Checks that the Hand is of the appropriate size.
-        If not, discards cards of the player's choosing until the hand has been reduced to the right size.
-
-        """
-        if self.size <= 7:
-            pass
-        else:
-            while self.size > 7:
-                discard_index = int(raw_input("Enter the index of the card to discard: "))
-                self.discard(discard_index)
+        self.deck.add_to_discard(self.cards.pop(index))
+        self.size -= 1
 
     def play(self, index):
         """
         Triggers the effect of the Card at the index, then discards it.
-
+        Args:
+            index: The index of the card to be played
         """
         self.cards[index].trigger()
         self.discard(index)
@@ -108,12 +100,8 @@ class Hand(object):
     def update(self):
         """
         Method to be run at the start of the player's turn.
-        First checks if the Deck is empty. If so, restarts the Deck.
-        Then draws two cards and runs the re-sizer.
+        Draws two cards.
 
+        TODO: Add the ability for the user to discard extra cards.
         """
-        if self.deck.size == 0:
-            self.deck.restart()
-
-        self.draw()
-        self.resize()
+        self.draw_cards(2)
