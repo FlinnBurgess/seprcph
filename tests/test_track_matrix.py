@@ -1,15 +1,16 @@
 import unittest
 
-from seprcph import track_matrix, track, city
+from seprcph.track_matrix import TrackMatrix
+from seprcph.track import Track 
+from seprcph.city import City
 
 class TestFetchAndAdd(unittest.TestCase):
 
     def setUp(self):
-        self.adj_matrix = track_matrix.TrackMatrix(["london", "cardiff"])
-        self.london = city.City("london", None, True, None, None)
-        #NEEDS CHANGING ONCE THE UPDATE TO RECT IS MADE
-        self.cardiff = city.City("cardiff", None, True, None, None)
-        self.test_track = track.Track(self.london, self.cardiff, 5, 10)
+        self.adj_matrix = TrackMatrix(["london", "cardiff"])
+        self.london = City("london", None, True, None)
+        self.cardiff = City("cardiff", None, True, None)
+        self.test_track = Track(self.london, self.cardiff, 5, 10)
 
     def test_fetching_indices(self):
         self.assertEqual(self.adj_matrix.fetch_indices((self.london, self.cardiff)), (0, 1))
@@ -19,5 +20,5 @@ class TestFetchAndAdd(unittest.TestCase):
         self.assertEqual(self.adj_matrix._matrix[0][1], self.test_track)
 
     def test_fetch_track(self):
-        self.adj_matrix._matrix[0][1] = track.Track(self.london, self.cardiff, 5, 10)
+        self.adj_matrix._matrix[0][1] = Track(self.london, self.cardiff, 5, 10)
         self.assertEqual(self.adj_matrix.fetch_track((self.london, self.cardiff)), self.test_track)
