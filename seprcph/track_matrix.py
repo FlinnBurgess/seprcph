@@ -14,7 +14,7 @@ Classes:
 # ------------------------------------------------------------------------------------
 
 from track import Track
-from city import City
+from city import City #CITY ISNT USED ANYWHERE
 
 # ------------------------------------------------------------------------------------
 
@@ -36,7 +36,7 @@ class TrackMatrix(object):
 
         # Create an empty n*n matrix where n is the number of cities
         self._matrix = [[]]
-        self._matrix = [[None for c in city_list] for i in range(0, len(city_list))]
+        self._matrix = [[None for c in city_list] for i in xrange(0, len(city_list))]
 
     def fetch_indices(self, city_pair):
         """
