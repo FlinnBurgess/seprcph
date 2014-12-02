@@ -39,6 +39,7 @@ class Deck(object):
         Args:
             card: The card to be added to the discard pile.
         """
+        self.discard.append(card)
 
     def restart(self):
         """
@@ -54,7 +55,6 @@ class Deck(object):
 class Hand(object):
     """
     Class describing the Hand object
-
     """
 
     def __init__(self, cards, deck):
@@ -62,10 +62,7 @@ class Hand(object):
         Args:
             cards: A list containing the cards in the hand
             deck: The Deck instance with which the Hand is associated
-            graveyard: The player's graveyard
-
         """
-
         self.cards = cards
         self.deck = deck
         self.size = len(self.cards)
