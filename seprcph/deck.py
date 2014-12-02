@@ -25,7 +25,6 @@ class Deck(object):
     def pop(self):
         """
         Returns the card at the top of the deck.
-
         """
         if self.size == 0:
             self.restart()
