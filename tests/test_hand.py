@@ -1,7 +1,13 @@
 import unittest, random
 
-from seprcph.deck import Deck, Hand
+from seprcph.deck import Deck 
+from seprcph.hand import Hand
 from seprcph.card import Card
+
+x = 0
+def _func(_):
+global x
+x = 1
 
 class TestHandMethods(unittest.TestCase):
 
