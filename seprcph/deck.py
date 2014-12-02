@@ -43,7 +43,6 @@ class Deck(object):
     def restart(self):
         """
         Moves all the dicarded cards back into the Deck and shuffles.
-
         """
         self.cards = self.discard
         self.size = len(self.cards)
