@@ -11,7 +11,6 @@ class Deck(object):
             character: The name of the deck
             cards: A list containing all the cards in the deck
             image: The image file to be shown on the Deck selection menu
-
         """
         self.character = character
         self.discard = []
