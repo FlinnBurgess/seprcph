@@ -20,8 +20,8 @@ class TestCreateGoal(unittest.TestCase):
 class TestCompleteGoal(unittest.TestCase):
 
     def setUp(self):
-        self.start_city = City('London', (100, 100), False, None, None)
-        self.end_city = [City('Berlin', (100, 50), False, None, None)]
+        self.start_city = City('London', (100, 100), False, None)
+        self.end_city = [City('Berlin', (100, 50), False, None)]
         self.player = Player(0, 0, None, None)
         self.goal = Goal(self.start_city, self.end_city, 4, 100, 100, self.player)
 
