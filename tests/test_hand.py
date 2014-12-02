@@ -3,9 +3,10 @@ import unittest, random
 from seprcph.deck import Deck 
 from seprcph.hand import Hand
 from seprcph.card import Card
+from seprcph.event import EventManager
 
 x = 0
-def _func():
+def _func(_):
     global x
     x = 1
 
@@ -30,5 +31,6 @@ class TestHandMethods(unittest.TestCase):
         self.assertEqual(self.hand.deck.discard, [self.card5])
         
     def test_play(self):
+        EventManager.add_listener('card.triggered', _func)
         self.hand.play(0)
         self.assertEqual(x, 1)
