@@ -11,7 +11,6 @@ class Deck(object):
             character: The name of the deck
             cards: A list containing all the cards in the deck
             image: The image file to be shown on the Deck selection menu
-
         """
         self.character = character
         self.discard = []
@@ -25,7 +24,6 @@ class Deck(object):
     def pop(self):
         """
         Returns the card at the top of the deck.
-
         """
         if self.size == 0:
             self.restart()
@@ -44,7 +42,6 @@ class Deck(object):
     def restart(self):
         """
         Moves all the dicarded cards back into the Deck and shuffles.
-
         """
         self.cards = self.discard
         self.size = len(self.cards)
