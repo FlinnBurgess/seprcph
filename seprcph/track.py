@@ -12,6 +12,9 @@ Classes:
     Track
 """
 
+import math
+import pygame
+
 
 class TrackOwnedError(Exception):
     """
@@ -27,7 +30,7 @@ class NotEnoughGoldError(Exception):
     pass
 
 
-class Track(object):
+class Track(pygame.sprite.Sprite):
     """
     Track class that manages the data held within each track and lets the
     player interact with the tracks.
@@ -46,17 +49,17 @@ class Track(object):
             pos: A tuple containing the track position.
             image: The pygame surface associated with this track.
         """
-
         self.cities_connected = [start_city, end_city]
         self.gold_generation = gold_generation
         self.pos = pos
         self.cost = cost
-        self.image = image
+        self.image = pygame.transform.rotate(image,
+                            self._calc_rotation(start_city.pos, end_city.pos))
         self.is_locked = True
         self.owner = None
 
     def __repr__(self):
-        return "<Connected cities: %s, %s, Gold-generation: %d, cost: %d>" \
+        return "<connects: %s, %s, gold-gen: %d, cost: %d>" \
                % (str(self.cities_connected[0]),
                   str(self.cities_connected[1]),
                   self.gold_generation,
@@ -81,7 +84,6 @@ class Track(object):
         return rect
 
     def unlock_track(self, player):
-
         """
         This unlocks a particular stretch of track, recording the new owner and
         updating the player's gold value
@@ -102,3 +104,16 @@ class Track(object):
             player.gold -= self.cost
         else:
             raise TrackOwnedError('This track is already owned!')
+
+    def _calc_rotation(self, first_p, second_p):
+        """
+        Calculate the counterclockwise rotation (in degrees) required to line
+        the track's image up with both cities.
+
+        Args:
+            first_p: The position tuple of a city.
+            first_p: The position tuple of another city.
+        """
+        xdiff = first_p[0] - second_p[0]
+        ydiff = first_p[1] - second_p[1]
+        return 360 - math.degrees(math.atan2(xdiff, ydiff))

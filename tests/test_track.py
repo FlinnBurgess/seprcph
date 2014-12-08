@@ -1,5 +1,7 @@
 import unittest
 
+import pygame
+
 from seprcph.track import Track, NotEnoughGoldError, TrackOwnedError
 from seprcph.player import Player
 from seprcph.city import City
@@ -12,10 +14,11 @@ class TestUnlockTrack(unittest.TestCase):
         self.c2 = City("Birmingham", (50, 50), False, None)
         self.pos = ((self.c1.pos[0] + self.c2.pos[0]) / 2,
                     (self.c1.pos[1] + self.c2.pos[1]) / 2)
-        self.t = Track(self.c1, self.c2, 0, 10, self.pos, None)
+        self.image = pygame.Surface((10, 10))
+        self.t = Track(self.c1, self.c2, 0, 10, self.pos, self.image)
 
     def test_not_enough_gold_player(self):
-        self.t = Track(self.c1, self.c2, 0, 55, self.pos, None)
+        self.t = Track(self.c1, self.c2, 0, 55, self.pos, self.image)
         self.assertRaises(NotEnoughGoldError, self.t.unlock_track, self.p)
 
     def test_track_already_owned(self):
