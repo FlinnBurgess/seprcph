@@ -33,7 +33,7 @@ class Track(object):
     player interact with the tracks.
 
     """
-    def __init__(self, start_city, end_city, gold_generation, cost):
+    def __init__(self, start_city, end_city, gold_generation, cost, image):
         """
         Args:
             start_city: One of the two cities that will be placed inside the
@@ -43,11 +43,15 @@ class Track(object):
             gold_generation: The amount of gold generated per turn by the track
                              for the player.
             cost: The cost of unlocking the track.
+            image: The pygame surface associated with this track.
         """
 
         self.cities_connected = [start_city, end_city]
         self.gold_generation = gold_generation
+        self.pos = ((start_city.pos[0] + end_city.pos[0]) / 2,
+                    (start_city.pos[1] + end_city.pos[1]) / 2)
         self.cost = cost
+        self.image = image
         self.is_locked = True
         self.owner = None
 
@@ -64,6 +68,17 @@ class Track(object):
         """
 
         self.owner.gold += self.gold_generation
+
+    @property
+    def rect(self):
+        """
+        Calculate the rect based upon the image size and
+        object's position.
+        """
+        rect = self.image.get_rect()
+        rect.centerx = self.pos[0]
+        rect.centery = self.pos[1]
+        return rect
 
     def unlock_track(self, player):
 
@@ -87,4 +102,3 @@ class Track(object):
             player.gold -= self.cost
         else:
             raise TrackOwnedError('This track is already owned!')
-
