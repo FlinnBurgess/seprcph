@@ -18,23 +18,23 @@ class City(pygame.sprite.Sprite):
     Class that describes the cities shown on the map
     """
 
-    def __init__(self, name, position, is_capital, image):
+    def __init__(self, name, pos, is_capital, image):
         """
         Args
             name: Name of the city.
-            position: Co-ordinates of the city on the map.
+            pos: Co-ordinates of the city on the map.
             is_capital: Whether or not the city is the capital of it's
                         respective country.
             image: the image to be used with pygame.surface
         """
         self.name = name
-        self.position = position
+        self.pos = pos
         self.is_capital = is_capital
         self.image = image
 
     def __repr__(self):
         return "<name: %s, coordinates: %s, is_capital: %r>" \
-        % (self.name, str(self.position), self.is_capital)
+        % (self.name, str(self.pos), self.is_capital)
 
     @property
     def rect(self):
@@ -43,8 +43,8 @@ class City(pygame.sprite.Sprite):
         object's position.
         """
         rect = self.image.get_rect()
-        rect.centerx = self.position[0]
-        rect.centery = self.position[1]
+        rect.centerx = self.pos[0]
+        rect.centery = self.pos[1]
         return rect
 
 
