@@ -33,7 +33,7 @@ class Track(object):
     player interact with the tracks.
 
     """
-    def __init__(self, start_city, end_city, gold_generation, cost, image):
+    def __init__(self, start_city, end_city, gold_generation, cost, pos, image):
         """
         Args:
             start_city: One of the two cities that will be placed inside the
@@ -43,13 +43,13 @@ class Track(object):
             gold_generation: The amount of gold generated per turn by the track
                              for the player.
             cost: The cost of unlocking the track.
+            pos: A tuple containing the track position.
             image: The pygame surface associated with this track.
         """
 
         self.cities_connected = [start_city, end_city]
         self.gold_generation = gold_generation
-        self.pos = ((start_city.pos[0] + end_city.pos[0]) / 2,
-                    (start_city.pos[1] + end_city.pos[1]) / 2)
+        self.pos = pos
         self.cost = cost
         self.image = image
         self.is_locked = True

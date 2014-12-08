@@ -10,10 +10,12 @@ class TestUnlockTrack(unittest.TestCase):
         self.p = Player(50, 1, None, None)
         self.c1 = City("London", (50, 50), True, None)
         self.c2 = City("Birmingham", (50, 50), False, None)
-        self.t = Track(self.c1, self.c2, 0, 10, None)
+        self.pos = ((self.c1.pos[0] + self.c2.pos[0]) / 2,
+                    (self.c1.pos[1] + self.c2.pos[1]) / 2)
+        self.t = Track(self.c1, self.c2, 0, 10, self.pos, None)
 
     def test_not_enough_gold_player(self):
-        self.t = Track(self.c1, self.c2, 0, 55, None)
+        self.t = Track(self.c1, self.c2, 0, 55, self.pos, None)
         self.assertRaises(NotEnoughGoldError, self.t.unlock_track, self.p)
 
     def test_track_already_owned(self):

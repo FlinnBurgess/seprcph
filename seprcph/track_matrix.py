@@ -61,16 +61,18 @@ class TrackMatrix(object):
         indices = self.fetch_indices(city_pair)
         return self._matrix[indices[0]][indices[1]]
 
-    def add_track(self, city_pair, gold_generation, cost, image):
+    def add_track(self, city_pair, gold_generation, cost, pos, image):
         """
             Args:
                 city_pair: A 2-element tuple containing the city objects between which the track is to be created
                 gold_generation: Integer representing gold generated per turn
                 cost: The cost of placing the track, an integer
+                pos: A tuple representing the center point of the track
                 image: The pygame surface associated with the track
         """
 
         indices = self.fetch_indices(city_pair)
 
         self._matrix[indices[0]][indices[1]] = \
-          self._matrix[indices[1]][indices[0]] = Track(city_pair[0], city_pair[1], gold_generation, cost, image)
+          self._matrix[indices[1]][indices[0]] = Track(city_pair[0],
+                            city_pair[1], gold_generation, cost, pos, image)
