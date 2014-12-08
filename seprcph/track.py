@@ -112,7 +112,7 @@ class Track(pygame.sprite.Sprite):
 
         Args:
             first_p: The position tuple of a city.
-            first_p: The position tuple of another city.
+            second_p: The position tuple of another city.
         """
         xdiff = first_p[0] - second_p[0]
         ydiff = first_p[1] - second_p[1]
