@@ -32,7 +32,7 @@ class TrackMatrix(object):
         """
 
         # Create a dictionary representation of an enum, mapping the string representation of a city to a unique integer
-        self._cities = dict(map(lambda e: (e[1].lower(), e[0]), enumerate(city_list)))
+        self._cities = dict(map(lambda e: (e[1], e[0]), enumerate(city_list)))
 
         # Create an empty n*n matrix where n is the number of cities
         self._matrix = [[]]
@@ -46,8 +46,8 @@ class TrackMatrix(object):
             Returns:
                 A 2-element tuple containing integers corresponding to the pair of cities passed as arguments
         """
-        return (self._cities[city_pair[0].name.lower()],
-                self._cities[city_pair[1].name.lower()])
+        return (self._cities[city_pair[0]],
+                self._cities[city_pair[1]])
 
     def fetch_track(self, city_pair):
         """
