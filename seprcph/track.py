@@ -34,7 +34,6 @@ class Track(pygame.sprite.Sprite):
     """
     Track class that manages the data held within each track and lets the
     player interact with the tracks.
-
     """
     def __init__(self, start_city, end_city, gold_generation, cost, pos, image):
         """
