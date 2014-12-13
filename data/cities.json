@@ -1,11 +1,11 @@
 [
     {"name": "London",
-        "position": [100, 100],
+        "pos": [100, 100],
         "is_capital": true,
         "image": null
     },
     {"name": "Cardiff",
-        "position": [200, 200],
+        "pos": [200, 200],
         "is_capital": true,
         "image": null
     }

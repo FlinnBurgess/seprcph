@@ -1,4 +1,5 @@
 import json
+import pygame
 
 
 def objs_from_json_file(file_path, cls):
@@ -12,5 +13,17 @@ def objs_from_json_file(file_path, cls):
         file_path: The location of the JSON file to be read.
         cls: The Class that the object will be created from.
     """
+
+    def _sprite_hook(kwargs):
+        """
+        Load an image using the filepath passed as image.
+
+        Args:
+            kwargs: A dictionary of elements from the json file.
+        """
+        if 'image' in kwargs:
+            kwargs['image'] = pygame.image.load(kwargs['image'])
+        return cls(**kwargs)
+
     with open(file_path, 'r') as json_file:
-        return json.load(json_file, object_hook=lambda x: cls(**x))
+        return json.load(json_file, object_hook=_sprite_hook)
