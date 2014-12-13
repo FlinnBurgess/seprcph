@@ -34,9 +34,8 @@ class Track(pygame.sprite.Sprite):
     """
     Track class that manages the data held within each track and lets the
     player interact with the tracks.
-
     """
-    def __init__(self, start_city, end_city, gold_generation, cost, pos, image):
+    def __init__(self, start_city, end_city, gold_generation, cost, image):
         """
         Args:
             start_city: One of the two cities that will be placed inside the
@@ -46,15 +45,11 @@ class Track(pygame.sprite.Sprite):
             gold_generation: The amount of gold generated per turn by the track
                              for the player.
             cost: The cost of unlocking the track.
-            pos: A tuple containing the track position.
             image: The pygame surface associated with this track.
         """
         self.cities_connected = [start_city, end_city]
         self.gold_generation = gold_generation
-        self.pos = pos
         self.cost = cost
-        self.image = pygame.transform.rotate(image,
-                            self._calc_rotation(start_city.pos, end_city.pos))
         self.is_locked = True
         self.owner = None
 
@@ -82,6 +77,13 @@ class Track(pygame.sprite.Sprite):
         rect.centerx = self.pos[0]
         rect.centery = self.pos[1]
         return rect
+
+    def calc_pos(self):
+        self.pos = ((self.cities_connected[0].pos[0] + self.cities_connected[1].pos[0]) / 2,
+                    (self.cities_connected[0].pos[1] + self.cities_connected[1].pos[1]) / 2)
+        self.image = pygame.transform.rotate(self.image,
+                            self._calc_rotation(self.cities_connected[0].pos,
+                                                self.cities_connected[1].pos))
 
     def unlock_track(self, player):
         """
