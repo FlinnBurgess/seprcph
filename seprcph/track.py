@@ -50,6 +50,13 @@ class Track(pygame.sprite.Sprite):
         self.cities_connected = [start_city, end_city]
         self.gold_generation = gold_generation
         self.cost = cost
+        self.image = image
+
+        self.pos = ((start_city.pos[0] + end_city.pos[0]) / 2,
+                    (start_city.pos[1] + end_city.pos[1]) / 2)
+        self.image = pygame.transform.rotate(self.image,
+                            self._calc_rotation(start_city.pos,
+                                                end_city.pos))
         self.is_locked = True
         self.owner = None
 
@@ -77,16 +84,6 @@ class Track(pygame.sprite.Sprite):
         rect.centerx = self.pos[0]
         rect.centery = self.pos[1]
         return rect
-
-    def calc_pos(self):
-        """
-        Calculate the track's position and rotate its image accordingly.
-        """
-        self.pos = ((self.cities_connected[0].pos[0] + self.cities_connected[1].pos[0]) / 2,
-                    (self.cities_connected[0].pos[1] + self.cities_connected[1].pos[1]) / 2)
-        self.image = pygame.transform.rotate(self.image,
-                            self._calc_rotation(self.cities_connected[0].pos,
-                                                self.cities_connected[1].pos))
 
     def unlock_track(self, player):
         """

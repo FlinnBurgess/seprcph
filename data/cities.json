@@ -2,11 +2,11 @@
     {"name": "London",
         "pos": [100, 100],
         "is_capital": true,
-        "image": null
+        "image": "../assets/images/city.png"
     },
     {"name": "Cardiff",
         "pos": [200, 200],
         "is_capital": true,
-        "image": null
+        "image": "../assets/images/city.png"
     }
 ]
