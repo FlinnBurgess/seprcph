@@ -3,7 +3,7 @@ import json
 import errno
 import os
 
-from seprcph.json_loader import objs_from_json_file
+from seprcph.json_loader import _objs_from_file
 
 PATH = 'test.json'
 
@@ -11,6 +11,9 @@ class Foo(object):
     def __init__(self, string, integer):
         self.string = string
         self.integer = integer
+
+def obj_hook(kwargs):
+    return Foo(**kwargs)
 
 class TestJsonFiles(unittest.TestCase):
 
@@ -22,16 +25,16 @@ class TestJsonFiles(unittest.TestCase):
                 raise
 
     def test_no_file(self):
-        self.assertRaises(IOError, objs_from_json_file, '', Foo)
+        self.assertRaises(IOError, _objs_from_file, '', obj_hook)
 
     def test_invalid_file(self):
-        self.assertRaises(IOError, objs_from_json_file, '/foo/', Foo)
+        self.assertRaises(IOError, _objs_from_file, '/foo/', obj_hook)
 
     def test_empty_file(self):
         with open(PATH, 'w') as f:
             pass
-        self.assertRaises(ValueError, objs_from_json_file,
-                            PATH, Foo)
+        self.assertRaises(ValueError, _objs_from_file,
+                            PATH, obj_hook)
 
 class TestJsonContents(unittest.TestCase):
 
@@ -46,16 +49,16 @@ class TestJsonContents(unittest.TestCase):
                 raise
 
     def test_load_object(self):
-        self.assertIsInstance(objs_from_json_file(PATH, Foo)[0], Foo)
+        self.assertIsInstance(_objs_from_file(PATH, obj_hook)[0], Foo)
 
     def test_load_object_int(self):
-        self.assertIsInstance(objs_from_json_file(PATH, Foo)[0].integer, int)
+        self.assertIsInstance(_objs_from_file(PATH, obj_hook)[0].integer, int)
 
     def test_load_object_str(self):
-        self.assertIsInstance(objs_from_json_file(PATH, Foo)[0].string, unicode)
+        self.assertIsInstance(_objs_from_file(PATH, obj_hook)[0].string, unicode)
 
     def test_load_multpile_objs(self):
         json.dump([{'string': 'test', 'integer': 1},
                         {'string': 'test2', 'integer': 2}], open(PATH, 'w'))
-        self.assertEquals(len(objs_from_json_file(PATH, Foo)), 2)
+        self.assertEquals(len(_objs_from_file(PATH, obj_hook)), 2)
 
