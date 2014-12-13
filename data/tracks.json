@@ -1,9 +1,9 @@
 [
-    {"start_city": "London",
+    {
+        "start_city": "London",
         "end_city": "Cardiff",
         "gold_generation": 10,
         "cost": 3,
-        "pos": null,
         "image": null
     }
 ]
