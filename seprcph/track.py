@@ -79,6 +79,9 @@ class Track(pygame.sprite.Sprite):
         return rect
 
     def calc_pos(self):
+        """
+        Calculate the track's position and rotate its image accordingly.
+        """
         self.pos = ((self.cities_connected[0].pos[0] + self.cities_connected[1].pos[0]) / 2,
                     (self.cities_connected[0].pos[1] + self.cities_connected[1].pos[1]) / 2)
         self.image = pygame.transform.rotate(self.image,
