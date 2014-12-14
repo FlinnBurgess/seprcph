@@ -93,7 +93,7 @@ class Config(object):
                 dictionary[key] = True
             elif val in ['false', 'False', 'off']:
                 dictionary[key] = False
-            elif key == 'file' and '~' in val:
+            elif '~' in val:
                 dictionary[key] = val.replace('~', os.path.expanduser('~'))
             elif val in logging_levels:
                 dictionary[key] = logging_levels[val]
@@ -123,6 +123,7 @@ class Config(object):
         conf.set('general', 'screen_width', '640')
         conf.set('general', 'fullscreen', 'false')
         conf.set('general', 'data_dir', os.path.join(base_path, 'data'))
+        conf.set('general', 'assets_dir', os.path.join(base_path, 'assets', 'images'))
 
         conf.add_section('logging')
         conf.set('logging', 'format', '480')

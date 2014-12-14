@@ -15,5 +15,5 @@ class TestMap(unittest.TestCase):
         self.tracks = [Track(london, cardiff, 5, 10, self.image)]
 
     def test_init(self):
-        self.map = Map(self.cities, self.tracks, self.image)
+        self.map = Map(self.image)
         self.assertIsInstance(self.map, Map)
