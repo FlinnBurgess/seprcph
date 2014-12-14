@@ -1,4 +1,5 @@
 import unittest
+import ConfigParser
 import errno
 import os
 import platform
@@ -23,22 +24,14 @@ class TestConfig(unittest.TestCase):
                 raise
 
     def test_default_config(self):
-        Config.create_default_config(path)
+        conf = ConfigParser.RawConfigParser()
+        Config.create_default_config(path, conf)
         Config.load_config()
         self.assertIn('level', Config.logging)
 
     def test_empty_config(self):
         Config.load_config()
         self.assertIn('level', Config.logging)
-
-    def test_incomplete_general_heading(self):
-        Config.create_config(path, '[gener]')
-        self.assertRaises(IncompleteConfigurationFileError, Config.load_config)
-
-    def test_missing_general_heading(self):
-        Config.create_config(path, '[test]')
-        self.assertRaises(IncompleteConfigurationFileError, Config.load_config)
-
 
 class TestDataTypeReplacement(unittest.TestCase):
 

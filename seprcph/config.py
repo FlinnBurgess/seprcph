@@ -39,11 +39,11 @@ class Config(object):
             path = os.path.join(os.path.expanduser('~'), 'seprcph', 'config.cfg')
         else:
             path = os.path.join(os.path.expanduser('~'), '.config', 'seprcph', 'config.cfg')
-        conf = ConfigParser.SafeConfigParser()
+        conf = ConfigParser.RawConfigParser()
         # Maintain the case of the config file.
         conf.optionxform = str
         if not os.path.exists(path):
-            Config.create_default_config(path)
+            Config.create_default_config(path, conf)
 
         conf.read(path)
         if 'general' not in conf._sections:
@@ -104,42 +104,33 @@ class Config(object):
         return dictionary
 
     @staticmethod
-    def create_default_config(path):
+    def create_default_config(path, conf):
         """
         Create a basic config that has just enough to allow the game
         to run.
 
         Args:
             path: The path at which the config file should be created.
+            conf: The ConfigParser object.
         """
-
-        conf = '[general]\nscreen_height = 480\nscreen_width = 640\nfullscreen = false\n'
-        conf += '[logging]\nformat = %(asctime)s - %(levelname)s - %(funcName)s ' \
-                '- %(message)s\ndate_format = %d/%m/%Y %I:%M:%S %p\nlevel = ' \
-                'DEBUG\n'
         if platform.system() == 'Windows':
-            conf += 'file = ~/seprcph/log.txt\n'
+            base_path = '~/seprcph/'
         else:
-            conf += 'file = ~/.config/seprcph/log.txt\n'
+            base_path = '~/.config/seprcph/'
 
-        Config.create_config(path, conf)
+        conf.add_section('general')
+        conf.set('general', 'screen_height', '480')
+        conf.set('general', 'screen_width', '640')
+        conf.set('general', 'fullscreen', 'false')
+        conf.set('general', 'data_dir', os.path.join(base_path, 'data'))
 
-    @staticmethod
-    def create_config(path, config_string):
-        """
-        Write a string to the config file.
+        conf.add_section('logging')
+        conf.set('logging', 'format', '480')
+        conf.set('logging', 'format', '%(asctime)s - %(levelname)s - %(funcName)s ' \
+                '- %(message)s')
+        conf.set('logging', 'date_format', '%d/%m/%Y %I:%M:%S %p')
+        conf.set('logging', 'level', 'DEBUG')
+        conf.set('logging', 'file', os.path.join(base_path, 'log.txt'))
 
-        Args:
-            config_string: The string to be written to the config file
-            path: The path at which the config file should be created.
-
-        Raises:
-            OSError
-        """
-        try:
-            os.makedirs(os.path.dirname(path))
-        except OSError as err:
-            if err.errno != errno.EEXIST:
-                raise
         with open(path, 'w') as conf_file:
-            conf_file.write(config_string)
+            conf.write(conf_file)
