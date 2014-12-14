@@ -28,7 +28,7 @@ def create_cities(file_path):
             kwargs: A dictionary of elements from the json file.
         """
         kwargs['image'] = pygame.image.load(kwargs['image'])
-        kwargs['pos'] = (kwargs['pos'][0], kwargs['pos'][1])
+        kwargs['pos'] = tuple(kwargs['pos'])
         return City(**kwargs)
 
     return _objs_from_file(file_path, _city_hook)
