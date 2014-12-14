@@ -36,3 +36,17 @@ class Element(pygame.sprite.Sprite):
         Tells the game how to draw the UI element
         """
         pass
+
+
+class Clickable(Element):
+    """
+    A UI element which is clickable by the user
+    """
+
+    def __init__(self, callback):
+        """
+        Args:
+            callback: the function to be called when the element is clicked
+        """
+        super(Clickable, self).__init__()
+        self.callback = callback
