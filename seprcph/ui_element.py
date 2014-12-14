@@ -8,10 +8,10 @@ File:
     seprcph/ui_element.py
 
 Classes:
-    UIElement
+    Element
 """
 
-class UIElement(object):
+class Element(object):
     """
     Superclass for the UI elements
     """
@@ -32,4 +32,4 @@ class UIElement(object):
         """
         Tells the game how to draw the UI element
         """
-    pass
+        pass
