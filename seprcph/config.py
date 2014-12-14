@@ -124,6 +124,7 @@ class Config(object):
         conf.set('general', 'fullscreen', 'false')
         conf.set('general', 'data_dir', os.path.join(base_path, 'data'))
         conf.set('general', 'image_dir', os.path.join(base_path, 'assets', 'images'))
+        conf.set('general', 'sound_dir', os.path.join(base_path, 'assets', 'sounds'))
 
         conf.add_section('logging')
         conf.set('logging', 'format', '480')
