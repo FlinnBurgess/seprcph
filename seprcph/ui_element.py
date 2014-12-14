@@ -1,3 +1,5 @@
+import pygame
+
 """
 This is the superclass for all of out UI elements.
 
@@ -11,7 +13,7 @@ Classes:
     Element
 """
 
-class Element(object):
+class Element(pygame.sprite.Sprite):
     """
     Superclass for the UI elements
     """
@@ -22,6 +24,7 @@ class Element(object):
             size: a tuple containing the height and width of the UI element
             position: a tuple containing the coordinates of the UI element
         """
+        super(Element, self).__init__()
         self.size = size
         self.pos = position
 
