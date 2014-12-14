@@ -47,6 +47,7 @@ class Track(pygame.sprite.Sprite):
             cost: The cost of unlocking the track.
             image: The pygame surface associated with this track.
         """
+        super(Track, self).__init__()
         self.cities_connected = [start_city, end_city]
         self.gold_generation = gold_generation
         self.cost = cost
