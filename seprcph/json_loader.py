@@ -29,7 +29,7 @@ def create_cities(file_path):
         Args:
             kwargs: A dictionary of elements from the json file.
         """
-        kwargs['image'] = pygame.image.load(os.path.join(Config.general['assets_dir'], kwargs['image']))
+        kwargs['image'] = pygame.image.load(os.path.join(Config.general['image_dir'], kwargs['image']))
         return City(**kwargs)
 
     return _objs_from_file(file_path, _city_hook)
@@ -46,7 +46,7 @@ def create_tracks(file_path, cities):
         Args:
             kwargs: A dictionary of elements from the json file.
         """
-        kwargs['image'] = pygame.image.load(os.path.join(Config.general['assets_dir'], kwargs['image']))
+        kwargs['image'] = pygame.image.load(os.path.join(Config.general['image_dir'], kwargs['image']))
         kwargs['start_city'] = cities[kwargs['start_city']]
         kwargs['end_city'] = cities[kwargs['end_city']]
         return Track(**kwargs)
