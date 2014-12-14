@@ -13,9 +13,11 @@ Functions:
 """
 
 import logging
+import os.path
 import pygame
 from pygame.locals import *
 from seprcph.config import Config
+from seprcph.map import Map
 
 
 def main():
@@ -32,10 +34,19 @@ def main():
 
     screen, clock = initialise_pygame()
 
+    game_map = Map(pygame.image.load(os.path.join(Config.general['image_dir'], 'map.png')))
+    game_map.image = pygame.transform.scale(game_map.image, screen.get_size())
+    screen.blit(game_map.image, (0, 0))
+    pygame.display.flip()
+
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
+            elif event.type == pygame.VIDEORESIZE:
+                screen = pygame.display.set_mode(event.dict['size'], pygame.RESIZABLE)
+                screen.blit(pygame.transform.scale(game_map.image, event.dict['size']), (0, 0))
+                pygame.display.flip()
 
 
 def initialise_pygame():
@@ -46,10 +57,10 @@ def initialise_pygame():
     if Config.general['fullscreen']:
         screen = pygame.display.set_mode((Config.general['screen_width'],
                                         Config.general['screen_height']),
-                                        pygame.FULLSCREEN)
+                                        pygame.FULLSCREEN | pygame.RESIZABLE)
     else:
         screen = pygame.display.set_mode((Config.general['screen_width'],
-                                        Config.general['screen_height']))
+                                        Config.general['screen_height']), pygame.RESIZABLE)
 
     pygame.display.set_caption('Trains across Europe')
     clock = pygame.time.Clock()
