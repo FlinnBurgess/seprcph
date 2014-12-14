@@ -27,7 +27,7 @@ class City(pygame.sprite.Sprite):
                         respective country.
             image: the image to be used with pygame.surface
         """
-        super(pygame.sprite.Sprite, self).__init__()
+        super(City, self).__init__()
         self.name = name
         self.pos = pos
         self.is_capital = is_capital
