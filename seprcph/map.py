@@ -1,13 +1,12 @@
 """ For big-daddy home-slice
 """
-import pygame
 import os.path
 from config import Config
 from json_loader import create_cities, create_tracks
 from track_matrix import TrackMatrix
 
 
-class Map(pygame.Surface):
+class Map(object):
     def __init__(self, image):
         """
         Create a Map object by loading cities and tracks from json.
