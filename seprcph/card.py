@@ -1,10 +1,23 @@
-from event import Event, EventManager
+"""
+This module contains all classes relating to cards.
+
+Name:
+    card
+
+File:
+    seprcph/card.py
+
+Classes:
+    Card
+"""
+from seprcph.event import Event, EventManager
 
 
 class Card(object):
     """
     Class describing the buff/debuff cards
     """
+
     def __init__(self, name, id, description, effect, image):
         """
         Args:
@@ -22,7 +35,7 @@ class Card(object):
 
     def __repr__(self):
         return "<name: %s, ID: %d, description: %s>" \
-        % (self.name, self.id, self.desc)
+               % (self.name, self.id, self.desc)
 
     def trigger(self):
         """
@@ -30,4 +43,4 @@ class Card(object):
         NOT the same as playing a card. This method is in the Hand class.
         """
         EventManager.notify_listeners(Event('card.triggered',
-                                        effect=self.effect))
+                                            effect=self.effect))
