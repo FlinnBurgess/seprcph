@@ -20,6 +20,7 @@ from seprcph.config import Config
 from seprcph.map import Map
 
 
+
 def main():
     """
     The game loop and glue code.
@@ -29,10 +30,10 @@ def main():
                             (Config.logging['format'],
                             Config.logging['date_format']),
                             Config.logging['level'])
-    logging.info("Config.general is " + str(Config.general))
-    logging.info("Config.logging is " + str(Config.logging))
+    logging.info(str(Config))
 
     screen, clock = initialise_pygame()
+    FPS = Config.graphics['fps']
 
     game_map = Map(pygame.image.load(os.path.join(Config.general['image_dir'], 'map.png')))
     game_map.image = pygame.transform.scale(game_map.image, screen.get_size())
@@ -52,7 +53,7 @@ def main():
             screen.blit(pygame.transform.scale(game_map.image, event.dict['size']), (0, 0))
             pygame.display.flip()
 
-        clock.tick()
+        clock.tick(FPS)
         print clock.get_fps()
         sprites.draw(game_map.image)
         pygame.display.flip()

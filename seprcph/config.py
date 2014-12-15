@@ -17,11 +17,13 @@ class Config(object):
     """
     general = {}
     logging = {}
+    graphics = {}
 
     @staticmethod
     def __repr__():
         return "This config file contains the following sections: \n " \
-               "Config; %s \n Logging; %s" % (str(Config.general), str(Config.logging))
+                "Config: %s\n Logging: %s\n Graphics: %s" \
+                % (str(Config.general), str(Config.logging), str(Config.graphics))
 
     @staticmethod
     def load_config():
@@ -53,6 +55,10 @@ class Config(object):
         if 'logging' not in conf._sections:
             raise IncompleteConfigurationFileError('Missing logging section')
         Config.logging = Config._replace_data_types(conf._sections['logging'])
+
+        if 'graphics' not in conf._sections:
+            raise IncompleteConfigurationFileError('Missing graphics section')
+        Config.graphics = Config._replace_data_types(conf._sections['graphics'])
 
     @staticmethod
     def _replace_data_types(dictionary):
@@ -133,6 +139,10 @@ class Config(object):
         conf.set('logging', 'date_format', '%d/%m/%Y %I:%M:%S %p')
         conf.set('logging', 'level', 'DEBUG')
         conf.set('logging', 'file', os.path.join(base_path, 'log.txt'))
+
+        conf.add_section('graphics')
+        conf.set('graphics', 'fps', '60')
+        conf.set('graphics', 'draw_fps', 'false')
 
         with open(path, 'w') as conf_file:
             conf.write(conf_file)
