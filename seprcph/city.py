@@ -35,7 +35,7 @@ class City(pygame.sprite.Sprite):
 
     def __repr__(self):
         return "<name: %s, coordinates: %s, is_capital: %r>" \
-        % (self.name, str(self.pos), self.is_capital)
+               % (self.name, str(self.pos), self.is_capital)
 
     @property
     def rect(self):
@@ -47,7 +47,6 @@ class City(pygame.sprite.Sprite):
         rect.centerx = self.pos[0]
         rect.centery = self.pos[1]
         return rect
-
 
     def update(self):
         """
