@@ -51,7 +51,7 @@ class Track(pygame.sprite.Sprite):
         self.cities_connected = [start_city, end_city]
         self.gold_generation = gold_generation
         self.cost = cost
-        self.image = image.convert_alpha()
+        self.image = image
 
         self.pos = ((start_city.pos[0] + end_city.pos[0]) / 2,
                     (start_city.pos[1] + end_city.pos[1]) / 2)

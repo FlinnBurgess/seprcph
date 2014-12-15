@@ -31,7 +31,7 @@ class City(pygame.sprite.Sprite):
         self.name = name
         self.pos = pos
         self.is_capital = is_capital
-        self.image = image.convert_alpha()
+        self.image = image
 
     def __repr__(self):
         return "<name: %s, coordinates: %s, is_capital: %r>" \

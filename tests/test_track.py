@@ -10,9 +10,9 @@ class TestUnlockTrack(unittest.TestCase):
 
     def setUp(self):
         self.p = Player(50, 1, None, None)
-        self.c1 = City("London", (50, 50), True, None)
-        self.c2 = City("Birmingham", (50, 50), False, None)
         self.image = pygame.Surface((10, 10))
+        self.c1 = City("London", (50, 50), True, self.image)
+        self.c2 = City("Birmingham", (50, 50), False, self.image)
         self.t = Track(self.c1, self.c2, 0, 10, self.image)
 
     def test_not_enough_gold_player(self):
