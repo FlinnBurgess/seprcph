@@ -37,18 +37,25 @@ def main():
     game_map = Map(pygame.image.load(os.path.join(Config.general['image_dir'], 'map.png')))
     game_map.image = pygame.transform.scale(game_map.image, screen.get_size())
     sprites = pygame.sprite.Group(game_map._cities + game_map._tracks)
+
     sprites.draw(game_map.image)
     screen.blit(game_map.image, (0, 0))
     pygame.display.flip()
 
     while True:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                return
-            elif event.type == pygame.VIDEORESIZE:
-                screen = pygame.display.set_mode(event.dict['size'], pygame.RESIZABLE)
-                screen.blit(pygame.transform.scale(game_map.image, event.dict['size']), (0, 0))
-                pygame.display.flip()
+        # This will block if there isn't an event.
+        event = pygame.event.wait()
+        if event.type == pygame.QUIT:
+            return
+        elif event.type == pygame.VIDEORESIZE:
+            screen = pygame.display.set_mode(event.dict['size'], pygame.RESIZABLE)
+            screen.blit(pygame.transform.scale(game_map.image, event.dict['size']), (0, 0))
+            pygame.display.flip()
+
+        clock.tick()
+        print clock.get_fps()
+        sprites.draw(game_map.image)
+        pygame.display.flip()
 
 def initialise_pygame():
     """
