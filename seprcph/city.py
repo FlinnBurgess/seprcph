@@ -31,7 +31,15 @@ class City(pygame.sprite.Sprite):
         self.name = name
         self.pos = pos
         self.is_capital = is_capital
-        self.image = image
+
+        # We can't use convert_alpha without a screen being set up, so test
+        # if a screen is set up.
+        try:
+            image = image.convert_alpha()
+        except pygame.error:
+            pass
+        finally:
+            self.image = image
 
     def __repr__(self):
         return "<name: %s, coordinates: %s, is_capital: %r>" \

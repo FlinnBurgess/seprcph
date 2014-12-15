@@ -51,7 +51,15 @@ class Track(pygame.sprite.Sprite):
         self.cities_connected = [start_city, end_city]
         self.gold_generation = gold_generation
         self.cost = cost
-        self.image = image
+
+        # We can't use convert_alpha without a screen being set up, so test
+        # if a screen is set up.
+        try:
+            image = image.convert_alpha()
+        except pygame.error:
+            pass
+        finally:
+            self.image = image
 
         self.pos = ((start_city.pos[0] + end_city.pos[0]) / 2,
                     (start_city.pos[1] + end_city.pos[1]) / 2)
