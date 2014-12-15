@@ -124,6 +124,12 @@ class Config(object):
         else:
             base_path = '~/.config/seprcph/'
 
+        try:
+            os.makedirs(os.path.dirname(base_path))
+        except OSError as err:
+            if err.errno != errno.EEXIST:
+                raise
+
         conf.add_section('general')
         conf.set('general', 'screen_height', '480')
         conf.set('general', 'screen_width', '640')
