@@ -17,6 +17,7 @@ class Goal(object):
     """
     Class that describes the player's goals
     """
+
     def __init__(self, start_city, end_cities, turns, gold_reward, points_reward, player, desc=""):
         """
         Initialise a goal.
@@ -50,14 +51,12 @@ class Goal(object):
         self._start_reached = False
         EventManager.add_listener('train.arrive', self.handle_train_arrive)
 
-
     def __repr__(self):
         return "<start_city: %s, end_cities: %s, turns remaining: %d " \
                "gold_reward: %d, points_reward: %d, assigned player: %s " \
                "description: %s>" \
-            % (str(self.start_city), str(self.end_cities), self.turns, self.gold_reward,
-               self.points_reward, str(self.player), self.desc)
-
+               % (str(self.start_city), str(self.end_cities), self.turns, self.gold_reward,
+                  self.points_reward, str(self.player), self.desc)
 
     def handle_train_arrive(self, ev):
         """
@@ -76,7 +75,7 @@ class Goal(object):
             self.player.gold += self.gold_reward
             self.player.score += self.points_reward
             EventManager.notify_listeners(Event('goal.completed',
-                                                            goal=self))
+                                                goal=self))
 
     def update(self):
         """
