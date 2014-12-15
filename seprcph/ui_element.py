@@ -1,7 +1,20 @@
+"""
+This module contains all classes relating to the user interface.
+
+Name:
+    ui_element
+
+File:
+    seprcph/ui_element.py
+
+Classes:
+    Element
+    Clickable
+"""
 import pygame
 
 """
-This is the superclass for all of out UI elements.
+This is the superclass for all of our UI elements.
 
 Name:
     ui_element
@@ -50,3 +63,7 @@ class Clickable(Element):
         """
         super(Clickable, self).__init__()
         self.callback = callback
+
+    def __repr__(self):
+        return "<size: %s, position: %s, callback function: %s>" \
+               % (self.size, self.pos, self.callback)
