@@ -55,6 +55,7 @@ class Track(pygame.sprite.Sprite):
 
         self.pos = ((start_city.pos[0] + end_city.pos[0]) / 2,
                     (start_city.pos[1] + end_city.pos[1]) / 2)
+        self.image = pygame.transform.scale(self.image, (self._calc_length(start_city.pos, end_city.pos), 4))
         self.image = pygame.transform.rotate(self.image,
                             self._calc_rotation(start_city.pos,
                                                 end_city.pos))
@@ -120,3 +121,15 @@ class Track(pygame.sprite.Sprite):
         xdiff = first_p[0] - second_p[0]
         ydiff = first_p[1] - second_p[1]
         return 360 - math.degrees(math.atan2(xdiff, ydiff))
+
+    def _calc_length(self, first_p, second_p):
+        """
+        Calculate the length between the two points
+
+        Args:
+            first_p: The position tuple of a city.
+            second_p: The position tuple of another city.
+        """
+        xdiff = first_p[0] - second_p[0]
+        ydiff = first_p[1] - second_p[1]
+        return int(math.sqrt(xdiff ** 2 + ydiff ** 2))
