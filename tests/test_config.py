@@ -7,11 +7,9 @@ import platform
 from seprcph.config import Config, IncompleteConfigurationFileError
 
 if platform.system() == 'Windows':
-    path = os.path.join(os.path.expanduser('~'), 'seprcph',
-                        'config.cfg')
+    path = os.path.join(os.getcwd(), 'config.cfg')
 else:
-    path = os.path.join(os.path.expanduser('~'), '.config', 'seprcph',
-                        'config.cfg')
+    path = os.path.join(os.getcwd(), 'config.cfg')
 
 
 class TestConfig(unittest.TestCase):
@@ -26,11 +24,11 @@ class TestConfig(unittest.TestCase):
     def test_default_config(self):
         conf = ConfigParser.RawConfigParser()
         Config.create_default_config(path, conf)
-        Config.load_config()
+        Config.load_config(path)
         self.assertIn('level', Config.logging)
 
     def test_empty_config(self):
-        Config.load_config()
+        Config.load_config(path)
         self.assertIn('level', Config.logging)
 
 class TestDataTypeReplacement(unittest.TestCase):

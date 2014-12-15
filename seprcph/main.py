@@ -14,18 +14,24 @@ Functions:
 
 import logging
 import os.path
+import platform
 import pygame
 from pygame.locals import *
 from seprcph.config import Config
 from seprcph.map import Map
 
 
-
 def main():
     """
     The game loop and glue code.
     """
-    Config.load_config()
+    if platform.system() == 'Windows':
+        Config.load_config(os.path.join(os.path.expanduser('~'), 'seprcph',
+                                                            'config.cfg'))
+    else:
+        Config.load_config(os.path.join(os.path.expanduser('~'), '.config',
+                                                    'seprcph', 'config.cfg'))
+
     logger = setup_file_logger(Config.logging['file'],
                             (Config.logging['format'],
                             Config.logging['date_format']),

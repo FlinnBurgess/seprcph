@@ -12,10 +12,6 @@ class TestMap(unittest.TestCase):
         Config.general['data_dir'] = os.path.join(os.getcwd(), 'data')
         Config.general['image_dir'] = os.path.join(os.getcwd(), 'assets', 'images')
         self.image = pygame.Surface((10, 10))
-        london = City("london", (100, 100), True, self.image)
-        cardiff = City("cardiff", (200, 200), True, self.image)
-        self.cities = [london, cardiff]
-        self.tracks = [Track(london, cardiff, 5, 10, self.image)]
 
     def test_init(self):
         self.map = Map(self.image)

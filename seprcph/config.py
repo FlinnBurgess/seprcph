@@ -26,7 +26,7 @@ class Config(object):
                 % (str(Config.general), str(Config.logging), str(Config.graphics))
 
     @staticmethod
-    def load_config():
+    def load_config(path):
         """
         Read the contents of a predefined configuration file and load it into
         dictionaries.
@@ -34,13 +34,12 @@ class Config(object):
         If a configuration file doesn't exist at the predefined location, a
         new one is created.
 
+        Args:
+            path: The path at which the config file should be read from.
+
         Raises:
             IncompleteConfigurationFileError
         """
-        if platform.system() == 'Windows':
-            path = os.path.join(os.path.expanduser('~'), 'seprcph', 'config.cfg')
-        else:
-            path = os.path.join(os.path.expanduser('~'), '.config', 'seprcph', 'config.cfg')
         conf = ConfigParser.RawConfigParser()
         # Maintain the case of the config file.
         conf.optionxform = str
@@ -120,9 +119,9 @@ class Config(object):
             conf: The ConfigParser object.
         """
         if platform.system() == 'Windows':
-            base_path = '~/seprcph/'
+            base_path = os.path.join(os.path.expanduser('~'), 'seprcph')
         else:
-            base_path = '~/.config/seprcph/'
+            base_path = os.path.join(os.path.expanduser('~'), '.config', 'seprcph')
 
         try:
             os.makedirs(os.path.dirname(base_path))
