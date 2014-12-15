@@ -128,8 +128,8 @@ class Config(object):
 
         conf.add_section('logging')
         conf.set('logging', 'format', '480')
-        conf.set('logging', 'format', '%(asctime)s - %(levelname)s - %(funcName)s ' \
-                '- %(message)s')
+        conf.set('logging', 'format', '%(asctime)s - %(levelname)s - %(funcName)s '
+                                      '- %(message)s')
         conf.set('logging', 'date_format', '%d/%m/%Y %I:%M:%S %p')
         conf.set('logging', 'level', 'DEBUG')
         conf.set('logging', 'file', os.path.join(base_path, 'log.txt'))
