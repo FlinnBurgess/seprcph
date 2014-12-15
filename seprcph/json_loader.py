@@ -1,9 +1,9 @@
 import json
 import os.path
 import pygame
-from config import Config
-from city import City
-from track import Track
+from seprcph.config import Config
+from seprcph.city import City
+from seprcph.track import Track
 
 
 def _objs_from_file(file_path, obj_hook):
@@ -20,7 +20,14 @@ def _objs_from_file(file_path, obj_hook):
     with open(file_path, 'r') as json_file:
         return json.load(json_file, object_hook=obj_hook)
 
+
 def create_cities(file_path):
+    """
+    Creates a list of City objects from a JSON file to be used within the game.
+
+    Args:
+        file_path: The location of the JSON file to be read.
+    """
 
     def _city_hook(kwargs):
         """
@@ -35,9 +42,17 @@ def create_cities(file_path):
 
     return _objs_from_file(file_path, _city_hook)
 
+
 def create_tracks(file_path, cities):
     # Change cities into a dict in the form {city_name: city_obj}
     # so we get the speed of a hashmap when looking up cities by name.
+    """
+    Creates a list of Track objects to be used within the game.
+
+    Args:
+        file_path: The location of the JSON file to be read.
+        cities: A dictionary containing cities to be used as start/end cities.
+    """
     cities = dict(zip([c.name for c in cities], cities))
 
     def _track_hook(kwargs):
