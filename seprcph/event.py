@@ -16,6 +16,9 @@ import logging
 
 
 class CallbackAlreadyRegistered(Exception):
+    """
+    Exception raised if the callback function has already been registered.
+    """
     pass
 
 
@@ -23,6 +26,7 @@ class Event(object):
     """
     Lightweight class that represents a generic event
     """
+
     def __init__(self, topic, desc=None, **kwargs):
         """
         Constructor for Event class
@@ -60,9 +64,9 @@ class EventManager(object):
         EventManager._subscriptions.setdefault(topic, [])
         if callback in EventManager._subscriptions[topic]:
             raise CallbackAlreadyRegistered('Callback %s has already been '
-                            'registered to topic: %s' % (callback, topic))
+                                            'registered to topic: %s' % (callback, topic))
         logging.info("The callback %s been added to the topic %s",
-                            str(callback), topic)
+                     str(callback), topic)
         EventManager._subscriptions[topic].append(callback)
 
     @staticmethod
@@ -76,7 +80,7 @@ class EventManager(object):
         """
         EventManager._subscriptions[topic].remove(callback)
         logging.info("The callback %s been removed to the topic %s",
-                            str(callback), topic)
+                     str(callback), topic)
         if len(EventManager._subscriptions[topic]) == 0:
             del EventManager._subscriptions[topic]
 
@@ -94,6 +98,6 @@ class EventManager(object):
         assert event.topic in EventManager._subscriptions.keys()
 
         logging.info("The topic %s has been notified with %s",
-                        event.topic, str(event))
+                     event.topic, str(event))
         for handler in EventManager._subscriptions[event.topic]:
             handler(event)
