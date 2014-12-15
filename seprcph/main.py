@@ -36,6 +36,8 @@ def main():
 
     game_map = Map(pygame.image.load(os.path.join(Config.general['image_dir'], 'map.png')))
     game_map.image = pygame.transform.scale(game_map.image, screen.get_size())
+    sprites = pygame.sprite.Group(game_map._cities + game_map._tracks)
+    sprites.draw(game_map.image)
     screen.blit(game_map.image, (0, 0))
     pygame.display.flip()
 
@@ -47,7 +49,6 @@ def main():
                 screen = pygame.display.set_mode(event.dict['size'], pygame.RESIZABLE)
                 screen.blit(pygame.transform.scale(game_map.image, event.dict['size']), (0, 0))
                 pygame.display.flip()
-
 
 def initialise_pygame():
     """
