@@ -19,14 +19,15 @@ class Train(Renderable):
     """
     Class representing train objects in the game
     """
-    def __init__(self, buffs, debuffs, speed, capacity, city, image):
+    def __init__(self, buffs, debuffs, speed, capacity, city, current_load, image):
         """
         Args:
-            buffs: list of buffs currently affecting the train
-            debuffs: list of debuffs currently affecting the train
-            speed: the speed of the train
-            capacity: the capacity of the train
-            city: the city the train is created at
+            buffs: List of buffs currently affecting the train
+            debuffs: List of debuffs currently affecting the train
+            speed: The speed of the train
+            capacity: The capacity of the train
+            city: The city the train is created at
+            current_load: The amount of cargo the train is carrying
             image: The pygame surface associated with this train
         """
         super(Train, self).__init__(city.pos, image)
@@ -34,6 +35,7 @@ class Train(Renderable):
         self.debuffs = debuffs
         self.speed = speed
         self.capacity = capacity
+        self.current_load = current_load
         self.city = city
 
         #The following are for dealing with train movement
