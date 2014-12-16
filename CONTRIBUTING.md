@@ -5,13 +5,15 @@ people randomly throwing code into the repo.
 
 ## Getting Started
 
-Clone the repository:
-
-    git clone https://github.com/HarveyHunt/seprcph.git
+Make a fork of this repository and clone it to your computer.
   
-Change to the develop branch:
+Make a new feature branch based off of the develop branch (git-flow is your friend).
 
-    git checkout develop
+Feature branches should have a lowercase name and be of the form:
+
+```
+feature/awesome_stuff
+```
   
 Hack away until your heart is content.
 
@@ -52,6 +54,8 @@ If you're feeling especially kind and in a Python mood, try to add some unit tes
 Once you have made some cool changes, push to github and send a PR.
 
 Make sure that the PR is targeted at the develop branch, we want to keep master "clean" and only push to it at the end of a sprint.
+
+**Include a link to the Jenkins build associated with your PR.**
 
 ## Merging PRs
 
