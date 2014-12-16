@@ -1,9 +1,18 @@
 [
     {
         "start_city": "London",
-        "end_city": "Cardiff",
+        "end_city": "Birmingham",
         "gold_generation": 10,
         "cost": 3,
         "image": "track.png"
+    }
+    {
+        "start_city": "London",
+        "end_city": "Edinburgh",
+        "gold_generation": 20,
+        "image": "track.png"
+    }
+    {
+        "st
     }
 ]

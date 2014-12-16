@@ -1,12 +1,272 @@
 [
     {"name": "London",
-        "pos": [100, 100],
+        "pos": [510, 1138],
         "is_capital": true,
         "image": "city.png"
     },
-    {"name": "Cardiff",
-        "pos": [200, 200],
+    {"name": "Birmingham",
+        "pos": [478, 1070],
+        "is_capital": false,
+        "image": "city.png"
+    }
+    {"name": "Edinburgh",
+        "pos": [495, 881],
         "is_capital": true,
+        "image": "city.png"
+    }
+    {"name": "Paris",
+        "pos": [585, 1298],
+        "is_capital": true,
+        "image": "city.png"
+    }
+    {"name": "Marseille",
+        "pos": [654, 1632],
+        "is_capital": false,
+        "image": "city.png"
+    }
+    {"name": "Toulouse",
+        "pos": [493, 1600],
+        "is_capital": false,
+        "image": "city.png"
+    }
+    {"name": "Rome",
+        "pos": [960, 1728],
+        "is_capital": true,
+        "image": "city.png"
+    }
+    {"name": "Venice",
+        "pos": [951, 1536],
+        "is_capital": false,
+        "image": "city.png"
+    }
+    {"name": "Milan",
+        "pos": [829, 1536],
+        "is_capital": false,
+        "image": "city.png"
+    }
+    {"name": "Berlin",
+        "pos": [977, 1152],
+        "is_capital": true,
+        "image": "city.png"
+    }
+    {"name": "Munich",
+        "pos": [942, 1383],
+        "is_capital": false,
+        "image": "city.png"
+    }
+    {"name": "Hamburg",
+        "pos": [885, 1086],
+        "is_capital": false,
+        "image": "city.png"
+    }
+    {"name": "Frankfurt",
+        "pos": [829, 1265],
+        "is_capital": false,
+        "image": "city.png"
+    }
+    {"name": "Brussels",
+        "pos": [689, 1217],
+        "is_capital": true,
+        "image": "city.png"
+    }
+    {"name": "Utrecht",
+        "pos": [728, 1138],
+        "is_capital": false,
+        "image": "city.png"
+    }
+    {"name": "Copenhagen",
+        "pos": [971, 979],
+        "is_capital": true,
+        "image": "city.png"
+    }
+    {"name": "Aalborg",
+        "pos": [895, 884],
+        "is_capital": false,
+        "image": "city.png"
+    }
+    {"name": "Geneva",
+        "pos": [724, 1462],
+        "is_capital": false,
+        "image": "city.png"
+    }
+    {"name": "Oslo",
+        "pos": [931, 734],
+        "is_capital": true,
+        "image": "city.png"
+    }
+    {"name": "Bergen",
+        "pos": [795, 688],
+        "is_capital": false,
+        "image": "city.png"
+    }
+    {"name": "Vienna",
+        "pos": [1102, 1387],
+        "is_capital": true,
+        "image": "city.png"
+    }
+    {"name": "Prague",
+        "pos": [1031, 1280],
+        "is_capital": true,
+        "image": "city.png"
+    }
+    {"name": "Helsinki",
+        "pos": [1359, 677],
+        "is_capital": true,
+        "image": "city.png"
+    }
+    {"name": "Lisbon",
+        "pos": [14, 1758],
+        "is_capital": true,
+        "image": "city.png"
+    }
+    {"name": "Madrid",
+        "pos": [240, 1770],
+        "is_capital": true,
+        "image": "city.png"
+    }
+    {"name": "Seville",
+        "pos": [128, 1869],
+        "is_capital": false,
+        "image": "city.png"
+    }
+    {"name": "Barcelona",
+        "pos": [524, 1726],
+        "is_capital": false,
+        "image": "city.png"
+    }
+    {"name": "Stockholm",
+        "pos": [1138, 763],
+        "is_capital": true,
+        "image": "city.png"
+    }
+    {"name": "Gothenburg",
+        "pos": [970, 849],
+        "is_capital": false,
+        "image": "city.png"
+    }
+    {"name": "Zagreb",
+        "pos": [1102, 1527],
+        "is_capital": true,
+        "image": "city.png"
+    }
+    {"name": "Warsaw",
+        "pos": [1263, 1145],
+        "is_capital": true,
+        "image": "city.png"
+    }
+    {"name": "Wroclaw",
+        "pos": [1131, 1216],
+        "is_capital": false,
+        "image": "city.png"
+    }
+    {"name": "Gdansk",
+        "pos": [1170, 1034],
+        "is_capital": false,
+        "image": "city.png"
+    }
+    {"name": "Luxembourg City",
+        "pos": [731, 1273],
+        "is_capital": true,
+        "image": "city.png"
+    }
+    {"name": "Vaduz",
+        "pos": [863, 1441],
+        "is_capital": true,
+        "image": "city.png"
+    }
+    {"name": "Kosice",
+        "pos": [1295, 1345],
+        "is_capital": false,
+        "image": "city.png"
+    }
+    {"name": "Budapest",
+        "pos": [1216, 1423],
+        "is_capital": true,
+        "image": "city.png"
+    }
+    {"name": "Riga",
+        "pos": [1334, 870],
+        "is_capital": true,
+        "image": "city.png"
+    }
+    {"name": "Daugavpils",
+        "pos": [1427, 906],
+        "is_capital": false,
+        "image": "city.png"
+    }
+    {"name": "Tirane",
+        "pos": [1266, 1773],
+        "is_capital": true,
+        "image": "city.png"
+    }
+    {"name": "Athens",
+        "pos": [1452, 1944],
+        "is_capital": true,
+        "image": "city.png"
+    }
+    {"name": "Thessaloniki",
+        "pos": [1402, 1805],
+        "is_capital": false,
+        "image": "city.png"
+    }
+    {"name": "Sofia",
+        "pos": [1420, 1680],
+        "is_capital": true,
+        "image": "city.png"
+    }
+    {"name": "Bucharest",
+        "pos": [1502, 1562],
+        "is_capital": true,
+        "image": "city.png"
+    }
+    {"name": "Cluj-Napoca",
+        "pos": [1395, 1455],
+        "is_capital": false,
+        "image": "city.png"
+    }
+    {"name": "Kiev",
+        "pos": [1600, 1205],
+        "is_capital": true,
+        "image": "city.png"
+    }
+    {"name": "Kharkiv",
+        "pos": [1808, 1180],
+        "is_capital": false,
+        "image": "city.png"
+    }
+    {"name": "Odessa",
+        "pos": [1673, 1409],
+        "is_capital": false,
+        "image": "city.png"
+    }
+    {"name": "Minsk",
+        "pos": [1487, 1038],
+        "is_capital": true,
+        "image": "city.png"
+    }
+    {"name": "Tallinn",
+        "pos": [1348, 724],
+        "is_capital": true,
+        "image": "city.png"
+    }
+    {"name": "Vilnius",
+        "pos": [1384, 995],
+        "is_capital": true,
+        "image": "city.png"
+    }
+    {"name": "Moscow",
+        "pos": [1812, 874],
+        "is_capital": true,
+        "image": "city.png"
+    }
+    {"name": "St. Petersburg",
+        "pos": [1480, 670],
+        "is_capital": false,
+        "image": "city.png"
+    }
+    {"name": "Voronezh",
+        "pos": [1944, 1081],
+        "is_capital": false,
         "image": "city.png"
     }
 ]
