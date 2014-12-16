@@ -109,3 +109,9 @@ class Container(Element):
     def __repr__(self):
         return "<size: %s, position: %s, elements: %s>" \
                % (self.size, self.pos, self.elements)
+
+    def add(self, elem):
+        self.elements.append(elem)
+
+    def remove(self, elem):
+        self.elements.remove(elem)
