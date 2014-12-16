@@ -1,14 +1,10 @@
-__author__ = 'Ethan'
-
 import unittest
-
 import pygame
-
 from seprcph.city import City
 
 class TestCityArgs(unittest.TestCase):
 
-    def setup(self):
+    def setUp(self):
         self.image = pygame.Surface((10, 10))
         self.c1 = City("London", (50, 50), True, self.image)
         self.c2 = City("Paris", (120, 30), True, self.image)
