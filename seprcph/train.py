@@ -19,11 +19,10 @@ class Train(Renderable):
     """
     Class representing train objects in the game
     """
-    def __init__(self, buffs, debuffs, speed, capacity, city, current_load, image):
+    def __init__(self, effects, speed, capacity, city, current_load, image):
         """
         Args:
-            buffs: List of buffs currently affecting the train
-            debuffs: List of debuffs currently affecting the train
+            effects: A list of buffs and debuffs
             speed: The speed of the train
             capacity: The capacity of the train
             city: The city the train is created at
@@ -31,8 +30,7 @@ class Train(Renderable):
             image: The pygame surface associated with this train
         """
         super(Train, self).__init__(city.pos, image)
-        self.buffs = buffs
-        self.debuffs = debuffs
+        self.effects = effects
         self.speed = speed
         self.capacity = capacity
         self.current_load = current_load
@@ -44,13 +42,14 @@ class Train(Renderable):
         self.distance = None
         self.counter = 0
 
+        EventManager.add_listener('goal.completed', self.unload)
+        EventManager.add_listener('goal.started', self.load)
+
     ## TODO apply_effects NEEDS REWORKING - this is a placeholder and does not
     ## TODO fit with the way the cards and decks currently work.
     def apply_effects(self):
-        for effect in self.buffs:
-            effect.apply()
-        for effect in self.debuffs:
-            effect.apply()
+        for effect in self.effects:
+            effect()
 
     def depart(self, track):
         """
@@ -97,3 +96,20 @@ class Train(Renderable):
         else:
             self.pos[0] += move_distance[0]
             self.pos[1] += move_distance[1]
+
+    def unload(self, event):
+        """
+        The handler for when a goal is completed.
+        """
+        if self.city not in event.data['goal'].end_cities:
+            return
+        self.current_load = 0
+
+    def load(self, event):
+        """
+        The handler for when a goal is started.
+        """
+        if self.city != event.data['goal'].start_city:
+            return
+        # Just fill the train up completely.
+        self.current_load = self.capacity
