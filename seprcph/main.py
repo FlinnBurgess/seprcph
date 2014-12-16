@@ -39,6 +39,7 @@ def main():
 
     screen, clock = initialise_pygame()
     FPS = Config.graphics['fps']
+    font = pygame.font.SysFont("Arial", 16)
 
     game_map = Map(pygame.image.load(os.path.join(Config.general['image_dir'], 'map.png')))
     game_map.image = pygame.transform.scale(game_map.image, screen.get_size())
@@ -59,7 +60,7 @@ def main():
             pygame.display.flip()
 
         clock.tick(FPS)
-        print clock.get_fps()
+        font.render("FPS: " + clock.get_fps(), 1, pygame.Color("white"), (0, 0))
         sprites.draw(game_map.image)
         pygame.display.flip()
 
