@@ -51,6 +51,8 @@ class Track(pygame.sprite.Sprite):
         self.cities_connected = [start_city, end_city]
         self.gold_generation = gold_generation
         self.cost = cost
+        self.rotation = self._calc_rotation(start_city.pos, end_city.pos)
+        self.length = self._calc_length(start_city.pos, end_city.pos)
 
         # We can't use convert_alpha without a screen being set up, so test
         # if a screen is set up.
@@ -63,10 +65,9 @@ class Track(pygame.sprite.Sprite):
 
         self.pos = ((start_city.pos[0] + end_city.pos[0]) / 2,
                     (start_city.pos[1] + end_city.pos[1]) / 2)
-        self.image = pygame.transform.scale(self.image, (self._calc_length(start_city.pos, end_city.pos), 4))
+        self.image = pygame.transform.scale(self.image, (self.length, 4))
         self.image = pygame.transform.rotate(self.image,
-                            self._calc_rotation(start_city.pos,
-                                                end_city.pos))
+                            self.rotation)
         self.is_locked = True
         self.owner = None
 
