@@ -14,6 +14,7 @@ Classes:
 
 import math
 import pygame
+from seprcph.renderable import Renderable
 
 
 class TrackOwnedError(Exception):
@@ -30,7 +31,7 @@ class NotEnoughGoldError(Exception):
     pass
 
 
-class Track(pygame.sprite.Sprite):
+class Track(Renderable):
     """
     Track class that manages the data held within each track and lets the
     player interact with the tracks.
@@ -47,7 +48,8 @@ class Track(pygame.sprite.Sprite):
             cost: The cost of unlocking the track.
             image: The pygame surface associated with this track.
         """
-        super(Track, self).__init__()
+        super(Track, self).__init__(((start_city.pos[0] + end_city.pos[0]) /2,
+                                    (start_city.pos[1] + end_city.pos[1]) / 2)), image
         self.cities_connected = [start_city, end_city]
         self.gold_generation = gold_generation
         self.cost = cost
@@ -72,8 +74,6 @@ class Track(pygame.sprite.Sprite):
 
         self.image = final_image
 
-        self.pos = ((start_city.pos[0] + end_city.pos[0]) / 2,
-                    (start_city.pos[1] + end_city.pos[1]) / 2)
         self.image = pygame.transform.rotate(self.image,
                             self.rotation)
         self.is_locked = True
@@ -90,19 +90,7 @@ class Track(pygame.sprite.Sprite):
         """
         Tells the game how to maintain tracks on each refresh
         """
-
         self.owner.gold += self.gold_generation
-
-    @property
-    def rect(self):
-        """
-        Calculate the rect based upon the image size and
-        object's position.
-        """
-        rect = self.image.get_rect()
-        rect.centerx = self.pos[0]
-        rect.centery = self.pos[1]
-        return rect
 
     def unlock_track(self, player):
         """

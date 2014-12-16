@@ -3,9 +3,8 @@ import pygame
 
 class Renderable(pygame.sprite.Sprite):
 
-    def __init__(self, image, pos):
+    def __init__(self, pos, image):
         super(Renderable, self).__init__()
-
         # We can't use convert_alpha without a screen being set up, so test
         # if a screen is set up.
         try:

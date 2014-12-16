@@ -13,13 +13,13 @@ Classes:
 import pygame
 import math
 from seprcph.event import Event, EventManager
+from seprcph.renderable import Renderable
 
-class Train(pygame.sprite.Sprite):
+class Train(Renderable):
     """
     Class representing train objects in the game
     """
-
-    def __init__(self, buffs, debuffs, speed, capacity, city):
+    def __init__(self, buffs, debuffs, speed, capacity, city, image):
         """
         Args:
             buffs: list of buffs currently affecting the train
@@ -27,8 +27,9 @@ class Train(pygame.sprite.Sprite):
             speed: the speed of the train
             capacity: the capacity of the train
             city: the city the train is created at
+            image: The pygame surface associated with this train
         """
-        super(Train, self).__init__()
+        super(Train, self).__init__(city.pos, image)
         self.buffs = buffs
         self.debuffs = debuffs
         self.speed = speed
@@ -39,7 +40,6 @@ class Train(pygame.sprite.Sprite):
         self.track = None
         self.rotation = None
         self.distance = None
-        self.pos = None
         self.counter = 0
 
     ## TODO apply_effects NEEDS REWORKING - this is a placeholder and does not
@@ -75,10 +75,11 @@ class Train(pygame.sprite.Sprite):
         """
         self.city = city
         self.track = None
-        self.rotation = None
-        self.distance = None
-        self.pos = None
+        self.rotation = 0
+        self.distance = 0
 
+        # TODO: This needs changing to dot notation and the city's object needs
+        # attaching.
         e = Event('train_arrival')
         EventManager.notify_listeners(e)
 
