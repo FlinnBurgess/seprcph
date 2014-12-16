@@ -65,13 +65,13 @@ class Goal(object):
 
         Args:
             ev: The event that is passed to the EventManager. We expect this
-            to contain a 'city' section within its data.
+            to contain a 'city' attribute.
         """
-        assert 'city' in ev.data
+        assert hasattr(ev, 'city')
 
-        if ev.data['city'] == self.start_city:
+        if ev.city == self.start_city:
             self._start_reached = True
-        elif ev.data['city'] in self.end_cities and self._start_reached:
+        elif ev.city in self.end_cities and self._start_reached:
             self.player.gold += self.gold_reward
             self.player.score += self.points_reward
             EventManager.notify_listeners(Event('goal.completed',

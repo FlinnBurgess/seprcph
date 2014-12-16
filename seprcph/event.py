@@ -38,10 +38,10 @@ class Event(object):
         """
         self.topic = topic
         self.desc = desc
-        self.data = kwargs
+        self.__dict__.update(kwargs)
 
     def __repr__(self):
-        return "%s | %s : %s" % (self.topic, self.desc, str(self.data))
+        return "%s | %s : %s" % (self.topic, self.desc, str(self.__dict__))
 
 
 class EventManager(object):
