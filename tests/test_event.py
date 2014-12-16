@@ -48,6 +48,3 @@ class TestEventManager(unittest.TestCase):
         before = len(EventManager._subscriptions)
         EventManager.remove_listener('foo', _func)
         self.assertEqual(len(EventManager._subscriptions), before - 1)
-
-if __name__ == '__main__':
-    unittest.main()

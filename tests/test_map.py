@@ -1,16 +1,34 @@
 import unittest
 import os
 import pygame
+import platform
+import errno
 from seprcph.map import Map
 from seprcph.track import Track
 from seprcph.city import City
 from seprcph.config import Config
 
+if platform.system() == 'Windows':
+    path = os.path.join(os.getcwd(), 'config.cfg')
+else:
+    path = os.path.join(os.getcwd(), 'config.cfg')
+
+def setUpModule():
+    Config.load_config(path)
+    Config.general['data_dir'] = os.path.join(os.getcwd(), 'data')
+    Config.general['image_dir'] = os.path.join(os.getcwd(), 'assets', 'images')
+
+def tearDownModule():
+    try:
+        os.remove(path)
+    except OSError as err:
+        if err.errno != errno.ENOENT:
+            raise
+
+
 class TestMap(unittest.TestCase):
 
     def setUp(self):
-        Config.general['data_dir'] = os.path.join(os.getcwd(), 'data')
-        Config.general['image_dir'] = os.path.join(os.getcwd(), 'assets', 'images')
         self.image = pygame.Surface((10, 10))
 
     def test_init(self):

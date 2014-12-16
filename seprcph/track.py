@@ -40,9 +40,9 @@ class Track(Renderable):
         """
         Args:
             start_city: One of the two cities that will be placed inside the
-                        cities_connected set.
+                        cities set.
             end_city: The second of two cities that will be placed inside the
-                      cities_connected set.
+                      cities set.
             gold_generation: The amount of gold generated per turn by the track
                              for the player.
             cost: The cost of unlocking the track.
@@ -50,7 +50,7 @@ class Track(Renderable):
         """
         super(Track, self).__init__(((start_city.pos[0] + end_city.pos[0]) /2,
                                     (start_city.pos[1] + end_city.pos[1]) / 2), image)
-        self.cities_connected = [start_city, end_city]
+        self.cities = (start_city, end_city)
         self.gold_generation = gold_generation
         self.cost = cost
         self.rotation = self._calc_rotation(start_city.pos, end_city.pos)
@@ -83,8 +83,8 @@ class Track(Renderable):
 
     def __repr__(self):
         return "<connects: %s, %s, gold-gen: %d, cost: %d>" \
-               % (str(self.cities_connected[0]),
-                  str(self.cities_connected[1]),
+               % (str(self.cities[0]),
+                  str(self.cities[1]),
                   self.gold_generation,
                   self.cost)
 

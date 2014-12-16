@@ -8,15 +8,15 @@ class TestCreateTrain(unittest.TestCase):
 
     def test_no_image_train(self):
         image = pygame.Surface((10,10))
-        self.assertRaises(AttributeError, Train, [], [], 2, 1, City('London', (12,13), True, image), None)
+        self.assertRaises(AttributeError, Train, [], 2, 1, City('London', (12,13), True, image), 0, None)
 
     def test_negative_speed(self):
         image = pygame.Surface((10,10))
-        self.assertRaises(AssertionError, Train, [], [], -1, 1, City('London', (12,13), True, image), image)
+        self.assertRaises(AssertionError, Train, [], -1, 1, City('London', (12,13), True, image), 0, image)
 
     def test_negative_capacity(self):
         image = pygame.Surface((10,10))
-        self.assertRaises(AssertionError, Train, [], [], 2, -1, City('London', (12,13), True, image), image)
+        self.assertRaises(AssertionError, Train, [], 2, -1, City('London', (12,13), True, image), 0, image)
 
 class TestDepart(unittest.TestCase):
 
@@ -24,7 +24,7 @@ class TestDepart(unittest.TestCase):
         image = pygame.Surface((10,10))
         self.city1 = City('London', (12,13), True, image)
         self.city2 = City('York', (15,13), False, image)
-        self.train = Train([], [], 2, 1, self.city1, image)
+        self.train = Train([], 2, 1, self.city1, 0, image)
         self.test_track = Track(self.city1, self.city2, 1, 5, image)
 
     def test_speed_not_zero(self):

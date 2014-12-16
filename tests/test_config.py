@@ -56,6 +56,3 @@ class TestDataTypeReplacement(unittest.TestCase):
         for level, value in {'NONE': 0, 'NULL': 0, 'DEBUG': 10, 'INFO': 20,
                         'WARNING': 30, 'ERROR': 40, 'CRITICAL': 50}.items():
             self.assertEqual(Config._replace_data_types({'': level})[''], value)
-
-if __name__ == '__main__':
-    unittest.main()
