@@ -6,7 +6,7 @@ import pygame
 
 from seprcph.city import City
 
-class TestCity (unittest.TestCase):
+class TestCityArgs (unittest.TestCase):
 
     def setup(self):
         self.image = pygame.Surface((10, 10))
@@ -21,3 +21,11 @@ class TestCity (unittest.TestCase):
 
     def test_dif_names(self):
         self.assertNotEqual(self.c1.name, self.c2.name)
+
+class TestCityRect (unittest.TestCase):
+
+    def setup(self):
+        self.image = pygame.Surface((10, 10))
+        self.c = City("London", (50, 50), True, self.image)
+        self.assertEqual(self.c.pos[0], self.c.rect.centerx)
+        self.assertEqual(self.c.pos[1], self.c.rect.centery)
