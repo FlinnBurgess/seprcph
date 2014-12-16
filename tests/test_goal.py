@@ -23,7 +23,7 @@ class TestCompleteGoal(unittest.TestCase):
         image = pygame.Surface((10, 10))
         self.start_city = City('London', (100, 100), False, image)
         self.end_city = [City('Berlin', (100, 50), False, image)]
-        self.player = Player(0, 0, None, None)
+        self.player = Player(0, 0, None)
         self.goal = Goal(self.start_city, self.end_city, 4, 100, 100, self.player)
 
     def test_arrive_at_start_city(self):

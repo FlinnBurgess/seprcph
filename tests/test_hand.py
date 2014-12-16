@@ -1,6 +1,8 @@
 import unittest, random
 
-from seprcph.deck import Deck 
+import pygame
+
+from seprcph.deck import Deck
 from seprcph.hand import Hand
 from seprcph.card import Card
 from seprcph.event import EventManager
@@ -13,11 +15,12 @@ def _func(_):
 class TestHandMethods(unittest.TestCase):
 
     def setUp(self):
-        self.card1 = Card("card1", None, None, None, None)
-        self.card2 = Card("card2", None, None, None, None)
-        self.card3 = Card("card3", None, None, None, None)
-        self.card4 = Card("card4", None, None, None, None)
-        self.card5 = Card("card5", None, None, _func, None)
+        image = pygame.Surface((10, 10))
+        self.card1 = Card("card1", None, None, None, image)
+        self.card2 = Card("card2", None, None, None, image)
+        self.card3 = Card("card3", None, None, None, image)
+        self.card4 = Card("card4", None, None, None, image)
+        self.card5 = Card("card5", None, None, _func, image)
         self.deck = Deck(None, [self.card1, self.card2, self.card3,
                                 self.card4], None)
         self.hand = Hand([self.card5], self.deck)
@@ -29,8 +32,12 @@ class TestHandMethods(unittest.TestCase):
     def test_discard(self):
         self.hand.discard(0)
         self.assertEqual(self.hand.deck.discard, [self.card5])
+<<<<<<< HEAD
         self.assertEqual(self.hand.cards, [self.card4, self.card3])
         
+=======
+
+>>>>>>> 0248fe35b40b939884862d79b3063ecc4c0b706e
     def test_play(self):
         EventManager.add_listener('card.triggered', _func)
         self.hand.play(0)

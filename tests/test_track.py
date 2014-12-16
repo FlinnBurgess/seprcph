@@ -9,7 +9,7 @@ from seprcph.city import City
 class TestUnlockTrack(unittest.TestCase):
 
     def setUp(self):
-        self.p = Player(50, 1, None, None)
+        self.p = Player(50, 1, None)
         self.image = pygame.Surface((10, 10))
         self.c1 = City("London", (50, 50), True, self.image)
         self.c2 = City("Birmingham", (50, 50), False, self.image)

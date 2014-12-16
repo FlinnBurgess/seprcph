@@ -16,19 +16,20 @@ class Player(object):
     """
     Player class that represents each player.
     """
-    def __init__(self, gold, score, deck, hand):
+    def __init__(self, gold, score, deck):
         """
         Args:
             gold: The amount of gold in the player's bank
             score: The player's current score
             deck: The player's deck
-            hand: The cards currently available for the player to use
         """
 
         self.gold = gold
         self.score = score
         self.deck = deck
-        self.hand = hand
+        self.hand = []
+        for _ in xrange(2):
+            self.hand.append(self.deck.pop())
 
     def __repr__(self):
         return "<Player gold: %d, player points: %d>" % (self.gold, self.score)

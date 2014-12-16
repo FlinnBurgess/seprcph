@@ -10,6 +10,7 @@ File:
 Classes:
     Card
 """
+from seprcph.config import Config
 from seprcph.event import Event, EventManager
 
 
@@ -17,25 +18,30 @@ class Card(object):
     """
     Class describing the buff/debuff cards
     """
-
-    def __init__(self, name, id, description, effect, image):
+    def __init__(self, name, description, type, effect, image):
         """
         Args:
             name: The name of the Card
-            id: A unique identifier
             description: A description of the effect
+            type: The type of the card
             effect: An effect callback
             image: The image file to be displayed with the card in the GUI
         """
         self.name = name
-        self.id = id
         self.desc = description
         self.effect = effect
-        self.image = image
+
+        # We can't use convert_alpha without a screen being set up, so test
+        # if a screen is set up.
+        try:
+            image = image.convert_alpha()
+        except pygame.error:
+            pass
+        finally:
+            self.image = image
 
     def __repr__(self):
-        return "<name: %s, ID: %d, description: %s>" \
-               % (self.name, self.id, self.desc)
+        return "<name: %s, description: %s>" % (self.name, self.desc)
 
     def trigger(self):
         """

@@ -59,7 +59,6 @@ def main():
             pygame.display.flip()
 
         clock.tick(FPS)
-        print clock.get_fps()
         sprites.draw(game_map.image)
         pygame.display.flip()
 
