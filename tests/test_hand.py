@@ -29,6 +29,7 @@ class TestHandMethods(unittest.TestCase):
     def test_discard(self):
         self.hand.discard(0)
         self.assertEqual(self.hand.deck.discard, [self.card5])
+        self.assertEqual(self.hand.cards, [self.card4, self.card3])
         
     def test_play(self):
         EventManager.add_listener('card.triggered', _func)
