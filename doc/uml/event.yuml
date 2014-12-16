@@ -1,0 +1,2 @@
+[EventManager|listeners: dict;|attach_listener(listener&#8218; topic); remove_listener(listener); send_event(event)|__init__();]
+[Event|topic: string; data: list; description: string|__init__(topic: string&#8218; data: list&#8218; description: string);]
