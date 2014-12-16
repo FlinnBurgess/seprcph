@@ -91,33 +91,20 @@ class Label(Element):
                % (self.size, self.pos, self.text)
 
 
-class Container(Element):
+class Container(pygame.sprite.Group):
     """
     A container class which will contain other UI elements
     """
 
-    def __init__(self, size, position, elements):
+    def __init__(self):
         """
         Args:
             size: a tuple containing the height and width of the UI element
             position: a tuple containing the coordinates of the UI element
             elements: a list of UI elements contained within the container
         """
-        super(Container, self).__init__(size, position)
-        self.elements = elements
+        super(Container, self).__init__()
 
     def __repr__(self):
         return "<size: %s, position: %s, elements: %s>" \
                % (self.size, self.pos, self.elements)
-
-    def add(self, elem):
-        """
-        Adds an Element object to the end of the self.elements list
-        """
-        self.elements.append(elem)
-
-    def remove(self, elem):
-        """
-        Removes the first occurrence of elem from the self.elements list
-        """
-        self.elements.remove(elem)
