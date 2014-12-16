@@ -1,3 +1,13 @@
+"""
+A collection of functions that create classes based upon JSON.
+
+Name:
+    json_loader
+
+Files:
+    seprcph/train.py
+"""
+
 import json
 import os.path
 import pygame
@@ -68,7 +78,8 @@ def create_tracks(file_path, cities):
         kwargs['end_city'] = cities[kwargs['end_city']]
         return Track(**kwargs)
 
-    return  _objs_from_file(file_path, _track_hook)
+    return _objs_from_file(file_path, _track_hook)
+
 
 def create_cards(file_path):
     """

@@ -10,10 +10,10 @@ Files:
 Classes:
     Train
 """
-import pygame
 import math
 from seprcph.event import Event, EventManager
 from seprcph.renderable import Renderable
+
 
 class Train(Renderable):
     """
@@ -46,8 +46,11 @@ class Train(Renderable):
         EventManager.add_listener('goal.started', self.load)
 
     ## TODO apply_effects NEEDS REWORKING - this is a placeholder and does not
-    ## TODO fit with the way the cards and decks currently work.
+    ## fit with the way the cards and decks currently work.
     def apply_effects(self):
+        """
+        Apply the effects to this train.
+        """
         for effect in self.effects:
             effect()
 
