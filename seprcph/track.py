@@ -63,9 +63,17 @@ class Track(pygame.sprite.Sprite):
         finally:
             self.image = image
 
+        final_image = pygame.Surface((self.image.get_rect()[3], self.length),
+                                        flags=pygame.SRCALPHA)
+
+        # Make one large image out of smaller tiles.
+        for height in xrange(0, self.length, self.image.get_rect()[2]):
+            final_image.blit(self.image, (0, height))
+
+        self.image = final_image
+
         self.pos = ((start_city.pos[0] + end_city.pos[0]) / 2,
                     (start_city.pos[1] + end_city.pos[1]) / 2)
-        self.image = pygame.transform.scale(self.image, (self.length, 4))
         self.image = pygame.transform.rotate(self.image,
                             self.rotation)
         self.is_locked = True
@@ -129,7 +137,7 @@ class Track(pygame.sprite.Sprite):
         """
         xdiff = first_p[0] - second_p[0]
         ydiff = first_p[1] - second_p[1]
-        return 360 - math.degrees(math.atan2(xdiff, ydiff))
+        return math.degrees(math.atan2(xdiff, ydiff))
 
     def _calc_length(self, first_p, second_p):
         """
