@@ -55,6 +55,8 @@ class Track(Renderable):
         self.cost = cost
         self.rotation = self._calc_rotation(start_city.pos, end_city.pos)
         self.length = self._calc_length(start_city.pos, end_city.pos)
+        self.start_city = start_city
+        self.end_city = end_city
 
         # We can't use convert_alpha without a screen being set up, so test
         # if a screen is set up.

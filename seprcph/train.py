@@ -36,6 +36,10 @@ class Train(Renderable):
         self.capacity = capacity
         self.city = city
 
+        assert speed >= 0
+        assert capacity >= 0
+
+
         #The following are for dealing with train movement
         self.track = None
         self.rotation = None
@@ -59,8 +63,8 @@ class Train(Renderable):
         """
         assert track.start_city == self.city
         self.track = track
-        self.rotation = track.rotation()
-        self.distance = track.length()
+        self.rotation = track.rotation
+        self.distance = track.length
         self.pos = self.city.pos
 
         e = Event('train_departure')
