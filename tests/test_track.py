@@ -5,11 +5,16 @@ import pygame
 from seprcph.track import Track, NotEnoughGoldError, TrackOwnedError
 from seprcph.player import Player
 from seprcph.city import City
+from seprcph.deck import Deck
+from seprcph.hand import Hand
+from seprcph.card import Card
 
 class TestUnlockTrack(unittest.TestCase):
 
     def setUp(self):
-        self.p = Player(50, 1, None)
+        image = pygame.Surface((10, 10))
+        d = Deck(None, [Card('card1', None, None, None, image), Card('card2', None, None, None, image)], None)
+        self.p = Player(50, 1, d)
         self.image = pygame.Surface((10, 10))
         self.c1 = City("London", (50, 50), True, self.image)
         self.c2 = City("Birmingham", (50, 50), False, self.image)
