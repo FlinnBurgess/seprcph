@@ -11,3 +11,7 @@ class TestRect(unittest.TestCase):
     def test_rect_calc(self):
         self.assertEqual(self.render.pos[0], self.render.rect.centerx)
         self.assertEqual(self.render.pos[1], self.render.rect.centery)
+
+    def test_rect_size(self):
+        self.assertEqual(self.render.rect[2:],
+                            self.render.image.get_rect()[2:])
