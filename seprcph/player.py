@@ -23,13 +23,12 @@ class Player(object):
             score: The player's current score
             deck: The player's deck
         """
+        assert deck != None
 
         self.gold = gold
         self.score = score
         self.deck = deck
         self.hand = []
-        for _ in xrange(2):
-            self.hand.append(self.deck.pop())
 
     def __repr__(self):
         return "<Player gold: %d, player points: %d>" % (self.gold, self.score)
