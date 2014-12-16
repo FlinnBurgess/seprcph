@@ -11,6 +11,7 @@ Classes:
     Card
 """
 import os.path
+import random
 from seprcph.config import Config
 from seprcph.event import Event, EventManager
 from seprcph.json_loader import create_cards
@@ -48,7 +49,7 @@ class Card(object):
 
 class CardFactory(object):
 
-    class UnknownBias(Exception):
+    class UnknownBiasError(Exception):
         """
         Raised when a bias isn't known.
         """
@@ -65,4 +66,21 @@ class CardFactory(object):
         self.events = [x for x in cards if x.type is 'Events']
 
     def create_cards(self, count, bias):
-        pass
+        if bias not in self.BIASES:
+            raise self.UnknownBiasError("Bias %s is unknown" % bias)
+
+        cards = []
+        # Buffs
+        for _ in self.BIASES[bias][0]:
+            cards.append(random.choice(self.buffs))
+        # Debuffs
+        for _ in self.BIASES[bias][1]:
+            cards.append(random.choice(self.debuffs))
+        # Traps
+        for _ in self.BIASES[bias][2]:
+            cards.append(random.choice(self.traps))
+        # Events
+        for _ in self.BIASES[bias][3]:
+            cards.append(random.choice(self.events))
+
+        return cards
