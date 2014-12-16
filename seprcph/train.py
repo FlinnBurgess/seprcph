@@ -59,9 +59,12 @@ class Train(pygame.sprite.Sprite):
         """
         assert track.start_city == self.city
         self.track = track
-        self.rotation = track._calc_rotation()
-        self.distance = track._calc_length()
+        self.rotation = track.rotation()
+        self.distance = track.length()
         self.pos = self.city.pos
+
+        e = Event('train_departure')
+        EventManager.notify_listeners(e)
 
     def arrive(self, city):
         """
@@ -75,6 +78,9 @@ class Train(pygame.sprite.Sprite):
         self.rotation = None
         self.distance = None
         self.pos = None
+
+        e = Event('train_arrival')
+        EventManager.notify_listeners(e)
 
     def update(self):
         move_distance = (
