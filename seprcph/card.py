@@ -12,6 +12,7 @@ Classes:
 """
 from seprcph.config import Config
 from seprcph.event import Event, EventManager
+import pygame
 
 
 class Card(object):
@@ -30,6 +31,7 @@ class Card(object):
         self.name = name
         self.desc = description
         self.effect = effect
+        self.type = type
 
         # We can't use convert_alpha without a screen being set up, so test
         # if a screen is set up.
