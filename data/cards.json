@@ -1,9 +1,0 @@
-[
-    {
-        "name": "Hurricane",
-        "description": "Stops all movement in an area.",
-        "type": "Event",
-        "effect": null,
-        "image": "city.png"
-    }
-]
