@@ -11,10 +11,6 @@ def _func(_):
 
 class TestCreateEvent(unittest.TestCase):
 
-    def test_no_data_event(self):
-        e = Event('topic', 'desc')
-        self.assertEqual(e.data, {})
-
     def test_no_desc_event(self):
         e = Event('topic', foo=2)
         self.assertIsNone(e.desc)

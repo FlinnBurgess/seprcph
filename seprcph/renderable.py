@@ -5,7 +5,6 @@ class Renderable(pygame.sprite.Sprite):
     """
     All objects that want to be rendered must inherit from this.
     """
-
     def __init__(self, pos, image):
         """
         Convert the alpha of image and set pos.

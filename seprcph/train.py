@@ -104,7 +104,7 @@ class Train(Renderable):
         """
         The handler for when a goal is completed.
         """
-        if self.city not in event.data['goal'].end_cities:
+        if self.city not in event.goal.end_cities:
             return
         self.current_load = 0
 
@@ -112,7 +112,7 @@ class Train(Renderable):
         """
         The handler for when a goal is started.
         """
-        if self.city != event.data['goal'].start_city:
+        if self.city != event.goal.start_city:
             return
         # Just fill the train up completely.
         self.current_load = self.capacity
