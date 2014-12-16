@@ -10,32 +10,33 @@ File:
 Classes:
     Card
 """
+import os.path
+from seprcph.config import Config
 from seprcph.event import Event, EventManager
+from seprcph.json_loader import create_cards
+
 
 
 class Card(object):
     """
     Class describing the buff/debuff cards
     """
-
-    def __init__(self, name, id, description, effect, image):
+    def __init__(self, name, description, type, effect, image):
         """
         Args:
             name: The name of the Card
-            id: A unique identifier
             description: A description of the effect
+            type: The type of the card
             effect: An effect callback
             image: The image file to be displayed with the card in the GUI
         """
         self.name = name
-        self.id = id
         self.desc = description
         self.effect = effect
         self.image = image
 
     def __repr__(self):
-        return "<name: %s, ID: %d, description: %s>" \
-               % (self.name, self.id, self.desc)
+        return "<name: %s, description: %s>" % (self.name, self.desc)
 
     def trigger(self):
         """
@@ -44,3 +45,24 @@ class Card(object):
         """
         EventManager.notify_listeners(Event('card.triggered',
                                             effect=self.effect))
+
+class CardFactory(object):
+
+    class UnknownBias(Exception):
+        """
+        Raised when a bias isn't known.
+        """
+        pass
+
+    BIASES = {'aggressive': [10, 15, 15, 10],
+            'defensive': [15, 10, 10, 15]}
+
+    def __init__(self):
+        cards = create_cards(os.path.join(Config.general['data_dir'], 'cards.json'))
+        self.buffs = [x for x in cards if x.type is 'Buff']
+        self.debuffs = [x for x in cards if x.type is 'Debuff']
+        self.traps = [x for x in cards if x.type is 'Traps']
+        self.events = [x for x in cards if x.type is 'Events']
+
+    def create_cards(self, count, bias):
+        pass
