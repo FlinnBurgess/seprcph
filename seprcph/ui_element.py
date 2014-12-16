@@ -105,6 +105,16 @@ class Container(pygame.sprite.Group):
         """
         super(Container, self).__init__()
 
-    def __repr__(self):
-        return "<size: %s, position: %s, elements: %s>" \
-               % (self.size, self.pos, self.elements)
+    def click_detection(self):
+        """
+        Creates a list of UI elements clicked and executes their callbacks.
+        """
+        if pygame.mouse.get_pressed()[0]:
+            pos = pygame.mouse.get_pos()
+            clicked = [elem for elem in self.sprites if
+                       elem.rect.collidepoint(pos)]
+            for element in clicked:
+                try:
+                    element.callback()
+                except AttributeError:
+                    pass
