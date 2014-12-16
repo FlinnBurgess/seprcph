@@ -57,6 +57,6 @@ class CardFactory(object):
         if len(cards) < count:
             for _ in xrange(count - len(cards)):
                 cards.append(random.choice(self.buffs + self.debuffs
-                                            + self.traps + self.events))
+                                        + self.traps + self.events))
 
         return cards

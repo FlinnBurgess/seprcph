@@ -5,7 +5,7 @@ Name:
     goals
 
 File:
-    seprcph/city.py
+    seprcph/goal.py
 
 Classes:
     Goal

@@ -10,7 +10,6 @@ File:
 Classes:
     City
 """
-import pygame
 from seprcph.renderable import Renderable
 
 

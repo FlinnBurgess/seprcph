@@ -6,6 +6,11 @@ from seprcph.json_loader import create_cities, create_tracks
 
 
 class Map(object):
+    """
+    Represents the tracks and cities of the map.
+
+    Also stores the map's texture.
+    """
     def __init__(self, image):
         """
         Create a Map object by loading cities and tracks from json.

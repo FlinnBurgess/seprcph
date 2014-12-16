@@ -26,10 +26,10 @@ def main():
     """
     if platform.system() == 'Windows':
         Config.load_config(os.path.join(os.path.expanduser('~'), 'seprcph',
-                                                            'config.cfg'))
+                                            'config.cfg'))
     else:
         Config.load_config(os.path.join(os.path.expanduser('~'), '.config',
-                                                    'seprcph', 'config.cfg'))
+                                            'seprcph', 'config.cfg'))
 
     logger = setup_file_logger(Config.logging['file'],
                             (Config.logging['format'],
@@ -61,6 +61,7 @@ def main():
         clock.tick(FPS)
         sprites.draw(game_map.image)
         pygame.display.flip()
+
 
 def initialise_pygame():
     """

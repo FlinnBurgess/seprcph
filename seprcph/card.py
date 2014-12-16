@@ -10,7 +10,6 @@ File:
 Classes:
     Card
 """
-from seprcph.config import Config
 from seprcph.event import Event, EventManager
 import pygame
 

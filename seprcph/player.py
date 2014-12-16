@@ -5,7 +5,7 @@ Name:
     player
 
 File:
-    seprcph/city.py
+    seprcph/player.py
 
 Classes:
     Player
@@ -23,7 +23,7 @@ class Player(object):
             score: The player's current score
             deck: The player's deck
         """
-        assert deck != None
+        assert deck is not None
 
         self.gold = gold
         self.score = score
