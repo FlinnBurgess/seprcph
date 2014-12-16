@@ -17,7 +17,6 @@ class City(pygame.sprite.Sprite):
     """
     Class that describes the cities shown on the map
     """
-
     def __init__(self, name, pos, is_capital, image):
         """
         Args
