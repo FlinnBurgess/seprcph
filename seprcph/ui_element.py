@@ -111,7 +111,13 @@ class Container(Element):
                % (self.size, self.pos, self.elements)
 
     def add(self, elem):
+        """
+        Adds an Element object to the end of the self.elements list
+        """
         self.elements.append(elem)
 
     def remove(self, elem):
+        """
+        Removes the first occurrence of elem from the self.elements list
+        """
         self.elements.remove(elem)
