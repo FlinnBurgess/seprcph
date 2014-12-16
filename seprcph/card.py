@@ -35,7 +35,15 @@ class Card(object):
         self.name = name
         self.desc = description
         self.effect = effect
-        self.image = image
+
+        # We can't use convert_alpha without a screen being set up, so test
+        # if a screen is set up.
+        try:
+            image = image.convert_alpha()
+        except pygame.error:
+            pass
+        finally:
+            self.image = image
 
     def __repr__(self):
         return "<name: %s, description: %s>" % (self.name, self.desc)
