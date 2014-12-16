@@ -63,7 +63,7 @@ class Train(Renderable):
         self.distance = track.length()
         self.pos = self.city.pos
 
-        e = Event('train_departure')
+        e = Event('train.departure', train=self, city=self.city)
         EventManager.notify_listeners(e)
 
     def arrive(self, city):
@@ -80,7 +80,7 @@ class Train(Renderable):
 
         # TODO: This needs changing to dot notation and the city's object needs
         # attaching.
-        e = Event('train_arrival')
+        e = Event('train.arrival', train=self, city=self.city)
         EventManager.notify_listeners(e)
 
     def update(self):
