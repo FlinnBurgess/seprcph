@@ -49,7 +49,7 @@ class Track(Renderable):
             image: The pygame surface associated with this track.
         """
         super(Track, self).__init__(((start_city.pos[0] + end_city.pos[0]) /2,
-                                    (start_city.pos[1] + end_city.pos[1]) / 2)), image
+                                    (start_city.pos[1] + end_city.pos[1]) / 2), image)
         self.cities_connected = [start_city, end_city]
         self.gold_generation = gold_generation
         self.cost = cost
