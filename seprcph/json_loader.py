@@ -4,6 +4,7 @@ import pygame
 from seprcph.config import Config
 from seprcph.city import City
 from seprcph.track import Track
+from seprcph.card import Card
 
 
 def _objs_from_file(file_path, obj_hook):
@@ -67,6 +68,23 @@ def create_tracks(file_path, cities):
         kwargs['end_city'] = cities[kwargs['end_city']]
         return Track(**kwargs)
 
-    tracks = _objs_from_file(file_path, _track_hook)
+    return  _objs_from_file(file_path, _track_hook)
 
-    return tracks
+def create_cards(file_path):
+    """
+    Create a list of cards.
+
+    Args:
+        filepath: The location of the JSON file.
+    """
+    def _card_hook(kwargs):
+        """
+        Create a Card object from kwargs.
+
+        Args:
+            kwargs: A dictionary of elements from the json file.
+        """
+        kwargs['image'] = pygame.image.load(os.path.join(Config.general['image_dir'], kwargs['image']))
+        return Card(**kwargs)
+
+    return _objs_from_file(file_path, _card_hook)
