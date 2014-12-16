@@ -11,8 +11,8 @@ Classes:
     Train
 """
 import pygame
-from seprcph import track
-
+import math
+from seprcph.event import Event, EventManager
 
 class Train(pygame.sprite.Sprite):
     """
@@ -78,8 +78,8 @@ class Train(pygame.sprite.Sprite):
 
     def update(self):
         move_distance = (
-            ((self.track.end_city.pos[0] - self.track.start_city.pos[0]) / self.distance) * self.speed,
-            ((self.track.end_city.pos[1] - self.track.start_city.pos[1]) / self.distance) * self.speed
+            math.fabs((self.track.end_city.pos[0] - self.track.start_city.pos[0]) / self.distance) * self.speed,
+            math.fabs((self.track.end_city.pos[1] - self.track.start_city.pos[1]) / self.distance) * self.speed
         )
 
         self.counter += self.speed

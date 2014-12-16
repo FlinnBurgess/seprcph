@@ -69,6 +69,7 @@ class Track(pygame.sprite.Sprite):
                                                 end_city.pos))
         self.is_locked = True
         self.owner = None
+        self.rotation = self._calc_rotation(start_city, end_city)
 
     def __repr__(self):
         return "<connects: %s, %s, gold-gen: %d, cost: %d>" \
