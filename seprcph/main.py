@@ -16,7 +16,6 @@ import logging
 import os.path
 import platform
 import pygame
-from pygame.locals import *
 from seprcph.config import Config
 from seprcph.map import Map
 
