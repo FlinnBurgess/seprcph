@@ -57,12 +57,13 @@ class Train(Renderable):
         Args:
             track: a track object which the train should travel along.
         """
-        assert track.start_city == self.city
+        assert self.city in track.cities
         self.track = track
         self.rotation = track.rotation()
         self.distance = track.length()
         self.pos = self.city.pos
 
+        #XXX: Need to set self.city correctly.
         e = Event('train.departure', train=self, city=self.city)
         EventManager.notify_listeners(e)
 
@@ -78,21 +79,19 @@ class Train(Renderable):
         self.rotation = 0
         self.distance = 0
 
-        # TODO: This needs changing to dot notation and the city's object needs
-        # attaching.
         e = Event('train.arrival', train=self, city=self.city)
         EventManager.notify_listeners(e)
 
     def update(self):
         move_distance = (
-            math.fabs((self.track.end_city.pos[0] - self.track.start_city.pos[0]) / self.distance) * self.speed,
-            math.fabs((self.track.end_city.pos[1] - self.track.start_city.pos[1]) / self.distance) * self.speed
+            math.fabs((self.track.cities[0].pos[0] - self.track.cities[1].pos[0]) / self.distance) * self.speed,
+            math.fabs((self.track.cities[0].pos[1] - self.track.cities[1].pos[1]) / self.distance) * self.speed
         )
 
         self.counter += self.speed
 
         if self.counter > self.track.length:
-            self.arrive(self.track.end_city)
+            self.arrive(self.track.cities[0])
         else:
             self.pos[0] += move_distance[0]
             self.pos[1] += move_distance[1]

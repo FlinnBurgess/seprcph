@@ -58,6 +58,6 @@ class Map(object):
             Args:
                 track: The track object to be added.
         """
-        i = self.fetch_indices(track.cities_connected)
+        i = self.fetch_indices(track.cities)
 
         self._matrix[i[0]][i[1]] = self._matrix[i[1]][i[0]] = track
