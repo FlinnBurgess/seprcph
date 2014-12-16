@@ -26,7 +26,6 @@ class Train(pygame.sprite.Sprite):
             speed: the speed of the train
             capacity: the capacity of the train
         """
-
         super(Train, self).__init__()
         self.buffs = buffs
         self.debuffs = debuffs
@@ -36,8 +35,8 @@ class Train(pygame.sprite.Sprite):
     def update(self):
         pass
 
-    ## apply_effects NEEDS REWORKING - this is a placeholder and does not
-    ## fit with the way the cards and decks currently work.
+    ## TODO apply_effects NEEDS REWORKING - this is a placeholder and does not
+    ## TODO fit with the way the cards and decks currently work.
     def apply_effects(self):
         for effect in buffs:
             effect.apply()
