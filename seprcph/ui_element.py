@@ -13,24 +13,10 @@ Classes:
 """
 import pygame
 
-"""
-This is the superclass for all of our UI elements.
-
-Name:
-    ui_element
-
-File:
-    seprcph/ui_element.py
-
-Classes:
-    Element, Clickable
-"""
-
 class Element(pygame.sprite.Sprite):
     """
     Superclass for the UI elements
     """
-
     def __init__(self, size, position):
         """
         Args:
@@ -55,7 +41,6 @@ class Clickable(Element):
     """
     A UI element which is clickable by the user
     """
-
     def __init__(self, size, position, callback):
         """
         Args:
@@ -75,46 +60,47 @@ class Label(Element):
     """
     A label UI element, simply contains text to display
     """
-
-    def __init__(self, size, position,  text):
+    def __init__(self, size, position, text, font):
         """
         Args:
             size: a tuple containing the height and width of the UI element
             position: a tuple containing the coordinates of the UI element
             text: text to be displayed in the label
+            font: The pygame.font.Font object which describes how the text
+                  should look.
         """
         super(Label, self).__init__(size, position)
         self.text = text
+        self.font = font
 
     def __repr__(self):
         return "<size: %s, position: %s, text: %s>" \
                % (self.size, self.pos, self.text)
 
 
-class Container(pygame.sprite.Group):
+class Container(Element):
     """
     A container class which will contain other UI elements
     """
-
-    def __init__(self):
+    def __init__(self, size, pos, elems):
         """
         Args:
             size: a tuple containing the height and width of the UI element
-            position: a tuple containing the coordinates of the UI element
-            elements: a list of UI elements contained within the container
+            pos: a tuple containing the coordinates of the UI element
+            elems: a list of UI elements contained within the container
         """
-        super(Container, self).__init__()
+        super(Container, self).__init__(size, pos)
+        self.elems = pygame.sprite.Group(elems)
 
-    def click_detection(self):
+    def click(self, pos):
         """
         Creates a list of UI elements clicked and executes their callbacks.
+
+        Args:
+            pos: A tuple representing the point at which the mouse was clicked.
         """
-        if pygame.mouse.get_pressed()[0]:
-            pos = pygame.mouse.get_pos()
-            clicked = [elem for elem in self.sprites if
-                       elem.rect.collidepoint(pos)]
-            for element in clicked:
-                try:
-                    element.callback()
-                except AttributeError:
-                    pass
+        for elem in [e for e in self.elems if e.rect.collidepoint(pos)]:
+            try:
+                elem.callback()
+            except AttributeError:
+                pass
