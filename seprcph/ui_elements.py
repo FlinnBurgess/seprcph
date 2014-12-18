@@ -76,7 +76,7 @@ class Clickable(Element):
 
     def __repr__(self):
         return "<size: %s, position: %s, callback function: %s>" \
-               % (self.size, self.pos, self.callback)
+               % (self.size, self.pos, self.click)
 
 
 class Label(Element):
