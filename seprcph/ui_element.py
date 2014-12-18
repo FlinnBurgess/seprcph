@@ -18,6 +18,9 @@ import pygame
 class Element(pygame.sprite.Sprite):
     """
     Superclass for the UI elements
+
+    NOTE: pos refers to the top left of the Element's rect - not the center
+    (as is the case with renderables)
     """
     def __init__(self, size, position):
         """
