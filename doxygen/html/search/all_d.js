@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['unlock_5ftrack',['unlock_track',['../classseprcph_1_1track_1_1_track.html#ad4765f7d8f9b71176ca9a9bd5a9cebb0',1,'seprcph::track::Track']]],
-  ['update',['update',['../classseprcph_1_1goal_1_1_goal.html#af9fe0a3f51a90a4147ea091e7fddfca1',1,'seprcph.goal.Goal.update()'],['../classseprcph_1_1player_1_1_player.html#aca4c692990a4e0b704d849a2f7d390ed',1,'seprcph.player.Player.update()'],['../classseprcph_1_1track_1_1_track.html#ac3ebf083955798fa22717410de75f50f',1,'seprcph.track.Track.update()']]]
+  ['play',['play',['../classseprcph_1_1hand_1_1_hand.html#ae1838d4e8e58df2b9e7db2b78996419d',1,'seprcph::hand::Hand']]],
+  ['player',['Player',['../classseprcph_1_1player_1_1_player.html',1,'seprcph::player']]],
+  ['pop',['pop',['../classseprcph_1_1deck_1_1_deck.html#a195eed16550fc53e7292fb02a256d0a1',1,'seprcph::deck::Deck']]]
 ];

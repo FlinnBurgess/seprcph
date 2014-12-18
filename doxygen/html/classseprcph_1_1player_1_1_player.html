@@ -44,8 +44,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('classseprcph_1_1player_1_1_player.html
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -110,12 +110,27 @@ $(document).ready(function(){initNavTree('classseprcph_1_1player_1_1_player.html
 <div class="title">seprcph.player.Player Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This module contains the all classes relating to the players of the game.  
+ <a href="classseprcph_1_1player_1_1_player.html#details">More...</a></p>
+<div class="dynheader">
+Inheritance diagram for seprcph.player.Player:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classseprcph_1_1player_1_1_player.png" usemap="#seprcph.player.Player_map" alt=""/>
+  <map id="seprcph.player.Player_map" name="seprcph.player.Player_map">
+</map>
+ </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a729ca436e0ac38cffcee192a7daf8432"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classseprcph_1_1player_1_1_player.html#a729ca436e0ac38cffcee192a7daf8432">__init__</a></td></tr>
 <tr class="separator:a729ca436e0ac38cffcee192a7daf8432"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecff8ff0aaa39439f753a8afaea9011b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aecff8ff0aaa39439f753a8afaea9011b"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><b>__repr__</b></td></tr>
+<tr class="separator:aecff8ff0aaa39439f753a8afaea9011b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca4c692990a4e0b704d849a2f7d390ed"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classseprcph_1_1player_1_1_player.html#aca4c692990a4e0b704d849a2f7d390ed">update</a></td></tr>
+<tr class="memdesc:aca4c692990a4e0b704d849a2f7d390ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">This handles the updating of any attributes of an instance of <a class="el" href="classseprcph_1_1player_1_1_player.html" title="This module contains the all classes relating to the players of the game. ">Player</a> at the change of a turn.  <a href="#aca4c692990a4e0b704d849a2f7d390ed">More...</a><br /></td></tr>
 <tr class="separator:aca4c692990a4e0b704d849a2f7d390ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -126,10 +141,19 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a6e6bc018ddfc4e4e317c1cf2d45089e6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6e6bc018ddfc4e4e317c1cf2d45089e6"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>score</b></td></tr>
 <tr class="separator:a6e6bc018ddfc4e4e317c1cf2d45089e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a886d6448ecedd53690b0de186dc2752c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a886d6448ecedd53690b0de186dc2752c"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>deck</b></td></tr>
+<tr class="separator:a886d6448ecedd53690b0de186dc2752c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86f6a969547097e5bbb024b4eb7a10a6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a86f6a969547097e5bbb024b4eb7a10a6"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>hand</b></td></tr>
+<tr class="separator:a86f6a969547097e5bbb024b4eb7a10a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><pre class="fragment">Player class that represents each player.
-</pre> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<div class="textblock"><p>This module contains the all classes relating to the players of the game. </p>
+<p><a class="el" href="classseprcph_1_1player_1_1_player.html" title="This module contains the all classes relating to the players of the game. ">Player</a> class that represents each player. </p>
+
+<p>Definition at line <a class="el" href="player_8py_source.html#l00008">8</a> of file <a class="el" href="player_8py_source.html">player.py</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a729ca436e0ac38cffcee192a7daf8432"></a>
 <div class="memitem">
 <div class="memproto">
@@ -150,7 +174,13 @@ Public Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>score</em>&#160;</td>
+          <td class="paramname"><em>score</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>deck</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -159,13 +189,17 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Args:
-    gold: The amount of gold the player currently has
-    score: The player's current score
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gold</td><td>The amount of gold in the player's bank </td></tr>
+    <tr><td class="paramname">score</td><td>The player's current score </td></tr>
+    <tr><td class="paramname">deck</td><td>The player's deck </td></tr>
+  </table>
+  </dd>
+</dl>
 
-Raises:
-    Many questions.
-</pre> 
+<p>Definition at line <a class="el" href="player_8py_source.html#l00015">15</a> of file <a class="el" href="player_8py_source.html">player.py</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -182,12 +216,15 @@ Raises:
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">This handles the updating of any attributes of an instance of Player at the change of a turn
-</pre> 
+
+<p>This handles the updating of any attributes of an instance of <a class="el" href="classseprcph_1_1player_1_1_player.html" title="This module contains the all classes relating to the players of the game. ">Player</a> at the change of a turn. </p>
+
+<p>Definition at line <a class="el" href="player_8py_source.html#l00030">30</a> of file <a class="el" href="player_8py_source.html">player.py</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>seprcph/player.py</li>
+<li>seprcph/<a class="el" href="player_8py_source.html">player.py</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -195,7 +232,7 @@ Raises:
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>seprcph</b></li><li class="navelem"><b>player</b></li><li class="navelem"><a class="el" href="classseprcph_1_1player_1_1_player.html">Player</a></li>
-    <li class="footer">Generated on Mon Nov 24 2014 13:47:28 for seprcph by
+    <li class="footer">Generated on Thu Dec 18 2014 21:16:22 for seprcph by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

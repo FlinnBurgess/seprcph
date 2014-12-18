@@ -44,8 +44,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('classseprcph_1_1goal_1_1_goal.html',''
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -110,6 +110,9 @@ $(document).ready(function(){initNavTree('classseprcph_1_1goal_1_1_goal.html',''
 <div class="title">seprcph.goal.Goal Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This module contains all classes relating to the goals of the game.  
+ <a href="classseprcph_1_1goal_1_1_goal.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for seprcph.goal.Goal:</div>
 <div class="dyncontent">
@@ -122,10 +125,16 @@ Inheritance diagram for seprcph.goal.Goal:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a670e8ccce6920dcb13acbb85668f7b41"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classseprcph_1_1goal_1_1_goal.html#a670e8ccce6920dcb13acbb85668f7b41">__init__</a></td></tr>
+<tr class="memdesc:a670e8ccce6920dcb13acbb85668f7b41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise a goal.  <a href="#a670e8ccce6920dcb13acbb85668f7b41">More...</a><br /></td></tr>
 <tr class="separator:a670e8ccce6920dcb13acbb85668f7b41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21bf2d20ea4c75c666ffe573b7138423"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classseprcph_1_1goal_1_1_goal.html#a21bf2d20ea4c75c666ffe573b7138423">handle_train_arrive</a></td></tr>
+<tr class="memitem:aa296ebe7582e5ffac57991ee7e3b6e58"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa296ebe7582e5ffac57991ee7e3b6e58"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><b>__repr__</b></td></tr>
+<tr class="separator:aa296ebe7582e5ffac57991ee7e3b6e58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21bf2d20ea4c75c666ffe573b7138423"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a21bf2d20ea4c75c666ffe573b7138423"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><b>handle_train_arrive</b></td></tr>
 <tr class="separator:a21bf2d20ea4c75c666ffe573b7138423"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9fe0a3f51a90a4147ea091e7fddfca1"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classseprcph_1_1goal_1_1_goal.html#af9fe0a3f51a90a4147ea091e7fddfca1">update</a></td></tr>
+<tr class="memdesc:af9fe0a3f51a90a4147ea091e7fddfca1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called each turn.  <a href="#af9fe0a3f51a90a4147ea091e7fddfca1">More...</a><br /></td></tr>
 <tr class="separator:af9fe0a3f51a90a4147ea091e7fddfca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -139,9 +148,12 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a2d2526866198ae813c5e442fcf4dbcfb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2d2526866198ae813c5e442fcf4dbcfb"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>turns</b></td></tr>
 <tr class="separator:a2d2526866198ae813c5e442fcf4dbcfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0be8e0661c12c62133999cc8bb7bba3a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0be8e0661c12c62133999cc8bb7bba3a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>reward</b></td></tr>
-<tr class="separator:a0be8e0661c12c62133999cc8bb7bba3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a282e92116854eb3cb60500d785ea2c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2a282e92116854eb3cb60500d785ea2c"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>gold_reward</b></td></tr>
+<tr class="separator:a2a282e92116854eb3cb60500d785ea2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6cfe5fc81de3dc99ec32f45fc6135ed"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac6cfe5fc81de3dc99ec32f45fc6135ed"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>points_reward</b></td></tr>
+<tr class="separator:ac6cfe5fc81de3dc99ec32f45fc6135ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a081bf9bd8eb39659308ab401a0cfce74"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a081bf9bd8eb39659308ab401a0cfce74"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>player</b></td></tr>
 <tr class="separator:a081bf9bd8eb39659308ab401a0cfce74"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -149,7 +161,12 @@ Public Attributes</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>desc</b></td></tr>
 <tr class="separator:a799bb9f3be8a7596158779d03bd2ec67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This module contains all classes relating to the goals of the game. </p>
+<p>Class that describes the player's goals </p>
+
+<p>Definition at line <a class="el" href="goal_8py_source.html#l00008">8</a> of file <a class="el" href="goal_8py_source.html">goal.py</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a670e8ccce6920dcb13acbb85668f7b41"></a>
 <div class="memitem">
 <div class="memproto">
@@ -182,7 +199,13 @@ Public Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>reward</em>, </td>
+          <td class="paramname"><em>gold_reward</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>points_reward</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -203,55 +226,27 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Initialise a goal.
 
-The EventManager is also made aware of the topics that Goal wants
-to listen for.
+<p>Initialise a goal. </p>
+<p>The EventManager is also made aware of the topics that <a class="el" href="classseprcph_1_1goal_1_1_goal.html" title="This module contains all classes relating to the goals of the game. ">Goal</a> wants to listen for.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start_city</td><td>The city that the player's train must first visit to start the goal. </td></tr>
+    <tr><td class="paramname">end_cities</td><td>A list of cities that the player's train must visit (one of) to complete the goal. </td></tr>
+    <tr><td class="paramname">turns</td><td>The amount of turns that the player has to complete the goal. </td></tr>
+    <tr><td class="paramname">gold_reward</td><td>The amount of gold that the player will receive. </td></tr>
+    <tr><td class="paramname">points_reward</td><td>The number of points that the player will receive. </td></tr>
+    <tr><td class="paramname">player</td><td>The player the the goal shall be assigned to. </td></tr>
+    <tr><td class="paramname">desc</td><td>An optional description about the goal. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-Args:
-    start_city: The city that the player's train must first visit to
-    start the goal.
-    end_cities: A list of cities that the player's train must visit
-    (one of) to complete the goal.
-    turns: The amount of turns that the player has to complete the goal.
-    reward: The amount of gold that the player will receive.
-    desc: An optional description about the goal.
-</pre> 
+<p>Definition at line <a class="el" href="goal_8py_source.html#l00027">27</a> of file <a class="el" href="goal_8py_source.html">goal.py</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a21bf2d20ea4c75c666ffe573b7138423"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">def seprcph.goal.Goal.handle_train_arrive </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>self</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>ev</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<pre class="fragment">The callback sent to the EventManager to be called when a train arrives
-at a city.
-
-Args:
-    ev: The event that is passed to the EventManager. We expect this
-    to contain a 'city' section within its data.
-</pre> 
-</div>
-</div>
 <a class="anchor" id="af9fe0a3f51a90a4147ea091e7fddfca1"></a>
 <div class="memitem">
 <div class="memproto">
@@ -265,23 +260,24 @@ Args:
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Called each turn.
 
-Handles the amount of turns a player has to complete a goal and
-notifies the EventManager of goal failures.
-</pre> 
+<p>Called each turn. </p>
+<p>Handles the amount of turns a player has to complete a goal and notifies the EventManager of goal failures. </p>
+
+<p>Definition at line <a class="el" href="goal_8py_source.html#l00076">76</a> of file <a class="el" href="goal_8py_source.html">goal.py</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>seprcph/goal.py</li>
+<li>seprcph/<a class="el" href="goal_8py_source.html">goal.py</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>seprcph</b></li><li class="navelem"><a class="el" href="namespaceseprcph_1_1goal.html">goal</a></li><li class="navelem"><a class="el" href="classseprcph_1_1goal_1_1_goal.html">Goal</a></li>
-    <li class="footer">Generated on Mon Nov 24 2014 13:47:28 for seprcph by
+    <li class="navelem"><b>seprcph</b></li><li class="navelem"><b>goal</b></li><li class="navelem"><a class="el" href="classseprcph_1_1goal_1_1_goal.html">Goal</a></li>
+    <li class="footer">Generated on Thu Dec 18 2014 21:16:21 for seprcph by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

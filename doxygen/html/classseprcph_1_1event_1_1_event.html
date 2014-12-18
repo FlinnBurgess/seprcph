@@ -44,8 +44,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('classseprcph_1_1event_1_1_event.html',
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -110,6 +110,9 @@ $(document).ready(function(){initNavTree('classseprcph_1_1event_1_1_event.html',
 <div class="title">seprcph.event.Event Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Lightweight class that represents a generic event.  
+ <a href="classseprcph_1_1event_1_1_event.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for seprcph.event.Event:</div>
 <div class="dyncontent">
@@ -122,10 +125,11 @@ Inheritance diagram for seprcph.event.Event:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a2865a8f2de1390913b012119885fe90b"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classseprcph_1_1event_1_1_event.html#a2865a8f2de1390913b012119885fe90b">__init__</a></td></tr>
+<tr class="memdesc:a2865a8f2de1390913b012119885fe90b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="classseprcph_1_1event_1_1_event.html" title="Lightweight class that represents a generic event. ">Event</a> class.  <a href="#a2865a8f2de1390913b012119885fe90b">More...</a><br /></td></tr>
 <tr class="separator:a2865a8f2de1390913b012119885fe90b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0df391c0bb30c440c2485ba1cfa2eb34"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0df391c0bb30c440c2485ba1cfa2eb34"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>__str__</b></td></tr>
-<tr class="separator:a0df391c0bb30c440c2485ba1cfa2eb34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab21e5e1ba5d4c364b716cb76a3461e53"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab21e5e1ba5d4c364b716cb76a3461e53"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><b>__repr__</b></td></tr>
+<tr class="separator:ab21e5e1ba5d4c364b716cb76a3461e53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -135,13 +139,12 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a6498aa4ffc96888300b1bed00ad7fe94"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6498aa4ffc96888300b1bed00ad7fe94"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>desc</b></td></tr>
 <tr class="separator:a6498aa4ffc96888300b1bed00ad7fe94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04324e2b7debc6691576694e91f2b1ba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a04324e2b7debc6691576694e91f2b1ba"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>data</b></td></tr>
-<tr class="separator:a04324e2b7debc6691576694e91f2b1ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><pre class="fragment">Lightweight class that represents a generic event
-</pre> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<div class="textblock"><p>Lightweight class that represents a generic event. </p>
+
+<p>Definition at line <a class="el" href="event_8py_source.html#l00016">16</a> of file <a class="el" href="event_8py_source.html">event.py</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a2865a8f2de1390913b012119885fe90b"></a>
 <div class="memitem">
 <div class="memproto">
@@ -177,17 +180,23 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Constructor for Event class
 
-Args:
-    topic: String denoting the topic that the event relates to
-    desc: String, optional, for displaying the event textually
-    **kwargs: Optional data arguments for event handlers to use
-</pre> 
+<p>Constructor for <a class="el" href="classseprcph_1_1event_1_1_event.html" title="Lightweight class that represents a generic event. ">Event</a> class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">topic</td><td>String denoting the topic that the event relates to </td></tr>
+    <tr><td class="paramname">desc</td><td>String, optional, for displaying the event textually </td></tr>
+    <tr><td class="paramname">kwargs</td><td>Optional data arguments for event handlers to use </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="event_8py_source.html#l00026">26</a> of file <a class="el" href="event_8py_source.html">event.py</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>seprcph/event.py</li>
+<li>seprcph/<a class="el" href="event_8py_source.html">event.py</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -195,7 +204,7 @@ Args:
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>seprcph</b></li><li class="navelem"><b>event</b></li><li class="navelem"><a class="el" href="classseprcph_1_1event_1_1_event.html">Event</a></li>
-    <li class="footer">Generated on Mon Nov 24 2014 13:47:28 for seprcph by
+    <li class="footer">Generated on Thu Dec 18 2014 21:16:21 for seprcph by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

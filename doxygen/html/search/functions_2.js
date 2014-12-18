@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['create_5fconfig',['create_config',['../classseprcph_1_1config_1_1_config.html#a18b4e9b8f2368974a28c7d1a11faf224',1,'seprcph::config::Config']]],
-  ['create_5fdefault_5fconfig',['create_default_config',['../classseprcph_1_1config_1_1_config.html#afdf235531042615f5039d61624a4a653',1,'seprcph::config::Config']]]
+  ['build_5fcards',['build_cards',['../classseprcph_1_1card__factory_1_1_card_factory.html#a1f8c6ab55359412c5af40c2d83479e68',1,'seprcph::card_factory::CardFactory']]]
 ];

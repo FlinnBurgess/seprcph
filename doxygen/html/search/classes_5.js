@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['player',['Player',['../classseprcph_1_1player_1_1_player.html',1,'seprcph::player']]]
+  ['incompleteconfigurationfileerror',['IncompleteConfigurationFileError',['../classseprcph_1_1config_1_1_incomplete_configuration_file_error.html',1,'seprcph::config']]]
 ];

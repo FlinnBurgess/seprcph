@@ -44,8 +44,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('classseprcph_1_1config_1_1_config.html
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -110,6 +110,9 @@ $(document).ready(function(){initNavTree('classseprcph_1_1config_1_1_config.html
 <div class="title">seprcph.config.Config Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A static class for loading and storing configuration.  
+ <a href="classseprcph_1_1config_1_1_config.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for seprcph.config.Config:</div>
 <div class="dyncontent">
@@ -121,12 +124,15 @@ Inheritance diagram for seprcph.config.Config:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:aba96bff982fe7ac1cae87c3d2cfe6fb5"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classseprcph_1_1config_1_1_config.html#aba96bff982fe7ac1cae87c3d2cfe6fb5">load_config</a></td></tr>
+<tr class="memitem:a0f8a7633a14a55a89dd7d77a85a19a88"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0f8a7633a14a55a89dd7d77a85a19a88"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><b>__repr__</b></td></tr>
+<tr class="separator:a0f8a7633a14a55a89dd7d77a85a19a88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba96bff982fe7ac1cae87c3d2cfe6fb5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aba96bff982fe7ac1cae87c3d2cfe6fb5"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><b>load_config</b></td></tr>
 <tr class="separator:aba96bff982fe7ac1cae87c3d2cfe6fb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afdf235531042615f5039d61624a4a653"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classseprcph_1_1config_1_1_config.html#afdf235531042615f5039d61624a4a653">create_default_config</a></td></tr>
+<tr class="memitem:afdf235531042615f5039d61624a4a653"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afdf235531042615f5039d61624a4a653"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><b>create_default_config</b></td></tr>
 <tr class="separator:afdf235531042615f5039d61624a4a653"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18b4e9b8f2368974a28c7d1a11faf224"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classseprcph_1_1config_1_1_config.html#a18b4e9b8f2368974a28c7d1a11faf224">create_config</a></td></tr>
-<tr class="separator:a18b4e9b8f2368974a28c7d1a11faf224"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -136,114 +142,16 @@ dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>general</b> = {
 <tr class="memitem:aa646642be7b6594f49bb21081c2591aa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa646642be7b6594f49bb21081c2591aa"></a>
 dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>logging</b> = {}</td></tr>
 <tr class="separator:aa646642be7b6594f49bb21081c2591aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7365d51a61c26b0fc33ffd40fad9b5e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae7365d51a61c26b0fc33ffd40fad9b5e"></a>
+dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>graphics</b> = {}</td></tr>
+<tr class="separator:ae7365d51a61c26b0fc33ffd40fad9b5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><pre class="fragment">A static class for loading and storing configuration.
-</pre> </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a18b4e9b8f2368974a28c7d1a11faf224"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">def seprcph.config.Config.create_config </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>path</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>config_string</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<pre class="fragment">Write a string to the config file.
+<div class="textblock"><p>A static class for loading and storing configuration. </p>
 
-Args:
-    config_string: The string to be written to the config file
-    path: The path at which the config file should be created.
-
-Raises:
-    OSError
-</pre> 
-</div>
-</div>
-<a class="anchor" id="afdf235531042615f5039d61624a4a653"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">def seprcph.config.Config.create_default_config </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>path</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<pre class="fragment">Create a basic config that has just enough to allow the game
-to run.
-
-Args:
-    path: The path at which the config file should be created.
-</pre> 
-</div>
-</div>
-<a class="anchor" id="aba96bff982fe7ac1cae87c3d2cfe6fb5"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">def seprcph.config.Config.load_config </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<pre class="fragment">Read the contents of a predefined configuration file and load it into
-dictionaries.
-
-If a configuration file doesn't exist at the predefined location, a
-new one is created.
-
-Raises:
-    IncompleteConfigurationFileError
-</pre> 
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>seprcph/config.py</li>
+<p>Definition at line <a class="el" href="config_8py_source.html#l00017">17</a> of file <a class="el" href="config_8py_source.html">config.py</a>.</p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
+<li>seprcph/<a class="el" href="config_8py_source.html">config.py</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -251,7 +159,7 @@ Raises:
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>seprcph</b></li><li class="navelem"><b>config</b></li><li class="navelem"><a class="el" href="classseprcph_1_1config_1_1_config.html">Config</a></li>
-    <li class="footer">Generated on Mon Nov 24 2014 13:47:28 for seprcph by
+    <li class="footer">Generated on Thu Dec 18 2014 21:16:21 for seprcph by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

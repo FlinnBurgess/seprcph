@@ -44,8 +44,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('classseprcph_1_1event_1_1_event_manage
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -109,6 +109,9 @@ $(document).ready(function(){initNavTree('classseprcph_1_1event_1_1_event_manage
 <div class="title">seprcph.event.EventManager Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Static class that manages the publishing and handling of messages.  
+ <a href="classseprcph_1_1event_1_1_event_manager.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for seprcph.event.EventManager:</div>
 <div class="dyncontent">
@@ -120,54 +123,21 @@ Inheritance diagram for seprcph.event.EventManager:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a5fe75eb45d1fefc2aa2a9d5629c13d14"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classseprcph_1_1event_1_1_event_manager.html#a5fe75eb45d1fefc2aa2a9d5629c13d14">add_listener</a></td></tr>
+<tr class="memitem:a5fe75eb45d1fefc2aa2a9d5629c13d14"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5fe75eb45d1fefc2aa2a9d5629c13d14"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><b>add_listener</b></td></tr>
 <tr class="separator:a5fe75eb45d1fefc2aa2a9d5629c13d14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83cf25624f95bdb767660c9116cf3ef6"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classseprcph_1_1event_1_1_event_manager.html#a83cf25624f95bdb767660c9116cf3ef6">remove_listener</a></td></tr>
+<tr class="memdesc:a83cf25624f95bdb767660c9116cf3ef6"><td class="mdescLeft">&#160;</td><td class="mdescRight">De-registers a callback function from the passed topic.  <a href="#a83cf25624f95bdb767660c9116cf3ef6">More...</a><br /></td></tr>
 <tr class="separator:a83cf25624f95bdb767660c9116cf3ef6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30036d8d46c2f3a238ff81078de0ab90"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classseprcph_1_1event_1_1_event_manager.html#a30036d8d46c2f3a238ff81078de0ab90">notify_listeners</a></td></tr>
+<tr class="memdesc:a30036d8d46c2f3a238ff81078de0ab90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls the handling methods of objects listening to the passed topic.  <a href="#a30036d8d46c2f3a238ff81078de0ab90">More...</a><br /></td></tr>
 <tr class="separator:a30036d8d46c2f3a238ff81078de0ab90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><pre class="fragment">Static class that manages the publishing and handling of messages
-</pre> </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a5fe75eb45d1fefc2aa2a9d5629c13d14"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">def seprcph.event.EventManager.add_listener </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>topic</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<pre class="fragment">A decorator the registers a callback function to respond to events
-relating to the passed topic.
+<div class="textblock"><p>Static class that manages the publishing and handling of messages. </p>
 
-Used as such:
-EventManager.add_listener('some_topic')
-def foo():
-    # Handle event things
-
-A decorator is best in this case as it is cleaner, prettier and means
-certain errors can't occur (attaching the same callback to the same
-topic, for example).
-
-Args:
-    topic: The topic to which the listener will subscribe
-</pre> 
-</div>
-</div>
+<p>Definition at line <a class="el" href="event_8py_source.html#l00038">38</a> of file <a class="el" href="event_8py_source.html">event.py</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a30036d8d46c2f3a238ff81078de0ab90"></a>
 <div class="memitem">
 <div class="memproto">
@@ -189,14 +159,23 @@ Args:
   </tr>
 </table>
 </div><div class="memdoc">
-<pre class="fragment">Calls the handling methods of objects listening to the passed topic
 
-Args:
-    event: Object containing the topic and event meta-data
+<p>Calls the handling methods of objects listening to the passed topic. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td>Object containing the topic and event meta-data</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">AssertionError</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
-Raises:
-    AssertionError
-</pre> 
+<p>Definition at line <a class="el" href="event_8py_source.html#l00088">88</a> of file <a class="el" href="event_8py_source.html">event.py</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a83cf25624f95bdb767660c9116cf3ef6"></a>
@@ -230,16 +209,22 @@ Raises:
   </tr>
 </table>
 </div><div class="memdoc">
-<pre class="fragment">De-registers a callback function from the passed topic
 
-Args:
-    topic: The topic form which the listener will be unsubscribed
-    callback: The event handler method of the listening object
-</pre> 
+<p>De-registers a callback function from the passed topic. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">topic</td><td>The topic form which the listener will be unsubscribed </td></tr>
+    <tr><td class="paramname">callback</td><td>The event handler method of the listening object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="event_8py_source.html#l00071">71</a> of file <a class="el" href="event_8py_source.html">event.py</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>seprcph/event.py</li>
+<li>seprcph/<a class="el" href="event_8py_source.html">event.py</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -247,7 +232,7 @@ Args:
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>seprcph</b></li><li class="navelem"><b>event</b></li><li class="navelem"><a class="el" href="classseprcph_1_1event_1_1_event_manager.html">EventManager</a></li>
-    <li class="footer">Generated on Mon Nov 24 2014 13:47:28 for seprcph by
+    <li class="footer">Generated on Thu Dec 18 2014 21:16:21 for seprcph by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>
