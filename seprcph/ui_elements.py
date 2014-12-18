@@ -3,7 +3,7 @@ This module contains all classes relating to the user interface.
 """
 import pygame
 
-from serpcph.event import EventManager
+from seprcph.event import EventManager
 
 class Element(pygame.sprite.Sprite):
     """
@@ -12,15 +12,17 @@ class Element(pygame.sprite.Sprite):
     NOTE: pos refers to the top left of the Element's rect - not the center
     (as is the case with renderables)
     """
-    def __init__(self, size, position):
+    def __init__(self, size, position, image):
         """
         Args:
             size: a tuple containing the height and width of the UI element
             position: a tuple containing the coordinates of the UI element
+            image: A pygame.Surface
         """
         super(Element, self).__init__()
         self.size = size
         self.pos = position
+        self.image = image
 
     def __repr__(self):
         return "<size: %s, position: %s>" % (self.size, self.pos)
@@ -31,6 +33,14 @@ class Element(pygame.sprite.Sprite):
 
         Args:
             event: The pygame.event resulting from a mouse click.
+        """
+        pass
+
+    def update(self):
+        """
+        Called before the element is drawn.
+
+        This should be used for blitting to an Element's texture.
         """
         pass
 
@@ -48,14 +58,15 @@ class Clickable(Element):
     """
     A UI element which is clickable by the user
     """
-    def __init__(self, size, position, callback):
+    def __init__(self, size, position, callback, image):
         """
         Args:
             size: a tuple containing the height and width of the UI element
             position: a tuple containing the coordinates of the UI element
             callback: the function to be called when the element is clicked
+            image: A pygame surface
         """
-        super(Clickable, self).__init__(size, position)
+        super(Clickable, self).__init__(size, position, image)
         self.click = callback
 
     def __repr__(self):
@@ -67,36 +78,47 @@ class Label(Element):
     """
     A label UI element, simply contains text to display
     """
-    def __init__(self, size, position, text, font):
+    def __init__(self, size, position, text, font, colour, image):
         """
         Args:
             size: a tuple containing the height and width of the UI element
             position: a tuple containing the coordinates of the UI element
             text: text to be displayed in the label
             font: The pygame.font.Font object which describes how the text
-                  should look.
+                  should look
+            colour: A three element tuple representing in the form RGB
+            image: A pygame surface
         """
-        super(Label, self).__init__(size, position)
+        super(Label, self).__init__(size, position, image)
         self.text = text
         self.font = font
+        self.colour = colour
 
     def __repr__(self):
         return "<size: %s, position: %s, text: %s>" \
                % (self.size, self.pos, self.text)
+
+    def update(self):
+        label = self.font.render(self.text, True, self.colour)
+        self.image.blit(label, (0, 0))
 
 
 class Container(Element):
     """
     A container class which will contain other UI elements
     """
-    def __init__(self, size, pos, elems):
+    def __init__(self, size, pos, elems, image=None):
         """
         Args:
             size: a tuple containing the height and width of the UI element
             pos: a tuple containing the coordinates of the UI element
             elems: a list of UI elements contained within the container
+            image: A pygame surface (not required)
         """
-        super(Container, self).__init__(size, pos)
+        if not image:
+            image = pygame.Surface(size, pygame.SRCALPHA, 32)
+            image = image.convert()
+        super(Container, self).__init__(size, pos, image)
         self.elems = pygame.sprite.Group(elems)
 
     def add(self, element):
@@ -138,10 +160,10 @@ class Container(Element):
 
         self.size = size
 
-
-    def draw(self, surface):
-        self.elems.draw(surface)
-        # TODO: Container needs to render itself.
+    def update(self):
+        for elem in self.elems:
+            elem.update()
+        self.elems.draw(self.image)
 
 class Window(Container):
     """
@@ -159,5 +181,5 @@ class Window(Container):
             pos: A tuple representing the position of the top left corner of the window
             elems: The elements that are to be included in this window
         """
-        super(Window, self).__init__(size, pos, elems)
+        super(Window, self).__init__(size, pos, elems, None)
         EventManager.add_listener('mouse.click', self.click)
