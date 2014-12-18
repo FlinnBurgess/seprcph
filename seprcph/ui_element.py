@@ -10,6 +10,8 @@ File:
 Classes:
     Element
     Clickable
+    Label
+    Container
 """
 import pygame
 
@@ -36,6 +38,15 @@ class Element(pygame.sprite.Sprite):
         """
         pass
 
+    def click(self, event):
+        """
+        A callback that is called when the Element is clicked on.
+
+        Args:
+            event: The pygame.event resulting from a mouse click.
+        """
+        pass
+
 
 class Clickable(Element):
     """
@@ -49,7 +60,7 @@ class Clickable(Element):
             callback: the function to be called when the element is clicked
         """
         super(Clickable, self).__init__(size, position)
-        self.callback = callback
+        self.click = callback
 
     def __repr__(self):
         return "<size: %s, position: %s, callback function: %s>" \
@@ -92,15 +103,15 @@ class Container(Element):
         super(Container, self).__init__(size, pos)
         self.elems = pygame.sprite.Group(elems)
 
-    def click(self, pos):
+    def click(self, event):
         """
         Creates a list of UI elements clicked and executes their callbacks.
 
         Args:
-            pos: A tuple representing the point at which the mouse was clicked.
+            event: The pygame.event resulting from a mouse click.
         """
-        for elem in [e for e in self.elems if e.rect.collidepoint(pos)]:
+        for elem in [e for e in self.elems if e.rect.collidepoint(event.pos)]:
             try:
-                elem.callback()
+                elem.click(event)
             except AttributeError:
                 pass
