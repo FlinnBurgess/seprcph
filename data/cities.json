@@ -268,17 +268,17 @@
         "pos": [1944, 1081],
         "is_capital": false,
         "image": "city.png"
-    }
+    },
     {"name": "Belgrade",
         "pos": [1281, 1582],
         "is_capital": true,
         "image": "city.png"
-    }
+    },
     {"name": "Sarajevo",
         "pos": [1195, 1621],
         "is_capital": true,
         "image": "city.png"
-    }
+    },
     {"name": "Skopje",
         "pos": [1339, 1732],
         "is_capital": true,
