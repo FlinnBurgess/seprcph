@@ -11,6 +11,11 @@ class Element(pygame.sprite.Sprite):
 
     NOTE: pos refers to the top left of the Element's rect - not the center
     (as is the case with renderables)
+
+    An element's update method is to be used for blitting information to its
+    own image. Elements are collected into a pygame.sprite.Group and are all
+    drawn in one go - using an Element's rect and image to determine how
+    they are rendered.
     """
     def __init__(self, size, position, image):
         """
