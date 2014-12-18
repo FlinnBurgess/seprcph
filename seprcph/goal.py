@@ -22,6 +22,7 @@ class Goal(object):
             turns: The amount of turns that the player has to complete the goal.
             gold_reward: The amount of gold that the player will receive.
             points_reward: The number of points that the player will receive.
+            player: The player the the goal shall be assigned to.
             desc: An optional description about the goal.
         """
 

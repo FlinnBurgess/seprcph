@@ -1,3 +1,7 @@
+"""
+A module for creating Card objects.
+"""
+
 import os.path
 import random
 from seprcph.json_loader import create_cards
@@ -6,10 +10,11 @@ from seprcph.config import Config
 
 class CardFactory(object):
     """
-    Load cards from a json file and create the cards that will be entered
-    into a deck.
-    """
+    Create a deck of cards.
 
+    Cards are loaded from a JSON file and arranged into a deck based upon a
+    bias (often referred to as Policies).
+    """
     class UnknownBiasError(Exception):
         """
         Raised when a bias isn't known.
@@ -17,7 +22,7 @@ class CardFactory(object):
         pass
 
     BIASES = {'aggressive': [0.25, 0.35, 0.20, 0.20],
-            'defensive': [0.35, 0.25, 0.2, 0.2]}
+                'defensive': [0.35, 0.25, 0.2, 0.2]}
 
     def __init__(self):
         """

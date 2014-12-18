@@ -1,5 +1,5 @@
 """
-This module contains all classes realted to the tracks.
+This module contains all classes related to the tracks.
 """
 
 import math
@@ -23,8 +23,9 @@ class NotEnoughGoldError(Exception):
 
 class Track(Renderable):
     """
-    Track class that manages the data held within each track and lets the
-    player interact with the tracks.
+    Manages the data to be stored about a Track.
+
+    Also provides functions that allow Players to interact with Tracks.
     """
     def __init__(self, start_city, end_city, gold_generation, cost, image):
         """

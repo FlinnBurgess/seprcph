@@ -129,8 +129,10 @@ class Container(Element):
 
 class Window(Container):
     """
-    The top level of a UI, it manages everything from click processing to
-    organising redrawing.
+    The top level of a UI, it manages all elements.
+
+    The Window is reponsible for telling elements that they are to be resized,
+    telling elements when they have been clicked as well as rendering elements.
     """
     def __init__(self, size, pos, elems, surface):
         """

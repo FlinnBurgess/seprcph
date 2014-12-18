@@ -22,7 +22,7 @@ class Event(object):
         Args:
             topic: String denoting the topic that the event relates to
             desc: String, optional, for displaying the event textually
-            **kwargs: Optional data arguments for event handlers to use
+            kwargs: Optional data arguments for event handlers to use
         """
         self.topic = topic
         self.desc = desc
