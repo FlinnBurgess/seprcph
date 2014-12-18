@@ -1,6 +1,8 @@
 """
 This module contains all classes relating to the deck.
 """
+import random
+
 
 class Deck(object):
     """

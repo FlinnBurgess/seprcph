@@ -25,7 +25,8 @@ class TestCompleteGoal(unittest.TestCase):
         image = pygame.Surface((10, 10))
         self.start_city = City('London', (100, 100), False, image)
         self.end_city = [City('Berlin', (100, 50), False, image)]
-        self.deck = Deck(None, [Card('card1', None, None, None, image), Card('card2', None, None, None, image)], None)
+        self.deck = Deck(None, [Card('card1', None, None, None, (0, 0), image),
+                            Card('card2', None, None, None, (0, 0), image)], None)
         self.player = Player(0, 0, self.deck)
         self.goal = Goal(self.start_city, self.end_city, 4, 100, 100, self.player)
 

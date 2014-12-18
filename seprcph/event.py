@@ -2,6 +2,8 @@
 """
 This module contains all classes relating to events and their publishing
 """
+import logging
+
 
 class CallbackAlreadyRegistered(Exception):
     """

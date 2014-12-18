@@ -1,6 +1,9 @@
 """
 This module contains all classes relating to the trains.
 """
+import math
+from seprcph.event import EventManager, Event
+from seprcph.renderable import Renderable
 
 class Train(Renderable):
     """

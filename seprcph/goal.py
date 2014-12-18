@@ -1,6 +1,8 @@
 """
 This module contains all classes relating to the goals of the game.
 """
+from seprcph.event import EventManager, Event
+
 
 class Goal(object):
     """
