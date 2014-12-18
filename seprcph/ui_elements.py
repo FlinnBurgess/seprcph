@@ -3,6 +3,8 @@ This module contains all classes relating to the user interface.
 """
 import pygame
 
+from serpcph.event import EventManager
+
 class Element(pygame.sprite.Sprite):
     """
     Superclass for the UI elements
@@ -23,15 +25,6 @@ class Element(pygame.sprite.Sprite):
     def __repr__(self):
         return "<size: %s, position: %s>" % (self.size, self.pos)
 
-    def draw(self, surface):
-        """
-        Tells the game how to draw the UI element
-
-        Args:
-            surface: The surface to be drawn to.
-        """
-        pass
-
     def click(self, event):
         """
         A callback that is called when the Element is clicked on.
@@ -41,16 +34,14 @@ class Element(pygame.sprite.Sprite):
         """
         pass
 
-    def resize(self, w_ratio, h_ratio):
+    def resize(self, size):
         """
         Called when the window is resized.
 
         Args:
-            w_ratio: The ratio by which the width has changed.
-            h_ratio: The ratio by which the height has changed.
+            A tuple representing the element's new size
         """
-        self.size[0] *= w_ratio
-        self.size[1] *= h_ratio
+        self.size = size
 
 
 class Clickable(Element):
@@ -108,12 +99,24 @@ class Container(Element):
         super(Container, self).__init__(size, pos)
         self.elems = pygame.sprite.Group(elems)
 
+    def add(self, element):
+        """
+        Add an element to the container
+        """
+        self.elems.add(element)
+
+    def remove(self, element):
+        """
+        Remove an element from the container
+        """
+        self.elems.remove(element)
+
     def click(self, event):
         """
         Creates a list of UI elements clicked and executes their callbacks.
 
         Args:
-            event: The pygame.event resulting from a mouse click.
+            event: The Event resulting from a mouse click.
         """
         for elem in [e for e in self.elems if e.rect.collidepoint(event.pos)]:
             try:
@@ -121,10 +124,23 @@ class Container(Element):
             except AttributeError:
                 pass
 
-    def draw(self, surface):
-        for elem in self.elems:
-            elem.draw(surface)
+    def resize(self, size):
+        """
+        Called when the main Pygame screen is resized
 
+        Args:
+            size: The new size of the container
+        """
+        w_ratio = self.size[0] / size[0]
+        h_ratio = self.size[1] / size[1]
+        for elem in self.elems:
+            elem.resize((elem.size[0] * w_ratio, elem.size[1] * h_ratio))
+
+        self.size = size
+
+
+    def draw(self, surface):
+        self.elems.draw(surface)
         # TODO: Container needs to render itself.
 
 class Window(Container):
@@ -134,37 +150,14 @@ class Window(Container):
     The Window is reponsible for telling elements that they are to be resized,
     telling elements when they have been clicked as well as rendering elements.
     """
-    def __init__(self, size, pos, elems, surface):
+    def __init__(self, size, pos, elems):
         """
         Initialise the entire UI
 
         Args:
             size: A tuple representing the size of the Window
-            pos: A tuple representing the position of the top left corner of
-            the window
+            pos: A tuple representing the position of the top left corner of the window
             elems: The elements that are to be included in this window
-            surface: A pygame.Surface that shall be rendered to
         """
         super(Window, self).__init__(size, pos, elems)
-        self.surface = surface
-
-    def resize(self, size):
-        """
-        Called when the main Pygame screen is resized
-
-        Args:
-            size: The new size of the screen
-        """
-        w_ratio = size[0] / self.size[0]
-        h_ratio = size[1] / self.size[1]
-        for elem in self.elems:
-            elem.resize(w_ratio, h_ratio)
-
-        self.size = size
-
-    def draw_elems(self):
-        """
-        Call all of the element's draw methods
-        """
-        for elem in self.elems:
-            elem.draw(self.surface)
+        EventManager.add_listener('mouse.click', self.click)
