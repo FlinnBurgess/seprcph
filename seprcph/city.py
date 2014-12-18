@@ -1,14 +1,5 @@
 """
 This module contains all classes relating to the city.
-
-Name:
-    city
-
-File:
-    seprcph/city.py
-
-Classes:
-    City
 """
 from seprcph.renderable import Renderable
 

@@ -1,15 +1,5 @@
 """
 This module contains the main game loop as well as the system for setting up the file logger.
-
-Name:
-    main
-
-File:
-    seprcph/main.py
-
-Functions:
-    main
-    setup_file_logger
 """
 
 import logging

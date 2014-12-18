@@ -1,15 +1,5 @@
 """
 This module contains all classes realted to the tracks.
-
-Name:
-    track
-
-Location:
-    seprcph/track.py
-
-Classes:
-    TrackOwnedError
-    Track
 """
 
 import math

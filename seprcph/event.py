@@ -1,19 +1,7 @@
 #!/usr/bin/python2.7
 """
 This module contains all classes relating to events and their publishing
-
-Name:
-    event
-
-File:
-    seprcph/event.py
-
-Classes:
-    Event
-    EventManager
 """
-import logging
-
 
 class CallbackAlreadyRegistered(Exception):
     """

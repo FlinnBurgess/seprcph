@@ -1,19 +1,6 @@
 """
 This module contains all classes relating to the trains.
-
-Name:
-    train
-
-Files:
-    seprcph/train.py
-
-Classes:
-    Train
 """
-import math
-from seprcph.event import Event, EventManager
-from seprcph.renderable import Renderable
-
 
 class Train(Renderable):
     """

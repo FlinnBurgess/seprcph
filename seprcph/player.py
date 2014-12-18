@@ -1,16 +1,6 @@
 """
 This module contains the all classes relating to the players of the game.
-
-Name:
-    player
-
-File:
-    seprcph/player.py
-
-Classes:
-    Player
 """
-
 
 class Player(object):
     """

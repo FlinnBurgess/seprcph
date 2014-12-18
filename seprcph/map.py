@@ -1,4 +1,5 @@
-""" For big-daddy home-slice
+"""
+Provides a way of interacting with tracks and cities
 """
 import os.path
 from seprcph.config import Config

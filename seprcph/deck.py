@@ -1,17 +1,6 @@
 """
 This module contains all classes relating to the deck.
-
-Name:
-    deck
-
-File:
-    seprcph/deck.py
-
-Classes:
-    Deck
 """
-import random
-
 
 class Deck(object):
     """

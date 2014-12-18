@@ -1,17 +1,6 @@
 """
 This module contains all classes relating to the goals of the game.
-
-Name:
-    goals
-
-File:
-    seprcph/goal.py
-
-Classes:
-    Goal
 """
-from seprcph.event import Event, EventManager
-
 
 class Goal(object):
     """

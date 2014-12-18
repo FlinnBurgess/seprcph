@@ -1,17 +1,5 @@
 """
 This module contains all classes relating to the user interface.
-
-Name:
-    ui_element
-
-File:
-    seprcph/ui_element.py
-
-Classes:
-    Element
-    Clickable
-    Label
-    Container
 """
 import pygame
 

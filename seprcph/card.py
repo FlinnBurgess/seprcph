@@ -1,18 +1,6 @@
 """
 This module contains all classes relating to cards.
-
-Name:
-    card
-
-File:
-    seprcph/card.py
-
-Classes:
-    Card
 """
-from seprcph.event import Event, EventManager
-import pygame
-
 
 class Card(object):
     """
