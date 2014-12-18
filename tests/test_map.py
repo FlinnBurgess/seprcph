@@ -49,7 +49,9 @@ class TestFetchAndAdd(unittest.TestCase):
 
     def test_add_track(self):
         self.map.add_track(self.test_track)
-        self.assertEqual(self.map._matrix[0][1], self.test_track)
+        tracks = len(self.map._matrix)
+        self.assertEqual(len(self.map._matrix), tracks)
+        self.assertTrue(self.test_track in self.map._matrix[0])
 
     def test_fetch_track(self):
         self.map.add_track(self.test_track)
