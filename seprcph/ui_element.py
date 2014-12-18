@@ -32,9 +32,12 @@ class Element(pygame.sprite.Sprite):
     def __repr__(self):
         return "<size: %s, position: %s>" % (self.size, self.pos)
 
-    def draw(self):
+    def draw(self, surface):
         """
         Tells the game how to draw the UI element
+
+        Args:
+            surface: The surface to be drawn to.
         """
         pass
 
@@ -166,7 +169,7 @@ class Window(Container):
 
         self.size = size
 
-    def draw(self):
+    def draw_elems(self):
         """
         Call all of the element's draw methods
         """
