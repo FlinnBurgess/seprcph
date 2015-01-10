@@ -47,6 +47,9 @@ def main():
             screen = pygame.display.set_mode(event.dict['size'], pygame.RESIZABLE)
             screen.blit(pygame.transform.scale(game_map.image, event.dict['size']), (0, 0))
             pygame.display.flip()
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                return
 
         clock.tick(FPS)
         sprites.draw(game_map.image)
