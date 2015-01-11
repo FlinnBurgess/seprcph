@@ -10,7 +10,7 @@ from seprcph.config import Config
 from seprcph.map import Map
 from seprcph.track import Track
 from seprcph.event import Event, EventManager
-from seprcph.ui_elements import Window, Container, Label
+from seprcph.ui_elements import Window, Container, Label, Clickable
 
 
 def main():
@@ -121,7 +121,13 @@ def resize_sprites(old, new, sprites):
             s.chain_images()
 
 def initialise_ui(size, surface):
-    win = Window(size, (0, 0), [], surface)
+    def func(ev):
+        print ev
+
+    c = Clickable((100, 100), (0, 0), func, pygame.Surface((100, 100)))
+    l = Label((100, 100), (100, 0), "TEST", pygame.font.SysFont("monospace", 12))
+    win = Window(size, (0, 0), [c, l], surface)
+    win.update()
     return win
 
 def setup_file_logger(filename, formatting, log_level):

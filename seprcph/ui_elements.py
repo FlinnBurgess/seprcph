@@ -88,7 +88,7 @@ class Label(Element):
     """
     A label UI element, simply contains text to display
     """
-    def __init__(self, size, position, text, font, colour, image):
+    def __init__(self, size, position, text, font, colour=(255, 255, 255), image=None):
         """
         Args:
             size: a tuple containing the height and width of the UI element
@@ -99,7 +99,9 @@ class Label(Element):
             colour: A three element tuple in the form RGB
             image: A pygame surface
         """
-        super(Label, self).__init__(size, position, image)
+        if not image:
+            self.image = pygame.Surface(font.size(text))
+        super(Label, self).__init__(size, position, self.image)
         self.text = text
         self.font = font
         self.colour = colour
@@ -193,3 +195,4 @@ class Window(Container):
         """
         super(Window, self).__init__(size, pos, elems, surface)
         EventManager.add_listener('ui.clicked', self.click)
+        EventManager.add_listener('window.resize', self.resize)
