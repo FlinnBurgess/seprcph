@@ -1,0 +1,61 @@
+"""
+Holds the class for an effect
+"""
+import pygame
+from seprcph.event import EventManager
+
+
+class Effect(object):
+    """
+    Represents an effect that can be applied ot an object.
+
+    Listens for click events and then applies its effect if the object
+    that was clicked is the same type as this effect works with.
+    """
+    def __init__(self, name, target_type, effect, undo, turns):
+        """
+        Get everything setup and notify the EventManager that we want to listen
+        for events.
+
+        Args:
+            name: The name of the effect
+            target_type: The class that th target is required to be
+            effect: An anonymous function of the form: lambda x: x that will be applied to the target
+            undo: An anonymous function of the form: lambda x: x that will be applied to the target once this effect has ended
+            turns: The amount of turns this effect is active for
+        """
+        self.name = name
+        self.target_type = target_type
+        self.effect = effect
+        self.undo = undo
+        self.turns = turns
+
+        EventManager.add_listener('ui.clicked', self.apply)
+
+    def apply(self, event):
+        """
+        Applies the effect to the target.
+
+        Args:
+            event: The event sent to us from the topic 'ui.clicked'.
+
+        Returns:
+            True if successful, False otherwise.
+        """
+        if isinstance(event.obj, self.target_type):
+            self.effect(event.obj)
+            return True
+        return False
+
+    def remove(self, target):
+        """
+        Called when an effect has run out to set the target back to its original state
+
+        Args:
+            target: The object that the effect was applied to
+
+        Raises:
+            AssertionError
+        """
+        assert isinstance(target, self.target_type)
+        self.undo(target)

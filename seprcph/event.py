@@ -45,6 +45,8 @@ class EventManager(object):
         """
         Registers a callback function to respond to events relating to the
         passed topic
+        XXX: The callback that the object belongs to needs to be fully instantiated.
+
         Args:
             topic: The topic to which the listener will subscribe
             callback: The event handler method of the listening object

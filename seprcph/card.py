@@ -19,11 +19,11 @@ class Card(Renderable):
             pos: The position of the card
             image: The image file to be displayed with the card in the GUI
         """
-        super(Card, self).__init__(pos, image)
         self.name = name
         self.desc = description
         self.effect = effect
         self.type = type
+        super(Card, self).__init__(pos, image)
 
     def __repr__(self):
         return "<name: %s, description: %s>" % (self.name, self.desc)
