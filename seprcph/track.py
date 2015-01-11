@@ -5,6 +5,7 @@ This module contains all classes related to the tracks.
 import math
 import pygame
 from seprcph.renderable import Renderable
+from seprcph.effect import Affectable
 
 
 class TrackOwnedError(Exception):
@@ -21,7 +22,7 @@ class NotEnoughGoldError(Exception):
     pass
 
 
-class Track(Renderable):
+class Track(Renderable, Affectable):
     """
     Manages the data to be stored about a Track.
 
@@ -47,6 +48,7 @@ class Track(Renderable):
 
         super(Track, self).__init__(((start_city.pos[0] + end_city.pos[0]) /2,
                                     (start_city.pos[1] + end_city.pos[1]) / 2), image)
+        Affectable.__init__(self)
 
         final_image = pygame.Surface((self.image.get_rect()[3], self.length),
                                         flags=pygame.SRCALPHA)

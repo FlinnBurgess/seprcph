@@ -4,8 +4,9 @@ This module contains all classes relating to the trains.
 import math
 from seprcph.event import EventManager, Event
 from seprcph.renderable import Renderable
+from seprcph.effect import Affectable
 
-class Train(Renderable):
+class Train(Renderable, Affectable):
     """
     Class representing train objects in the game
     """
@@ -19,7 +20,6 @@ class Train(Renderable):
             current_load: The amount of cargo the train is carrying
             image: The pygame surface associated with this train
         """
-        super(Train, self).__init__(city.pos, image)
         self.effects = effects
         self.speed = speed
         self.capacity = capacity
@@ -31,6 +31,9 @@ class Train(Renderable):
         self.rotation = None
         self.distance = None
         self.counter = 0
+
+        super(Train, self).__init__(city.pos, image)
+        Affectable.__init__(self)
 
         EventManager.add_listener('goal.completed', self.unload)
         EventManager.add_listener('goal.started', self.load)

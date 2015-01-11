@@ -44,6 +44,7 @@ class Effect(object):
         """
         if isinstance(event.obj, self.target_type):
             self.effect(event.obj)
+            event.obj.add_effect(self)
             return True
         return False
 
@@ -59,3 +60,21 @@ class Effect(object):
         """
         assert isinstance(target, self.target_type)
         self.undo(target)
+
+class Affectable(object):
+    def __init__(self):
+        self.effects = []
+
+    def add_effect(self, eff):
+        self.effects.append(eff)
+
+    def remove_dead_effects(self):
+        dead_eff = [e for e in self.effects if e.turns == 0]
+        for eff in dead_eff:
+            eff.undo(self)
+
+        self.effects = [e for e in self.effects if not e.turns == 0]
+
+    def decrement_turns(self):
+        self.effects = [e - 1 for e in self.effects]
+        self.remove_dead_effects()
