@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hand',['Hand',['../classseprcph_1_1hand_1_1_hand.html',1,'seprcph::hand']]]
+  ['goal',['Goal',['../classseprcph_1_1goal_1_1_goal.html',1,'seprcph::goal']]]
 ];

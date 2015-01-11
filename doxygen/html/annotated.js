@@ -17,6 +17,10 @@ var annotated =
       [ "deck", null, [
         [ "Deck", "classseprcph_1_1deck_1_1_deck.html", "classseprcph_1_1deck_1_1_deck" ]
       ] ],
+      [ "effect", null, [
+        [ "Affectable", "classseprcph_1_1effect_1_1_affectable.html", "classseprcph_1_1effect_1_1_affectable" ],
+        [ "Effect", "classseprcph_1_1effect_1_1_effect.html", "classseprcph_1_1effect_1_1_effect" ]
+      ] ],
       [ "event", null, [
         [ "CallbackAlreadyRegistered", "classseprcph_1_1event_1_1_callback_already_registered.html", null ],
         [ "Event", "classseprcph_1_1event_1_1_event.html", "classseprcph_1_1event_1_1_event" ],
@@ -45,12 +49,12 @@ var annotated =
       [ "train", null, [
         [ "Train", "classseprcph_1_1train_1_1_train.html", "classseprcph_1_1train_1_1_train" ]
       ] ],
-      [ "ui_element", null, [
-        [ "Clickable", "classseprcph_1_1ui__element_1_1_clickable.html", "classseprcph_1_1ui__element_1_1_clickable" ],
-        [ "Container", "classseprcph_1_1ui__element_1_1_container.html", "classseprcph_1_1ui__element_1_1_container" ],
-        [ "Element", "classseprcph_1_1ui__element_1_1_element.html", "classseprcph_1_1ui__element_1_1_element" ],
-        [ "Label", "classseprcph_1_1ui__element_1_1_label.html", "classseprcph_1_1ui__element_1_1_label" ],
-        [ "Window", "classseprcph_1_1ui__element_1_1_window.html", "classseprcph_1_1ui__element_1_1_window" ]
+      [ "ui_elements", null, [
+        [ "Clickable", "classseprcph_1_1ui__elements_1_1_clickable.html", "classseprcph_1_1ui__elements_1_1_clickable" ],
+        [ "Container", "classseprcph_1_1ui__elements_1_1_container.html", "classseprcph_1_1ui__elements_1_1_container" ],
+        [ "Element", "classseprcph_1_1ui__elements_1_1_element.html", "classseprcph_1_1ui__elements_1_1_element" ],
+        [ "Label", "classseprcph_1_1ui__elements_1_1_label.html", "classseprcph_1_1ui__elements_1_1_label" ],
+        [ "Window", "classseprcph_1_1ui__elements_1_1_window.html", "classseprcph_1_1ui__elements_1_1_window" ]
       ] ]
     ] ]
 ];

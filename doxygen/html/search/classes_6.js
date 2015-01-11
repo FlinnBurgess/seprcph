@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['label',['Label',['../classseprcph_1_1ui__element_1_1_label.html',1,'seprcph::ui_element']]]
+  ['incompleteconfigurationfileerror',['IncompleteConfigurationFileError',['../classseprcph_1_1config_1_1_incomplete_configuration_file_error.html',1,'seprcph::config']]]
 ];

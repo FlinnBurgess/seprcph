@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['player',['Player',['../classseprcph_1_1player_1_1_player.html',1,'seprcph::player']]]
+  ['notenoughgolderror',['NotEnoughGoldError',['../classseprcph_1_1track_1_1_not_enough_gold_error.html',1,'seprcph::track']]]
 ];
