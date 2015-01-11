@@ -100,8 +100,12 @@ class Label(Element):
             image: A pygame surface
         """
         if not image:
-            self.image = pygame.Surface(font.size(text))
-        super(Label, self).__init__(size, position, self.image)
+            if size[0] < font.size(text)[0] or size[1] < font.size(text)[1]:
+                self.image = pygame.Surface(font.size(text))
+                self.size = font.size(text)
+            else:
+                self.image = pygame.Surface(size)
+        super(Label, self).__init__(self.size, position, self.image)
         self.text = text
         self.font = font
         self.colour = colour
