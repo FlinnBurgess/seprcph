@@ -76,5 +76,7 @@ class Affectable(object):
         self.effects = [e for e in self.effects if not e.turns == 0]
 
     def decrement_turns(self):
-        self.effects = [e - 1 for e in self.effects]
+        for eff in self.effects:
+            eff.turns -= 1
+
         self.remove_dead_effects()

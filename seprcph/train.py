@@ -10,17 +10,15 @@ class Train(Renderable, Affectable):
     """
     Class representing train objects in the game
     """
-    def __init__(self, effects, speed, capacity, city, current_load, image):
+    def __init__(self, speed, capacity, city, current_load, image):
         """
         Args:
-            effects: A list of buffs and debuffs
             speed: The speed of the train
             capacity: The capacity of the train
             city: The city the train is created at
             current_load: The amount of cargo the train is carrying
             image: The pygame surface associated with this train
         """
-        self.effects = effects
         self.speed = speed
         self.capacity = capacity
         self.current_load = current_load
@@ -37,15 +35,6 @@ class Train(Renderable, Affectable):
 
         EventManager.add_listener('goal.completed', self.unload)
         EventManager.add_listener('goal.started', self.load)
-
-    ## TODO apply_effects NEEDS REWORKING - this is a placeholder and does not
-    ## fit with the way the cards and decks currently work.
-    def apply_effects(self):
-        """
-        Apply the effects to this train.
-        """
-        for effect in self.effects:
-            effect()
 
     def depart(self, track):
         """
