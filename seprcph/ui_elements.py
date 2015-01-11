@@ -74,11 +74,14 @@ class Clickable(Element):
             image: A pygame surface
         """
         super(Clickable, self).__init__(size, position, image)
-        self.click = callback
+        self.cb = callback
 
     def __repr__(self):
         return "<size: %s, position: %s, callback function: %s>" \
-               % (self.size, self.pos, self.click)
+               % (self.size, self.pos, self.cb)
+
+    def click(self, event):
+        self.cb(event)
 
 
 class Label(Element):
@@ -189,4 +192,4 @@ class Window(Container):
             elems: The elements that are to be included in this window
         """
         super(Window, self).__init__(size, pos, elems, surface)
-        EventManager.add_listener('mouse.click', self.click)
+        EventManager.add_listener('ui.clicked', self.click)
