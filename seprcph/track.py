@@ -39,22 +39,14 @@ class Track(Renderable):
             cost: The cost of unlocking the track.
             image: The pygame surface associated with this track.
         """
-        super(Track, self).__init__(((start_city.pos[0] + end_city.pos[0]) /2,
-                                    (start_city.pos[1] + end_city.pos[1]) / 2), image)
         self.cities = (start_city, end_city)
         self.gold_generation = gold_generation
         self.cost = cost
         self.rotation = self._calc_rotation(start_city.pos, end_city.pos)
         self.length = self._calc_length(start_city.pos, end_city.pos)
 
-        # We can't use convert_alpha without a screen being set up, so test
-        # if a screen is set up.
-        try:
-            image = image.convert_alpha()
-        except pygame.error:
-            pass
-        finally:
-            self.image = image
+        super(Track, self).__init__(((start_city.pos[0] + end_city.pos[0]) /2,
+                                    (start_city.pos[1] + end_city.pos[1]) / 2), image)
 
         final_image = pygame.Surface((self.image.get_rect()[3], self.length),
                                         flags=pygame.SRCALPHA)

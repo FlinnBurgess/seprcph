@@ -17,9 +17,9 @@ class City(Renderable):
                         respective country.
             image: the image to be used with pygame.surface
         """
-        super(City, self).__init__(pos, image)
         self.name = name
         self.is_capital = is_capital
+        super(City, self).__init__(pos, image)
 
     def __repr__(self):
         return "<name: %s, coordinates: %s, is_capital: %r>" \

@@ -1,4 +1,5 @@
 import pygame
+from seprcph.event import EventManager
 
 
 class Renderable(pygame.sprite.Sprite):
@@ -20,6 +21,7 @@ class Renderable(pygame.sprite.Sprite):
             self.image = image
 
         self.pos = pos
+        EventManager.add_listener('ui.clicked', self.click)
 
     @property
     def rect(self):
@@ -38,7 +40,7 @@ class Renderable(pygame.sprite.Sprite):
         """
         pass
 
-    def click(self):
+    def click(self, event):
         """
         A hook that is called once the Renderable is clicked on.
         """
