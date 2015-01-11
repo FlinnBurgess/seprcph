@@ -8,6 +8,7 @@ import platform
 import pygame
 from seprcph.config import Config
 from seprcph.map import Map
+from seprcph.track import Track
 from seprcph.event import Event, EventManager
 from seprcph.ui_elements import Window, Container, Label
 
@@ -112,6 +113,12 @@ def resize_sprites(old, new, sprites):
     h_ratio = float(new[1]) / float(old[1])
     for s in sprites:
         s.pos = (int(s.pos[0] * w_ratio), int(s.pos[1] * h_ratio))
+        s.image = pygame.transform.scale(s.image, (int(s.image.get_size()[0] * w_ratio),
+                                int(s.image.get_size()[1] * h_ratio)))
+
+    for s in sprites:
+        if isinstance(s, Track):
+            s.chain_images()
 
 def initialise_ui(size, surface):
     win = Window(size, (0, 0), [], surface)
