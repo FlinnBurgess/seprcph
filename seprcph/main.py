@@ -9,6 +9,7 @@ import pygame
 from seprcph.config import Config
 from seprcph.map import Map
 from seprcph.event import Event, EventManager
+from seprcph.ui_elements import Window, Container, Label
 
 
 def main():
@@ -51,6 +52,8 @@ def main():
     game_map.image = pygame.transform.scale(game_map.image, screen.get_size())
     sprites = pygame.sprite.Group(game_map._cities.keys() + game_map._tracks)
 
+    win = initialise_ui(screen.get_size(), game_map.image)
+
     sprites.draw(game_map.image)
     screen.blit(game_map.image, (0, 0))
     pygame.display.flip()
@@ -85,6 +88,9 @@ def main():
 def initialise_pygame():
     """
     Intialise pygame modules, then the screen and finally the clock.
+
+    Returns:
+        A two element tuple - with screen first and then clock.
     """
     pygame.init()
     if Config.general['fullscreen']:
@@ -100,6 +106,9 @@ def initialise_pygame():
     logging.debug("%s", pygame.display.Info())
     return screen, clock
 
+def initialise_ui(size, surface):
+    win = Window(size, (0, 0), [], surface)
+    return win
 
 
 def setup_file_logger(filename, formatting, log_level):

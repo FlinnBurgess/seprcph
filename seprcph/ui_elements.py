@@ -28,6 +28,8 @@ class Element(pygame.sprite.Sprite):
         self.size = size
         self.pos = position
         self.image = image
+        self.rect = image.get_rect()
+        self.rect.topleft = self.pos
 
     def __repr__(self):
         return "<size: %s, position: %s>" % (self.size, self.pos)
@@ -91,7 +93,7 @@ class Label(Element):
             text: text to be displayed in the label
             font: The pygame.font.Font object which describes how the text
                   should look
-            colour: A three element tuple representing in the form RGB
+            colour: A three element tuple in the form RGB
             image: A pygame surface
         """
         super(Label, self).__init__(size, position, image)
@@ -177,7 +179,7 @@ class Window(Container):
     The Window is reponsible for telling elements that they are to be resized,
     telling elements when they have been clicked as well as rendering elements.
     """
-    def __init__(self, size, pos, elems):
+    def __init__(self, size, pos, elems, surface):
         """
         Initialise the entire UI
 
@@ -186,5 +188,5 @@ class Window(Container):
             pos: A tuple representing the position of the top left corner of the window
             elems: The elements that are to be included in this window
         """
-        super(Window, self).__init__(size, pos, elems, None)
+        super(Window, self).__init__(size, pos, elems, surface)
         EventManager.add_listener('mouse.click', self.click)
