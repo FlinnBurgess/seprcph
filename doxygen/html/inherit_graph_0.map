@@ -1,6 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node2" href="$classseprcph_1_1card__factory_1_1_card_factory.html" title="seprcph.card_factory.Card\lFactory" alt="" coords="115,5,303,47"/>
-<area shape="rect" id="node3" href="$classseprcph_1_1config_1_1_config.html" title="A static class for loading and storing configuration. " alt="" coords="129,71,288,98"/>
-<area shape="rect" id="node4" href="$classseprcph_1_1hand_1_1_hand.html" title="Class describing the Hand object. " alt="" coords="135,122,282,149"/>
-<area shape="rect" id="node5" href="$classseprcph_1_1map_1_1_map.html" title="Represents the tracks and cities of the map. " alt="" coords="140,173,277,199"/>
-</map>

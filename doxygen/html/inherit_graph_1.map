@@ -1,6 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node2" href="$classseprcph_1_1card__factory_1_1_card_factory_1_1_unknown_bias_error.html" title="Raised when a bias isn&#39;t known. " alt="" coords="150,5,338,47"/>
-<area shape="rect" id="node3" href="$classseprcph_1_1config_1_1_incomplete_configuration_file_error.html" title="Raised when the general section is missing from a config file. " alt="" coords="149,71,339,112"/>
-<area shape="rect" id="node4" href="$classseprcph_1_1track_1_1_not_enough_gold_error.html" title="Raised when a player tries unlocking a track without enough gold. " alt="" coords="137,136,351,177"/>
-<area shape="rect" id="node5" href="$classseprcph_1_1track_1_1_track_owned_error.html" title="Raised when a player tries unlocking a track that is already owned. " alt="" coords="150,201,338,243"/>
-</map>
