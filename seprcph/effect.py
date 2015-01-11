@@ -1,7 +1,6 @@
 """
 Holds the class for an effect
 """
-import pygame
 from seprcph.event import EventManager
 
 
@@ -20,10 +19,11 @@ class Effect(object):
         Args:
             name: The name of the effect
             target_type: The class that th target is required to be
-            effect: An anonymous function of the form: lambda x: x that will be applied to the target
-            undo: An anonymous function of the form: lambda x: x that will be applied to the target once this effect has ended
+            effect: A function of the form: func(target) that will be applied to the target
+            undo: A function of the form: func(target) that will be applied to the target once this effect has ended
             turns: The amount of turns this effect is active for
         """
+        assert turns >= 1
         self.name = name
         self.target_type = target_type
         self.effect = effect
