@@ -15,6 +15,22 @@ def main():
     """
     The game loop and glue code.
     """
+    effect_selection = False
+    effect = None
+
+    def _set_effect_selection(event):
+        effect = event.effect
+        pygame.mouse.set_cursor(*pygame.cursors.diamond)
+        effect_selection = True
+
+    def _unset_effect_selection(event):
+        effect = None
+        pygame.mouse.set_cursor(*pygame.cursors.arrow)
+        effect_selection = False
+
+    EventManager.add_listener('card.triggered', _set_effect_selection)
+    EventManager.add_listener('effect.applied', _unset_effect_selection)
+
     if platform.system() == 'Windows':
         Config.load_config(os.path.join(os.path.expanduser('~'), 'seprcph',
                                             'config.cfg'))
@@ -53,7 +69,12 @@ def main():
                 return
         elif event.type == pygame.MOUSEBUTTONUP:
             clicked = [s for s in sprites if s.rect.collidepoint(event.pos)]
-            ev = Event('ui.clicked', obj=clicked, pos=event.pos)
+            if effect_selection:
+                # We're trying to find which object the effect should be
+                # applied to.
+                ev = Event('ui.select_effect', obj=clicked, pos=event.pos)
+            else:
+                ev = Event('ui.clicked', obj=clicked, pos=event.pos)
             EventManager.notify_listeners(ev)
 
         clock.tick(FPS)
@@ -78,6 +99,7 @@ def initialise_pygame():
     clock = pygame.time.Clock()
     logging.debug("%s", pygame.display.Info())
     return screen, clock
+
 
 
 def setup_file_logger(filename, formatting, log_level):
