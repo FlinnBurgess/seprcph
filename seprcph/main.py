@@ -9,7 +9,31 @@ import pygame
 from seprcph.config import Config
 from seprcph.map import Map
 from seprcph.event import Event, EventManager
+from seprcph.player import Player
+from seprcph.deck import Deck
+from seprcph.card_factory import CardFactory
 
+active_player = None
+
+def initialise_players():
+    factory = CardFactory()
+    placeholder_deck = Deck("Placeholder",
+                            factory.build_cards(50, "aggressive"), None)
+    player1 = Player(500, 0, placeholder_deck)
+    player2 = Player(500, 0, placeholder_deck)
+    active_player = player1
+    cards = pygame.sprite.Group(active_player.deck.cards)
+
+    return player1, player2, cards
+
+def change_player(event):
+    global active_player
+    if active_player == player1:
+        active_player = player2
+    else:
+        active_player = player1
+    cards = pygame.sprite.Group(active_player.deck.cards)
+    cards.draw(game_map.image)
 
 def main():
     """
@@ -35,7 +59,10 @@ def main():
     game_map.image = pygame.transform.scale(game_map.image, screen.get_size())
     sprites = pygame.sprite.Group(game_map._cities.keys() + game_map._tracks)
 
+    player1, player2, cards = initialise_players()
+
     sprites.draw(game_map.image)
+    cards.draw(game_map.image)
     screen.blit(game_map.image, (0, 0))
     pygame.display.flip()
 
