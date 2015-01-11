@@ -44,6 +44,7 @@ class Effect(object):
         """
         if isinstance(event.obj, self.target_type):
             self.effect(event.obj)
+            event.obj.add_effect(self)
             return True
         return False
 
@@ -59,3 +60,45 @@ class Effect(object):
         """
         assert isinstance(target, self.target_type)
         self.undo(target)
+
+class Affectable(object):
+    """
+    A mixin style class that can be used to add support for effects.
+    """
+    def __init__(self):
+        """
+        Initialise the effects to nothing
+        """
+        self.effects = []
+
+    def add_effect(self, eff):
+        """
+        Add an effect to the object's internal list.
+
+        This is called by the eff after it has applied itself to the object.
+
+        Args:
+            eff: The effect to be applied
+        """
+        self.effects.append(eff)
+
+    def _remove_dead_effects(self):
+        """
+        Called automatically after a turn change. Cleans up effects that are no
+        longer active.
+        """
+        dead_eff = [e for e in self.effects if e.turns == 0]
+        for eff in dead_eff:
+            eff.undo(self)
+
+        self.effects = [e for e in self.effects if not e.turns == 0]
+
+    def decrement_turns(self):
+        """
+        Called each turn in order to reduce the number of turns each effect has
+        left. Effects with 0 turns left are removed.
+        """
+        for eff in self.effects:
+            eff.turns -= 1
+
+        self._remove_dead_effects()

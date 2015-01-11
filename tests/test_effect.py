@@ -1,6 +1,6 @@
 import unittest
 import pygame
-from seprcph.effect import Effect
+from seprcph.effect import Effect, Affectable
 from seprcph.event import Event, EventManager
 from seprcph.city import City
 
@@ -39,3 +39,23 @@ class TestEffect(unittest.TestCase):
         self.assertEqual(self.c.name, '')
         effect.remove(self.c)
         self.assertEqual(self.c.name, 'London')
+
+
+class TestAffectable(unittest.TestCase):
+
+    def setUp(self):
+        self.aff = Affectable()
+
+    def test_add_effect(self):
+        self.aff.add_effect(Effect('test_Eff', City, lambda x: x, lambda x: x, 2))
+        self.assertEqual(1, len(self.aff.effects))
+
+    def test_decrement_turns(self):
+        self.aff.add_effect(Effect('test_Eff', City, lambda x: x, lambda x: x, 2))
+        self.aff.decrement_turns()
+        self.assertEqual(1, self.aff.effects[0].turns)
+
+    def test_remove_effect(self):
+        self.aff.add_effect(Effect('test_Eff', City, lambda x: x, lambda x: x, 1))
+        self.aff.decrement_turns()
+        self.assertEqual(0, len(self.aff.effects))

@@ -2,9 +2,10 @@
 This module contains all classes relating to the city.
 """
 from seprcph.renderable import Renderable
+from seprcph.effect import Affectable
 
 
-class City(Renderable):
+class City(Renderable, Affectable):
     """
     Class that describes the cities shown on the map
     """
@@ -20,6 +21,7 @@ class City(Renderable):
         self.name = name
         self.is_capital = is_capital
         super(City, self).__init__(pos, image)
+        Affectable.__init__(self)
 
     def __repr__(self):
         return "<name: %s, coordinates: %s, is_capital: %r>" \
@@ -29,4 +31,4 @@ class City(Renderable):
         """
         Called each turn.
         """
-        pass
+        self.decrement_turns()
