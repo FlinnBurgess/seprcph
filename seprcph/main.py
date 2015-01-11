@@ -8,6 +8,7 @@ import platform
 import pygame
 from seprcph.config import Config
 from seprcph.map import Map
+from seprcph.event import Event, EventManager
 
 
 def main():
@@ -50,6 +51,10 @@ def main():
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 return
+        elif event.type == pygame.MOUSEBUTTONUP:
+            clicked = [s for s in sprites if s.rect.collidepoint(event.pos)]
+            ev = Event('ui.clicked', obj=clicked, pos=event.pos)
+            EventManager.notify_listeners(ev)
 
         clock.tick(FPS)
         sprites.draw(game_map.image)
