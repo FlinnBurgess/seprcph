@@ -31,4 +31,4 @@ class City(Renderable, Affectable):
         """
         Called each turn.
         """
-        pass
+        self.decrement_turns()

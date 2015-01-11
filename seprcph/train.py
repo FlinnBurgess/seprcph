@@ -81,6 +81,7 @@ class Train(Renderable, Affectable):
         else:
             self.pos[0] += move_distance[0]
             self.pos[1] += move_distance[1]
+        self.decrement_turns()
 
     def unload(self, event):
         """

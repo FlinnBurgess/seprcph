@@ -76,6 +76,7 @@ class Track(Renderable, Affectable):
         Tells the game how to maintain tracks on each refresh
         """
         self.owner.gold += self.gold_generation
+        self.decrement_turns()
 
     def unlock_track(self, player):
         """
