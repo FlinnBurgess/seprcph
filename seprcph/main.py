@@ -10,6 +10,8 @@ from seprcph.config import Config
 from seprcph.map import Map
 from seprcph.track import Track
 from seprcph.event import Event, EventManager
+from seprcph.ui import initialise_ui
+
 from seprcph.ui_elements import Window, Container, Label
 from seprcph.player import Player
 from seprcph.deck import Deck
@@ -146,10 +148,6 @@ def resize_sprites(old, new, sprites):
     for s in sprites:
         if isinstance(s, Track):
             s.chain_images()
-
-def initialise_ui(size, surface):
-    win = Window(size, (0, 0), [], surface)
-    return win
 
 def setup_file_logger(filename, formatting, log_level):
     """

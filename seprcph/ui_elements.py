@@ -74,18 +74,21 @@ class Clickable(Element):
             image: A pygame surface
         """
         super(Clickable, self).__init__(size, position, image)
-        self.click = callback
+        self.cb = callback
 
     def __repr__(self):
         return "<size: %s, position: %s, callback function: %s>" \
-               % (self.size, self.pos, self.click)
+               % (self.size, self.pos, self.cb)
+
+    def click(self, event):
+        self.cb(event)
 
 
 class Label(Element):
     """
     A label UI element, simply contains text to display
     """
-    def __init__(self, size, position, text, font, colour, image):
+    def __init__(self, size, position, text, font, colour=(255, 255, 255), image=None):
         """
         Args:
             size: a tuple containing the height and width of the UI element
@@ -96,7 +99,13 @@ class Label(Element):
             colour: A three element tuple in the form RGB
             image: A pygame surface
         """
-        super(Label, self).__init__(size, position, image)
+        if not image:
+            if size[0] < font.size(text)[0] or size[1] < font.size(text)[1]:
+                self.image = pygame.Surface(font.size(text))
+                self.size = font.size(text)
+            else:
+                self.image = pygame.Surface(size)
+        super(Label, self).__init__(self.size, position, self.image)
         self.text = text
         self.font = font
         self.colour = colour
@@ -189,4 +198,5 @@ class Window(Container):
             elems: The elements that are to be included in this window
         """
         super(Window, self).__init__(size, pos, elems, surface)
-        EventManager.add_listener('mouse.click', self.click)
+        EventManager.add_listener('ui.clicked', self.click)
+        EventManager.add_listener('window.resize', self.resize)
