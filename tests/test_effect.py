@@ -26,7 +26,7 @@ class TestEffect(unittest.TestCase):
 
         effect = Effect('test_eff', City, eff, lambda x: x, 2)
         self.assertTrue(self.c.is_capital)
-        EventManager.notify_listeners(self.ev)
+        effect.apply(Event('ui.select_effect', obj=self.c))
         self.assertFalse(self.c.is_capital)
         self.c.is_capital = True
 

@@ -83,13 +83,11 @@ class EventManager(object):
 
         Args:
             event: Object containing the topic and event meta-data
-
-        Raises:
-            AssertionError
         """
-        assert event.topic in EventManager._subscriptions.keys()
-
         logging.info("The topic %s has been notified with %s",
                      event.topic, str(event))
+        if event.topic not in EventManager._subscriptions:
+            logging.warn("Nothing was listening to topic %s", event.topic)
+            return
         for handler in EventManager._subscriptions[event.topic]:
             handler(event)
