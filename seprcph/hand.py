@@ -1,10 +1,10 @@
 from seprcph.event import EventManager
 
+
 class Hand(object):
     """
     Class describing the Hand object
     """
-
     def __init__(self, cards, deck):
         """
         Args:

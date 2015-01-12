@@ -95,6 +95,7 @@ def main():
         if event.type == pygame.QUIT:
             return
         elif event.type == pygame.VIDEORESIZE:
+            EventManager.notify_listeners(Event('window.resize', size=event.dict['size']))
             screen = pygame.display.set_mode(event.dict['size'], pygame.RESIZABLE)
             resize_sprites(game_map.image.get_size(), event.dict['size'], sprites)
             screen.blit(pygame.transform.scale(game_map.image, event.dict['size']), (0, 0))
@@ -145,9 +146,12 @@ def resize_sprites(old, new, sprites):
         s.image = pygame.transform.scale(s.image, (int(s.image.get_size()[0] * w_ratio),
                                 int(s.image.get_size()[1] * h_ratio)))
 
+    # TODO: Remove this by making track recalculate its image after its
+    # position has been changed, by means of a property.
     for s in sprites:
         if isinstance(s, Track):
             s.chain_images()
+
 
 def setup_file_logger(filename, formatting, log_level):
     """

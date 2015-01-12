@@ -163,19 +163,19 @@ class Container(Element):
             except AttributeError:
                 pass
 
-    def resize(self, size):
+    def resize(self, event):
         """
         Called when the main Pygame screen is resized
 
         Args:
             size: The new size of the container
         """
-        w_ratio = self.size[0] / size[0]
-        h_ratio = self.size[1] / size[1]
+        w_ratio = self.size[0] / event.size[0]
+        h_ratio = self.size[1] / event.size[1]
         for elem in self.elems:
             elem.resize((elem.size[0] * w_ratio, elem.size[1] * h_ratio))
 
-        self.size = size
+        self.size = event.size
 
     def update(self):
         for elem in self.elems:
