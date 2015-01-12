@@ -71,7 +71,7 @@ class EventManager(object):
             callback: The event handler method of the listening object
         """
         EventManager._subscriptions[topic].remove(callback)
-        logging.info("The callback %s been removed to the topic %s",
+        logging.debug("The callback %s been removed to the topic %s",
                      str(callback), topic)
         if len(EventManager._subscriptions[topic]) == 0:
             del EventManager._subscriptions[topic]
