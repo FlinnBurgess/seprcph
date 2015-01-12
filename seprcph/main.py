@@ -93,7 +93,7 @@ def main():
         if event.type == pygame.QUIT:
             return
         elif event.type == pygame.VIDEORESIZE:
-            EventManager.notify_listeners(Event('window.resize', size=event.dict['size']))
+            EventManager.notify_listeners(Event('window.resize', size=event.dict['size'], old_size=screen.get_size()))
             screen = pygame.display.set_mode(event.dict['size'], pygame.RESIZABLE)
             resize_sprites(game_map.image.get_size(), event.dict['size'], sprites)
             screen.blit(pygame.transform.scale(game_map.image, event.dict['size']), (0, 0))

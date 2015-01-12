@@ -45,3 +45,11 @@ class Renderable(pygame.sprite.Sprite):
         A hook that is called once the Renderable is clicked on.
         """
         pass
+
+    def resize(self, event):
+        """
+        When the window is resized, we need to resize.
+
+        Args:
+            event: Contains the field 'size' and 'old_size'
+        """

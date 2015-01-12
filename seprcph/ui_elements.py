@@ -170,12 +170,12 @@ class Container(Element):
         Args:
             size: The new size of the container
         """
-        w_ratio = self.size[0] / event.size[0]
-        h_ratio = self.size[1] / event.size[1]
+        w_ratio = event.size[0] / event.old_size[0]
+        h_ratio = event.size[1] / event.old_size[1]
         for elem in self.elems:
             elem.resize((elem.size[0] * w_ratio, elem.size[1] * h_ratio))
 
-        self.size = event.size
+        self.size = (self.size[0] * w_ratio, self.size[1] * h_ratio)
 
     def update(self):
         for elem in self.elems:
