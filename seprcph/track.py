@@ -53,6 +53,8 @@ class Track(Renderable, Affectable):
         self.is_locked = True
         self.owner = None
 
+        self.fill((143, 143, 143))
+
     def __repr__(self):
         return "<connects: %s, %s, gold-gen: %d, cost: %d>" \
                % (str(self.cities[0]),
