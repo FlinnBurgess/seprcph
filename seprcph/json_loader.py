@@ -9,12 +9,14 @@ Files:
 """
 
 import json
+import copy
 import os.path
 import pygame
 from seprcph.config import Config
 from seprcph.city import City
 from seprcph.track import Track
 from seprcph.card import Card
+import seprcph.effect_defs
 
 
 def _objs_from_file(file_path, obj_hook):
@@ -92,10 +94,14 @@ def create_cards(file_path):
         """
         Create a Card object from kwargs.
 
+        kwargs['effect'] is a string representing an object in effect_defs.py.
+        We try to load this object and then take a DEEP copy of it.
+
         Args:
             kwargs: A dictionary of elements from the json file.
         """
         kwargs['image'] = pygame.image.load(os.path.join(Config.general['image_dir'], kwargs['image']))
+        kwargs['effect'] = copy.deepcopy(getattr(seprcph.effect_defs, kwargs['effect']))
         return Card(**kwargs)
 
     return _objs_from_file(file_path, _card_hook)
