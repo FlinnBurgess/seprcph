@@ -5,6 +5,15 @@ import pygame
 
 from seprcph.event import EventManager
 
+
+class OutsideContainerError(Exception):
+    """
+    The element that is going to be added to the container is outside of the
+    container.
+    """
+    pass
+
+
 class Element(pygame.sprite.Sprite):
     """
     Superclass for the UI elements
@@ -156,9 +165,9 @@ class Container(Element):
         """
         element.pos = (element.pos[0] + self.pos[0],
                         element.pos[1] + self.pos[1])
-        print self.rect
-        print element.rect
-        print pygame.sprite.collide_rect(self, element)
+        if not pygame.sprite.collide_rect(self, element):
+            raise OutsideContainerError("element %s is outside of container %s",
+                                        str(element), str(self))
         self.elems.add(element)
 
     def remove(self, element):
@@ -180,15 +189,15 @@ class Container(Element):
             except AttributeError:
                 pass
 
-    def resize(self, event):
+    def resize(self, size):
         """
         Called when the main Pygame screen is resized
 
         Args:
             size: The new size of the container
         """
-        w_ratio = float(event.size[0]) / float(event.old_size[0])
-        h_ratio = float(event.size[1]) / float(event.old_size[1])
+        w_ratio = float(size[0]) / float(self.size[0])
+        h_ratio = float(size[1]) / float(self.size[1])
         for elem in self.elems:
             elem.resize((int(elem.size[0] * w_ratio), int(elem.size[1] * h_ratio)))
 
@@ -197,7 +206,7 @@ class Container(Element):
     def update(self):
         for elem in self.elems:
             elem.update()
-        self.elems.draw(self.image)
+            self.image.blit(elem.image, elem.pos)
 
 class Window(Container):
     """
@@ -218,3 +227,17 @@ class Window(Container):
         super(Window, self).__init__(size, pos, elems, surface)
         EventManager.add_listener('ui.clicked', self.click)
         EventManager.add_listener('window.resize', self.resize)
+
+    def resize(self, event):
+        """
+        Called when the main Pygame screen is resized
+
+        Args:
+            event: Contains the field 'size' and 'old_size'
+        """
+        w_ratio = float(event.size[0]) / float(event.old_size[0])
+        h_ratio = float(event.size[1]) / float(event.old_size[1])
+        for elem in self.elems:
+            elem.resize((int(elem.size[0] * w_ratio), int(elem.size[1] * h_ratio)))
+
+        self.size = (int(self.size[0] * w_ratio), int(self.size[1] * h_ratio))

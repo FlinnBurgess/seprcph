@@ -114,6 +114,7 @@ def main():
 
         clock.tick(FPS)
         sprites.draw(game_map.image)
+        win.update()
         pygame.display.flip()
 
 def initialise_pygame():
