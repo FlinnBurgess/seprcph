@@ -28,7 +28,7 @@ class Track(Renderable, Affectable):
 
     Also provides functions that allow Players to interact with Tracks.
     """
-    def __init__(self, start_city, end_city, gold_generation, cost, image):
+    def __init__(self, start_city, end_city, gold_generation, cost):
         """
         Args:
             start_city: One of the two cities that will be placed inside the
@@ -38,7 +38,6 @@ class Track(Renderable, Affectable):
             gold_generation: The amount of gold generated per turn by the track
                              for the player.
             cost: The cost of unlocking the track.
-            image: The pygame surface associated with this track.
         """
         self.cities = (start_city, end_city)
         self.gold_generation = gold_generation
