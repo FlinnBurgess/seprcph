@@ -65,7 +65,7 @@ class Clickable(Element):
     """
     A UI element which is clickable by the user
     """
-    def __init__(self, size, position, callback, image):
+    def __init__(self, size, position, callback, image, **kwargs):
         """
         Args:
             size: a tuple containing the height and width of the UI element
@@ -75,6 +75,7 @@ class Clickable(Element):
         """
         super(Clickable, self).__init__(size, position, image)
         self.cb = callback
+        self.__dict__.update(kwargs)
 
     def __repr__(self):
         return "<size: %s, position: %s, callback function: %s>" \

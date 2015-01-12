@@ -5,7 +5,7 @@ import pygame
 from seprcph.deck import Deck
 from seprcph.hand import Hand
 from seprcph.card import Card
-from seprcph.event import EventManager
+from seprcph.event import EventManager, Event
 
 x = 0
 def _func(_):
@@ -35,5 +35,5 @@ class TestHandMethods(unittest.TestCase):
 
     def test_play(self):
         EventManager.add_listener('card.triggered', _func)
-        self.hand.play(0)
+        self.hand.play(Event('card.played', card=self.card5))
         self.assertEqual(x, 1)
