@@ -5,5 +5,26 @@
         "type": "Event",
         "effect": null,
         "image": "city.png"
+    },
+    {
+        "name": "Hurricane",
+        "description": "Stops all movement in an area.",
+        "type": "Buff",
+        "effect": null,
+        "image": "city.png"
+    },
+    {
+        "name": "Hurricane",
+        "description": "Stops all movement in an area.",
+        "type": "Debuff",
+        "effect": null,
+        "image": "city.png"
+    },
+    {
+        "name": "Hurricane",
+        "description": "Stops all movement in an area.",
+        "type": "Trap",
+        "effect": null,
+        "image": "city.png"
     }
 ]

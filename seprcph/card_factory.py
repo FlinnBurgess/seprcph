@@ -29,10 +29,10 @@ class CardFactory(object):
         Load cards from JSON and them sort them by their type.
         """
         cards = create_cards(os.path.join(Config.general['data_dir'], 'cards.json'))
-        self.buffs = [x for x in cards if x.type is 'Buff']
-        self.debuffs = [x for x in cards if x.type is 'Debuff']
-        self.traps = [x for x in cards if x.type is 'Traps']
-        self.events = [x for x in cards if x.type is 'Events']
+        self.buffs = [x for x in cards if x.type == 'Buff']
+        self.debuffs = [x for x in cards if x.type == 'Debuff']
+        self.traps = [x for x in cards if x.type == 'Trap']
+        self.events = [x for x in cards if x.type == 'Event']
 
     def build_cards(self, count, bias):
         """
