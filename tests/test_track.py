@@ -13,8 +13,8 @@ class TestUnlockTrack(unittest.TestCase):
 
     def setUp(self):
         image = pygame.Surface((10, 10))
-        d = Deck(None, [Card('card1', None, None, None, (0, 0), image),
-                    Card('card2', None, None, None, (0, 0), image)], None)
+        d = Deck(None, [Card('card1', None, None, None, image),
+                    Card('card2', None, None, None, image)], None)
         self.p = Player(50, 1, d)
         self.image = pygame.Surface((10, 10))
         self.c1 = City("London", (50, 50), True, self.image)

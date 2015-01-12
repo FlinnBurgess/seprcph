@@ -16,11 +16,11 @@ class TestHandMethods(unittest.TestCase):
 
     def setUp(self):
         image = pygame.Surface((10, 10))
-        self.card1 = Card("card1", None, None, None, (0, 0), image)
-        self.card2 = Card("card2", None, None, None, (0, 0), image)
-        self.card3 = Card("card3", None, None, None, (0, 0), image)
-        self.card4 = Card("card4", None, None, None, (0, 0), image)
-        self.card5 = Card("card5", None, None, _func, (0, 0), image)
+        self.card1 = Card("card1", None, None, None, image)
+        self.card2 = Card("card2", None, None, None, image)
+        self.card3 = Card("card3", None, None, None, image)
+        self.card4 = Card("card4", None, None, None, image)
+        self.card5 = Card("card5", None, None, _func, image)
         self.deck = Deck(None, [self.card1, self.card2, self.card3,
                                 self.card4], None)
         self.hand = Hand([self.card5], self.deck)
