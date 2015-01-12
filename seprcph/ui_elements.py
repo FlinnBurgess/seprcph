@@ -28,7 +28,6 @@ class Element(pygame.sprite.Sprite):
         self.size = size
         self.pos = position
         self.image = image
-        self.rect = image.get_rect()
         self.rect.topleft = self.pos
 
     def __repr__(self):
@@ -59,6 +58,16 @@ class Element(pygame.sprite.Sprite):
             A tuple representing the element's new size
         """
         self.size = size
+
+    @property
+    def rect(self):
+        """
+        Calculate the rect based upon the image size and
+        object's position.
+        """
+        rect = self.image.get_rect()
+        rect.topleft = self.pos
+        return rect
 
 
 class Clickable(Element):
@@ -106,6 +115,7 @@ class Label(Element):
                 self.size = font.size(text)
             else:
                 self.image = pygame.Surface(size)
+                self.size = size
         super(Label, self).__init__(self.size, position, self.image)
         self.text = text
         self.font = font
@@ -136,12 +146,19 @@ class Container(Element):
             image = pygame.Surface(size, pygame.SRCALPHA, 32)
             image = image.convert()
         super(Container, self).__init__(size, pos, image)
-        self.elems = pygame.sprite.Group(elems)
+        self.elems = pygame.sprite.Group()
+        for elem in elems:
+            self.add(elem)
 
     def add(self, element):
         """
         Add an element to the container
         """
+        element.pos = (element.pos[0] + self.pos[0],
+                        element.pos[1] + self.pos[1])
+        print self.rect
+        print element.rect
+        print pygame.sprite.collide_rect(self, element)
         self.elems.add(element)
 
     def remove(self, element):
