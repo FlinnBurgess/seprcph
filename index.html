@@ -37,28 +37,19 @@
 <a id="the-game" class="anchor" href="#the-game" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Game</h3>
 
 <p>The game, designed for two players, involves opponents building railway networks to achieve goals. Players have a set of goals towards which they are working.
-Players can make this easier by playing Cards to either buff their network or to debuff their opponents. Some cards will provide a temporary speed boost to trains on a network; others will send (un)natural disasters to wreak havoc on the opponents railway!
-Featuring a fully custom user interface, and bespoke voice acting and narration by the inimitable Prof. Colin Runciman.</p>
+Players can make this easier by playing Cards to either buff their network or to debuff their opponents. Some cards will provide a temporary speed boost to trains on a network; others will send (un)natural disasters to wreak havoc on the opponents railway!</p>
 
 <h3>
-<a id="download" class="anchor" href="#download" aria-hidden="true"><span class="octicon octicon-link"></span></a>Download</h3>
+<a id="development" class="anchor" href="#development" aria-hidden="true"><span class="octicon octicon-link"></span></a>Development</h3>
 
-<p>The current iteration of TaxE is available via the .zip and .tar.gz links to the right. You can also browse the source files via the GitHub link at the top of the page. 
-Being written in Python, the game's source code is identical to the game's executable version. As such, all downloads will be playable and modifiable.</p>
+<p>TaxE is written in Python, using the PyGame library. Python is a really simple programming language to use, with easily enough power for the project. The use of PyGame means that most of the difficult game-specific code is written already.
+We also made a number of deliberate decisions in our architecture design to make the project more modular, and therefore easy to add to and change.
+For example, the game uses an Event Manager system to handle in-game events. This essentially means that objects subscribe to events which other objects create, and this is all handled through a mediator class called <code>EventManager</code>. This is very easy to understand, and equally easy to work with and expand upon.</p>
 
 <h3>
 <a id="user-manual" class="anchor" href="#user-manual" aria-hidden="true"><span class="octicon octicon-link"></span></a>User Manual</h3>
 
 <p>The user manual for the game will be available as a PDF file here once the game has reached Version 1.0. It will also be included in the GitHub repository. </p>
-
-<h3>
-<a id="development" class="anchor" href=#development" aria-hidden="true"><span class="octicon octicon-link"></span></a>Development</h3>
-
-<p>The development documentation can be found <a href="doxygen/html/index.html" target="_blank">here</a>. It was generated using Doxygen, and contains descriptions of all the classes, methods etc.</p>
-
-<p>The game is written in the Python programming language, using a Publish-Subscribe design pattern. The running of the game is overseen by an Event Manager class, which "listens" for in-game events, and notifies the relevant classes and functions. <a href="https://docs.python.org/2/library/unittest.html" target="_blank">Unit tests</a> are included throughout to ensure correct functionality.</p>
-
-<p> TaxE makes use of the PyGame library for rendering. Find out more about PyGame <a href="http://www.pygame.org/news.html" target="_blank">here</a>.</p>
 
 <h3>
 <a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
