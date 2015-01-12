@@ -45,7 +45,7 @@ class Track(Renderable, Affectable):
         self.rotation = self._calc_rotation(start_city.pos, end_city.pos)
 
         super(Track, self).__init__(((start_city.pos[0] + end_city.pos[0]) /2,
-                                    (start_city.pos[1] + end_city.pos[1]) / 2), image)
+                                    (start_city.pos[1] + end_city.pos[1]) / 2))
         Affectable.__init__(self)
 
         self.is_locked = True
