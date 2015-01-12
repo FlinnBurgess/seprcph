@@ -85,6 +85,7 @@ def main():
     player1, player2, cards = initialise_players()
 
     sprites.draw(game_map.image)
+    # TODO: Remove this as drawing cards is handled by the GUI.
     cards.draw(game_map.image)
     screen.blit(game_map.image, (0, 0))
     pygame.display.flip()
