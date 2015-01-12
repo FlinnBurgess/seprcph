@@ -22,6 +22,7 @@ class Renderable(pygame.sprite.Sprite):
 
         self.pos = pos
         EventManager.add_listener('ui.clicked', self.click)
+        EventManager.add_listener('window.resize', self.resize)
 
     @property
     def rect(self):
@@ -53,3 +54,9 @@ class Renderable(pygame.sprite.Sprite):
         Args:
             event: Contains the field 'size' and 'old_size'
         """
+        w_ratio = float(event.size[0]) / float(event.old_size[0])
+        h_ratio = float(event.size[1]) / float(event.old_size[1])
+        self.pos = (int(self.pos[0] * w_ratio), int(self.pos[1] * h_ratio))
+        self.image = pygame.transform.scale(self.image,
+                                (int(self.image.get_size()[0] * w_ratio),
+                                int(self.image.get_size()[1] * h_ratio)))

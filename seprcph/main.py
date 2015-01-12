@@ -75,7 +75,7 @@ def main():
 
     game_map = Map(pygame.image.load(os.path.join(Config.general['image_dir'], 'map.png')))
     sprites = pygame.sprite.Group(game_map._cities.keys() + game_map._tracks)
-    resize_sprites(game_map.image.get_size(), screen.get_size(), sprites)
+    EventManager.notify_listeners(Event('window.resize', old_size=game_map.image.get_size(), size=screen.get_size()))
     game_map.image = pygame.transform.scale(game_map.image, screen.get_size())
 
     win = initialise_ui(screen.get_size(), game_map.image)
@@ -95,7 +95,6 @@ def main():
         elif event.type == pygame.VIDEORESIZE:
             EventManager.notify_listeners(Event('window.resize', size=event.dict['size'], old_size=screen.get_size()))
             screen = pygame.display.set_mode(event.dict['size'], pygame.RESIZABLE)
-            resize_sprites(game_map.image.get_size(), event.dict['size'], sprites)
             screen.blit(pygame.transform.scale(game_map.image, event.dict['size']), (0, 0))
             pygame.display.flip()
         elif event.type == pygame.KEYDOWN:
@@ -137,14 +136,6 @@ def initialise_pygame():
     clock = pygame.time.Clock()
     logging.debug("%s", pygame.display.Info())
     return screen, clock
-
-def resize_sprites(old, new, sprites):
-    w_ratio = float(new[0]) / float(old[0])
-    h_ratio = float(new[1]) / float(old[1])
-    for s in sprites:
-        s.pos = (int(s.pos[0] * w_ratio), int(s.pos[1] * h_ratio))
-        s.image = pygame.transform.scale(s.image, (int(s.image.get_size()[0] * w_ratio),
-                                int(s.image.get_size()[1] * h_ratio)))
 
 def setup_file_logger(filename, formatting, log_level):
     """
