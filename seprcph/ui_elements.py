@@ -165,7 +165,9 @@ class Container(Element):
         """
         element.pos = (element.pos[0] + self.pos[0],
                         element.pos[1] + self.pos[1])
-        if not pygame.sprite.collide_rect(self, element):
+        if not pygame.sprite.collide_rect(self, element) \
+                or element.rect.topleft < self.rect.topleft \
+                or element.rect.bottomright > self.rect.bottomright:
             raise OutsideContainerError("element %s is outside of container %s",
                                         str(element), str(self))
         self.elems.add(element)
