@@ -585,7 +585,7 @@
         "start_city": "Bucharest",
         "end_city": "Sofia",
         "gold_generation": 15,
-        "cost": 30,
+        "cost": 30
     },
     {
         "start_city": "Sofia",
