@@ -75,7 +75,6 @@ def create_tracks(file_path, cities):
         Args:
             kwargs: A dictionary of elements from the json file.
         """
-        kwargs['image'] = pygame.image.load(os.path.join(Config.general['image_dir'], kwargs['image']))
         kwargs['start_city'] = cities[kwargs['start_city']]
         kwargs['end_city'] = cities[kwargs['end_city']]
         return Track(**kwargs)

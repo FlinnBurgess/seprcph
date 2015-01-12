@@ -146,13 +146,6 @@ def resize_sprites(old, new, sprites):
         s.image = pygame.transform.scale(s.image, (int(s.image.get_size()[0] * w_ratio),
                                 int(s.image.get_size()[1] * h_ratio)))
 
-    # TODO: Remove this by making track recalculate its image after its
-    # position has been changed, by means of a property.
-    for s in sprites:
-        if isinstance(s, Track):
-            s.chain_images()
-
-
 def setup_file_logger(filename, formatting, log_level):
     """
     A helper function for creating a file logger.
