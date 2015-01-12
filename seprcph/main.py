@@ -26,9 +26,8 @@ def initialise_players():
     player1 = Player(500, 0, placeholder_deck)
     player2 = Player(500, 0, placeholder_deck)
     active_player = player1
-    cards = pygame.sprite.Group(active_player.deck.cards)
 
-    return player1, player2, cards
+    return player1, player2
 
 def change_player(event):
     global active_player
@@ -36,8 +35,6 @@ def change_player(event):
         active_player = player2
     else:
         active_player = player1
-    cards = pygame.sprite.Group(active_player.deck.cards)
-    cards.draw(game_map.image)
 
 def main():
     """
@@ -82,11 +79,9 @@ def main():
 
     win = initialise_ui(screen.get_size(), game_map.image)
 
-    player1, player2, cards = initialise_players()
+    player1, player2 = initialise_players()
 
     sprites.draw(game_map.image)
-    # TODO: Remove this as drawing cards is handled by the GUI.
-    cards.draw(game_map.image)
     screen.blit(game_map.image, (0, 0))
     pygame.display.flip()
 
