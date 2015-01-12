@@ -35,5 +35,5 @@ class TestHandMethods(unittest.TestCase):
 
     def test_play(self):
         EventManager.add_listener('card.triggered', _func)
-        self.hand.play(Event('card.played', card=self.card5))
+        self.hand.play(Event('card.played', card=self.card5, hand=self.hand))
         self.assertEqual(x, 1)
