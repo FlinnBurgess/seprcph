@@ -87,6 +87,11 @@ def main():
     screen.blit(game_map.image, (0, 0))
     pygame.display.flip()
 
+    main_image = pygame.Surface((2160, 2048))
+    main_image.fill((255, 255, 255))
+
+    win = initialise_ui((2160, 2048), main_image)
+
     while True:
         # This will block if there isn't an event.
         event = pygame.event.wait()
@@ -114,6 +119,7 @@ def main():
 
         clock.tick(FPS)
         sprites.draw(game_map.image)
+        win.update()
         pygame.display.flip()
 
 def initialise_pygame():
