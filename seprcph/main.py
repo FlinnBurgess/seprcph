@@ -20,6 +20,7 @@ from seprcph.card_factory import CardFactory
 active_player = None
 
 def initialise_players():
+    global active_player
     factory = CardFactory()
     placeholder_deck = Deck("Placeholder",
                             factory.build_cards(50, "aggressive"), None)
@@ -80,6 +81,7 @@ def main():
     win = initialise_ui(screen.get_size(), game_map.image)
 
     player1, player2 = initialise_players()
+    player1.hand.update()
 
     sprites.draw(game_map.image)
     screen.blit(game_map.image, (0, 0))
@@ -101,12 +103,14 @@ def main():
                 return
         elif event.type == pygame.MOUSEBUTTONUP:
             clicked = [s for s in sprites if s.rect.collidepoint(event.pos)]
+            if not clicked:
+                continue
             if effect_selection:
                 # We're trying to find which object the effect should be
                 # applied to.
-                ev = Event('ui.select_effect', obj=clicked, pos=event.pos)
+                ev = Event('ui.select_effect', obj=clicked[0], pos=event.pos)
             else:
-                ev = Event('ui.clicked', obj=clicked, pos=event.pos)
+                ev = Event('ui.clicked', obj=clicked[0], pos=event.pos)
             EventManager.notify_listeners(ev)
 
         clock.tick(FPS)

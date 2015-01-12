@@ -44,6 +44,8 @@ class Hand(object):
         Args:
             event: An Event from the EventManager that contains a card.
         """
+        if event.hand != self:
+            return
         index = self.cards.index(event.card)
         self.cards[index].trigger()
         self.discard(index)
