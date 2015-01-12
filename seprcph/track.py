@@ -112,21 +112,3 @@ class Track(Renderable, Affectable):
         ydiff = first_p[1] - second_p[1]
         return int(math.sqrt(xdiff ** 2 + ydiff ** 2))
 
-    def chain_images(self):
-        """
-        Chain together the small track tile into a larger image.
-
-        XXX: Must be called each time the window is resized.
-        """
-        self.length = self._calc_length(self.cities[0].pos, self.cities[1].pos)
-        final_image = pygame.Surface((self.image.get_size()[1], self.length),
-                                        flags=pygame.SRCALPHA)
-
-        # Make one large image out of smaller tiles.
-        for height in xrange(0, self.length, self.image.get_rect()[2]):
-            final_image.blit(self.image, (0, height))
-
-        self.image = final_image
-        self.image = pygame.transform.rotate(self.image,
-                            self.rotation)
-
