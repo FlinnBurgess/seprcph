@@ -3,756 +3,648 @@
         "start_city": "London",
         "end_city": "Birmingham",
         "gold_generation": 10,
-        "cost": 20,
-        "image": "track.png"
+        "cost": 20
     },
     {
         "start_city": "London",
         "end_city": "Edinburgh",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "London",
         "end_city": "Paris",
         "gold_generation": 18,
-        "cost": 36,
-        "image": "track.png"
+        "cost": 36
     },
     {
         "start_city": "Birmingham",
         "end_city": "Edinburgh",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Toulouse",
         "end_city": "Paris",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Geneva",
         "end_city": "Paris",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Brussels",
         "end_city": "Paris",
         "gold_generation": 12,
-        "cost": 24,
-        "image": "track.png"
+        "cost": 24
     },
     {
         "start_city": "Luxembourg City",
         "end_city": "Paris",
         "gold_generation": 12,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Toulouse",
         "end_city": "Barcelona",
         "gold_generation": 10,
-        "cost": 20,
-        "image": "track.png"
+        "cost": 20
     },
     {
         "start_city": "Toulouse",
         "end_city": "Madrid",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Madrid",
         "end_city": "Barcelona",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Madrid",
         "end_city": "Seville",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Madrid",
         "end_city": "Lisbon",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Lisbon",
         "end_city": "Seville",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Toulouse",
         "end_city": "Marseille",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Geneva",
         "end_city": "Toulouse",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Marseille",
         "end_city": "Geneva",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Munich",
         "end_city": "Vaduz",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Milan",
         "end_city": "Marseille",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Milan",
         "end_city": "Rome",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Milan",
         "end_city": "Venice",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Rome",
         "end_city": "Venice",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Geneva",
         "end_city": "Vaduz",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Luxembourg City",
         "end_city": "Utrecht",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Brussels",
         "end_city": "Utrecht",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Brussels",
         "end_city": "Luxembourg City",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Munich",
         "end_city": "Paris",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Munich",
         "end_city": "Venice",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Utrecht",
         "end_city": "Hamburg",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Utrecht",
         "end_city": "Frankfurt",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Luxembourg City",
         "end_city": "Frankfurt",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Hamburg",
         "end_city": "Frankfurt",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Frankfurt",
         "end_city": "Munich",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Hamburg",
         "end_city": "Copenhagen",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Hamburg",
         "end_city": "Aalborg",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Hamburg",
         "end_city": "Berlin",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Copenhagen",
         "end_city": "Stockholm",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Copenhagen",
         "end_city": "Gothenburg",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Gothenburg",
         "end_city": "Stockholm",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Gothenburg",
         "end_city": "Oslo",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Stockholm",
         "end_city": "Oslo",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Oslo",
         "end_city": "Bergen",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Frankfurt",
         "end_city": "Berlin",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Berlin",
         "end_city": "Gdansk",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Munich",
         "end_city": "Prague",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Frankfurt",
         "end_city": "Prague",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Berlin",
         "end_city": "Prague",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Berlin",
         "end_city": "Wroclaw",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Gdansk",
         "end_city": "Wroclaw",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Prague",
         "end_city": "Wroclaw",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Warsaw",
         "end_city": "Wroclaw",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Warsaw",
         "end_city": "Gdansk",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Gdansk",
         "end_city": "Vilnius",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Vilnius",
         "end_city": "Warsaw",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Vilnius",
         "end_city": "Riga",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Vilnius",
         "end_city": "Daugavpils",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Riga",
         "end_city": "Daugavpils",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Riga",
         "end_city": "Tallinn",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Tallinn",
         "end_city": "Daugavpils",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Tallinn",
         "end_city": "St. Petersburg",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Daugavpils",
         "end_city": "St. Petersburg",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Helsinki",
         "end_city": "St. Petersburg",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Moscow",
         "end_city": "St. Petersburg",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Moscow",
         "end_city": "Daugavpils",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Daugavpils",
         "end_city": "Minsk",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Vilnius",
         "end_city": "Minsk",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Moscow",
         "end_city": "Minsk",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Moscow",
         "end_city": "Voronezh",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Prague",
         "end_city": "Vienna",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Wroclaw",
         "end_city": "Vienna",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Munich",
         "end_city": "Vienna",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Venice",
         "end_city": "Vienna",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Wroclaw",
         "end_city": "Kosice",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Warsaw",
         "end_city": "Kosice",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Kiev",
         "end_city": "Kosice",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Kiev",
         "end_city": "Kharkiv",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Warsaw",
         "end_city": "Minsk",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Minsk",
         "end_city": "Voronezh",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Minsk",
         "end_city": "Kiev",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Warsaw",
         "end_city": "Kiev",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Kharkiv",
         "end_city": "Voronezh",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Kharkiv",
         "end_city": "Odessa",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Venice",
         "end_city": "Zagreb",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Vienna",
         "end_city": "Zagreb",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Vienna",
         "end_city": "Budapest",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Budapest",
         "end_city": "Kosice",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Budapest",
         "end_city": "Zagreb",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Kosice",
         "end_city": "Cluj-Napoca",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Budapest",
         "end_city": "Cluj-Napoca",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Cluj-Napoca",
         "end_city": "Odessa",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Odessa",
         "end_city": "Bucharest",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Cluj-Napoca",
         "end_city": "Bucharest",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Budapest",
         "end_city": "Belgrade",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Cluj-Napoca",
         "end_city": "Belgrade",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Bucharest",
         "end_city": "Belgrade",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Zagreb",
         "end_city": "Sarajevo",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Sarajevo",
         "end_city": "Belgrade",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Bucharest",
         "end_city": "Sofia",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Sofia",
         "end_city": "Belgrade",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Belgrade",
         "end_city": "Skopje",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Sofia",
         "end_city": "Skopje",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Sarajevo",
         "end_city": "Skopje",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Sofia",
         "end_city": "Thessaloniki",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Sarajevo",
         "end_city": "Tirane",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Skopje",
         "end_city": "Tirane",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Skopje",
         "end_city": "Thessaloniki",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     },
     {
         "start_city": "Tirane",
         "end_city": "Athens",
         "gold_generation": 20,
-        "cost": 40,
-        "image": "track.png"
+        "cost": 40
     },
     {
         "start_city": "Thessaloniki",
         "end_city": "Athens",
         "gold_generation": 15,
-        "cost": 30,
-        "image": "track.png"
+        "cost": 30
     }
 ]
