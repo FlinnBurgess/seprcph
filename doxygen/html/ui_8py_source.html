@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>seprcph: Member List</title>
+<title>seprcph: seprcph/ui.py Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -46,8 +46,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -68,10 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
-      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
-      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
+      <li><a href="files.html"><span>File&#160;List</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -86,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('classseprcph_1_1renderable_1_1_renderable.html','');});
+$(document).ready(function(){initNavTree('ui_8py_source.html','');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -105,24 +102,24 @@ $(document).ready(function(){initNavTree('classseprcph_1_1renderable_1_1_rendera
 
 <div class="header">
   <div class="headertitle">
-<div class="title">seprcph.renderable.Renderable Member List</div>  </div>
+<div class="title">ui.py</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>This is the complete list of members for <a class="el" href="classseprcph_1_1renderable_1_1_renderable.html">seprcph.renderable.Renderable</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="classseprcph_1_1renderable_1_1_renderable.html#a1f1a4de2d7b7aa202569513cf1090c3e">__init__</a>(self, pos, image)</td><td class="entry"><a class="el" href="classseprcph_1_1renderable_1_1_renderable.html">seprcph.renderable.Renderable</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classseprcph_1_1renderable_1_1_renderable.html#a6129a0f4c38bd8d528285d24c22e5b94">click</a>(self, event)</td><td class="entry"><a class="el" href="classseprcph_1_1renderable_1_1_renderable.html">seprcph.renderable.Renderable</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>image</b> (defined in <a class="el" href="classseprcph_1_1renderable_1_1_renderable.html">seprcph.renderable.Renderable</a>)</td><td class="entry"><a class="el" href="classseprcph_1_1renderable_1_1_renderable.html">seprcph.renderable.Renderable</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>pos</b> (defined in <a class="el" href="classseprcph_1_1renderable_1_1_renderable.html">seprcph.renderable.Renderable</a>)</td><td class="entry"><a class="el" href="classseprcph_1_1renderable_1_1_renderable.html">seprcph.renderable.Renderable</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>rect</b>(self) (defined in <a class="el" href="classseprcph_1_1renderable_1_1_renderable.html">seprcph.renderable.Renderable</a>)</td><td class="entry"><a class="el" href="classseprcph_1_1renderable_1_1_renderable.html">seprcph.renderable.Renderable</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classseprcph_1_1renderable_1_1_renderable.html#a93dda49c0ff7a0c5bd83fafc982eb8ff">resize</a>(self, event)</td><td class="entry"><a class="el" href="classseprcph_1_1renderable_1_1_renderable.html">seprcph.renderable.Renderable</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classseprcph_1_1renderable_1_1_renderable.html#a6aeeed4941215dcca27c565965bfd3bb">update</a>(self)</td><td class="entry"><a class="el" href="classseprcph_1_1renderable_1_1_renderable.html">seprcph.renderable.Renderable</a></td><td class="entry"></td></tr>
-</table></div><!-- contents -->
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">import</span> pygame</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword">from</span> <a class="code" href="namespaceseprcph_1_1ui__elements.html">seprcph.ui_elements</a> <span class="keyword">import</span> Window, Container, Label, Clickable</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">def </span>initialise_ui(size, surface):</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    c = Container((100, 100), (100, 100), [])</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    win = Window(size, (0, 0), [c], surface)</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    win.update()</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keywordflow">return</span> win</div>
+<div class="ttc" id="namespaceseprcph_1_1ui__elements_html"><div class="ttname"><a href="namespaceseprcph_1_1ui__elements.html">seprcph.ui_elements</a></div><div class="ttdef"><b>Definition:</b> <a href="ui__elements_8py_source.html#l00001">ui_elements.py:1</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a class="el" href="dir_aa12fd0d75316ff11ca200fc2a464cdd.html">seprcph</a></li><li class="navelem"><b>ui.py</b></li>
     <li class="footer">Generated on Tue Jan 13 2015 14:17:19 for seprcph by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>

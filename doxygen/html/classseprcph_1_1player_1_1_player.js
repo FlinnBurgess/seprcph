@@ -6,5 +6,6 @@ var classseprcph_1_1player_1_1_player =
     [ "deck", "classseprcph_1_1player_1_1_player.html#a886d6448ecedd53690b0de186dc2752c", null ],
     [ "gold", "classseprcph_1_1player_1_1_player.html#aeecb84acb813003300ed3ea5b0273ba8", null ],
     [ "hand", "classseprcph_1_1player_1_1_player.html#a86f6a969547097e5bbb024b4eb7a10a6", null ],
+    [ "id", "classseprcph_1_1player_1_1_player.html#a6e8150895c354bccdffc31f3c642f401", null ],
     [ "score", "classseprcph_1_1player_1_1_player.html#a6e6bc018ddfc4e4e317c1cf2d45089e6", null ]
 ];

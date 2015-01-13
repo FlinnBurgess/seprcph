@@ -178,7 +178,7 @@ $(document).ready(function(){initNavTree('event_8py_source.html','');});
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="stringliteral">            callback: The event handler method of the listening object</span></div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="stringliteral">        &quot;&quot;&quot;</span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        EventManager._subscriptions[topic].remove(callback)</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        logging.info(<span class="stringliteral">&quot;The callback %s been removed to the topic %s&quot;</span>,</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        logging.debug(<span class="stringliteral">&quot;The callback %s been removed to the topic %s&quot;</span>,</div>
 <div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classseprcph_1_1event_1_1_event_manager.html#aefe3d78f6a7ecc1014b93aaed1775485">   75</a></span>&#160;                     str(callback), topic)</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">if</span> len(EventManager._subscriptions[topic]) == 0:</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            del EventManager._subscriptions[topic]</div>
@@ -190,18 +190,16 @@ $(document).ready(function(){initNavTree('event_8py_source.html','');});
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="stringliteral"></span></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="stringliteral">        Args:</span></div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="stringliteral">            event: Object containing the topic and event meta-data</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="stringliteral"></span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="stringliteral">        Raises:</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="stringliteral">            AssertionError</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="stringliteral">        &quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keyword">assert</span> event.topic <span class="keywordflow">in</span> EventManager._subscriptions.keys()</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="classseprcph_1_1event_1_1_event_manager.html#a26a6f36e4eca1f7106da411aeb404d0f">   92</a></span>&#160;        logging.info(<span class="stringliteral">&quot;The topic %s has been notified with %s&quot;</span>,</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                     event.topic, str(event))</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordflow">for</span> handler <span class="keywordflow">in</span> EventManager._subscriptions[event.topic]:</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            handler(event)</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        logging.info(<span class="stringliteral">&quot;The topic %s has been notified with %s&quot;</span>,</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                     event.topic, str(event))</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classseprcph_1_1event_1_1_event_manager.html#a26a6f36e4eca1f7106da411aeb404d0f">   89</a></span>&#160;        <span class="keywordflow">if</span> event.topic <span class="keywordflow">not</span> <span class="keywordflow">in</span> EventManager._subscriptions:</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            logging.warn(<span class="stringliteral">&quot;Nothing was listening to topic %s&quot;</span>, event.topic)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">for</span> handler <span class="keywordflow">in</span> EventManager._subscriptions[event.topic]:</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            handler(event)</div>
 <div class="ttc" id="classseprcph_1_1event_1_1_callback_already_registered_html"><div class="ttname"><a href="classseprcph_1_1event_1_1_callback_already_registered.html">seprcph.event.CallbackAlreadyRegistered</a></div><div class="ttdoc">Exception raised if the callback function has already been registered. </div><div class="ttdef"><b>Definition:</b> <a href="event_8py_source.html#l00011">event.py:11</a></div></div>
-<div class="ttc" id="classseprcph_1_1event_1_1_event_manager_html_a26a6f36e4eca1f7106da411aeb404d0f"><div class="ttname"><a href="classseprcph_1_1event_1_1_event_manager.html#a26a6f36e4eca1f7106da411aeb404d0f">seprcph.event.EventManager.notify_listeners</a></div><div class="ttdeci">def notify_listeners(event)</div><div class="ttdoc">Calls the handling methods of objects listening to the passed topic. </div><div class="ttdef"><b>Definition:</b> <a href="event_8py_source.html#l00092">event.py:92</a></div></div>
+<div class="ttc" id="classseprcph_1_1event_1_1_event_manager_html_a26a6f36e4eca1f7106da411aeb404d0f"><div class="ttname"><a href="classseprcph_1_1event_1_1_event_manager.html#a26a6f36e4eca1f7106da411aeb404d0f">seprcph.event.EventManager.notify_listeners</a></div><div class="ttdeci">def notify_listeners(event)</div><div class="ttdoc">Calls the handling methods of objects listening to the passed topic. </div><div class="ttdef"><b>Definition:</b> <a href="event_8py_source.html#l00089">event.py:89</a></div></div>
 <div class="ttc" id="classseprcph_1_1event_1_1_event_manager_html_aefe3d78f6a7ecc1014b93aaed1775485"><div class="ttname"><a href="classseprcph_1_1event_1_1_event_manager.html#aefe3d78f6a7ecc1014b93aaed1775485">seprcph.event.EventManager.remove_listener</a></div><div class="ttdeci">def remove_listener(topic, callback)</div><div class="ttdoc">De-registers a callback function from the passed topic. </div><div class="ttdef"><b>Definition:</b> <a href="event_8py_source.html#l00075">event.py:75</a></div></div>
 <div class="ttc" id="classseprcph_1_1event_1_1_event_html"><div class="ttname"><a href="classseprcph_1_1event_1_1_event.html">seprcph.event.Event</a></div><div class="ttdoc">Lightweight class that represents a generic event. </div><div class="ttdef"><b>Definition:</b> <a href="event_8py_source.html#l00018">event.py:18</a></div></div>
 <div class="ttc" id="classseprcph_1_1event_1_1_event_html_a4ba04d328e47dfe7ff31456438222319"><div class="ttname"><a href="classseprcph_1_1event_1_1_event.html#a4ba04d328e47dfe7ff31456438222319">seprcph.event.Event.topic</a></div><div class="ttdeci">topic</div><div class="ttdef"><b>Definition:</b> <a href="event_8py_source.html#l00029">event.py:29</a></div></div>
@@ -214,7 +212,7 @@ $(document).ready(function(){initNavTree('event_8py_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_aa12fd0d75316ff11ca200fc2a464cdd.html">seprcph</a></li><li class="navelem"><b>event.py</b></li>
-    <li class="footer">Generated on Sun Jan 11 2015 12:28:38 for seprcph by
+    <li class="footer">Generated on Tue Jan 13 2015 14:17:19 for seprcph by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

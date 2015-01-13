@@ -54,6 +54,7 @@ var annotated =
         [ "Container", "classseprcph_1_1ui__elements_1_1_container.html", "classseprcph_1_1ui__elements_1_1_container" ],
         [ "Element", "classseprcph_1_1ui__elements_1_1_element.html", "classseprcph_1_1ui__elements_1_1_element" ],
         [ "Label", "classseprcph_1_1ui__elements_1_1_label.html", "classseprcph_1_1ui__elements_1_1_label" ],
+        [ "OutsideContainerError", "classseprcph_1_1ui__elements_1_1_outside_container_error.html", null ],
         [ "Window", "classseprcph_1_1ui__elements_1_1_window.html", "classseprcph_1_1ui__elements_1_1_window" ]
       ] ]
     ] ]

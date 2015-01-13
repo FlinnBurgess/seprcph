@@ -5,7 +5,8 @@ var hierarchy =
       [ "seprcph.config.IncompleteConfigurationFileError", "classseprcph_1_1config_1_1_incomplete_configuration_file_error.html", null ],
       [ "seprcph.event.CallbackAlreadyRegistered", "classseprcph_1_1event_1_1_callback_already_registered.html", null ],
       [ "seprcph.track.NotEnoughGoldError", "classseprcph_1_1track_1_1_not_enough_gold_error.html", null ],
-      [ "seprcph.track.TrackOwnedError", "classseprcph_1_1track_1_1_track_owned_error.html", null ]
+      [ "seprcph.track.TrackOwnedError", "classseprcph_1_1track_1_1_track_owned_error.html", null ],
+      [ "seprcph.ui_elements.OutsideContainerError", "classseprcph_1_1ui__elements_1_1_outside_container_error.html", null ]
     ] ],
     [ "object", null, [
       [ "seprcph.card_factory.CardFactory", "classseprcph_1_1card__factory_1_1_card_factory.html", null ],

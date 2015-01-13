@@ -7,6 +7,7 @@ var dir_aa12fd0d75316ff11ca200fc2a464cdd =
     [ "config.py", "config_8py_source.html", null ],
     [ "deck.py", "deck_8py_source.html", null ],
     [ "effect.py", "effect_8py_source.html", null ],
+    [ "effect_defs.py", "effect__defs_8py_source.html", null ],
     [ "event.py", "event_8py_source.html", null ],
     [ "goal.py", "goal_8py_source.html", null ],
     [ "hand.py", "hand_8py_source.html", null ],
@@ -17,5 +18,6 @@ var dir_aa12fd0d75316ff11ca200fc2a464cdd =
     [ "renderable.py", "renderable_8py_source.html", null ],
     [ "track.py", "track_8py_source.html", null ],
     [ "train.py", "train_8py_source.html", null ],
+    [ "ui.py", "ui_8py_source.html", null ],
     [ "ui_elements.py", "ui__elements_8py_source.html", null ]
 ];

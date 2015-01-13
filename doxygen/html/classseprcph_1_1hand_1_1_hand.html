@@ -126,17 +126,17 @@ Inheritance diagram for seprcph.hand.Hand:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a209fd5d580db66df11cda6f831c73039"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classseprcph_1_1hand_1_1_hand.html#a209fd5d580db66df11cda6f831c73039">__init__</a> (self, cards, deck)</td></tr>
-<tr class="separator:a209fd5d580db66df11cda6f831c73039"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ca6569ae0850d86a8d4344b800fb714"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classseprcph_1_1hand_1_1_hand.html#a2ca6569ae0850d86a8d4344b800fb714">__init__</a> (self, cards, deck, player_id)</td></tr>
+<tr class="separator:a2ca6569ae0850d86a8d4344b800fb714"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c08b5d9fe9d4975c308bbc05c828093"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classseprcph_1_1hand_1_1_hand.html#a5c08b5d9fe9d4975c308bbc05c828093">draw_cards</a> (self, count)</td></tr>
 <tr class="memdesc:a5c08b5d9fe9d4975c308bbc05c828093"><td class="mdescLeft">&#160;</td><td class="mdescRight">Places the cards at the top of the Deck into the <a class="el" href="classseprcph_1_1hand_1_1_hand.html" title="Class describing the Hand object. ">Hand</a>.  <a href="#a5c08b5d9fe9d4975c308bbc05c828093">More...</a><br /></td></tr>
 <tr class="separator:a5c08b5d9fe9d4975c308bbc05c828093"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b9769cb39e292d8f9e8f229ce00ec63"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classseprcph_1_1hand_1_1_hand.html#a4b9769cb39e292d8f9e8f229ce00ec63">discard</a> (self, index)</td></tr>
 <tr class="memdesc:a4b9769cb39e292d8f9e8f229ce00ec63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the card from self.cards[index] and places it in the graveyard.  <a href="#a4b9769cb39e292d8f9e8f229ce00ec63">More...</a><br /></td></tr>
 <tr class="separator:a4b9769cb39e292d8f9e8f229ce00ec63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a380a56a221c9ee063a952f0647079e19"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classseprcph_1_1hand_1_1_hand.html#a380a56a221c9ee063a952f0647079e19">play</a> (self, index)</td></tr>
-<tr class="memdesc:a380a56a221c9ee063a952f0647079e19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggers the effect of the Card at the index, then discards it.  <a href="#a380a56a221c9ee063a952f0647079e19">More...</a><br /></td></tr>
-<tr class="separator:a380a56a221c9ee063a952f0647079e19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af80fb1c8cfb44b1c3397b3390dd0c74e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classseprcph_1_1hand_1_1_hand.html#af80fb1c8cfb44b1c3397b3390dd0c74e">play</a> (self, event)</td></tr>
+<tr class="memdesc:af80fb1c8cfb44b1c3397b3390dd0c74e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggers the effect of the Card, then discards it.  <a href="#af80fb1c8cfb44b1c3397b3390dd0c74e">More...</a><br /></td></tr>
+<tr class="separator:af80fb1c8cfb44b1c3397b3390dd0c74e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a885384e93363f0fd0b9ca4b4bfff8d7a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a885384e93363f0fd0b9ca4b4bfff8d7a"></a>
 def&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (self)</td></tr>
 <tr class="separator:a885384e93363f0fd0b9ca4b4bfff8d7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -156,9 +156,9 @@ Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class describing the <a class="el" href="classseprcph_1_1hand_1_1_hand.html" title="Class describing the Hand object. ">Hand</a> object. </p>
 
-<p>Definition at line <a class="el" href="hand_8py_source.html#l00004">4</a> of file <a class="el" href="hand_8py_source.html">hand.py</a>.</p>
+<p>Definition at line <a class="el" href="hand_8py_source.html#l00007">7</a> of file <a class="el" href="hand_8py_source.html">hand.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a209fd5d580db66df11cda6f831c73039"></a>
+<a class="anchor" id="a2ca6569ae0850d86a8d4344b800fb714"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -178,7 +178,13 @@ Public Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>deck</em>&#160;</td>
+          <td class="paramname"><em>deck</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>player_id</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -191,11 +197,12 @@ Public Attributes</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">cards</td><td>A list containing the cards in the hand </td></tr>
     <tr><td class="paramname">deck</td><td>The Deck instance with which the <a class="el" href="classseprcph_1_1hand_1_1_hand.html" title="Class describing the Hand object. ">Hand</a> is associated </td></tr>
+    <tr><td class="paramname">player_id</td><td>The id (1 or 2) of the player that this hand belongs to </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="hand_8py_source.html#l00011">11</a> of file <a class="el" href="hand_8py_source.html">hand.py</a>.</p>
+<p>Definition at line <a class="el" href="hand_8py_source.html#l00014">14</a> of file <a class="el" href="hand_8py_source.html">hand.py</a>.</p>
 
 </div>
 </div>
@@ -232,7 +239,7 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="hand_8py_source.html#l00033">33</a> of file <a class="el" href="hand_8py_source.html">hand.py</a>.</p>
+<p>Definition at line <a class="el" href="hand_8py_source.html#l00038">38</a> of file <a class="el" href="hand_8py_source.html">hand.py</a>.</p>
 
 </div>
 </div>
@@ -268,11 +275,11 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="hand_8py_source.html#l00022">22</a> of file <a class="el" href="hand_8py_source.html">hand.py</a>.</p>
+<p>Definition at line <a class="el" href="hand_8py_source.html#l00027">27</a> of file <a class="el" href="hand_8py_source.html">hand.py</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a380a56a221c9ee063a952f0647079e19"></a>
+<a class="anchor" id="af80fb1c8cfb44b1c3397b3390dd0c74e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -286,7 +293,7 @@ Public Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>index</em>&#160;</td>
+          <td class="paramname"><em>event</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -296,15 +303,15 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Triggers the effect of the Card at the index, then discards it. </p>
+<p>Triggers the effect of the Card, then discards it. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td>The index of the card to be played </td></tr>
+    <tr><td class="paramname">event</td><td>An Event from the EventManager that contains a card. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="hand_8py_source.html#l00042">42</a> of file <a class="el" href="hand_8py_source.html">hand.py</a>.</p>
+<p>Definition at line <a class="el" href="hand_8py_source.html#l00047">47</a> of file <a class="el" href="hand_8py_source.html">hand.py</a>.</p>
 
 </div>
 </div>
@@ -317,7 +324,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>seprcph</b></li><li class="navelem"><b>hand</b></li><li class="navelem"><a class="el" href="classseprcph_1_1hand_1_1_hand.html">Hand</a></li>
-    <li class="footer">Generated on Sun Jan 11 2015 12:28:38 for seprcph by
+    <li class="footer">Generated on Tue Jan 13 2015 14:17:19 for seprcph by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['unknownbiaserror',['UnknownBiasError',['../classseprcph_1_1card__factory_1_1_card_factory_1_1_unknown_bias_error.html',1,'seprcph::card_factory::CardFactory']]]
+  ['track',['Track',['../classseprcph_1_1track_1_1_track.html',1,'seprcph::track']]],
+  ['trackownederror',['TrackOwnedError',['../classseprcph_1_1track_1_1_track_owned_error.html',1,'seprcph::track']]],
+  ['train',['Train',['../classseprcph_1_1train_1_1_train.html',1,'seprcph::train']]]
 ];
