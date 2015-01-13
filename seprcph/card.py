@@ -9,21 +9,21 @@ class Card(Renderable):
     """
     Class describing the buff/debuff cards
     """
-    def __init__(self, name, description, type, effect, pos, image):
+    def __init__(self, name, description, type, effect, image):
         """
         Args:
             name: The name of the Card
             description: A description of the effect
             type: The type of the card
             effect: An effect callback
-            pos: The position of the card
             image: The image file to be displayed with the card in the GUI
         """
         self.name = name
         self.desc = description
         self.effect = effect
         self.type = type
-        super(Card, self).__init__(pos, image)
+        # We don't care about our position - this is decided later.
+        super(Card, self).__init__((0, 0), image)
 
     def __repr__(self):
         return "<name: %s, description: %s>" % (self.name, self.desc)

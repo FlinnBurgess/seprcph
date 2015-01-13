@@ -42,7 +42,7 @@ class TestFetchAndAdd(unittest.TestCase):
         self.map = Map(self.image)
         self.first_city = self.map._cities.keys()[0]
         self.second_city = self.map._cities.keys()[1]
-        self.test_track = Track(self.first_city, self.second_city, 5, 10, self.image)
+        self.test_track = Track(self.first_city, self.second_city, 5, 10)
 
     def test_fetching_indices(self):
         self.assertIsInstance(self.map.fetch_indices((self.first_city, self.second_city)), tuple)

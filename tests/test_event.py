@@ -28,10 +28,6 @@ class TestEventManager(unittest.TestCase):
     def setUp(self):
         EventManager.add_listener('foo', _func)
 
-    def test_notify_unknown_listener(self):
-        self.assertRaises(AssertionError, EventManager.notify_listeners,
-                        Event('bar'))
-
     def test_attach_already_registered_callback(self):
         self.assertRaises(CallbackAlreadyRegistered,
         EventManager.add_listener, 'foo', _func)

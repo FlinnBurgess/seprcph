@@ -1,7 +1,7 @@
 """
 Holds the class for an effect
 """
-from seprcph.event import EventManager
+from seprcph.event import EventManager, Event
 
 
 class Effect(object):
@@ -30,7 +30,7 @@ class Effect(object):
         self.undo = undo
         self.turns = turns
 
-        EventManager.add_listener('ui.clicked', self.apply)
+        EventManager.add_listener('ui.select_effect', self.apply)
 
     def apply(self, event):
         """
@@ -38,15 +38,11 @@ class Effect(object):
 
         Args:
             event: The event sent to us from the topic 'ui.clicked'.
-
-        Returns:
-            True if successful, False otherwise.
         """
         if isinstance(event.obj, self.target_type):
             self.effect(event.obj)
             event.obj.add_effect(self)
-            return True
-        return False
+            EventManager.notify_listeners(Event('effect.applied', obj=event.obj))
 
     def remove(self, target):
         """

@@ -29,10 +29,10 @@ class CardFactory(object):
         Load cards from JSON and them sort them by their type.
         """
         cards = create_cards(os.path.join(Config.general['data_dir'], 'cards.json'))
-        self.buffs = [x for x in cards if x.type is 'Buff']
-        self.debuffs = [x for x in cards if x.type is 'Debuff']
-        self.traps = [x for x in cards if x.type is 'Traps']
-        self.events = [x for x in cards if x.type is 'Events']
+        self.buffs = [x for x in cards if x.type == 'Buff']
+        self.debuffs = [x for x in cards if x.type == 'Debuff']
+        self.traps = [x for x in cards if x.type == 'Trap']
+        self.events = [x for x in cards if x.type == 'Event']
 
     def build_cards(self, count, bias):
         """
@@ -47,16 +47,16 @@ class CardFactory(object):
 
         cards = []
         # Buffs
-        for _ in int(self.BIASES[bias][0] * count):
+        for _ in xrange(int(self.BIASES[bias][0] * count)):
             cards.append(random.choice(self.buffs))
         # Debuffs
-        for _ in int(self.BIASES[bias][1] * count):
+        for _ in xrange(int(self.BIASES[bias][1] * count)):
             cards.append(random.choice(self.debuffs))
         # Traps
-        for _ in int(self.BIASES[bias][2] * count):
+        for _ in xrange(int(self.BIASES[bias][2] * count)):
             cards.append(random.choice(self.traps))
         # Events
-        for _ in int(self.BIASES[bias][3] * count):
+        for _ in xrange(int(self.BIASES[bias][3] * count)):
             cards.append(random.choice(self.events))
 
         if len(cards) < count:

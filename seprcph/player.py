@@ -1,6 +1,7 @@
 """
 This module contains the all classes relating to the players of the game.
 """
+from seprcph.hand import Hand
 
 class Player(object):
     """
@@ -18,7 +19,7 @@ class Player(object):
         self.gold = gold
         self.score = score
         self.deck = deck
-        self.hand = []
+        self.hand = Hand([], self.deck)
 
     def __repr__(self):
         return "<Player gold: %d, player points: %d>" % (self.gold, self.score)

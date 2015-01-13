@@ -1,8 +1,10 @@
+from seprcph.event import EventManager
+
+
 class Hand(object):
     """
     Class describing the Hand object
     """
-
     def __init__(self, cards, deck):
         """
         Args:
@@ -12,6 +14,8 @@ class Hand(object):
         self.cards = cards
         self.deck = deck
         self.size = len(self.cards)
+        EventManager.add_listener('card.played', self.play)
+
 
     def draw_cards(self, count):
         """
@@ -34,12 +38,15 @@ class Hand(object):
         self.deck.add_to_discard(self.cards.pop(index))
         self.size -= 1
 
-    def play(self, index):
+    def play(self, event):
         """
-        Triggers the effect of the Card at the index, then discards it.
+        Triggers the effect of the Card, then discards it.
         Args:
-            index: The index of the card to be played
+            event: An Event from the EventManager that contains a card.
         """
+        if event.hand != self:
+            return
+        index = self.cards.index(event.card)
         self.cards[index].trigger()
         self.discard(index)
 

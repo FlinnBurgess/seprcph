@@ -23,7 +23,7 @@ class Deck(object):
         self.size = len(self.cards)
 
     def __repr__(self):
-        return "<deck_name: %s, deck_size: %d" % (self.character, self.size)
+        return "<deck_name: %s, deck_size: %d>" % (self.character, self.size)
 
     def pop(self):
         """
