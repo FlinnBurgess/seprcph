@@ -2,29 +2,29 @@
     {
         "name": "Faster",
         "description": "Doubles a train's speed",
-        "type": "Event",
-        "effect": "eff_faster",
-        "image": "city.png"
-    },
-    {
-        "name": "Faster",
-        "description": "Doubles a train's speed",
         "type": "Buff",
         "effect": "eff_faster",
         "image": "city.png"
     },
     {
-        "name": "Faster",
-        "description": "Doubles a train's speed",
+        "name": "Slower",
+        "description": "Halves a train's speed",
         "type": "Debuff",
-        "effect": "eff_faster",
+        "effect": "eff_slower",
         "image": "city.png"
     },
     {
-        "name": "Faster",
-        "description": "Doubles a train's speed",
-        "type": "Trap",
-        "effect": "eff_faster",
+        "name": "Robbery",
+        "description": "Reduces a train's load by 100",
+        "type": "Debuff",
+        "effect": "eff_train_robbery",
+        "image": "city.png"
+    },
+    {
+        "name": "Investor",
+        "description": "Increases a player's gold by 5",
+        "type": "Buff",
+        "effect": "eff_investor",
         "image": "city.png"
     }
 ]
