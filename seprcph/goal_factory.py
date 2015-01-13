@@ -13,7 +13,7 @@ class GoalFactory(object):
             while True:
                 start_city = random.choice(map._cities.keys())
                 end_city = random.choice(map._cities.keys())
-                if start_city == end_city or set(start_city, end_city) in self.used_routes:
+                if start_city == end_city or set([start_city, end_city]) in self.used_routes:
                     continue
                 else:
                     break
