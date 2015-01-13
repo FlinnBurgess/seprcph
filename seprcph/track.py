@@ -42,7 +42,7 @@ class Track(Renderable, Affectable):
         self.cities = (start_city, end_city)
         self.gold_generation = gold_generation
         self.cost = cost
-        self.rotation = self._calc_rotation(start_city.pos, end_city.pos)
+        self._calc_rotation()
         self._calc_length()
         self.image = pygame.Surface((2, self.length))
         self.image.fill((143, 143, 143))
@@ -96,18 +96,14 @@ class Track(Renderable, Affectable):
         else:
             raise TrackOwnedError('This track is already owned!')
 
-    def _calc_rotation(self, first_p, second_p):
+    def _calc_rotation(self):
         """
         Calculate the counterclockwise rotation (in degrees) required to line
         the track's image up with both cities.
-
-        Args:
-            first_p: The position tuple of a city.
-            second_p: The position tuple of another city.
         """
-        xdiff = first_p[0] - second_p[0]
-        ydiff = first_p[1] - second_p[1]
-        return math.degrees(math.atan2(xdiff, ydiff))
+        xdiff = self.cities[0].pos[0] - self.cities[1].pos[0]
+        ydiff = self.cities[0].pos[1] - self.cities[1].pos[1]
+        self.rotation =  math.degrees(math.atan2(xdiff, ydiff))
 
     def _calc_length(self):
         """
