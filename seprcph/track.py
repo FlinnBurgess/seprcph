@@ -85,6 +85,10 @@ class Track(Renderable, Affectable):
             raise NotEnoughGoldError("You don't have enough gold!")
 
         if self.is_locked:
+            if player == player1:
+                self.image.fill((0, 0, 255))
+            else:
+                self.image.fill((255, 0, 0))
             self.is_locked = False
             self.owner = player
             player.gold -= self.cost
