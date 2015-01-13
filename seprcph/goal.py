@@ -19,8 +19,7 @@ class Goal(object):
         Args:
             start_city: The city that the player's train must first visit to
             start the goal.
-            end_city: The city that the player's train must visit
-            (one of) to complete the goal.
+            end_city: The city that the player's train must visit.
             turns: The amount of turns that the player has to complete the goal.
             gold_reward: The amount of gold that the player will receive.
             points_reward: The number of points that the player will receive.
