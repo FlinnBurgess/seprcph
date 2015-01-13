@@ -7,6 +7,7 @@ class Player(object):
     """
     Player class that represents each player.
     """
+    player_id = 1
     def __init__(self, gold, score, deck):
         """
         Args:
@@ -19,7 +20,11 @@ class Player(object):
         self.gold = gold
         self.score = score
         self.deck = deck
-        self.hand = Hand([], self.deck)
+        self.id = Player.player_id
+        self.hand = Hand([], self.deck, self.id)
+
+        Player.player_id += 1
+
 
     def __repr__(self):
         return "<Player gold: %d, player points: %d>" % (self.gold, self.score)

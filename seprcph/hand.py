@@ -5,16 +5,17 @@ class Hand(object):
     """
     Class describing the Hand object
     """
-    def __init__(self, cards, deck):
+    def __init__(self, cards, deck, player_id):
         """
         Args:
             cards: A list containing the cards in the hand
             deck: The Deck instance with which the Hand is associated
+            player_id: The id (1 or 2) of the player that this hand belongs to
         """
         self.cards = cards
         self.deck = deck
         self.size = len(self.cards)
-        EventManager.add_listener('card.played', self.play)
+        EventManager.add_listener('%d:card.played' % player_id, self.play)
 
 
     def draw_cards(self, count):
@@ -44,8 +45,6 @@ class Hand(object):
         Args:
             event: An Event from the EventManager that contains a card.
         """
-        if event.hand != self:
-            return
         index = self.cards.index(event.card)
         self.cards[index].trigger()
         self.discard(index)
