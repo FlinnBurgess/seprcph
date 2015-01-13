@@ -109,11 +109,6 @@
         "is_capital": true,
         "image": "city.png"
     },
-    {"name": "Helsinki",
-        "pos": [1359, 677],
-        "is_capital": true,
-        "image": "city.png"
-    },
     {"name": "Lisbon",
         "pos": [14, 1758],
         "is_capital": true,
