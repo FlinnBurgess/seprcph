@@ -44,8 +44,9 @@ class Track(Renderable, Affectable):
         self.cost = cost
         self._calc_rotation()
         self._calc_length()
-        self.image = pygame.Surface((2, self.length))
+        self.image = pygame.Surface((4, self.length), flags=pygame.SRCALPHA)
         self.image.fill((143, 143, 143))
+        self.image = pygame.transform.rotate(self.image, self.rotation)
 
         super(Track, self).__init__(((start_city.pos[0] + end_city.pos[0]) /2,
                                     (start_city.pos[1] + end_city.pos[1]) / 2),
