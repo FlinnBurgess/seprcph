@@ -94,6 +94,9 @@ def main():
             return
         elif event.type == pygame.VIDEORESIZE:
             EventManager.notify_listeners(Event('window.resize', size=event.dict['size'], old_size=screen.get_size()))
+            for sprite in sprites:
+                if isinstance(sprite, Track):
+                    sprite._calc_length()
             screen = pygame.display.set_mode(event.dict['size'], pygame.RESIZABLE)
             screen.blit(pygame.transform.scale(game_map.image, event.dict['size']), (0, 0))
             pygame.display.flip()

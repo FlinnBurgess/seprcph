@@ -43,7 +43,7 @@ class Track(Renderable, Affectable):
         self.gold_generation = gold_generation
         self.cost = cost
         self.rotation = self._calc_rotation(start_city.pos, end_city.pos)
-        self.length = self._calc_length(self.cities[0].pos, self.cities[1].pos)
+        self._calc_length()
         self.image = pygame.Surface((2, self.length))
         self.image.fill((143, 143, 143))
 
@@ -109,15 +109,10 @@ class Track(Renderable, Affectable):
         ydiff = first_p[1] - second_p[1]
         return math.degrees(math.atan2(xdiff, ydiff))
 
-    def _calc_length(self, first_p, second_p):
+    def _calc_length(self):
         """
-        Calculate the length between the two points
-
-        Args:
-            first_p: The position tuple of a city.
-            second_p: The position tuple of another city.
+        Calculate the track's length
         """
-        xdiff = first_p[0] - second_p[0]
-        ydiff = first_p[1] - second_p[1]
-        return int(math.sqrt(xdiff ** 2 + ydiff ** 2))
-
+        xdiff = self.cities[0].pos[0] - self.cities[1].pos[0]
+        ydiff = self.cities[0].pos[1] - self.cities[1].pos[1]
+        self.length = int(math.sqrt(xdiff ** 2 + ydiff ** 2))
