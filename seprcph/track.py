@@ -53,6 +53,7 @@ class Track(Renderable, Affectable):
         Affectable.__init__(self)
 
         self.is_locked = True
+        self.is_broken = False
         self.owner = None
 
     def __repr__(self):
