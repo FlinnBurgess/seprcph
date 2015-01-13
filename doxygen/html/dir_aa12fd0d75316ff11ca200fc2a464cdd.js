@@ -10,6 +10,7 @@ var dir_aa12fd0d75316ff11ca200fc2a464cdd =
     [ "effect_defs.py", "effect__defs_8py_source.html", null ],
     [ "event.py", "event_8py_source.html", null ],
     [ "goal.py", "goal_8py_source.html", null ],
+    [ "goal_factory.py", "goal__factory_8py_source.html", null ],
     [ "hand.py", "hand_8py_source.html", null ],
     [ "json_loader.py", "json__loader_8py_source.html", null ],
     [ "main.py", "main_8py_source.html", null ],

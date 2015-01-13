@@ -21,6 +21,7 @@ var hierarchy =
       [ "seprcph.event.Event", "classseprcph_1_1event_1_1_event.html", null ],
       [ "seprcph.event.EventManager", "classseprcph_1_1event_1_1_event_manager.html", null ],
       [ "seprcph.goal.Goal", "classseprcph_1_1goal_1_1_goal.html", null ],
+      [ "seprcph.goal_factory.GoalFactory", "classseprcph_1_1goal__factory_1_1_goal_factory.html", null ],
       [ "seprcph.hand.Hand", "classseprcph_1_1hand_1_1_hand.html", null ],
       [ "seprcph.map.Map", "classseprcph_1_1map_1_1_map.html", null ],
       [ "seprcph.player.Player", "classseprcph_1_1player_1_1_player.html", null ]

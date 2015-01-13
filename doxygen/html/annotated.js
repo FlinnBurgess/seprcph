@@ -29,6 +29,9 @@ var annotated =
       [ "goal", null, [
         [ "Goal", "classseprcph_1_1goal_1_1_goal.html", "classseprcph_1_1goal_1_1_goal" ]
       ] ],
+      [ "goal_factory", null, [
+        [ "GoalFactory", "classseprcph_1_1goal__factory_1_1_goal_factory.html", "classseprcph_1_1goal__factory_1_1_goal_factory" ]
+      ] ],
       [ "hand", null, [
         [ "Hand", "classseprcph_1_1hand_1_1_hand.html", "classseprcph_1_1hand_1_1_hand" ]
       ] ],
