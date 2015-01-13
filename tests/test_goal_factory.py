@@ -4,6 +4,7 @@ import os
 import errno
 import pygame
 from seprcph.goal_factory import GoalFactory
+from seprcph.goal import Goal
 from seprcph.config import Config
 from seprcph.map import Map
 from seprcph.player import Player
@@ -38,4 +39,6 @@ class TestCreateGoal(unittest.TestCase):
         self.map = Map(image)
 
     def test_create_one_goal(self):
-        self.goal_factory.build_goals(1, self.player, self.map)
+        goals = self.goal_factory.build_goals(1, self.player, self.map)
+        self.assertEqual(1, len(goals))
+        self.assertIsInstance(goals[0], Goal)
