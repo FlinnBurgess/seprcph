@@ -26,5 +26,19 @@
         "type": "Buff",
         "effect": "eff_investor",
         "image": "city.png"
+    },
+    {
+        "name": "Broken Track",
+        "description": "Renders a track unusable for 3 turns",
+        "type": "Debuff",
+        "effect": "eff_broken_track",
+        "image": "city.png"
+    },
+    {
+        "name": "Hijack Track",
+        "description": "Swaps a track's owner for a turn",
+        "type": "Debuff",
+        "effect": "eff_hijack_track",
+        "image": "city.png"
     }
 ]
