@@ -12,7 +12,7 @@ from seprcph.track import Track
 from seprcph.train import Train
 from seprcph.event import Event, EventManager
 from seprcph.ui import initialise_ui
-
+from seprcph.goal_factory import GoalFactory
 from seprcph.ui_elements import Window, Container, Label
 from seprcph.player import Player
 from seprcph.deck import Deck
@@ -20,13 +20,16 @@ from seprcph.card_factory import CardFactory
 
 active_player = None
 
-def initialise_players():
+def initialise_players(goal_factory, game_map):
     global active_player
-    factory = CardFactory()
+    card_factory = CardFactory()
     placeholder_deck = Deck("Placeholder",
-                            factory.build_cards(50, "aggressive"), None)
+                            card_factory.build_cards(50, "aggressive"), None)
     player1 = Player(500, 0, placeholder_deck)
     player2 = Player(500, 0, placeholder_deck)
+
+    player1.goals = goal_factory.build_goals(3, player1, game_map)
+    player2.goals = goal_factory.build_goals(3, player2, game_map)
     active_player = player1
 
     return player1, player2
@@ -50,6 +53,7 @@ def main():
     """
     effect_selection = False
     effect = None
+    goal_factory = GoalFactory()
 
     def _set_effect_selection(event):
         effect = event.effect
@@ -88,8 +92,9 @@ def main():
     screen, clock = initialise_pygame()
     FPS = Config.graphics['fps']
 
-    player1, player2 = initialise_players()
     game_map = Map(pygame.image.load(os.path.join(Config.general['image_dir'], 'map.png')))
+    player1, player2 = initialise_players(goal_factory, game_map)
+
     sprites = pygame.sprite.LayeredUpdates()
     sprites.add(game_map._tracks, layer=0)
     sprites.add(game_map._cities.keys(), layer=1)

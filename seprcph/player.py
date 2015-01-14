@@ -8,12 +8,13 @@ class Player(object):
     Player class that represents each player.
     """
     player_id = 1
-    def __init__(self, gold, score, deck):
+    def __init__(self, gold, score, deck, goals=None):
         """
         Args:
             gold: The amount of gold in the player's bank
             score: The player's current score
             deck: The player's deck
+            goals: A list containing the player's current goals
         """
         assert deck is not None
 
@@ -21,6 +22,7 @@ class Player(object):
         self.score = score
         self.deck = deck
         self.id = Player.player_id
+        self.goals = goals
         self.hand = Hand([], self.deck, self.id)
 
         Player.player_id += 1
