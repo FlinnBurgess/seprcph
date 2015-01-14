@@ -54,8 +54,16 @@ def main():
         pygame.mouse.set_cursor(*pygame.cursors.arrow)
         effect_selection = False
 
+    def _change_turn(event):
+        if active_player == player1:
+            active_player = player2
+        else:
+            active_player = player1
+        turns += 1
+
     EventManager.add_listener('card.triggered', _set_effect_selection)
     EventManager.add_listener('effect.applied', _unset_effect_selection)
+    EventManager.add_listener('turns.changed', _change_turn)
 
     if platform.system() == 'Windows':
         Config.load_config(os.path.join(os.path.expanduser('~'), 'seprcph',
