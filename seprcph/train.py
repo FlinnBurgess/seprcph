@@ -10,15 +10,17 @@ class Train(Renderable, Affectable):
     """
     Class representing train objects in the game
     """
-    def __init__(self, speed, capacity, city, current_load, image):
+    def __init__(self, player, speed, capacity, city, current_load, image):
         """
         Args:
+            player: The player that owns this train
             speed: The speed of the train
             capacity: The capacity of the train
             city: The city the train is created at
             current_load: The amount of cargo the train is carrying
             image: The pygame surface associated with this train
         """
+        self.player = player
         self.speed = speed
         self.capacity = capacity
         self.current_load = current_load
@@ -69,6 +71,8 @@ class Train(Renderable, Affectable):
         EventManager.notify_listeners(e)
 
     def update(self):
+        if self.track:
+            self.image = pygame.transform.rotate(self.image, self.track.rotation)
         move_distance = (
             math.fabs((self.track.cities[0].pos[0] - self.track.cities[1].pos[0]) / self.distance) * self.speed,
             math.fabs((self.track.cities[0].pos[1] - self.track.cities[1].pos[1]) / self.distance) * self.speed

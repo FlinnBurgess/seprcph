@@ -9,6 +9,7 @@ import pygame
 from seprcph.config import Config
 from seprcph.map import Map
 from seprcph.track import Track
+from seprcph.train import Train
 from seprcph.event import Event, EventManager
 from seprcph.ui import initialise_ui
 
@@ -29,6 +30,12 @@ def initialise_players():
     active_player = player1
 
     return player1, player2
+
+def initialise_trains(player1, player2, cities):
+    img = pygame.image.load(os.path.join(Config.general['image_dir'], 'train.png'))
+    train_one = Train(player1, 100, 100, cities.keys()[0], 0, img)
+    train_two = Train(player2, 100, 100, cities.keys()[1], 0, img)
+    return train_one, train_two
 
 def change_player(event):
     global active_player
@@ -81,17 +88,14 @@ def main():
     screen, clock = initialise_pygame()
     FPS = Config.graphics['fps']
 
+    player1, player2 = initialise_players()
     game_map = Map(pygame.image.load(os.path.join(Config.general['image_dir'], 'map.png')))
     sprites = pygame.sprite.LayeredUpdates()
     sprites.add(game_map._tracks, layer=0)
     sprites.add(game_map._cities.keys(), layer=1)
+    sprites.add(initialise_trains(player1, player2, game_map._cities), layer=2)
     EventManager.notify_listeners(Event('window.resize', old_size=game_map.image.get_size(), size=screen.get_size()))
     game_map.image = pygame.transform.scale(game_map.image, screen.get_size())
-
-    win = initialise_ui(screen.get_size(), game_map.image)
-
-    player1, player2 = initialise_players()
-    player1.hand.update()
 
     sprites.draw(game_map.image)
     screen.blit(game_map.image, (0, 0))
@@ -127,7 +131,6 @@ def main():
 
         clock.tick(FPS)
         sprites.draw(game_map.image)
-        win.update()
         pygame.display.flip()
 
 def initialise_pygame():
