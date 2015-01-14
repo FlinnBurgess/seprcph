@@ -6,6 +6,7 @@ import logging
 import os.path
 import platform
 import pygame
+import distutils.dir_util
 from seprcph.config import Config
 from seprcph.map import Map
 from seprcph.track import Track
@@ -51,6 +52,8 @@ def main():
     """
     The game loop and glue code.
     """
+    data_dir = os.getcwd() + '\\data'
+    assets_dir = os.getcwd() + '\\assets'
     effect_selection = False
     effect = None
     goal_factory = GoalFactory()
@@ -87,9 +90,19 @@ def main():
     if platform.system() == 'Windows':
         Config.load_config(os.path.join(os.path.expanduser('~'), 'seprcph',
                                             'config.cfg'))
+        distutils.dir_util.copy_tree(data_dir,
+                    os.path.join(os.path.expanduser('~'), 'seprcph\\data'))
+        distutils.dir_util.copy_tree(assets_dir,
+                    os.path.join(os.path.expanduser('~'), 'seprcph\\assets'))
     else:
         Config.load_config(os.path.join(os.path.expanduser('~'), '.config',
                                             'seprcph', 'config.cfg'))
+        distutils.dir_util.copy_tree(data_dir,
+                    os.path.join(os.path.expanduser('~'), '.config',
+                                 'seprcph\\data'))
+        distutils.dir_util.copy_tree(assets_dir,
+                    os.path.join(os.path.expanduser('~'), '.config',
+                                 'seprcph\\assets'))
 
     logger = setup_file_logger(Config.logging['file'],
                             (Config.logging['format'],
