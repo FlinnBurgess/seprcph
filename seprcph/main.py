@@ -70,6 +70,13 @@ def main():
             active_player = player2
         else:
             active_player = player1
+
+        if active_player.goals < 5:
+            active_player.goals = goal_factory.build_goals(1, active_player, game_map.cities)
+
+        if active_player.hand.size < 5:
+            active_player.hand.draw_cards(2)
+
         turns += 1
 
     EventManager.add_listener('card.triggered', _set_effect_selection)
