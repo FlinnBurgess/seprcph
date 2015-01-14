@@ -119,6 +119,7 @@ def main():
         # This will block if there isn't an event.
         event = pygame.event.wait()
         if turns == Config.gameplay['turn_limit']:
+            # TODO: return in a neater way - perhaps show a nice UI screen?
             return
         if event.type == pygame.QUIT:
             return
