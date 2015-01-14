@@ -54,6 +54,7 @@ def main():
     effect_selection = False
     effect = None
     goal_factory = GoalFactory()
+    turns = 0
 
     def _set_effect_selection(event):
         effect = event.effect
@@ -117,6 +118,8 @@ def main():
     while True:
         # This will block if there isn't an event.
         event = pygame.event.wait()
+        if turns == Config.gameplay['turn_limit']:
+            return
         if event.type == pygame.QUIT:
             return
         elif event.type == pygame.VIDEORESIZE:
