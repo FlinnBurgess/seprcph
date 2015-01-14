@@ -18,12 +18,14 @@ class Config(object):
     general = {}
     logging = {}
     graphics = {}
+    gameplay = {}
 
     @staticmethod
     def __repr__():
         return "This config file contains the following sections: \n " \
                 "Config: %s\n Logging: %s\n Graphics: %s" \
-                % (str(Config.general), str(Config.logging), str(Config.graphics))
+                % (str(Config.general), str(Config.logging), str(Config.graphics),
+                        str(Config.gameplay))
 
     @staticmethod
     def load_config(path):
@@ -58,6 +60,11 @@ class Config(object):
         if 'graphics' not in conf._sections:
             raise IncompleteConfigurationFileError('Missing graphics section')
         Config.graphics = Config._replace_data_types(conf._sections['graphics'])
+
+        if 'gameplay' not in conf._sections:
+            raise IncompleteConfigurationFileError('Missing gameplay section')
+        Config.gameplay = Config._replace_data_types(conf._sections['gameplay'])
+
 
     @staticmethod
     def _replace_data_types(dictionary):
@@ -138,7 +145,6 @@ class Config(object):
         conf.set('general', 'sound_dir', os.path.join(base_path, 'assets', 'sounds'))
 
         conf.add_section('logging')
-        conf.set('logging', 'format', '480')
         conf.set('logging', 'format', '%(asctime)s - %(levelname)s - %(funcName)s '
                                       '- %(message)s')
         conf.set('logging', 'date_format', '%d/%m/%Y %I:%M:%S %p')
@@ -148,6 +154,9 @@ class Config(object):
         conf.add_section('graphics')
         conf.set('graphics', 'fps', '60')
         conf.set('graphics', 'draw_fps', 'false')
+
+        conf.add_section('gameplay')
+        conf.set('gameplay', 'turn_limit', '30')
 
         with open(path, 'w') as conf_file:
             conf.write(conf_file)
