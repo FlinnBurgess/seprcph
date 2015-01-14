@@ -75,8 +75,8 @@ def main():
 
     game_map = Map(pygame.image.load(os.path.join(Config.general['image_dir'], 'map.png')))
     sprites = pygame.sprite.LayeredUpdates()
-    sprites.add(game_map._tracks, layer=1)
-    sprites.add(game_map._cities.keys(), layer=2)
+    sprites.add(game_map._tracks, layer=0)
+    sprites.add(game_map._cities.keys(), layer=1)
     EventManager.notify_listeners(Event('window.resize', old_size=game_map.image.get_size(), size=screen.get_size()))
     game_map.image = pygame.transform.scale(game_map.image, screen.get_size())
 
