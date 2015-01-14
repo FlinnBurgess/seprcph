@@ -74,7 +74,9 @@ def main():
     FPS = Config.graphics['fps']
 
     game_map = Map(pygame.image.load(os.path.join(Config.general['image_dir'], 'map.png')))
-    sprites = pygame.sprite.Group(game_map._cities.keys() + game_map._tracks)
+    sprites = pygame.sprite.LayeredUpdates()
+    sprites.add(game_map._tracks, layer=1)
+    sprites.add(game_map._cities.keys(), layer=2)
     EventManager.notify_listeners(Event('window.resize', old_size=game_map.image.get_size(), size=screen.get_size()))
     game_map.image = pygame.transform.scale(game_map.image, screen.get_size())
 
