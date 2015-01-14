@@ -2,6 +2,7 @@
 This module contains the all classes relating to the players of the game.
 """
 from seprcph.hand import Hand
+from seprcph.event import EventManager
 
 class Player(object):
     """
@@ -27,6 +28,9 @@ class Player(object):
 
         Player.player_id += 1
 
+        EventManager.add_listener('goal.completed', self.remove_goal)
+        EventManager.add_listener('goal.failed', self.remove_goal)
+
 
     def __repr__(self):
         return "<Player gold: %d, player points: %d>" % (self.gold, self.score)
@@ -37,3 +41,7 @@ class Player(object):
 
         """
         pass
+
+    def remove_goal(event):
+        if event.goal in self.goals:
+            self.goals.remove(event.goal)
