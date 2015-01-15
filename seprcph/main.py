@@ -96,11 +96,10 @@ def main():
     if platform.system() == 'Windows':
         Config.load_config(os.path.join(os.path.expanduser('~'), 'seprcph',
                                             'config.cfg'))
-        _copy_files()
     else:
         Config.load_config(os.path.join(os.path.expanduser('~'), '.config',
                                             'seprcph', 'config.cfg'))
-        _copy_files()
+    _copy_files()
 
     logger = setup_file_logger(Config.logging['file'],
                             (Config.logging['format'],
