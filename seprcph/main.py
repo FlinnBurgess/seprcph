@@ -52,8 +52,9 @@ def main():
     """
     The game loop and glue code.
     """
-    data_dir = os.getcwd() + '\\data'
-    assets_dir = os.getcwd() + '\\assets'
+    data_dir = os.path.join(os.getcwd(), 'data')
+    image_dir = os.path.join(os.getcwd(), 'assets/images')
+    sound_dir = os.path.join(os.getcwd(), 'assets/sounds')
     effect_selection = False
     effect = None
     goal_factory = GoalFactory()
@@ -90,19 +91,15 @@ def main():
     if platform.system() == 'Windows':
         Config.load_config(os.path.join(os.path.expanduser('~'), 'seprcph',
                                             'config.cfg'))
-        distutils.dir_util.copy_tree(data_dir,
-                    os.path.join(os.path.expanduser('~'), 'seprcph\\data'))
-        distutils.dir_util.copy_tree(assets_dir,
-                    os.path.join(os.path.expanduser('~'), 'seprcph\\assets'))
+        distutils.dir_util.copy_tree(data_dir, Config.general['data_dir'])
+        distutils.dir_util.copy_tree(image_dir, Config.general['image_dir'])
+        distutils.dir_util.copy_tree(sound_dir, Config.general['sound_dir'])
     else:
         Config.load_config(os.path.join(os.path.expanduser('~'), '.config',
                                             'seprcph', 'config.cfg'))
-        distutils.dir_util.copy_tree(data_dir,
-                    os.path.join(os.path.expanduser('~'), '.config',
-                                 'seprcph\\data'))
-        distutils.dir_util.copy_tree(assets_dir,
-                    os.path.join(os.path.expanduser('~'), '.config',
-                                 'seprcph\\assets'))
+        distutils.dir_util.copy_tree(data_dir, Config.general['data_dir'])
+        distutils.dir_util.copy_tree(image_dir, Config.general['image_dir'])
+        distutils.dir_util.copy_tree(sound_dir, Config.general['sound_dir'])
 
     logger = setup_file_logger(Config.logging['file'],
                             (Config.logging['format'],
