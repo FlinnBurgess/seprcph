@@ -53,8 +53,8 @@ def main():
     The game loop and glue code.
     """
     data_dir = os.path.join(os.getcwd(), 'data')
-    image_dir = os.path.join(os.getcwd(), 'assets/images')
-    sound_dir = os.path.join(os.getcwd(), 'assets/sounds')
+    image_dir = os.path.join(os.getcwd(), 'assets', 'images')
+    sound_dir = os.path.join(os.getcwd(), 'assets', 'sounds')
     effect_selection = False
     effect = None
     goal_factory = GoalFactory()
