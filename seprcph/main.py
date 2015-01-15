@@ -59,6 +59,11 @@ def main():
     effect = None
     goal_factory = GoalFactory()
     turns = 0
+    
+    def _copy_files():
+        distutils.dir_util.copy_tree(data_dir, Config.general['data_dir'])
+        distutils.dir_util.copy_tree(image_dir, Config.general['image_dir'])
+        distutils.dir_util.copy_tree(sound_dir, Config.general['sound_dir'])
 
     def _set_effect_selection(event):
         effect = event.effect
@@ -91,15 +96,11 @@ def main():
     if platform.system() == 'Windows':
         Config.load_config(os.path.join(os.path.expanduser('~'), 'seprcph',
                                             'config.cfg'))
-        distutils.dir_util.copy_tree(data_dir, Config.general['data_dir'])
-        distutils.dir_util.copy_tree(image_dir, Config.general['image_dir'])
-        distutils.dir_util.copy_tree(sound_dir, Config.general['sound_dir'])
+        _copy_files()
     else:
         Config.load_config(os.path.join(os.path.expanduser('~'), '.config',
                                             'seprcph', 'config.cfg'))
-        distutils.dir_util.copy_tree(data_dir, Config.general['data_dir'])
-        distutils.dir_util.copy_tree(image_dir, Config.general['image_dir'])
-        distutils.dir_util.copy_tree(sound_dir, Config.general['sound_dir'])
+        _copy_files()
 
     logger = setup_file_logger(Config.logging['file'],
                             (Config.logging['format'],
