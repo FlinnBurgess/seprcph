@@ -245,7 +245,21 @@ class Window(Container):
 
     def add(self, element):
         """
-        Add an element to the container
+        Add an element to the Window
+
+        We are adding all of the sprites into a single sprite group -
+        "flattening out" the sprites. The correct way to do this is
+        to recursively visiti each container, rendering its elements as we go.
+        This is because the Containers work like trees.
+
+                + Window +
+                |        |
+                |        |
+                +        +
+            Container     Container
+            +             +     +
+            +             +     +
+        Clickable         Label    Container
         """
         element.layer += self.layer
         if isinstance(element, Container):
