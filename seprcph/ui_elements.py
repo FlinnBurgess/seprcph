@@ -126,6 +126,9 @@ class Label(Element):
             else:
                 self.image = pygame.Surface(size)
                 self.size = size
+        else:
+            self.size = size
+            self.image = image
         super(Label, self).__init__(self.size, position, self.image)
         self.text = text
         self.font = font
@@ -205,10 +208,6 @@ class Container(Element):
 
         self.size = (int(self.size[0] * w_ratio), int(self.size[1] * h_ratio))
 
-    def update(self):
-        for elem in self.elems:
-            elem.update()
-
 class Window(Container):
     """
     The top level of a UI, it manages all elements.
@@ -244,6 +243,18 @@ class Window(Container):
 
         self.size = (int(self.size[0] * w_ratio), int(self.size[1] * h_ratio))
 
+    def add(self, element):
+        """
+        Add an element to the container
+        """
+        element.layer += self.layer
+        if isinstance(element, Container):
+            for elem in element.elems:
+                elem.layer += self.layer
+            self.elems.add(element.elems, layer=element.layer)
+        self.elems.add(element, layer=element.layer)
+
     def draw(self, surface):
-        self.update()
+        for elem in self.elems:
+            elem.update()
         self.elems.draw(surface)
