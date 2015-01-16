@@ -37,6 +37,7 @@ class Element(pygame.sprite.Sprite):
         self.size = size
         self.pos = position
         self.image = image
+        self.layer = 0
         self.rect.topleft = self.pos
 
     def __repr__(self):
@@ -143,21 +144,18 @@ class Container(Element):
     """
     A container class which will contain other UI elements
     """
-    def __init__(self, size, pos, elems, image=None):
+    def __init__(self, size, pos, image=None):
         """
         Args:
             size: a tuple containing the height and width of the UI element
             pos: a tuple containing the coordinates of the UI element
-            elems: a list of UI elements contained within the container
             image: A pygame surface (not required)
         """
         if not image:
             image = pygame.Surface(size, pygame.SRCALPHA, 32)
             image = image.convert()
         super(Container, self).__init__(size, pos, image)
-        self.elems = pygame.sprite.Group()
-        for elem in elems:
-            self.add(elem)
+        self.elems = pygame.sprite.LayeredUpdates()
 
     def add(self, element):
         """
@@ -170,7 +168,9 @@ class Container(Element):
                 or element.rect.bottomright > self.rect.bottomright:
             raise OutsideContainerError("element %s is outside of container %s",
                                         str(element), str(self))
-        self.elems.add(element)
+
+        element.layer = self.layer + 1
+        self.elems.add(element, layer=element.layer)
 
     def remove(self, element):
         """
@@ -208,7 +208,6 @@ class Container(Element):
     def update(self):
         for elem in self.elems:
             elem.update()
-            self.image.blit(elem.image, elem.pos)
 
 class Window(Container):
     """
@@ -217,16 +216,17 @@ class Window(Container):
     The Window is reponsible for telling elements that they are to be resized,
     telling elements when they have been clicked as well as rendering elements.
     """
-    def __init__(self, size, pos, elems, surface):
+    def __init__(self, size, pos, layer, surface):
         """
         Initialise the entire UI
 
         Args:
             size: A tuple representing the size of the Window
             pos: A tuple representing the position of the top left corner of the window
-            elems: The elements that are to be included in this window
         """
-        super(Window, self).__init__(size, pos, elems, surface)
+        super(Window, self).__init__(size, pos, surface)
+        self.layer = layer
+
         EventManager.add_listener('ui.clicked', self.click)
         EventManager.add_listener('window.resize', self.resize)
 
@@ -243,3 +243,7 @@ class Window(Container):
             elem.resize((int(elem.size[0] * w_ratio), int(elem.size[1] * h_ratio)))
 
         self.size = (int(self.size[0] * w_ratio), int(self.size[1] * h_ratio))
+
+    def draw(self, surface):
+        self.update()
+        self.elems.draw(surface)

@@ -52,18 +52,10 @@ def main():
     """
     The game loop and glue code.
     """
-    data_dir = os.path.join(os.getcwd(), 'data')
-    image_dir = os.path.join(os.getcwd(), 'assets', 'images')
-    sound_dir = os.path.join(os.getcwd(), 'assets', 'sounds')
     effect_selection = False
     effect = None
     goal_factory = GoalFactory()
     turns = 0
-    
-    def _copy_files():
-        distutils.dir_util.copy_tree(data_dir, Config.general['data_dir'])
-        distutils.dir_util.copy_tree(image_dir, Config.general['image_dir'])
-        distutils.dir_util.copy_tree(sound_dir, Config.general['sound_dir'])
 
     def _set_effect_selection(event):
         effect = event.effect
@@ -99,7 +91,6 @@ def main():
     else:
         Config.load_config(os.path.join(os.path.expanduser('~'), '.config',
                                             'seprcph', 'config.cfg'))
-    _copy_files()
 
     logger = setup_file_logger(Config.logging['file'],
                             (Config.logging['format'],
@@ -119,9 +110,11 @@ def main():
     sprites.add(initialise_trains(player1, player2, game_map._cities), layer=2)
 
     EventManager.notify_listeners(Event('window.resize', old_size=game_map.image.get_size(), size=screen.get_size()))
+    win = initialise_ui(screen.get_size(), game_map.image)
     game_map.image = pygame.transform.scale(game_map.image, screen.get_size())
 
     sprites.draw(game_map.image)
+    win.draw(game_map.image)
     screen.blit(game_map.image, (0, 0))
     pygame.display.flip()
 
