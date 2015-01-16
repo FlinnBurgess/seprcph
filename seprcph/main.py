@@ -21,6 +21,8 @@ active_player = None
 
 
 def initialise_players(goal_factory, game_map):
+    """ Initialise players
+    """
     global active_player
     card_factory = CardFactory()
     placeholder_deck = Deck("Placeholder",
@@ -36,6 +38,8 @@ def initialise_players(goal_factory, game_map):
 
 
 def initialise_trains(player1, player2, cities):
+    """ Initialise trains
+    """
     img = pygame.image.load(os.path.join(Config.general['image_dir'], 'train.png'))
     train_one = Train(player1, 100, 100, cities.keys()[0], 0, img)
     train_two = Train(player2, 100, 100, cities.keys()[1], 0, img)
@@ -43,6 +47,8 @@ def initialise_trains(player1, player2, cities):
 
 
 def change_player(event):
+    """ Change player
+    """
     global active_player
     if active_player == player1:
         active_player = player2
@@ -62,26 +68,26 @@ def main():
     turns = 0
 
     def _copy_files():
-        """
+        """ Copy config files
         """
         distutils.dir_util.copy_tree(data_dir, Config.general['data_dir'])
         distutils.dir_util.copy_tree(image_dir, Config.general['image_dir'])
         distutils.dir_util.copy_tree(sound_dir, Config.general['sound_dir'])
 
     def _set_effect_selection():
-        """
+        """ Set effect selection
         """
         pygame.mouse.set_cursor(*pygame.cursors.diamond)
         effect_selection = True
 
     def _unset_effect_selection():
-        """
+        """ Unset effect selection
         """
         pygame.mouse.set_cursor(*pygame.cursors.arrow)
         effect_selection = False
 
     def _change_turn(event):
-        """
+        """ Change player turn
         """
         if active_player == player1:
             active_player = player2
