@@ -9,7 +9,7 @@ class Goal(object):
     Class that describes the player's goals
     """
 
-    def __init__(self, start_city, end_cities, turns, gold_reward, points_reward, player, desc=""):
+    def __init__(self, start_city, end_city, turns, gold_reward, points_reward, player, desc=""):
         """
         Initialise a goal.
 
@@ -19,8 +19,7 @@ class Goal(object):
         Args:
             start_city: The city that the player's train must first visit to
             start the goal.
-            end_cities: A list of cities that the player's train must visit
-            (one of) to complete the goal.
+            end_city: The city that the player's train must visit.
             turns: The amount of turns that the player has to complete the goal.
             gold_reward: The amount of gold that the player will receive.
             points_reward: The number of points that the player will receive.
@@ -33,7 +32,7 @@ class Goal(object):
         assert gold_reward > 0
 
         self.start_city = start_city
-        self.end_cities = end_cities
+        self.end_city = end_city
         self.turns = turns
         self.gold_reward = gold_reward
         self.points_reward = points_reward
@@ -44,10 +43,10 @@ class Goal(object):
         EventManager.add_listener('train.arrive', self.handle_train_arrive)
 
     def __repr__(self):
-        return "<start_city: %s, end_cities: %s, turns remaining: %d " \
+        return "<start_city: %s, end_city: %s, turns remaining: %d " \
                "gold_reward: %d, points_reward: %d, assigned player: %s " \
                "description: %s>" \
-               % (str(self.start_city), str(self.end_cities), self.turns, self.gold_reward,
+               % (str(self.start_city), str(self.end_city), self.turns, self.gold_reward,
                   self.points_reward, str(self.player), self.desc)
 
     def handle_train_arrive(self, ev):
@@ -63,7 +62,7 @@ class Goal(object):
 
         if ev.city == self.start_city:
             self._start_reached = True
-        elif ev.city in self.end_cities and self._start_reached:
+        elif ev.city == self.end_city and self._start_reached:
             self.player.gold += self.gold_reward
             self.player.score += self.points_reward
             EventManager.notify_listeners(Event('goal.completed',

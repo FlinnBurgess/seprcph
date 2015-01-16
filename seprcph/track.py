@@ -42,10 +42,11 @@ class Track(Renderable, Affectable):
         self.cities = (start_city, end_city)
         self.gold_generation = gold_generation
         self.cost = cost
-        self.rotation = self._calc_rotation(start_city.pos, end_city.pos)
-        self.length = self._calc_length(self.cities[0].pos, self.cities[1].pos)
-        self.image = pygame.Surface((2, self.length))
+        self._calc_rotation()
+        self._calc_length()
+        self.image = pygame.Surface((4, self.length), flags=pygame.SRCALPHA)
         self.image.fill((143, 143, 143))
+        self.image = pygame.transform.rotate(self.image, self.rotation)
 
         super(Track, self).__init__(((start_city.pos[0] + end_city.pos[0]) /2,
                                     (start_city.pos[1] + end_city.pos[1]) / 2),
@@ -53,6 +54,7 @@ class Track(Renderable, Affectable):
         Affectable.__init__(self)
 
         self.is_locked = True
+        self.is_broken = False
         self.owner = None
 
     def __repr__(self):
@@ -85,34 +87,29 @@ class Track(Renderable, Affectable):
             raise NotEnoughGoldError("You don't have enough gold!")
 
         if self.is_locked:
+            if player.id == 1:
+                self.image.fill((0, 0, 255))
+            else:
+                self.image.fill((255, 0, 0))
             self.is_locked = False
             self.owner = player
             player.gold -= self.cost
         else:
             raise TrackOwnedError('This track is already owned!')
 
-    def _calc_rotation(self, first_p, second_p):
+    def _calc_rotation(self):
         """
         Calculate the counterclockwise rotation (in degrees) required to line
         the track's image up with both cities.
-
-        Args:
-            first_p: The position tuple of a city.
-            second_p: The position tuple of another city.
         """
-        xdiff = first_p[0] - second_p[0]
-        ydiff = first_p[1] - second_p[1]
-        return math.degrees(math.atan2(xdiff, ydiff))
+        xdiff = self.cities[0].pos[0] - self.cities[1].pos[0]
+        ydiff = self.cities[0].pos[1] - self.cities[1].pos[1]
+        self.rotation =  math.degrees(math.atan2(xdiff, ydiff))
 
-    def _calc_length(self, first_p, second_p):
+    def _calc_length(self):
         """
-        Calculate the length between the two points
-
-        Args:
-            first_p: The position tuple of a city.
-            second_p: The position tuple of another city.
+        Calculate the track's length
         """
-        xdiff = first_p[0] - second_p[0]
-        ydiff = first_p[1] - second_p[1]
-        return int(math.sqrt(xdiff ** 2 + ydiff ** 2))
-
+        xdiff = self.cities[0].pos[0] - self.cities[1].pos[0]
+        ydiff = self.cities[0].pos[1] - self.cities[1].pos[1]
+        self.length = int(math.sqrt(xdiff ** 2 + ydiff ** 2))

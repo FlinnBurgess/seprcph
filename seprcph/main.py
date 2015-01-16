@@ -6,12 +6,14 @@ import logging
 import os.path
 import platform
 import pygame
+import distutils.dir_util
 from seprcph.config import Config
 from seprcph.map import Map
 from seprcph.track import Track
+from seprcph.train import Train
 from seprcph.event import Event, EventManager
 from seprcph.ui import initialise_ui
-
+from seprcph.goal_factory import GoalFactory
 from seprcph.ui_elements import Window, Container, Label
 from seprcph.player import Player
 from seprcph.deck import Deck
@@ -19,16 +21,25 @@ from seprcph.card_factory import CardFactory
 
 active_player = None
 
-def initialise_players():
+def initialise_players(goal_factory, game_map):
     global active_player
-    factory = CardFactory()
+    card_factory = CardFactory()
     placeholder_deck = Deck("Placeholder",
-                            factory.build_cards(50, "aggressive"), None)
+                            card_factory.build_cards(50, "aggressive"), None)
     player1 = Player(500, 0, placeholder_deck)
     player2 = Player(500, 0, placeholder_deck)
+
+    player1.goals = goal_factory.build_goals(3, player1, game_map)
+    player2.goals = goal_factory.build_goals(3, player2, game_map)
     active_player = player1
 
     return player1, player2
+
+def initialise_trains(player1, player2, cities):
+    img = pygame.image.load(os.path.join(Config.general['image_dir'], 'train.png'))
+    train_one = Train(player1, 100, 100, cities.keys()[0], 0, img)
+    train_two = Train(player2, 100, 100, cities.keys()[1], 0, img)
+    return train_one, train_two
 
 def change_player(event):
     global active_player
@@ -43,6 +54,8 @@ def main():
     """
     effect_selection = False
     effect = None
+    goal_factory = GoalFactory()
+    turns = 0
 
     def _set_effect_selection(event):
         effect = event.effect
@@ -54,8 +67,23 @@ def main():
         pygame.mouse.set_cursor(*pygame.cursors.arrow)
         effect_selection = False
 
+    def _change_turn(event):
+        if active_player == player1:
+            active_player = player2
+        else:
+            active_player = player1
+
+        if active_player.goals < 5:
+            active_player.goals = goal_factory.build_goals(1, active_player, game_map.cities)
+
+        if active_player.hand.size < 5:
+            active_player.hand.draw_cards(2)
+
+        turns += 1
+
     EventManager.add_listener('card.triggered', _set_effect_selection)
     EventManager.add_listener('effect.applied', _unset_effect_selection)
+    EventManager.add_listener('turns.changed', _change_turn)
 
     if platform.system() == 'Windows':
         Config.load_config(os.path.join(os.path.expanduser('~'), 'seprcph',
@@ -74,16 +102,19 @@ def main():
     FPS = Config.graphics['fps']
 
     game_map = Map(pygame.image.load(os.path.join(Config.general['image_dir'], 'map.png')))
-    sprites = pygame.sprite.Group(game_map._cities.keys() + game_map._tracks)
+    player1, player2 = initialise_players(goal_factory, game_map)
+
+    sprites = pygame.sprite.LayeredUpdates()
+    sprites.add(game_map._tracks, layer=0)
+    sprites.add(game_map._cities.keys(), layer=1)
+    sprites.add(initialise_trains(player1, player2, game_map._cities), layer=2)
+
     EventManager.notify_listeners(Event('window.resize', old_size=game_map.image.get_size(), size=screen.get_size()))
+    win = initialise_ui(screen.get_size(), game_map.image)
     game_map.image = pygame.transform.scale(game_map.image, screen.get_size())
 
-    win = initialise_ui(screen.get_size(), game_map.image)
-
-    player1, player2 = initialise_players()
-    player1.hand.update()
-
     sprites.draw(game_map.image)
+    win.draw(game_map.image)
     screen.blit(game_map.image, (0, 0))
     pygame.display.flip()
 
@@ -95,10 +126,16 @@ def main():
     while True:
         # This will block if there isn't an event.
         event = pygame.event.wait()
+        if turns == Config.gameplay['turn_limit']:
+            # TODO: return in a neater way - perhaps show a nice UI screen?
+            return
         if event.type == pygame.QUIT:
             return
         elif event.type == pygame.VIDEORESIZE:
             EventManager.notify_listeners(Event('window.resize', size=event.dict['size'], old_size=screen.get_size()))
+            for sprite in sprites:
+                if isinstance(sprite, Track):
+                    sprite._calc_length()
             screen = pygame.display.set_mode(event.dict['size'], pygame.RESIZABLE)
             screen.blit(pygame.transform.scale(game_map.image, event.dict['size']), (0, 0))
             pygame.display.flip()
@@ -112,9 +149,9 @@ def main():
             if effect_selection:
                 # We're trying to find which object the effect should be
                 # applied to.
-                ev = Event('ui.select_effect', obj=clicked[0], pos=event.pos)
+                ev = Event('ui.select_effect', obj=clicked[-1], pos=event.pos)
             else:
-                ev = Event('ui.clicked', obj=clicked[0], pos=event.pos)
+                ev = Event('ui.clicked', obj=clicked[-1], pos=event.pos)
             EventManager.notify_listeners(ev)
 
         clock.tick(FPS)
