@@ -37,6 +37,8 @@ In order to generate the documentation, you need to be in the top level of the p
 doxygen
 ```
 
+We have been using Github Pages to host our documentation - you can read about them [here](https://pages.github.com/). The branch ```gh-pages``` in this repository contains the code for the website and the generated documentation.
+
 Unit Tests
 ==========
 We have over 50 unit tests for our game. ```pygame``` is required to run them.
