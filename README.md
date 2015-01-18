@@ -25,6 +25,20 @@ For running tests:
 - [pep8](https://pypi.python.org/pypi/pep8)
 - [pylint](http://www.pylint.org/)
 
+Installation
+============
+- Clone the main repo
+- Navigate to the local repo in the command line
+- Depending on your Python installation run the following command:
+    - ```python2.7 setup.py install```
+    - OR ```python setup.py install```
+- Create a new folder in the relevant directory:
+    - Windows: C:/Users/Username/seprcph
+    - Linux ~/.config/seprcph
+- Copy the Assets and Data folders from the local repo to the new folder
+- Launch the game by running the command (using the python guidelines above):
+    ```python2.7 {path from current directory to the seprcph folder in the local repo}/main```
+
 Generating Documentation
 ==========
 The code makes heavy use of [Doxygen](http://www.stack.nl/~dimitri/doxygen/) to document everything. We have a custom ```Doxyfile``` that is optimised for Python and our game. It will create a HTML website based upon the comments from within the code.
