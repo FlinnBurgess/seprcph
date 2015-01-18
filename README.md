@@ -11,9 +11,12 @@ Trains across Europe - a riveting Python 2 game. Reviewers have had the followin
 
 > This made me sell my Xbox.
 
+> 9 / 10 - lost me my marriage.
+
 Contents
 ==========
 - [Requirements](#requirements)
+- [Installation](#installation)
 - [Generating Documentation](#generating-documentation)
 - [Unit Tests](#unit-tests)
 - [Code checking](#code-checking)
@@ -32,6 +35,20 @@ For generating the documentation:
 For running tests:
 - [pep8](https://pypi.python.org/pypi/pep8)
 - [pylint](http://www.pylint.org/)
+
+Installation
+============
+- Clone git repository
+- Navigate to the local repo in the command line
+- Depending on your Python installation run the following command:
+    - ```python2.7 setup.py install```
+    - OR ```python setup.py install```
+- Create a new folder in the relevant directory:
+    - Windows: C:/Users/Username/seprcph
+    - Linux ~/.config/seprcph
+- Copy the Assets and Data folders from the local repository to the folder that you just created
+- Launch the game by running the command (using the python guidelines above):
+    ```python2.7 {path from current directory to the seprcph folder in the local repo}/main```
 
 Generating Documentation
 ==========
