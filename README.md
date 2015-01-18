@@ -3,6 +3,13 @@ seprcph
 
 Trains across Europe - a riveting Python 2 game.
 
+Contents
+==========
+- [Requirements](#requirements)
+- [Unit Tests](#unit-tests)
+- [Code checking](#code-checking)
+- [Continuous Integration](#continuous-integration)
+
 Requirements
 ==========
 For building and running the game:
