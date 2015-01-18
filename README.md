@@ -17,13 +17,6 @@ For running tests:
 - [pep8](https://pypi.python.org/pypi/pep8)
 - [pylint](http://www.pylint.org/)
 
-Testing
-==========
-Our testing is split into multiple parts:
-- [Unit tests](#unittests)
-- [Code checking / linting](#codechecking)
-- [Continuous integration](#continuousintegration)
-
 Unit Tests
 ----------
 We have over 50 unit tests for our game. ```pygame``` is required to run them.
@@ -51,6 +44,8 @@ A script has been written to help with the code checking - but it will only work
 ```
 scripts/check seprcph
 ```
+
+Take a look inside of the script to see what commands are being run - in case you want to run them on your own.
 
 Continuous Integration
 ----------
