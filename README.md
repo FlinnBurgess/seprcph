@@ -1,7 +1,15 @@
 seprcph
 =======
 
-Trains across Europe - a riveting Python 2 game.
+Trains across Europe - a riveting Python 2 game. Reviewers have had the following to say about the game:
+
+> The map is better than anything from a CoD map pack.
+
+> Trains have never been this interesting!
+
+> I locked myself away for days on end to play this game.
+
+> This made me sell my Xbox.
 
 Contents
 ==========
@@ -24,20 +32,6 @@ For generating the documentation:
 For running tests:
 - [pep8](https://pypi.python.org/pypi/pep8)
 - [pylint](http://www.pylint.org/)
-
-Installation
-============
-- Clone the main repo
-- Navigate to the local repo in the command line
-- Depending on your Python installation run the following command:
-    - ```python2.7 setup.py install```
-    - OR ```python setup.py install```
-- Create a new folder in the relevant directory:
-    - Windows: C:/Users/Username/seprcph
-    - Linux ~/.config/seprcph
-- Copy the Assets and Data folders from the local repo to the new folder
-- Launch the game by running the command (using the python guidelines above):
-    ```python2.7 {path from current directory to the seprcph folder in the local repo}/main```
 
 Generating Documentation
 ==========
