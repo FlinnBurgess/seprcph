@@ -21,6 +21,7 @@ Contents
 - [Unit Tests](#unit-tests)
 - [Code checking](#code-checking)
 - [Continuous Integration](#continuous-integration)
+- [Completion](#completion)
 
 Requirements
 ==========
@@ -106,3 +107,45 @@ Some of the Jenkins plugins we used include:
 - Github OAuth
 - Github Pull Request Builder
 - Violations
+
+Completion
+==========
+
+The following have been completed:
+- Card class
+- Hand class
+- Deck class
+- Player class
+- Goal class
+- Train class
+- Map class
+- Track class
+- Effect class
+- GoalFactory class
+- CardFactory class
+- Renderable class
+- Affectable class
+- EventManager and Event (most classes are tied into this system)
+- Rendering sprites and the map (some elements of the GUI too)
+- Artwork is completed
+- Loading Cards from JSON
+- Loading Cities from JSON
+- Loading Tracks from JSON
+- Logging
+- Unit tests (over 50)
+- Documentation generation
+- Configuration file is created and successfully parsed
+
+The following are very close to completion, or are completed but not 'hooked up':
+- GUI (there is a bug here relating to rendering the contents of containers. I have explained it in the comments).
+- CardFactory can handle different deck biases (referred to elsewhere as policies), but the rest of the game isn't aware of them.
+- GUI layout hasn't been created - the building blocks are there though.
+- An effect can only be applied to a City, Track of Train.
+- Trains should move and calculate their rotation correctly (not tested).
+- A turn limit is loosely implemented.
+- More effects need adding.
+
+The following haven't been completed:
+- Turn based gameplay - most of the building blocks are there.
+- Goal progress (currently a goal is either completed or isn't).
+- A player can't discard unwanted cards.
