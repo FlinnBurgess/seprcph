@@ -23,7 +23,7 @@ class TestHandMethods(unittest.TestCase):
         self.card5 = Card("card5", None, None, _func, image)
         self.deck = Deck(None, [self.card1, self.card2, self.card3,
                                 self.card4], None)
-        self.hand = Hand([self.card5], self.deck)
+        self.hand = Hand([self.card5], self.deck, 1)
 
     def test_draw_cards(self):
         self.hand.draw_cards(2)

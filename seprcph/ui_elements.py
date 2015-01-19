@@ -5,6 +5,15 @@ import pygame
 
 from seprcph.event import EventManager
 
+
+class OutsideContainerError(Exception):
+    """
+    The element that is going to be added to the container is outside of the
+    container.
+    """
+    pass
+
+
 class Element(pygame.sprite.Sprite):
     """
     Superclass for the UI elements
@@ -28,6 +37,7 @@ class Element(pygame.sprite.Sprite):
         self.size = size
         self.pos = position
         self.image = image
+        self.layer = 0
         self.rect.topleft = self.pos
 
     def __repr__(self):
@@ -116,6 +126,9 @@ class Label(Element):
             else:
                 self.image = pygame.Surface(size)
                 self.size = size
+        else:
+            self.size = size
+            self.image = image
         super(Label, self).__init__(self.size, position, self.image)
         self.text = text
         self.font = font
@@ -134,21 +147,18 @@ class Container(Element):
     """
     A container class which will contain other UI elements
     """
-    def __init__(self, size, pos, elems, image=None):
+    def __init__(self, size, pos, image=None):
         """
         Args:
             size: a tuple containing the height and width of the UI element
             pos: a tuple containing the coordinates of the UI element
-            elems: a list of UI elements contained within the container
             image: A pygame surface (not required)
         """
         if not image:
             image = pygame.Surface(size, pygame.SRCALPHA, 32)
             image = image.convert()
         super(Container, self).__init__(size, pos, image)
-        self.elems = pygame.sprite.Group()
-        for elem in elems:
-            self.add(elem)
+        self.elems = pygame.sprite.LayeredUpdates()
 
     def add(self, element):
         """
@@ -156,10 +166,14 @@ class Container(Element):
         """
         element.pos = (element.pos[0] + self.pos[0],
                         element.pos[1] + self.pos[1])
-        print self.rect
-        print element.rect
-        print pygame.sprite.collide_rect(self, element)
-        self.elems.add(element)
+        if not pygame.sprite.collide_rect(self, element) \
+                or element.rect.topleft < self.rect.topleft \
+                or element.rect.bottomright > self.rect.bottomright:
+            raise OutsideContainerError("element %s is outside of container %s",
+                                        str(element), str(self))
+
+        element.layer = self.layer + 1
+        self.elems.add(element, layer=element.layer)
 
     def remove(self, element):
         """
@@ -180,24 +194,19 @@ class Container(Element):
             except AttributeError:
                 pass
 
-    def resize(self, event):
+    def resize(self, size):
         """
         Called when the main Pygame screen is resized
 
         Args:
             size: The new size of the container
         """
-        w_ratio = float(event.size[0]) / float(event.old_size[0])
-        h_ratio = float(event.size[1]) / float(event.old_size[1])
+        w_ratio = float(size[0]) / float(self.size[0])
+        h_ratio = float(size[1]) / float(self.size[1])
         for elem in self.elems:
             elem.resize((int(elem.size[0] * w_ratio), int(elem.size[1] * h_ratio)))
 
         self.size = (int(self.size[0] * w_ratio), int(self.size[1] * h_ratio))
-
-    def update(self):
-        for elem in self.elems:
-            elem.update()
-        self.elems.draw(self.image)
 
 class Window(Container):
     """
@@ -206,15 +215,60 @@ class Window(Container):
     The Window is reponsible for telling elements that they are to be resized,
     telling elements when they have been clicked as well as rendering elements.
     """
-    def __init__(self, size, pos, elems, surface):
+    def __init__(self, size, pos, layer, surface):
         """
         Initialise the entire UI
 
         Args:
             size: A tuple representing the size of the Window
             pos: A tuple representing the position of the top left corner of the window
-            elems: The elements that are to be included in this window
         """
-        super(Window, self).__init__(size, pos, elems, surface)
+        super(Window, self).__init__(size, pos, surface)
+        self.layer = layer
+
         EventManager.add_listener('ui.clicked', self.click)
         EventManager.add_listener('window.resize', self.resize)
+
+    def resize(self, event):
+        """
+        Called when the main Pygame screen is resized
+
+        Args:
+            event: Contains the field 'size' and 'old_size'
+        """
+        w_ratio = float(event.size[0]) / float(event.old_size[0])
+        h_ratio = float(event.size[1]) / float(event.old_size[1])
+        for elem in self.elems:
+            elem.resize((int(elem.size[0] * w_ratio), int(elem.size[1] * h_ratio)))
+
+        self.size = (int(self.size[0] * w_ratio), int(self.size[1] * h_ratio))
+
+    def add(self, element):
+        """
+        Add an element to the Window
+
+        We are adding all of the sprites into a single sprite group -
+        "flattening out" the sprites. The correct way to do this is
+        to recursively visiti each container, rendering its elements as we go.
+        This is because the Containers work like trees.
+
+                + Window +
+                |        |
+                |        |
+                +        +
+            Container     Container
+            +             +     +
+            +             +     +
+        Clickable         Label    Container
+        """
+        element.layer += self.layer
+        if isinstance(element, Container):
+            for elem in element.elems:
+                elem.layer += self.layer
+            self.elems.add(element.elems, layer=element.layer)
+        self.elems.add(element, layer=element.layer)
+
+    def draw(self, surface):
+        for elem in self.elems:
+            elem.update()
+        self.elems.draw(surface)

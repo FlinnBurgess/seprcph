@@ -48,16 +48,20 @@ class CardFactory(object):
         cards = []
         # Buffs
         for _ in xrange(int(self.BIASES[bias][0] * count)):
-            cards.append(random.choice(self.buffs))
+            if self.buffs:
+                cards.append(random.choice(self.buffs))
         # Debuffs
         for _ in xrange(int(self.BIASES[bias][1] * count)):
-            cards.append(random.choice(self.debuffs))
+            if self.debuffs:
+                cards.append(random.choice(self.debuffs))
         # Traps
         for _ in xrange(int(self.BIASES[bias][2] * count)):
-            cards.append(random.choice(self.traps))
+            if self.traps:
+                cards.append(random.choice(self.traps))
         # Events
         for _ in xrange(int(self.BIASES[bias][3] * count)):
-            cards.append(random.choice(self.events))
+            if self.events:
+                cards.append(random.choice(self.events))
 
         if len(cards) < count:
             for _ in xrange(count - len(cards)):

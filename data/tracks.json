@@ -366,12 +366,6 @@
         "cost": 40
     },
     {
-        "start_city": "Helsinki",
-        "end_city": "St. Petersburg",
-        "gold_generation": 15,
-        "cost": 30
-    },
-    {
         "start_city": "Moscow",
         "end_city": "St. Petersburg",
         "gold_generation": 20,
