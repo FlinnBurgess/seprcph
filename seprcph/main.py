@@ -12,16 +12,17 @@ from seprcph.map import Map
 from seprcph.track import Track
 from seprcph.train import Train
 from seprcph.event import Event, EventManager
-from seprcph.ui import initialise_ui
 from seprcph.goal_factory import GoalFactory
-from seprcph.ui_elements import Window, Container, Label
 from seprcph.player import Player
 from seprcph.deck import Deck
 from seprcph.card_factory import CardFactory
 
 active_player = None
 
+
 def initialise_players(goal_factory, game_map):
+    """ Initialise players
+    """
     global active_player
     card_factory = CardFactory()
     placeholder_deck = Deck("Placeholder",
@@ -35,46 +36,55 @@ def initialise_players(goal_factory, game_map):
 
     return player1, player2
 
+
 def initialise_trains(player1, player2, cities):
+    """ Initialise trains
+    """
     img = pygame.image.load(os.path.join(Config.general['image_dir'], 'train.png'))
     train_one = Train(player1, 100, 100, cities.keys()[0], 0, img)
     train_two = Train(player2, 100, 100, cities.keys()[1], 0, img)
     return train_one, train_two
 
+
 def change_player(event):
+    """ Change player
+    """
     global active_player
     if active_player == player1:
         active_player = player2
     else:
         active_player = player1
 
+
 def main():
     """
     The game loop and glue code.
     """
     effect_selection = False
-    effect = None
     goal_factory = GoalFactory()
     turns = 0
-
-    def _set_effect_selection(event):
-        effect = event.effect
+    def _set_effect_selection():
+        """ Set effect selection
+        """
         pygame.mouse.set_cursor(*pygame.cursors.diamond)
         effect_selection = True
 
-    def _unset_effect_selection(event):
-        effect = None
+    def _unset_effect_selection():
+        """ Unset effect selection
+        """
         pygame.mouse.set_cursor(*pygame.cursors.arrow)
         effect_selection = False
 
     def _change_turn(event):
+        """ Change player turn
+        """
         if active_player == player1:
             active_player = player2
         else:
             active_player = player1
 
         if active_player.goals < 5:
-            active_player.goals = goal_factory.build_goals(1, active_player, game_map.cities)
+            active_player.goals = goal_factory.build_goals(1, active_player, game_map._cities)
 
         if active_player.hand.size < 5:
             active_player.hand.draw_cards(2)
@@ -87,7 +97,7 @@ def main():
 
     if platform.system() == 'Windows':
         Config.load_config(os.path.join(os.path.expanduser('~'), 'seprcph',
-                                            'config.cfg'))
+        'config.cfg'))
     else:
         Config.load_config(os.path.join(os.path.expanduser('~'), '.config',
                                             'seprcph', 'config.cfg'))
@@ -159,6 +169,7 @@ def main():
         win.update()
         pygame.display.flip()
 
+
 def initialise_pygame():
     """
     Intialise pygame modules, then the screen and finally the clock.
@@ -179,6 +190,7 @@ def initialise_pygame():
     clock = pygame.time.Clock()
     logging.debug("%s", pygame.display.Info())
     return screen, clock
+
 
 def setup_file_logger(filename, formatting, log_level):
     """

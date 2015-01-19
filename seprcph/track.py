@@ -48,7 +48,7 @@ class Track(Renderable, Affectable):
         self.image.fill((143, 143, 143))
         self.image = pygame.transform.rotate(self.image, self.rotation)
 
-        super(Track, self).__init__(((start_city.pos[0] + end_city.pos[0]) /2,
+        super(Track, self).__init__(((start_city.pos[0] + end_city.pos[0]) / 2,
                                     (start_city.pos[1] + end_city.pos[1]) / 2),
                                     self.image)
         Affectable.__init__(self)
@@ -58,6 +58,12 @@ class Track(Renderable, Affectable):
         self.owner = None
 
     def __repr__(self):
+        """
+        Returns a string representation of the Track object
+        
+        Returns:
+            A string representation of the Track object
+        """
         return "<connects: %s, %s, gold-gen: %d, cost: %d>" \
                % (str(self.cities[0]),
                   str(self.cities[1]),
@@ -104,7 +110,8 @@ class Track(Renderable, Affectable):
         """
         xdiff = self.cities[0].pos[0] - self.cities[1].pos[0]
         ydiff = self.cities[0].pos[1] - self.cities[1].pos[1]
-        self.rotation =  math.degrees(math.atan2(xdiff, ydiff))
+        
+        self.rotation = math.degrees(math.atan2(xdiff, ydiff))
 
     def _calc_length(self):
         """
@@ -112,4 +119,5 @@ class Track(Renderable, Affectable):
         """
         xdiff = self.cities[0].pos[0] - self.cities[1].pos[0]
         ydiff = self.cities[0].pos[1] - self.cities[1].pos[1]
+        
         self.length = int(math.sqrt(xdiff ** 2 + ydiff ** 2))
