@@ -1,3 +1,7 @@
+"""
+Contains config class for parsing the game's configuration files
+"""
+
 import ConfigParser
 import os.path
 import errno
@@ -22,10 +26,15 @@ class Config(object):
 
     @staticmethod
     def __repr__():
+        """
+        Returns a string representation of the Config object
+        
+        Returns:
+            A string representation of the Config object
+        """
         return "This config file contains the following sections: \n " \
                 "Config: %s\n Logging: %s\n Graphics: %s" \
-                % (str(Config.general), str(Config.logging), str(Config.graphics),
-                        str(Config.gameplay))
+                % (str(Config.general), str(Config.logging), str(Config.graphics))
 
     @staticmethod
     def load_config(path):
@@ -64,7 +73,6 @@ class Config(object):
         if 'gameplay' not in conf._sections:
             raise IncompleteConfigurationFileError('Missing gameplay section')
         Config.gameplay = Config._replace_data_types(conf._sections['gameplay'])
-
 
     @staticmethod
     def _replace_data_types(dictionary):

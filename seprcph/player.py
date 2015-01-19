@@ -33,15 +33,26 @@ class Player(object):
 
 
     def __repr__(self):
+        """ 
+        Returns a string representation of the Player object
+        
+        Returns:
+            A string representation of the Player object
+        """
         return "<Player gold: %d, player points: %d>" % (self.gold, self.score)
 
     def update(self):
         """
-        This handles the updating of any attributes of an instance of Player at the change of a turn
-
+        This handles the updating of any attributes of an instance of Player at the change of a turn. Does nothing
         """
         pass
 
-    def remove_goal(event):
+    def remove_goal(self, event):
+        """ 
+        Removes a goal from the Player's list of goals
+        
+        Args:
+            event: An event that requires the removal of a goal
+        """
         if event.goal in self.goals:
             self.goals.remove(event.goal)

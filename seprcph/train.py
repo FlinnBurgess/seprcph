@@ -1,10 +1,12 @@
 """
 This module contains all classes relating to the trains.
 """
+
 import math
 from seprcph.event import EventManager, Event
 from seprcph.renderable import Renderable
 from seprcph.effect import Affectable
+
 
 class Train(Renderable, Affectable):
     """
@@ -26,7 +28,7 @@ class Train(Renderable, Affectable):
         self.current_load = current_load
         self.city = city
 
-        #The following are for dealing with train movement
+        # The following are for dealing with train movement
         self.track = None
         self.rotation = None
         self.distance = None
@@ -51,7 +53,7 @@ class Train(Renderable, Affectable):
         self.distance = track.length()
         self.pos = self.city.pos
 
-        #XXX: Need to set self.city correctly.
+        # XXX: Need to set self.city correctly.
         e = Event('train.departure', train=self, city=self.city)
         EventManager.notify_listeners(e)
 
@@ -71,11 +73,16 @@ class Train(Renderable, Affectable):
         EventManager.notify_listeners(e)
 
     def update(self):
+        """
+        Updates the Train object
+        """
         if self.track:
             self.image = pygame.transform.rotate(self.image, self.track.rotation)
         move_distance = (
-            math.fabs((self.track.cities[0].pos[0] - self.track.cities[1].pos[0]) / self.distance) * self.speed,
-            math.fabs((self.track.cities[0].pos[1] - self.track.cities[1].pos[1]) / self.distance) * self.speed
+            math.fabs((self.track.cities[0].pos[0] - self.track.cities[1].pos[0]) /
+             self.distance) * self.speed,
+            math.fabs((self.track.cities[0].pos[1] - self.track.cities[1].pos[1]) / 
+             self.distance) * self.speed
         )
 
         self.counter += self.speed
@@ -85,21 +92,30 @@ class Train(Renderable, Affectable):
         else:
             self.pos[0] += move_distance[0]
             self.pos[1] += move_distance[1]
+            
         self.decrement_turns()
 
     def unload(self, event):
         """
         The handler for when a goal is completed.
+        
+        Args:
+            event: The event raise upon goal completion
         """
         if self.city not in event.goal.end_cities:
             return
+            
         self.current_load = 0
 
     def load(self, event):
         """
         The handler for when a goal is started.
+        
+        Args:
+            event: The event raised when the train is loaded
         """
         if self.city != event.goal.start_city:
             return
+            
         # Just fill the train up completely.
         self.current_load = self.capacity
