@@ -1,6 +1,7 @@
 """
 Holds the class for an effect
 """
+
 from seprcph.event import EventManager, Event
 
 
@@ -56,6 +57,7 @@ class Effect(object):
         """
         assert isinstance(target, self.target_type)
         self.undo(target)
+
 
 class Affectable(object):
     """

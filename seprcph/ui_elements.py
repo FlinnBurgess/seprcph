@@ -1,8 +1,8 @@
 """
 This module contains all classes relating to the user interface.
 """
-import pygame
 
+import pygame
 from seprcph.event import EventManager
 
 
@@ -163,14 +163,18 @@ class Container(Element):
     def add(self, element):
         """
         Add an element to the container
+        
+        Args:
+            element: The element to be added to the container
         """
         element.pos = (element.pos[0] + self.pos[0],
-                        element.pos[1] + self.pos[1])
-        if not pygame.sprite.collide_rect(self, element) \
-                or element.rect.topleft < self.rect.topleft \
-                or element.rect.bottomright > self.rect.bottomright:
+            element.pos[1] + self.pos[1])
+            
+        if (not pygame.sprite.collide_rect(self, element)) or
+            (element.rect.topleft < self.rect.topleft) or
+            (element.rect.bottomright > self.rect.bottomright):
             raise OutsideContainerError("element %s is outside of container %s",
-                                        str(element), str(self))
+                str(element), str(self))
 
         element.layer = self.layer + 1
         self.elems.add(element, layer=element.layer)
@@ -178,6 +182,9 @@ class Container(Element):
     def remove(self, element):
         """
         Remove an element from the container
+        
+        Args:
+            element: The element to be removed from the container
         """
         self.elems.remove(element)
 

@@ -8,7 +8,7 @@ from seprcph.goal import Goal
 
 class GoalFactory(object):
     """
-    
+    Class responsible for creating goal objects
     """
     def __init__(self):
         """
@@ -43,9 +43,9 @@ class GoalFactory(object):
             # TODO: More sensible use of random to generate gold and score
             # rewards.
             goals.append(Goal(start_city, end_city, random.randint(1, 5),
-             random.randint(100, 1000),
-             random.randint(100, 1000), player))
-             
+                random.randint(100, 1000),
+                random.randint(100, 1000), player))
+            
             self.used_routes.append(set([start_city, end_city]))
 
         return goals

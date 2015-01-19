@@ -1,3 +1,7 @@
+"""
+Contains the Hand class, which represents the player's hand
+"""
+
 from seprcph.event import EventManager
 
 
@@ -16,7 +20,6 @@ class Hand(object):
         self.deck = deck
         self.size = len(self.cards)
         EventManager.add_listener('%d:card.played' % player_id, self.play)
-
 
     def draw_cards(self, count):
         """
