@@ -4,7 +4,7 @@ from seprcph.player import Player
 
 
 def pass_function():
-    """ 
+    """
     Do nothing
     """
     pass
@@ -13,7 +13,6 @@ def pass_function():
 def double_speed(train):
     """
     Doubles the train's speed
-    
     Args:
         train: The train to be affected
     """
@@ -23,7 +22,6 @@ def double_speed(train):
 def half_speed(train):
     """
     Halves the train's speed
-    
     Args:
         train: The train to be affected
     """
@@ -31,9 +29,8 @@ def half_speed(train):
 
 
 def reduce_load(train):
-    """ 
+    """
     Reduces the train's load by 100
-    
     Args:
         train: The train to be affected
     """
@@ -45,7 +42,6 @@ def reduce_load(train):
 def do_investor(player):
     """
     Increases the player's gold by 5
-    
     Args:
         player: The player to be affected
     """

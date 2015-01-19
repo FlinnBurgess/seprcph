@@ -3,6 +3,7 @@ This module contains all classes relating to the trains.
 """
 
 import math
+import pygame
 from seprcph.event import EventManager, Event
 from seprcph.renderable import Renderable
 from seprcph.effect import Affectable
@@ -60,7 +61,7 @@ class Train(Renderable, Affectable):
     def arrive(self, city):
         """
         Method to be called when a train arrived at a city
-
+        
         Args:
             city: the city that the train is arriving in
         """
@@ -80,9 +81,9 @@ class Train(Renderable, Affectable):
             self.image = pygame.transform.rotate(self.image, self.track.rotation)
         move_distance = (
             math.fabs((self.track.cities[0].pos[0] - self.track.cities[1].pos[0]) /
-             self.distance) * self.speed,
-            math.fabs((self.track.cities[0].pos[1] - self.track.cities[1].pos[1]) / 
-             self.distance) * self.speed
+                self.distance) * self.speed,
+            math.fabs((self.track.cities[0].pos[1] - self.track.cities[1].pos[1]) /
+                self.distance) * self.speed
         )
 
         self.counter += self.speed

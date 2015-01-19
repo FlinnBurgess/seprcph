@@ -47,9 +47,11 @@ def initialise_trains(player1, player2, cities):
 
 
 def change_player(event):
-    """ Change player
+    """
+    Change active player
     """
     global active_player
+    
     if active_player == player1:
         active_player = player2
     else:
@@ -63,20 +65,27 @@ def main():
     effect_selection = False
     goal_factory = GoalFactory()
     turns = 0
+    
     def _set_effect_selection():
-        """ Set effect selection
+        """ 
+        Set effect selection
         """
         pygame.mouse.set_cursor(*pygame.cursors.diamond)
         effect_selection = True
 
     def _unset_effect_selection():
-        """ Unset effect selection
+        """ 
+        Unset effect selection
         """
         pygame.mouse.set_cursor(*pygame.cursors.arrow)
         effect_selection = False
 
     def _change_turn(event):
-        """ Change player turn
+        """ 
+        Change player turn
+        
+        Args:
+            event: The event raised when the turn needs to change
         """
         if active_player == player1:
             active_player = player2

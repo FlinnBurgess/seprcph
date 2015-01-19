@@ -1,14 +1,17 @@
 """
 This module contains the all classes relating to the players of the game.
 """
+
 from seprcph.hand import Hand
 from seprcph.event import EventManager
+
 
 class Player(object):
     """
     Player class that represents each player.
     """
     player_id = 1
+    
     def __init__(self, gold, score, deck, goals=None):
         """
         Args:
@@ -31,11 +34,9 @@ class Player(object):
         EventManager.add_listener('goal.completed', self.remove_goal)
         EventManager.add_listener('goal.failed', self.remove_goal)
 
-
     def __repr__(self):
-        """ 
+        """
         Returns a string representation of the Player object
-        
         Returns:
             A string representation of the Player object
         """
@@ -48,7 +49,7 @@ class Player(object):
         pass
 
     def remove_goal(self, event):
-        """ 
+        """
         Removes a goal from the Player's list of goals
         
         Args:

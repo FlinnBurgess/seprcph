@@ -22,7 +22,7 @@ class CardFactory(object):
         pass
 
     BIASES = {'aggressive': [0.25, 0.35, 0.20, 0.20],
-                'defensive': [0.35, 0.25, 0.2, 0.2]}
+        'defensive': [0.35, 0.25, 0.2, 0.2]}
 
     def __init__(self):
         """
