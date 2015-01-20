@@ -1,7 +1,7 @@
 import platform
 from cx_Freeze import setup, Executable
 
-if platform == 'Windows':
+if platform.system() == 'Windows':
     bin_inc = 'C:\\Python27\\Lib\\site-packages\\pygame'
     name = 'seprcph.exe'
 else:
