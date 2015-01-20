@@ -152,7 +152,7 @@ $(document).ready(function(){initNavTree('_r_e_a_d_m_e_8md.html','');});
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;Installation</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;============</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;NOTE: If you can&#39;t install dependencies onto the computer you&#39;re using, skip to [running the binary](#running-the-binary).</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;**NOTE: If you can&#39;t install dependencies onto the computer you&#39;re using, create and copy the folders as mentioned below and then skip to [running the binary](#running-the-binary).**</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;- Clone git repository into a folder called ```seprcph```</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;- Navigate to the local repository using the command line</div>
@@ -163,9 +163,9 @@ $(document).ready(function(){initNavTree('_r_e_a_d_m_e_8md.html','');});
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    - Windows: C:/Users/Username/seprcph</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    - Linux ~/.config/seprcph</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;- Copy the ```assets``` and ```data``` folders from the local repository to the folder that you just created</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;- Launch the game by running the command (using the python guidelines above):</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    ```python2.7 {path from current directory to the seprcph folder in the local repo}/main```</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;- If you&#39;re on Linux, you can simply run ```seprcph``` from terminal. If you&#39;re on Windows, you can either install a better OS or do the following:</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    - Launch the game by running the command (using the python guidelines above):</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    ```python2.7 {path from current directory to the seprcph folder in the local repo}/main```</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;Running The Binary</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;===========</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;If you are lucky enough to have the binary files, navigate to the folder that they are located in. Running the binary is as simple as double clicking it, alternatively, you can run it from terminal. This binary doesn&#39;t require any dependencies to be installed, so it will work on the university computers.</div>
@@ -177,14 +177,14 @@ $(document).ready(function(){initNavTree('_r_e_a_d_m_e_8md.html','');});
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;===========</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;It is possible to build the game into a binary, so that it can be run on other computers that don&#39;t have Pygame installed (such as the university PCs). In order to do this, you will need to have [cx_Freeze](http://cx-freeze.sourceforge.net/) installed.</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;There are two scripts that will build the binaries for you - ```cx_linux.py``` and ```cx_windows.py```.</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;There is a script that will build the binaries for you - ```cx_build.py```.</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;NOTE: If you want to build a binary for Windows - you must do so on a Windows computer, the same is true for Linux.</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;**NOTE: If you want to build a binary for Windows - you must do so on a Windows computer, the same is true for Linux.**</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;Generating a binary is as simple as running:</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;```</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;python2.7 cx_linux.py build</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;python2.7 cx_build.py build</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;```</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;This will create a new ```build``` folder. This folder will contain a generated binary, as well as all the libraries required for running the game.</div>
@@ -293,7 +293,7 @@ $(document).ready(function(){initNavTree('_r_e_a_d_m_e_8md.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>README.md</b></li>
-    <li class="footer">Generated on Tue Jan 20 2015 21:18:29 for seprcph by
+    <li class="footer">Generated on Tue Jan 20 2015 21:45:33 for seprcph by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

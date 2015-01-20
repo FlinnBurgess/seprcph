@@ -146,7 +146,7 @@ $(document).ready(function(){initNavTree('index.html','');});
 <li><a href="http://www.pylint.org/">pylint</a></li>
 </ul>
 <h1>Installation </h1>
-<p>NOTE: If you can't install dependencies onto the computer you're using, skip to <a href="#running-the-binary">running the binary</a>.</p>
+<p><b>NOTE: If you can't install dependencies onto the computer you're using, create and copy the folders as mentioned below and then skip to <a href="#running-the-binary">running the binary</a>.</b></p>
 <ul>
 <li>Clone git repository into a folder called <code>seprcph</code></li>
 <li>Navigate to the local repository using the command line</li>
@@ -161,17 +161,20 @@ $(document).ready(function(){initNavTree('index.html','');});
 </ul>
 </li>
 <li>Copy the <code>assets</code> and <code>data</code> folders from the local repository to the folder that you just created</li>
-<li>Launch the game by running the command (using the python guidelines above): <code>python2.7 {path from current directory to the seprcph folder in the local repo}/main</code></li>
+<li><p class="startli">If you're on Linux, you can simply run <code>seprcph</code> from terminal. If you're on Windows, you can either install a better OS or do the following:</p><ul>
+<li>Launch the game by running the command (using the python guidelines above): <code>python2.7 {path from current directory to the seprcph folder in the local repo}/main</code> <h1>Running The Binary </h1>
+</li>
 </ul>
-<h1>Running The Binary </h1>
-<p>If you are lucky enough to have the binary files, navigate to the folder that they are located in. Running the binary is as simple as double clicking it, alternatively, you can run it from terminal. This binary doesn't require any dependencies to be installed, so it will work on the university computers.</p>
+<p class="startli">If you are lucky enough to have the binary files, navigate to the folder that they are located in. Running the binary is as simple as double clicking it, alternatively, you can run it from terminal. This binary doesn't require any dependencies to be installed, so it will work on the university computers.</p>
+</li>
+</ul>
 <p>Make sure that the binary remains in the folder it was provided in - all of the libraries required for running th binary are in that folder.</p>
 <h1>Building </h1>
 <p>It is possible to build the game into a binary, so that it can be run on other computers that don't have Pygame installed (such as the university PCs). In order to do this, you will need to have <a href="http://cx-freeze.sourceforge.net/">cx_Freeze</a> installed.</p>
-<p>There are two scripts that will build the binaries for you - <code><a class="el" href="cx__linux_8py_source.html">cx_linux.py</a></code> and <code>cx_windows.py</code>.</p>
-<p>NOTE: If you want to build a binary for Windows - you must do so on a Windows computer, the same is true for Linux.</p>
+<p>There is a script that will build the binaries for you - <code><a class="el" href="cx__build_8py_source.html">cx_build.py</a></code>.</p>
+<p><b>NOTE: If you want to build a binary for Windows - you must do so on a Windows computer, the same is true for Linux.</b></p>
 <p>Generating a binary is as simple as running:</p>
-<p>``` python2.7 <a class="el" href="cx__linux_8py_source.html">cx_linux.py</a> build ```</p>
+<p>``` python2.7 <a class="el" href="cx__build_8py_source.html">cx_build.py</a> build ```</p>
 <p>This will create a new <code>build</code> folder. This folder will contain a generated binary, as well as all the libraries required for running the game.</p>
 <h1>Generating Documentation </h1>
 <p>The code makes heavy use of <a href="http://www.stack.nl/~dimitri/doxygen/">Doxygen</a> to document everything. We have a custom <code>Doxyfile</code> that is optimised for Python and our game. It will create a HTML website based upon the comments from within the code.</p>
@@ -246,7 +249,7 @@ $(document).ready(function(){initNavTree('index.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Jan 20 2015 21:18:29 for seprcph by
+    <li class="footer">Generated on Tue Jan 20 2015 21:45:33 for seprcph by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>
