@@ -52,8 +52,8 @@ Installation
     - ```python2.7 setup.py install```
     - ```python setup.py install```
 - Create a new folder in the relevant directory:
-    - Windows: C:/Users/Username/seprcph
-    - Linux ~/.config/seprcph
+    - Windows: ```C:\Users\Username\seprcph```
+    - Linux ```~/.config/seprcph```
 - Copy the ```assets``` and ```data``` folders from the local repository to the folder that you just created
 - If you're on Linux, you can simply run ```seprcph``` from terminal. If you're on Windows, you can either install a better OS or do the following:
     - Launch the game by running the command (using the python guidelines above):
