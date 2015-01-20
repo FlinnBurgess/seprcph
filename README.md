@@ -44,7 +44,7 @@ For running tests:
 
 Installation
 ============
-NOTE: If you can't install dependencies onto the computer you're using, skip to [running the binary](#running-the-binary).
+**NOTE: If you can't install dependencies onto the computer you're using, create and copy the folders as mentioned below and then skip to [running the binary](#running-the-binary).**
 
 - Clone git repository into a folder called ```seprcph```
 - Navigate to the local repository using the command line
@@ -71,7 +71,7 @@ It is possible to build the game into a binary, so that it can be run on other c
 
 There is a script that will build the binaries for you - ```cx_build.py```.
 
-NOTE: If you want to build a binary for Windows - you must do so on a Windows computer, the same is true for Linux.
+**NOTE: If you want to build a binary for Windows - you must do so on a Windows computer, the same is true for Linux.**
 
 Generating a binary is as simple as running:
 
