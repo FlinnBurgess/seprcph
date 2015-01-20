@@ -51,7 +51,7 @@ def change_player(event):
     Change active player
     """
     global active_player
-    
+
     if active_player == player1:
         active_player = player2
     else:
@@ -65,25 +65,25 @@ def main():
     effect_selection = False
     goal_factory = GoalFactory()
     turns = 0
-    
+
     def _set_effect_selection():
-        """ 
+        """
         Set effect selection
         """
         pygame.mouse.set_cursor(*pygame.cursors.diamond)
         effect_selection = True
 
     def _unset_effect_selection():
-        """ 
+        """
         Unset effect selection
         """
         pygame.mouse.set_cursor(*pygame.cursors.arrow)
         effect_selection = False
 
     def _change_turn(event):
-        """ 
+        """
         Change player turn
-        
+
         Args:
             event: The event raised when the turn needs to change
         """
@@ -129,18 +129,14 @@ def main():
     sprites.add(initialise_trains(player1, player2, game_map._cities), layer=2)
 
     EventManager.notify_listeners(Event('window.resize', old_size=game_map.image.get_size(), size=screen.get_size()))
-    win = initialise_ui(screen.get_size(), game_map.image)
     game_map.image = pygame.transform.scale(game_map.image, screen.get_size())
 
     sprites.draw(game_map.image)
-    win.draw(game_map.image)
     screen.blit(game_map.image, (0, 0))
     pygame.display.flip()
 
     main_image = pygame.Surface((2160, 2048))
     main_image.fill((255, 255, 255))
-
-    win = initialise_ui((2160, 2048), main_image)
 
     while True:
         # This will block if there isn't an event.
@@ -175,7 +171,6 @@ def main():
 
         clock.tick(FPS)
         sprites.draw(game_map.image)
-        win.update()
         pygame.display.flip()
 
 
