@@ -55,9 +55,9 @@ Installation
     - Windows: C:/Users/Username/seprcph
     - Linux ~/.config/seprcph
 - Copy the ```assets``` and ```data``` folders from the local repository to the folder that you just created
-- Launch the game by running the command (using the python guidelines above):
+- If you're on Linux, you can simply run ```seprcph``` from terminal. If you're on Windows, you can either install a better OS or do the following:
+    - Launch the game by running the command (using the python guidelines above):
     ```python2.7 {path from current directory to the seprcph folder in the local repo}/main```
-
 Running The Binary
 ===========
 If you are lucky enough to have the binary files, navigate to the folder that they are located in. Running the binary is as simple as double clicking it, alternatively, you can run it from terminal. This binary doesn't require any dependencies to be installed, so it will work on the university computers.
