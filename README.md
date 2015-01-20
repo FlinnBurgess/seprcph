@@ -17,6 +17,7 @@ Contents
 ==========
 - [Requirements](#requirements)
 - [Installation](#installation)
+- [Building](#building)
 - [Generating Documentation](#generating-documentation)
 - [Unit Tests](#unit-tests)
 - [Code checking](#code-checking)
@@ -39,17 +40,33 @@ For running tests:
 
 Installation
 ============
-- Clone git repository
-- Navigate to the local repo in the command line
-- Depending on your Python installation run the following command:
+- Clone git repository into a folder called ```seprcph```
+- Navigate to the local repository using the command line
+- Depending on your Python installation run one of the following commands:
     - ```python2.7 setup.py install```
-    - OR ```python setup.py install```
+    - ```python setup.py install```
 - Create a new folder in the relevant directory:
     - Windows: C:/Users/Username/seprcph
     - Linux ~/.config/seprcph
-- Copy the Assets and Data folders from the local repository to the folder that you just created
+- Copy the ```assets``` and ```data``` folders from the local repository to the folder that you just created
 - Launch the game by running the command (using the python guidelines above):
     ```python2.7 {path from current directory to the seprcph folder in the local repo}/main```
+
+Building
+===========
+It is possible to build the game into a binary, so that it can be run on other computers that don't have Pygame installed (such as the university PCs). In order to do this, you will need to have [cx_Freeze](http://cx-freeze.sourceforge.net/) installed.
+
+There are two scripts that will build the binaries for you - ```cx_linux.py``` and ```cx_windows.py```.
+
+NOTE: If you want to build a binary for Windows - you must do so on a Windows computer, the same is true for Linux.
+
+Generating a binary is as simple as running:
+
+```
+python2.7 cx_linux.py
+```
+
+This will create a new ```build``` folder. This folder will contain a generated binary, as well as all the libraries required for running the game.
 
 Generating Documentation
 ==========
