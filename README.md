@@ -63,7 +63,7 @@ NOTE: If you want to build a binary for Windows - you must do so on a Windows co
 Generating a binary is as simple as running:
 
 ```
-python2.7 cx_linux.py
+python2.7 cx_linux.py build
 ```
 
 This will create a new ```build``` folder. This folder will contain a generated binary, as well as all the libraries required for running the game.
