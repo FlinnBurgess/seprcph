@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['outsidecontainererror',['OutsideContainerError',['../classseprcph_1_1ui__elements_1_1_outside_container_error.html',1,'seprcph::ui_elements']]]
+  ['notenoughgolderror',['NotEnoughGoldError',['../classseprcph_1_1track_1_1_not_enough_gold_error.html',1,'seprcph::track']]]
 ];

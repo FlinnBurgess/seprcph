@@ -60,5 +60,53 @@ var annotated =
         [ "OutsideContainerError", "classseprcph_1_1ui__elements_1_1_outside_container_error.html", null ],
         [ "Window", "classseprcph_1_1ui__elements_1_1_window.html", "classseprcph_1_1ui__elements_1_1_window" ]
       ] ]
+    ] ],
+    [ "tests", null, [
+      [ "test_card", null, [
+        [ "TestCreateCard", "classtests_1_1test__card_1_1_test_create_card.html", "classtests_1_1test__card_1_1_test_create_card" ]
+      ] ],
+      [ "test_config", null, [
+        [ "TestConfig", "classtests_1_1test__config_1_1_test_config.html", "classtests_1_1test__config_1_1_test_config" ],
+        [ "TestDataTypeReplacement", "classtests_1_1test__config_1_1_test_data_type_replacement.html", "classtests_1_1test__config_1_1_test_data_type_replacement" ]
+      ] ],
+      [ "test_deck", null, [
+        [ "TestDeckMethods", "classtests_1_1test__deck_1_1_test_deck_methods.html", "classtests_1_1test__deck_1_1_test_deck_methods" ]
+      ] ],
+      [ "test_effect", null, [
+        [ "TestAffectable", "classtests_1_1test__effect_1_1_test_affectable.html", "classtests_1_1test__effect_1_1_test_affectable" ],
+        [ "TestEffect", "classtests_1_1test__effect_1_1_test_effect.html", "classtests_1_1test__effect_1_1_test_effect" ]
+      ] ],
+      [ "test_event", null, [
+        [ "TestCreateEvent", "classtests_1_1test__event_1_1_test_create_event.html", "classtests_1_1test__event_1_1_test_create_event" ],
+        [ "TestEventManager", "classtests_1_1test__event_1_1_test_event_manager.html", "classtests_1_1test__event_1_1_test_event_manager" ]
+      ] ],
+      [ "test_goal", null, [
+        [ "TestCompleteGoal", "classtests_1_1test__goal_1_1_test_complete_goal.html", "classtests_1_1test__goal_1_1_test_complete_goal" ],
+        [ "TestCreateGoal", "classtests_1_1test__goal_1_1_test_create_goal.html", "classtests_1_1test__goal_1_1_test_create_goal" ]
+      ] ],
+      [ "test_goal_factory", null, [
+        [ "TestCreateGoal", "classtests_1_1test__goal__factory_1_1_test_create_goal.html", "classtests_1_1test__goal__factory_1_1_test_create_goal" ]
+      ] ],
+      [ "test_hand", null, [
+        [ "TestHandMethods", "classtests_1_1test__hand_1_1_test_hand_methods.html", "classtests_1_1test__hand_1_1_test_hand_methods" ]
+      ] ],
+      [ "test_json_loader", null, [
+        [ "Foo", "classtests_1_1test__json__loader_1_1_foo.html", "classtests_1_1test__json__loader_1_1_foo" ],
+        [ "TestJsonContents", "classtests_1_1test__json__loader_1_1_test_json_contents.html", "classtests_1_1test__json__loader_1_1_test_json_contents" ],
+        [ "TestJsonFiles", "classtests_1_1test__json__loader_1_1_test_json_files.html", "classtests_1_1test__json__loader_1_1_test_json_files" ]
+      ] ],
+      [ "test_map", null, [
+        [ "TestFetchAndAdd", "classtests_1_1test__map_1_1_test_fetch_and_add.html", "classtests_1_1test__map_1_1_test_fetch_and_add" ],
+        [ "TestMap", "classtests_1_1test__map_1_1_test_map.html", "classtests_1_1test__map_1_1_test_map" ]
+      ] ],
+      [ "test_player", null, [
+        [ "TestCreatePlayer", "classtests_1_1test__player_1_1_test_create_player.html", "classtests_1_1test__player_1_1_test_create_player" ]
+      ] ],
+      [ "test_renderable", null, [
+        [ "TestRect", "classtests_1_1test__renderable_1_1_test_rect.html", "classtests_1_1test__renderable_1_1_test_rect" ]
+      ] ],
+      [ "test_track", null, [
+        [ "TestUnlockTrack", "classtests_1_1test__track_1_1_test_unlock_track.html", "classtests_1_1test__track_1_1_test_unlock_track" ]
+      ] ]
     ] ]
 ];

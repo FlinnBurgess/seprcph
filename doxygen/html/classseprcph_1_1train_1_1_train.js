@@ -1,6 +1,6 @@
 var classseprcph_1_1train_1_1_train =
 [
-    [ "__init__", "classseprcph_1_1train_1_1_train.html#a232f7b091fa27ca16d7a3c6148ba811e", null ],
+    [ "__init__", "classseprcph_1_1train_1_1_train.html#a2079b06750faad632d320ec60db84d6f", null ],
     [ "arrive", "classseprcph_1_1train_1_1_train.html#aa413fbbb59623b2b3cf9f6b8b2119a77", null ],
     [ "depart", "classseprcph_1_1train_1_1_train.html#ad3fd8eabc9e939a2c47d3b4649d7437c", null ],
     [ "load", "classseprcph_1_1train_1_1_train.html#a0e485fe10ef372c68afee013d7528e45", null ],
@@ -11,6 +11,8 @@ var classseprcph_1_1train_1_1_train =
     [ "counter", "classseprcph_1_1train_1_1_train.html#a704585f5f836f0ad6cf63a3b8c35635f", null ],
     [ "current_load", "classseprcph_1_1train_1_1_train.html#ac93f7453d95c0cd30c49ac0054d45762", null ],
     [ "distance", "classseprcph_1_1train_1_1_train.html#a2ddb709c5981429b68f40e3b89db4888", null ],
+    [ "image", "classseprcph_1_1train_1_1_train.html#a622fb8627e5dcc187529290ba02bbf20", null ],
+    [ "player", "classseprcph_1_1train_1_1_train.html#ab7afa8beec2f34bdeef5ee53f1ed3dc0", null ],
     [ "pos", "classseprcph_1_1train_1_1_train.html#a3f21b3f93dd7dab0cd9d7acdaeae18b8", null ],
     [ "rotation", "classseprcph_1_1train_1_1_train.html#a1d9904476cedd936d71704c575017da0", null ],
     [ "speed", "classseprcph_1_1train_1_1_train.html#a076f9f03671c45c53d15b2c804dd5ea4", null ],
