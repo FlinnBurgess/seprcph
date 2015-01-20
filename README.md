@@ -55,7 +55,7 @@ Installation
 
 Running The Binary
 ===========
-If you are lucky enough to have the binary files, navigate to the folder that they are located in. Running the binary is as simple as double clicking it, alternatively, you can run it from terminal.
+If you are lucky enough to have the binary files, navigate to the folder that they are located in. Running the binary is as simple as double clicking it, alternatively, you can run it from terminal. This binary doesn't require any dependencies to be installed, so it will work on the university computers.
 
 Make sure that the binary remains in the folder it was provided in - all of the libraries required for running th binary are in that folder.
 
