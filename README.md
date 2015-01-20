@@ -69,14 +69,14 @@ Building
 ===========
 It is possible to build the game into a binary, so that it can be run on other computers that don't have Pygame installed (such as the university PCs). In order to do this, you will need to have [cx_Freeze](http://cx-freeze.sourceforge.net/) installed.
 
-There are two scripts that will build the binaries for you - ```cx_linux.py``` and ```cx_windows.py```.
+There is a script that will build the binaries for you - ```cx_build.py```.
 
 NOTE: If you want to build a binary for Windows - you must do so on a Windows computer, the same is true for Linux.
 
 Generating a binary is as simple as running:
 
 ```
-python2.7 cx_linux.py build
+python2.7 cx_build.py build
 ```
 
 This will create a new ```build``` folder. This folder will contain a generated binary, as well as all the libraries required for running the game.
