@@ -2,10 +2,10 @@ from cx_Freeze import setup, Executable
 
 # Dependencies are automatically detected, but it might need
 # fine tuning.
-buildOptions = dict(packages = [], excludes = [])
+buildOptions = dict(packages = ['pygame'], excludes = [],
+        include_files = ['assets/images/', 'data/'])
 
-import sys
-base = 'Win32GUI' if sys.platform=='win32' else None
+base = 'Console'
 
 executables = [
     Executable('seprcph/main.py', base=base, targetName = 'seprcph')
@@ -13,6 +13,6 @@ executables = [
 
 setup(name='seprcph',
       version = '1.0',
-      description = 'Train across Europe',
+      description = 'Trains across Europe',
       options = dict(build_exe = buildOptions),
       executables = executables)
