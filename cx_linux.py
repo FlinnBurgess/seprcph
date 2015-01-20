@@ -1,9 +1,14 @@
+import glob
 from cx_Freeze import setup, Executable
+
+# If we don't include SDL then pygame will be a bitch.
+sdl_includes = glob.glob('/usr/lib/libSDL*')
 
 # Dependencies are automatically detected, but it might need
 # fine tuning.
 buildOptions = dict(packages = ['pygame'], excludes = [],
-        include_files = ['assets/images/', 'data/'])
+        include_files = ['assets/images/', 'data/'],
+        bin_includes=sdl_includes)
 
 base = 'Console'
 
