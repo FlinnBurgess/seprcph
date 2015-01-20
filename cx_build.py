@@ -3,8 +3,10 @@ from cx_Freeze import setup, Executable
 
 if platform == 'Windows':
     bin_inc = 'C:\\Python27\\Lib\\site-packages\\pygame'
+    name = 'seprcph.exe'
 else:
     bin_inc = '/usr/lib'
+    name = 'seprcph'
 
 # Dependencies are automatically detected, but it might need
 # fine tuning.
@@ -15,7 +17,7 @@ buildOptions = dict(packages = ['pygame'], excludes = [],
 base = 'Console'
 
 executables = [
-    Executable('seprcph/main.py', base=base, targetName = 'seprcph')
+    Executable('seprcph/main.py', base=base, targetName=name)
 ]
 
 setup(name='seprcph',
