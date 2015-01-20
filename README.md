@@ -27,9 +27,12 @@ Contents
 
 Requirements
 ==========
-For building and running the game:
+For running the game:
 - [Python 2.7](https://www.python.org/)
 - [Pygame](http://www.pygame.org/news.html)
+
+For building binaries:
+- [cx_Freeze](http://cx-freeze.sourceforge.net/)
 
 For generating the documentation:
 - [Doxygen](http://www.pygame.org/news.html)
@@ -41,6 +44,8 @@ For running tests:
 
 Installation
 ============
+NOTE: If you can't install dependencies onto the computer you're using, skip to [running the binary](#running-the-binary).
+
 - Clone git repository into a folder called ```seprcph```
 - Navigate to the local repository using the command line
 - Depending on your Python installation run one of the following commands:
