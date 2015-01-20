@@ -28,6 +28,8 @@ class Element(pygame.sprite.Sprite):
     """
     def __init__(self, size, position, image):
         """
+        Get things setup.
+
         Args:
             size: a tuple containing the height and width of the UI element
             position: a tuple containing the coordinates of the UI element
@@ -86,6 +88,8 @@ class Clickable(Element):
     """
     def __init__(self, size, position, callback, image, **kwargs):
         """
+        Initialise a Clickable.
+
         Args:
             size: a tuple containing the height and width of the UI element
             position: a tuple containing the coordinates of the UI element
@@ -101,6 +105,12 @@ class Clickable(Element):
                % (self.size, self.pos, self.cb)
 
     def click(self, event):
+        """
+        Run our callback.
+
+        Args:
+            event: The event describing the click.
+        """
         self.cb(event)
 
 
@@ -110,6 +120,8 @@ class Label(Element):
     """
     def __init__(self, size, position, text, font, colour=(255, 255, 255), image=None):
         """
+        Setup the Label.
+
         Args:
             size: a tuple containing the height and width of the UI element
             position: a tuple containing the coordinates of the UI element
@@ -139,6 +151,9 @@ class Label(Element):
                % (self.size, self.pos, self.text)
 
     def update(self):
+        """
+        Render the font to our image.
+        """
         label = self.font.render(self.text, True, self.colour)
         self.image.blit(label, (0, 0))
 
@@ -149,6 +164,8 @@ class Container(Element):
     """
     def __init__(self, size, pos, image=None):
         """
+        Create the container.
+
         Args:
             size: a tuple containing the height and width of the UI element
             pos: a tuple containing the coordinates of the UI element
@@ -163,16 +180,16 @@ class Container(Element):
     def add(self, element):
         """
         Add an element to the container
-        
+
         Args:
             element: The element to be added to the container
         """
         element.pos = (element.pos[0] + self.pos[0],
             element.pos[1] + self.pos[1])
-            
-        if (not pygame.sprite.collide_rect(self, element)) or
-            (element.rect.topleft < self.rect.topleft) or
-            (element.rect.bottomright > self.rect.bottomright):
+
+        if not pygame.sprite.collide_rect(self, element) or \
+            element.rect.topleft < self.rect.topleft or \
+            element.rect.bottomright > self.rect.bottomright:
             raise OutsideContainerError("element %s is outside of container %s",
                 str(element), str(self))
 
@@ -182,7 +199,7 @@ class Container(Element):
     def remove(self, element):
         """
         Remove an element from the container
-        
+
         Args:
             element: The element to be removed from the container
         """
@@ -229,6 +246,8 @@ class Window(Container):
         Args:
             size: A tuple representing the size of the Window
             pos: A tuple representing the position of the top left corner of the window
+            layer: Which layer we should draw from (elements will be drawn a layer above this).
+            surface: The surface that we should render to.
         """
         super(Window, self).__init__(size, pos, surface)
         self.layer = layer
@@ -254,6 +273,9 @@ class Window(Container):
         """
         Add an element to the Window
 
+        Args:
+            element: The element to be added.
+
         We are adding all of the sprites into a single sprite group -
         "flattening out" the sprites. The correct way to do this is
         to recursively visiti each container, rendering its elements as we go.
@@ -276,6 +298,12 @@ class Window(Container):
         self.elems.add(element, layer=element.layer)
 
     def draw(self, surface):
+        """
+        Go through all of the elements and draw them. Then draw ourself.
+
+        Args:
+            surface: The surface to draw to.
+        """
         for elem in self.elems:
             elem.update()
         self.elems.draw(surface)
