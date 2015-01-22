@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['goal',['Goal',['../classseprcph_1_1goal_1_1_goal.html',1,'seprcph::goal']]],
-  ['goalfactory',['GoalFactory',['../classseprcph_1_1goal__factory_1_1_goal_factory.html',1,'seprcph::goal_factory']]]
+  ['foo',['Foo',['../classtests_1_1test__json__loader_1_1_foo.html',1,'tests::test_json_loader']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['notenoughgolderror',['NotEnoughGoldError',['../classseprcph_1_1track_1_1_not_enough_gold_error.html',1,'seprcph::track']]]
+  ['map',['Map',['../classseprcph_1_1map_1_1_map.html',1,'seprcph::map']]]
 ];
